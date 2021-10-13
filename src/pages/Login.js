@@ -31,6 +31,11 @@ export default function Login() {
       setValidation(error.response.data)
     })
   }
+
+  // redirect to register page
+  const toRegisterPage = () => {
+    history.push('/register');
+  };
   
   return (
     <div className="container poppins" style={{ marginTop: "100px" }}>
@@ -84,7 +89,7 @@ export default function Login() {
                 </div>
 
                 <div className="d-grid gap-2">
-                  <Button type="submit" className="btn" variant="primary">
+                  <Button onClick={toRegisterPage} className="btn" variant="primary">
                     DAFTAR
                   </Button>
                 </div>

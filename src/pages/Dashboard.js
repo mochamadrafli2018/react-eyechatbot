@@ -52,7 +52,7 @@ export default function Dashboard() {
       <div className="container poppins" style={{ marginTop: "100px" }}>
         <div className="row justify-content-center">
           <div className="col-md-12">
-            <div className="card border-0 rounded shadow-sm">
+            <div className="card border-5px rounded shadow-sm">
               <div className="card-body">
                 Selamat Datang <strong className="text-uppercase">{user.name}</strong>
                 <hr />
