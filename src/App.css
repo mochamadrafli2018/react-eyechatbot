@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.opensans {
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+.poppins{
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+}
+.quicksand {
+  font-family: Quicksand, Arial, sans-serif;
+}
