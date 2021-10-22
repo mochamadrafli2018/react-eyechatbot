@@ -1,67 +1,64 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router';
-import axios from 'axios';
-import AppBar from '../main-components/AppBar';
+import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router'
+import axios from 'axios'
+import PrimarySearchAppBar from '../components/AppBar'
+import Chatbot from './Chatbot'
 
 export default function Dashboard() {
-
-  const [user, setUser] = useState({});
+  const year= new Date().getFullYear()
+  const [user, setUser] = useState({})
+  const [isLoading, setIsLoading] = useState(true)
   const history = useHistory();
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token")
 
   const fetchData = async () => {
-    //set axios header dengan type Authorization + Bearer token
+    //set axios header with Authorization type + Bearer token
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
     //fetch user from Rest API
     await axios.get('http://localhost:8000/api/user')
     .then((response) => {
-      //set response user to state
-      setUser(response.data);
+      setUser(response.data)
+      setIsLoading(false)
     })
   }
-
-  // function fetchData di atas dapat dijalankan saat component telah di mount / pasang, maka kita akan panggil di dalam hook useEffect.
-  // hook useEffect
+  // to run some side effects in component
   useEffect(() => {
-    // check if token was mpty
-    if(!token) {
-      // redirect to login page
-      history.push('/');
+    if(!token) {            // hook useEffect to check if token was not empty
+      history.push('/');    // redirect to login page
     }
-    //call function "fetchData"
-    fetchData();
+    fetchData();            //call function "fetchData"
   }, []);
 
-  // logout
   const logoutHandler = async () => {
     //set axios header dengan type Authorization + Bearer token
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-    //fetch Rest API
     await axios.post('http://localhost:8000/api/logout')
     .then(() => {
-      //remove token from localStorage
-      localStorage.removeItem("token");
-      //redirect halaman login
-      history.push('/');
+      localStorage.removeItem("token"); //remove token from localStorage
+      history.push('/');                //redirect halaman login
     });
   };
 
   return (
-    <div>
-      <AppBar/>
-      <div className="container poppins" style={{ marginTop: "100px" }}>
-        <div className="row justify-content-center">
-          <div className="col-md-12">
-            <div className="card border-5px rounded shadow-sm">
-              <div className="card-body">
-                Selamat Datang <strong className="text-uppercase">{user.name}</strong>
-                <hr />
-                <button onClick={logoutHandler} className="btn btn-md btn-danger">Keluar</button>
-              </div>
+  <div className='poppins'>
+    <div className="container" style={{ marginTop:'80px',marginBottom:'50px'}}>
+      <div className="row justify-content-center">
+        <div className="col-md-8">
+          <div className="card border-5px rounded shadow-sm">
+            <div className="card-body">
+              <PrimarySearchAppBar logoutHandler={logoutHandler} />
+              Hallo <strong className="text-uppercase">{user.name}</strong>
+              <hr />
+              <p className=''>Ingin coba skreening? coba ketikkan sesuatu atau lihat <a href='#id'>panduan pengguna</a></p>
+              <Chatbot />
             </div>
           </div>
         </div>
       </div>
     </div>
+    <footer className='d-block p-1 bg-primary text-white text-center' style={{position:'fixed','bottom':0,'width':'100%'}}>
+      &copy; { year } Mochamad Rafli Ramadhan
+    </footer>
+  </div>
   )
 }

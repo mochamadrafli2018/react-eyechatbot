@@ -1,13 +1,57 @@
 import React, { useState, useEffect } from 'react'
-//import hook useHitory from react router dom or react router
 import { useHistory } from 'react-router'
 import axios from 'axios'
-import {Button} from 'react-bootstrap'
+import { createTheme } from '@mui/material/styles'
+import { blue } from '@mui/material/colors'
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: blue[700],
+    },
+    secondary: {
+      main: '#f44336',
+    },
+  },
+})
+
+/*const FetchHapi = () => {
+  const [message, setMessage] = useState('')
+
+  useEffect(() => {
+    axios.get('http://localhost:5000')
+    .then((response) => {
+      setMessage(response.data.message)
+    })
+  }, [])
+
+  return (
+    <h5 className='fw-bold text-center primary'>
+      {message}
+    </h5>
+  )
+}*/
+
+const FetchExpress = () => {
+  const [message, setMessage] = useState('')
+
+  useEffect(() => {
+    axios.get('http://localhost:5000')
+    .then((response) => {
+      setMessage(response.data.message)
+    })
+  }, [])
+
+  return (
+    <h5 className='fw-bold text-center primary'>
+      {message}
+    </h5>
+  )
+}
 
 export default function Login() {
-
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [validation, setValidation] = useState([])
   const history = useHistory()
 
@@ -18,84 +62,80 @@ export default function Login() {
     // append data
     formData.append('email', email)
     formData.append('password', password)
-
+    // push data to server
     await axios.post('http://localhost:8000/api/login', formData)
     .then((response) => {
-    // set token on localStorage
-    (localStorage.setItem('token', response.data.token))
-    // redirect to dashboard
-    history.push('/dashboard')
+      // set token on localStorage
+      (localStorage.setItem('token', response.data.token))
+      // redirect to dashboard
+      history.push('/dashboard')
     })
     .catch((error) => {
-      // assign error to state "validation"
+      // assign error to state 'validation'
       setValidation(error.response.data)
     })
   }
-
+  
   // redirect to register page
-  const toRegisterPage = () => {
+  const toRegisterPageHandler = () => {
     history.push('/register');
   };
   
   return (
-    <div className="container poppins" style={{ marginTop: "100px" }}>
-      <div className="row justify-content-center">
-        <div className="col-md-4">
-          <div className="card border-5px rounded shadow-sm">
-            <div className="card-body">
-              <h4 className="fw-bold">Masuk ke Akun Anda</h4>
+    <div className='container poppins' style={{ marginTop: '80px' }}>
+      <h4 className='fw-bold text-center primary' style={{color: theme.palette.primary.main}}>
+      EyeScreening</h4>
+      <FetchExpress />
+      <div className='row justify-content-center'>
+        <div className='col-md-4'>
+          <div className='card border-5px rounded shadow-sm'>
+            <div className='card-body'>   
+              <h4 className='fw-bold'>Login Terlebih Dahulu</h4>
               <hr/>
                 {validation.message && (
-                  <div className="alert alert-danger">{validation.message}</div>
+                  <div className='alert alert-danger'>{validation.message}</div>
                 )}
-              {/*form login*/}
               <form onSubmit={loginHandler}>
-                <div className="mb-3">
-                  <label className="form-label">Email</label>
+                <div className='mb-3'>
+                  <label className='form-label'>Email</label>
                   <input 
-                    type="email" 
-                    className="form-control" 
+                    type='email' 
+                    className='form-control' 
                     value={email} 
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Masukkan Alamat Email"
+                    placeholder='Masukkan Alamat Email'
                   />
                 </div>
                 {validation.email && (
-                  <div className="alert alert-danger">{validation.email[0]}</div>
+                  <div className='alert alert-danger'>{validation.email[0]}</div>
                 )}
-
-                <div className="mb-3">
-                  <label className="form-label">Password</label>
+                <div className='mb-3'>
+                  <label className='form-label'>Password</label>
                   <input 
-                    type="password" 
-                    className="form-control" 
+                    type='password' 
+                    className='form-control' 
                     value={password} 
                     onChange={(e) => setPassword(e.target.value)} 
-                    placeholder="Masukkan Password"
+                    placeholder='Masukkan Password'
                   />
                 </div>
                 {validation.password && (
-                  <div className="alert alert-danger">{validation.password[0]}</div>
+                  <div className='alert alert-danger'>{validation.password[0]}</div>
                 )}          
-                
-                <div className="d-grid gap-2">
-                  <Button type="submit" className="btn" variant="primary">
+                <div className='d-grid gap-2'>
+                  <button type='submit' className='btn btn-primary'>
                     MASUK
-                  </Button>
+                  </button>
                 </div>
-
-                <div className="mt-3">
+                <div className='mt-3'>
                     <p>Belum punya akun? Daftar terlebih dahulu</p>
                 </div>
-
-                <div className="d-grid gap-2">
-                  <Button onClick={toRegisterPage} className="btn" variant="primary">
+                <div className='d-grid gap-2'>
+                  <button onClick={toRegisterPageHandler} className='btn btn-outline-primary'>
                     DAFTAR
-                  </Button>
+                  </button>
                 </div>
-                
               </form>
-              
             </div>
           </div>
         </div>

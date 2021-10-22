@@ -1,14 +1,21 @@
-//import hook react
 import React, { useState } from 'react';
-
-//import hook useHitory from react router dom
 import { useHistory } from 'react-router';
-
-//import axios
 import axios from 'axios';
+import { createTheme } from '@mui/material/styles'
+import { blue } from '@mui/material/colors'
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: blue[700],
+    },
+    secondary: {
+      main: '#f44336',
+    },
+  },
+})
 
 function Register() {
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,8 +25,7 @@ function Register() {
 
   const registerHandler = async (e) => {
     e.preventDefault();    
-    //initialize formData
-    const formData = new FormData();
+    const formData = new FormData();      //initialize formData
     //append data to formData
     formData.append('name', name);
     formData.append('email', email);
@@ -28,27 +34,25 @@ function Register() {
     //send data to server
     await axios.post('http://localhost:8000/api/register', formData)
     .then(() => {
-      //redirect to login page
-      history.push('/');
+      history.push('/');                  //redirect to login page
     })
     .catch((error) => {
-      //assign error to state "validation"
-      setValidation(error.response.data);
+      setValidation(error.response.data); //assign error to state "validation"
     })
   };
 
-  // redirect to login page
   const toLoginPage = () => {
-    history.push('/');
+    history.push('/');                    // redirect to login page
   };
 
   return (
-    <div className="container poppins" style={{ marginTop: "120px" }}>
+    <div className="container poppins" style={{ marginTop: "80px" }}>
+      <h4 className='fw-bold text-center primary' style={{color: theme.palette.primary.main}}>EyeScreening</h4>
       <div className="row justify-content-center">
         <div className="col-md-8">
           <div className="card border-5px rounded shadow-sm">
             <div className="card-body">
-              <h4 className="fw-bold">Daftar sebagai Pengguna</h4>
+              <h4 className="fw-bold">Daftar sebagai Pengguna Baru</h4>
               <hr/>
                         
                 <form onSubmit={registerHandler}>
@@ -56,8 +60,11 @@ function Register() {
                   <div className="row">
                     <div className="col-md-6">
                       <div className="mb-3">
-                        <label className="form-label">Nama Panggilan Anda</label>
-                        <input type="text" className="form-control" value={name} onChange={(e) => setName(e.target.value)} placeholder="Masukkan Nama Lengkap"/>
+                        <label className="form-label">Nama Panggilan</label>
+                        <input type="text" className="form-control" 
+                        value={name} 
+                        onChange={(e) => setName(e.target.value)} 
+                        placeholder="Masukkan Nama Panggilan"/>
                       </div>
                       {validation.name && (
                         <div className="alert alert-danger">
@@ -99,15 +106,15 @@ function Register() {
                   </div>
 
                   <div className="d-grid gap-2">
-                    <button type="submit" className="btn btn-primary">REGISTER</button>
+                    <button type="submit" className="btn btn-primary">DAFTAR</button>
                   </div>
 
                   <div className="mt-3">
-                    <p>Sudah punya akun? Silahkan Login dengan Klik Tombol berikut</p>
+                    <p>Sudah daftar? Silahkan masukkan akun anda dengan klik tombol berikut</p>
                   </div>
 
                   <div className="d-grid gap-2">
-                    <button onClick={toLoginPage} className="btn btn-primary">LOGIN</button>
+                    <button onClick={toLoginPage} className="btn btn-outline-primary">MASUK</button>
                   </div>
 
                 </form>
