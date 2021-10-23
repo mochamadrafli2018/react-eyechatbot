@@ -5,6 +5,7 @@ import SendIcon from '@mui/icons-material/Send'
 import {createTheme} from '@mui/material/styles'
 import {blue} from '@mui/material/colors'
 import {prompts,replies,alternative,coronavirus,} from './QnA'
+import bot from './bot.png'
 
 // material-ui theme
 const theme = createTheme({
@@ -32,7 +33,7 @@ const Chatbot = () => {
   const [berhasil, setBerhasil] = useState('')
   // form
   const [NumX, setNumX] = useState(0)
-  const [replyBotArray, setReplyBotArray] = useState([])
+  let [replyBotArray, setReplyBotArray] = useState([])
 
   // get bot reply after user input chat and button was clicked
   const handleSubmit = () => {
@@ -61,23 +62,22 @@ const Chatbot = () => {
 
   // Main output function for replying user input
   function output(input) {
-    let reply;
-    // replace all input text to lower case
+    let reply; 
     input = input
+      // replace all input text to lower case
       .toLowerCase()
+      // replace unneccessary input from user
       .replace(/[^\w\s]/gi, '')
       .replace(/[\d]/gi, '')
-      // remove whitespace from both sides of a string
-      .trim();
-    // replace unneccessary input from user
-    input = input
       .replace(/ a /g, ' ')   // example : 'tell me a story' -> 'tell me story'
       .replace(/i feel /g, '')
       .replace(/whats/g, 'what is')
       .replace(/please /g, '')
       .replace(/ please/g, '')
       .replace(/r u/g, 'are you')
-      .replace(/'/g, '');
+      .replace(/'/g, '')
+      // remove whitespace from both sides of a string
+      .trim();
   
     if (compare(prompts, replies, input)) { 
       // Search for exact match in `prompts`
@@ -108,8 +108,9 @@ const Chatbot = () => {
             // give reply from the same line
             replies = repliesArray[x]
             botReply = replies
+            replyBotArray = ''
             // add reply to array ReplyBotArray
-            setReplyBotArray(...replyBotArray, replies)
+            setReplyBotArray([...replyBotArray])
             // set number of x
             setNumX(x)
           }
@@ -117,12 +118,12 @@ const Chatbot = () => {
             // give reply from line x+1 in repliesArray
             replies = repliesArray[NumX+1]
             botReply = replies
-            // add reply to array ReplyBotArray
-            setReplyBotArray(...replyBotArray, replies)
+            if (string === 'y' || string === 'ya') {
+              // add reply to array ReplyBotArray
+              setReplyBotArray([...replyBotArray, repliesArray[NumX]])
+            }
             // change number of replies line
-            // if (string === 't' || string === 'tidak') {}
             setNumX(NumX+1)
-            // setTheArray([...theArray, newElement]);
           }
           else {
             // give reply from the same line
@@ -146,33 +147,36 @@ const Chatbot = () => {
 
   // make a replies as a component
   function addChat(input, reply) {
-    const messagesContainer = document.getElementById('messages');
+    const messagesContainer = document.getElementById('messages')
     // create element for user replies
-    const userDiv = document.createElement('div');
-    userDiv.id = 'user';
-    userDiv.className = 'user response';
-    userDiv.innerHTML = `<img src='' class=''><span>${input}</span>`;
-    messagesContainer.appendChild(userDiv);
-
+    const userDiv = document.createElement('div')
+    userDiv.id = 'user'
+    userDiv.className = 'bg-primary border-5px mt-1 mb-1 px-2 py-1 rounded response text-white'
+    userDiv.innerHTML = `<img src='' class=''>${input}`
+    // add userDiv to messagesContainer
+    messagesContainer.appendChild(userDiv)
     // create element for bot replies
-    const botDiv = document.createElement('div');
-    botDiv.id = 'bot';
-    botDiv.className = 'poppins response';
+    const botDiv = document.createElement('div')
+    botDiv.id = 'bot'
+    botDiv.className = 'mt-1 mb-1 response text-white'
     // create bot image element
-    const botImg = document.createElement('img');
-    botImg.className = 'avatar';
-    botDiv.appendChild(botImg);
+    const botImg = document.createElement('img')
+    botDiv.id = 'bot'
+    botImg.src = bot
+    botImg.className = 'avatar mx-2'
+    botDiv.appendChild(botImg)
     // create typing element
-    const botText = document.createElement('span');
-    botText.innerText = 'Typing...';
-    botDiv.appendChild(botText);
-    messagesContainer.appendChild(botDiv);
-
+    const botText = document.createElement('span')
+    botText.className = 'bg-primary border-5px px-2 py-1 rounded'
+    botText.innerText = 'Typing...'
+    botDiv.appendChild(botText)
+    // add botDiv to messagesContainer
+    messagesContainer.appendChild(botDiv)
     // Keep messages at most recent
-    messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
-    // Fake delay to seem 'real'
+    messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight
+    // Fake delay to seem 'real' and also way to change botText inner Text
     setTimeout(() => {
-      botText.innerText = `${reply}`;
+      botText.innerText = `${reply}`
       // textToSpeech(reply)
     }, 300)
   } 
@@ -180,7 +184,9 @@ const Chatbot = () => {
   return(
     <div id='container'>
       <Row className='mx-auto mb-3'>
-          <div id='messages' class='messages mx-auto' style={{color: theme.palette.primary.main}}></div>
+          <div id='messages' class='messages mx-auto' style={{color: theme.palette.primary.main}}>
+            {/*Chat will be append in here*/}
+          </div>
       </Row>
       <Row>
           <Col>
@@ -196,16 +202,16 @@ const Chatbot = () => {
             />
           </Col>
           <Col className='d-grid gap-2 mb-3' xs lg='2'>
-            <Button type='submit' value='Submit' onClick={handleSubmit} className='btn btn-primary'>
+            <button type='submit' value='Submit' onClick={handleSubmit} className='btn btn-primary'>
               <SendIcon />
-            </Button>
+            </button>
           </Col>
       </Row>
       <Row>
-        <div className='mb-3'>Anda mengetik : {input}</div>
-        <div className='mb-3'>Pesan terkirim : {berhasil}</div>
+        <div className='mb-3'>Anda mengetik   : {input}</div>
+        <div className='mb-3'>Pesan terkirim  : {berhasil}</div>
         <div className='mb-3'>Reply Bot Array : {replyBotArray}</div>
-        <div className='mb-3'>NumX : {NumX}</div>
+        <div className='mb-3'>NumX            : {NumX}</div>
       </Row>
     </div>
   )

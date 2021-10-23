@@ -50,6 +50,7 @@ export default function Dashboard() {
               Hallo <strong className="text-uppercase">{user.name}</strong>
               <hr />
               <p className=''>Ingin coba skreening? coba ketikkan sesuatu atau lihat <a href='#id'>panduan pengguna</a></p>
+              <h4 className='border-5px rounded-top d-block mb-0 p-1 bg-primary text-white text-left text-center'>Chatbot</h4>
               <Chatbot />
             </div>
           </div>
@@ -57,7 +58,7 @@ export default function Dashboard() {
       </div>
     </div>
     <footer className='d-block p-1 bg-primary text-white text-center' style={{position:'fixed','bottom':0,'width':'100%'}}>
-      &copy; { year } Mochamad Rafli Ramadhan
+      &copy; { year } - Mochamad Rafli Ramadhan
     </footer>
   </div>
   )

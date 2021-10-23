@@ -284,6 +284,11 @@ const DataPenyakit = [
     'Oftalmia Neonatorum'
   ],
   [
+    'Kelopak mata membengkak', 
+    'Kesulitan melihat di malam hari atau ruang gelap', 
+    'Retinitis Pigmentosa'
+  ],
+  [
     'Mata mengalami iritasi',
     'Mata berair',
     'Penglihatan kabur',
