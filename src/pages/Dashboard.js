@@ -9,7 +9,7 @@ export default function Dashboard() {
   const [user, setUser] = useState({})
   const [isLoading, setIsLoading] = useState(true)
   const history = useHistory();
-  const token = localStorage.getItem("token")
+  const token = localStorage.getItem('token')
 
   const fetchData = async () => {
     //set axios header with Authorization type + Bearer token
@@ -26,7 +26,7 @@ export default function Dashboard() {
     if(!token) {            // hook useEffect to check if token was not empty
       history.push('/');    // redirect to login page
     }
-    fetchData();            //call function "fetchData"
+    fetchData();            //call function 'fetchData'
   }, []);
 
   const logoutHandler = async () => {
@@ -34,20 +34,20 @@ export default function Dashboard() {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
     await axios.post('http://localhost:8000/api/logout')
     .then(() => {
-      localStorage.removeItem("token"); //remove token from localStorage
+      localStorage.removeItem('token'); //remove token from localStorage
       history.push('/');                //redirect halaman login
     });
   };
 
   return (
   <div className='poppins'>
-    <div className="container" style={{ marginTop:'80px',marginBottom:'50px'}}>
-      <div className="row justify-content-center">
-        <div className="col-md-8">
-          <div className="card border-5px rounded shadow-sm">
-            <div className="card-body">
+    <div className='container' style={{ marginTop:'70px',marginBottom:'50px'}}>
+      <div className='row justify-content-center'>
+        <div className='col-md-8'>
+          <div className='card border-5px rounded shadow-sm'>
+            <div className='card-body'>
               <PrimarySearchAppBar logoutHandler={logoutHandler} />
-              Hallo <strong className="text-uppercase">{user.name}</strong>
+              Hallo <strong className='text-uppercase'>{user.name}</strong>
               <hr />
               <p className=''>Ingin coba skreening? coba ketikkan sesuatu atau lihat <a href='#id'>panduan pengguna</a></p>
               <h4 className='border-5px rounded-top d-block mb-0 p-1 bg-primary text-white text-left text-center'>Chatbot</h4>
