@@ -236,15 +236,6 @@ const Chatbot = () => {
       reply=question3;
       setThirdReply(reply)
     }
-    /* jika user mengalami gejala 1, 2 dan 3 lanjut tanya gejala 4*/
-    else if (firstReply === question1 && secondReply === question2 && 
-      thirdReply === question3 && fourthReply === '' && 
-      fifthReply === '' && sixthReply === '' &&
-      seventhReply === '' && eightReply === '' && 
-      input === 'y') {
-      reply=question4;
-      setFourthReply(reply)
-    }
     /* jika user mengalami gejala 1, 2 tapi tidak mengalami gejala 3 
     lanjut ke gejala 12*/
     else if (firstReply === question1 && secondReply === question2 &&
@@ -254,6 +245,15 @@ const Chatbot = () => {
       input === 't') {
       reply=question12;
       setThirdReply(reply)
+    }
+    /* jika user mengalami gejala 1, 2 dan 3 lanjut tanya gejala 4*/
+    else if (firstReply === question1 && secondReply === question2 && 
+      thirdReply === question3 && fourthReply === '' && 
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' && 
+      input === 'y') {
+      reply=question4;
+      setFourthReply(reply)
     }
     /* jika user mengalami gejala 1, 2, 3 dan 4 lanjut tanya gejala 14*/
     else if (firstReply === question1 && secondReply === question2 &&
@@ -268,12 +268,10 @@ const Chatbot = () => {
     else if (firstReply === question1 && secondReply === question2 &&
       thirdReply === question3 && fourthReply === question4 &&
       fifthReply === '' && sixthReply === '' &&
-      seventhReply === '' && eightReply === '' && 
+      seventhReply === '' && eightReply === '' &&
       input === 't') {
-      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[1][0]} dan 
-      ${sympthom[2][0]} yang merupakan 3 dari 8 gejala Ulkus Kornea.
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[1][0]} dan ${sympthom[2][0]} yang merupakan 3 dari 8 gejala Ulkus Kornea. 
       Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
-      setFourthReply(reply)
     }
     /* jika user mengalami gejala 1,2,3,4 dan 14 lanjut tanya gejala 27*/
     else if (firstReply === question1 && secondReply === question2 &&
@@ -291,10 +289,8 @@ const Chatbot = () => {
       seventhReply === '' && eightReply === '' && 
       input === 't') {
       reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[1][0]}, 
-      ${sympthom[2][0]} dan ${sympthom[3][0]} yang merupakan 4 dari 8 
-      gejala Ulkus Kornea. 
+      ${sympthom[2][0]} dan ${sympthom[13][0]} yang merupakan 4 dari 8 gejala Ulkus Kornea. 
       Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
-      setFifthReply(reply)
     }
     /* jika user mengalami gejala 1,2,3,4,14 dan 27 lanjut tanya gejala 28*/
     else if (firstReply === question1 && secondReply === question2 &&
@@ -312,11 +308,8 @@ const Chatbot = () => {
       fifthReply === question14 && sixthReply === question27 &&
       seventhReply === '' && eightReply === '' && 
       input === 't') {
-      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[1][0]}, 
-      ${sympthom[2][0]}, ${sympthom[3][0]} dan ${sympthom[4][0]} 
-      yang merupakan 5 dari 8 gejala Ulkus Kornea. 
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[1][0]}, ${sympthom[2][0]}, ${sympthom[13][0]} dan ${sympthom[26][0]} yang merupakan 5 dari 8 gejala Ulkus Kornea. 
       Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
-      setSixthReply(reply)
     }
     /* jika user mengalami gejala 1,2,3,4,14, 27 dan 28 
     lanjut tanya gejala 34*/
@@ -335,11 +328,8 @@ const Chatbot = () => {
       fifthReply === question14 && sixthReply === question27 &&
       seventhReply === question28 && eightReply === '' && 
       input === 't') {
-      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[1][0]}, 
-      ${sympthom[2][0]}, ${sympthom[3][0]}, ${sympthom[4][0]} dan 
-      ${sympthom[5][0]} yang merupakan 6 dari 8 gejala Ulkus Kornea. 
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[1][0]}, ${sympthom[2][0]}, ${sympthom[13][0]}, ${sympthom[26][0]} dan ${sympthom[27][0]} yang merupakan 6 dari 8 gejala Ulkus Kornea. 
       Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
-      setSeventhReply(reply)
     }
     /* jika user mengalami gejala 1,2,3,4,14,27,28 dan 34 aturan 1 berakhir*/
     else if (firstReply === question1 && secondReply === question2 &&
@@ -347,14 +337,10 @@ const Chatbot = () => {
       fifthReply === question14 && sixthReply === question27 &&
       seventhReply === question28 && eightReply === question34 &&
       input === 'y') {
-      reply=`Anda mengalami gejala 
-      ${sympthom[0][0]}, ${sympthom[1][0]}, 
-      ${sympthom[2][0]}, ${sympthom[3][0]}, 
-      ${sympthom[4][0]}, ${sympthom[5][0]}, 
-      ${sympthom[6][0]} dan ${sympthom[7][0]}  
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[1][0]}, ${sympthom[2][0]}, ${sympthom[13][0]}, ${sympthom[26][0]}, ${sympthom[27][0]} dan ${sympthom[33][0]} dan ${question34} 
       yang merupakan 8 dari 8 gejala Ulkus Kornea. 
       Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
-      setEightReply(reply)
+      // setEightReply(reply)
     }
     /* jika user mengalami gejala 1,2,3,4,14,27 dan 28
     tapi tidak mengalami gejala 34*/
@@ -363,24 +349,15 @@ const Chatbot = () => {
       fifthReply === question14 && sixthReply === question27 &&
       seventhReply === question28 && eightReply === question34 &&
       input === 't') {
-      reply=`Anda mengalami gejala 
-      ${sympthom[0][0]}, ${sympthom[1][0]}, 
-      ${sympthom[2][0]}, ${sympthom[3][0]}, 
-      ${sympthom[4][0]}, ${sympthom[5][0]} dan 
-      ${sympthom[6][0]}  yang merupakan 7 dari 8 
-      gejala Ulkus Kornea. 
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[1][0]}, ${sympthom[2][0]}, ${sympthom[13][0]}, ${sympthom[26][0]}, ${sympthom[27][0]} dan ${sympthom[33][0]} yang merupakan 7 dari 8 gejala Ulkus Kornea. 
       Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
-      setEightReply(reply)
+      // setEightReply(reply)
     }
     
-    /* Copy
-      firstReply === question1 && secondReply === question2 &&
-      thirdReply === question21 && fourthReply === '' &&
-      fifthReply === '' && sixthReply === '' &&
-      seventhReply === '' && eightReply === '' &&
-    */
-    /* jika user mengalami gejala 1 dan gejala 2
-    tapi tidak mengalami gejala 3 dan 12 lanjut ke gejala 14*/
+
+    // Nomor aturan 2
+    /* jika user mengalami gejala 1, 2, dan tidak mengalami gejala 3 dan 12
+    lanjut tanya gejala 14*/
     else if (
       firstReply === question1 && secondReply === question2 &&
       thirdReply === question12 && fourthReply === '' &&
@@ -390,8 +367,77 @@ const Chatbot = () => {
       reply=question14;
       setThirdReply(reply)
     }
-    /* jika user mengalami gejala 1 dan gejala 2
-    tapi tidak mengalami gejala 3, 12 dan 14 lanjut ke gejala 21*/
+    /* jika user mengalami gejala 1, 2, tidak mengalami gejala 3, 
+    dan mengalami gejala 12, lanjut tanya gejala 14*/
+    else if (
+      firstReply === question1 && secondReply === question2 &&
+      thirdReply === question12 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question14;
+      setFourthReply(reply)
+    }
+    /* jika user mengalami gejala 1, 2, tidak mengalami gejala 3, 
+    dan mengalami gejala 12, tapi tidak mengalami gejala 14*/
+    else if (
+      firstReply === question1 && secondReply === question2 &&
+      thirdReply === question12 && fourthReply === question14 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[1][0]} dan ${sympthom[11][0]} yang merupakan 3 gejala Konjungtivitis. 
+      Silahkan konsultasi lebih lanjut ke doktor spesialis mata.`;
+    }
+    /* jika user mengalami gejala 1, 2, tapi tidak mengalami gejala 3, 
+    dan mengalami gejala 12 dan 14, lanjut tanya gejala 28*/
+    else if (
+      firstReply === question1 && secondReply === question2 &&
+      thirdReply === question12 && fourthReply === question14 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question28;
+      setFifthReply(reply)
+    }
+    /* jika user mengalami gejala 1, 2, tapi tidak mengalami gejala 3, 
+    dan mengalami gejala 12 dan 14, tapi tidak mengelami gejala 28*/
+    else if (
+      firstReply === question1 && secondReply === question2 &&
+      thirdReply === question12 && fourthReply === question14 &&
+      fifthReply === question28 && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[1][0]}, ${sympthom[11][0]} dan ${sympthom[13][0]} yang merupakan 4 gejala Konjungtivitis. 
+      Silahkan konsultasi lebih lanjut ke doktor spesialis mata.`;
+    }
+    /* jika user mengalami gejala 1, 2, tapi tidak mengalami gejala 3, 
+    dan mengalami gejala 12, 14 dan 28*/
+    else if (
+      firstReply === question1 && secondReply === question2 &&
+      thirdReply === question12 && fourthReply === question14 &&
+      fifthReply === question28 && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[1][0]}, ${sympthom[11][0]}, ${sympthom[13][0]} dan ${sympthom[27][0]} yang merupakan 5 gejala Konjungtivitis. 
+      Silahkan konsultasi lebih lanjut ke doktor spesialis mata.`;
+    }
+
+
+    // Nomor aturan 3
+    /* jika user mengalami gejala 1, 2, dan tidak mengalami gejala 3 dan 12
+    dan mengalami gejala 14, lanjut tanya gejala 18*/
+    else if (
+      firstReply === question1 && secondReply === question2 &&
+      thirdReply === question14 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question18;
+      setFourthReply(reply)
+    }
+    /* jika user mengalami gejala 1, 2 dan tidak mengalami gejala 3, 12
+    dan tidak mengalami gejala 14 lanjut ke gejala 21*/
     else if (
       firstReply === question1 && secondReply === question2 &&
       thirdReply === question14 && fourthReply === '' &&
@@ -401,6 +447,108 @@ const Chatbot = () => {
       reply=question21;
       setThirdReply(reply)
     }
+    /* jika user mengalami gejala 1, 2, tidak mengalami gejala 3 dan 12
+    dan mengalami gejala 14, tapi tidak mengalami gejala 18*/
+    else if (
+      firstReply === question1 && secondReply === question2 &&
+      thirdReply === question14 && fourthReply === question18 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[1][0]} dan ${sympthom[13][0]} yang merupakan 3 dari 7 gejala Keratitis Pungtata Superfisialis. 
+      Silahkan konsultasi lebih lanjut ke doktor spesialis mata.`;
+    }
+    /* jika user mengalami gejala 1, 2, dan tidak mengalami gejala 3 dan 12
+    dan mengalami gejala 14 dan mengalami gejala 18 lanjut tanya gejala 27*/
+    else if (
+      firstReply === question1 && secondReply === question2 &&
+      thirdReply === question14 && fourthReply === question18 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question27;
+      setFifthReply(reply)
+    }
+    /* jika user mengalami gejala 1, 2, dan tidak mengalami gejala 3 dan 12
+    dan mengalami gejala 14 dan 18, tapi tidak mengalami gejala 27*/
+    else if (
+      firstReply === question1 && secondReply === question2 &&
+      thirdReply === question14 && fourthReply === question18 &&
+      fifthReply === question27 && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[1][0]}, ${sympthom[13][0]} dan ${sympthom[17][0]} yang merupakan 4 dari 7 gejala Keratitis Pungtata Superfisialis. 
+      Silahkan konsultasi lebih lanjut ke doktor spesialis mata.`;
+    }
+    /* jika user mengalami gejala 1, 2, dan tidak mengalami gejala 3 dan 12
+    dan mengalami gejala 14, 18 dan 27, lanjut tanya gejala 28*/
+    else if (
+      firstReply === question1 && secondReply === question2 &&
+      thirdReply === question14 && fourthReply === question18 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question28;
+      setSixthReply(reply)
+    }
+    /* jika user mengalami gejala 1, 2, dan tidak mengalami gejala 3 dan 12
+    dan mengalami gejala 14, 18 dan 27, tapi tidak mengalami gejala 28*/
+    else if (
+      firstReply === question1 && secondReply === question2 &&
+      thirdReply === question14 && fourthReply === question18 &&
+      fifthReply === question27 && sixthReply === question28 &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[1][0]}, ${sympthom[13][0]}, ${sympthom[17][0]} dan ${sympthom[26][0]} yang merupakan 5 dari 7 gejala Keratitis Pungtata Superfisialis. 
+      Silahkan konsultasi lebih lanjut ke doktor spesialis mata.`;
+    }
+    /* jika user mengalami gejala 1, 2, dan tidak mengalami gejala 3 dan 12
+    dan mengalami gejala 14, 18, 27 dan 28 lanjut tanya gejala 29*/
+    else if (
+      firstReply === question1 && secondReply === question2 &&
+      thirdReply === question14 && fourthReply === question18 &&
+      fifthReply === question27 && sixthReply === question28 &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question29;
+      setSeventhReply(reply)
+    }
+    /* jika user mengalami gejala 1, 2, dan tidak mengalami gejala 3 dan 12
+    dan mengalami gejala 14, 18, 27 dan 28 tapi tidak mengalami gejala 29*/
+    else if (
+      firstReply === question1 && secondReply === question2 &&
+      thirdReply === question14 && fourthReply === question18 &&
+      fifthReply === question27 && sixthReply === question28 &&
+      seventhReply === question29 && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[1][0]}, ${sympthom[13][0]}, ${sympthom[17][0]}, ${sympthom[26][0]} dan ${sympthom[27][0]} yang merupakan 6 dari 7 gejala Keratitis Pungtata Superfisialis. 
+      Silahkan konsultasi lebih lanjut ke doktor spesialis mata.`;
+    }
+    /* jika user mengalami gejala 1, 2, dan tidak mengalami gejala 3 dan 12
+    dan mengalami gejala 14, 18, 27, 28 dan 29*/
+    else if (
+      firstReply === question1 && secondReply === question2 &&
+      thirdReply === question14 && fourthReply === question18 &&
+      fifthReply === question27 && sixthReply === question28 &&
+      seventhReply === question29 && eightReply === '' &&
+      input === 'y') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[1][0]}, ${sympthom[13][0]}, ${sympthom[17][0]}, ${sympthom[26][0]}, ${sympthom[27][0]} dan ${sympthom[28][0]} yang merupakan 7 dari 7 gejala Keratitis Pungtata Superfisialis. 
+      Silahkan konsultasi lebih lanjut ke doktor spesialis mata.`;
+    }
+
+
+    // Nomor aturan 4
+    /* jika user mengalami gejala 1 dan 2
+    tapi tidak mengalami gejala 3, 12 dan 14 lanjut ke gejala 21*/
+    /*else if (
+      firstReply === question1 && secondReply === question2 &&
+      thirdReply === question14 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=question21;
+      setThirdReply(reply)
+    }*/
     /* jika user mengalami gejala 1 dan gejala 2
     tapi tidak mengalami gejala 3, 12, 14 dan 21 lanjut ke gejala 24*/
     else if (
@@ -410,24 +558,104 @@ const Chatbot = () => {
       seventhReply === '' && eightReply === '' &&
       input === 't') {
       reply=question24;
-      // bot third reply after input 'test'
       setThirdReply(reply)
+    }
+    /* jika user mengalami gejala 1, 2, tapi tidak mengalami gejala 3, 12 dan 14 
+    dan mengalami gejala 21, lanjut ke gejala 22*/
+    else if (
+      firstReply === question1 && secondReply === question2 &&
+      thirdReply === question21 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question22;
+      setFourthReply(reply)
+    }
+    /* jika user mengalami gejala 1, 2, tapi tidak mengalami gejala 3, 12 dan 14 
+    dan mengalami gejala 21, tapi tidak mengalami gejala 22*/
+    else if (
+      firstReply === question1 && secondReply === question2 &&
+      thirdReply === question21 && fourthReply === question22 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[1][0]} dan ${sympthom[20][0]} yang merupakan 3 dari 4 gejala Katarak. 
+      Silahkan konsultasi lebih lanjut ke doktor spesialis mata.`;
+    }
+    /* jika user mengalami gejala 1, 2, tapi tidak mengalami gejala 3, 12 dan 14 
+    dan mengalami gejala 21 dan 22*/
+    else if (
+      firstReply === question1 && secondReply === question2 &&
+      thirdReply === question21 && fourthReply === question22 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[1][0]}, ${sympthom[20][0]} dan ${sympthom[21][0]} yang merupakan 4 dari 4 gejala Katarak. 
+      Silahkan konsultasi lebih lanjut ke doktor spesialis mata.`;
+    }
+
+
+    // Nomor aturan 5
+    /* jika user mengalami gejala 1 dan gejala 2
+    tapi tidak mengalami gejala 3, 12, 14 dan 21 lanjut ke gejala 24*/
+    /*else if (
+      firstReply === question1 && secondReply === question2 &&
+      thirdReply === question21 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=question24;
+      setThirdReply(reply)
+    }*/
+    /* jika user mengalami gejala 1 dan gejala 2
+    tapi tidak mengalami gejala 3, 12, 14 dan 21, tapi mengalami gejala 24, lanjut tanya gejala 34*/
+    else if (
+      firstReply === question1 && secondReply === question2 &&
+      thirdReply === question24 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question34;
+      setFourthReply(reply)
     }
     /* jika user mengalami gejala 1 dan gejala 2
     tapi tidak mengalami gejala 3, 12, 14, 21 dan 24*/
-    else if (firstReply === question1 && secondReply === question2 &&
+    else if (
+      firstReply === question1 && secondReply === question2 &&
       thirdReply === question24 && fourthReply === '' &&
       fifthReply === '' && sixthReply === '' &&
       seventhReply === '' && eightReply === '' &&
       input === 't') {
-      reply=`Anda mengalami gejala ${sympthom[0][0]} dan ${sympthom[1][0]}, 
-      belum bisa dipastikan hasil skrining penyakit mata anda.
+      reply=`Anda mengalami gejala ${sympthom[0][0]} dan ${sympthom[1][0]}, belum bisa dipastikan hasil skrining penyakit mata anda. 
       Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
-      setThirdReply(reply)
     }
+    /* jika user mengalami gejala 1 dan gejala 2
+    tapi tidak mengalami gejala 3, 12, 14, 21, tapi mengalami gejala 24 dan tidak mengalami gejala 34*/
+    else if (
+      firstReply === question1 && secondReply === question2 &&
+      thirdReply === question24 && fourthReply === question34 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[1][0]}, ${sympthom[33][0]} dan ${sympthom[33][0]} yang merupakan 4 dari 4 gejala Endoftalmitis. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+    /* jika user mengalami gejala 1 dan gejala 2
+    tapi tidak mengalami gejala 3, 12, 14, 21, tapi mengalami gejala 24 dan tidak mengalami gejala 34*/
+    else if (
+      firstReply === question1 && secondReply === question2 &&
+      thirdReply === question24 && fourthReply === question34 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[1][0]} dan ${sympthom[23][0]} yang merupakan 3 dari 4 gejala Endoftalmitis. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+    
+
 
     // Nomor aturan 6
-    // jika user mengalami gejala 1 tapi tidak mengalami gejala 2 lanjut tanya gejala 5
+    // jika user mengalami gejala 1 tapi tidak mengalami gejala 2 lanjut tanya gejala 5 (works)
     else if (firstReply === question1 && secondReply === question2 && 
       thirdReply === '' && fourthReply === '' &&
       fifthReply === '' && sixthReply === '' &&
@@ -436,8 +664,8 @@ const Chatbot = () => {
       reply=question5;
       setSecondReply(reply)
     }
-    // jika user mengalami gejala 1 tapi tidak mengalami gejala 5
-    else if (firstReply === question1 && secondReply === question5 && 
+    // jika user mengalami gejala 1 tapi tidak mengalami gejala 5, lanjut tanya gejala 14 (works)
+    else if (firstReply === question1 && secondReply === question5 &&
       thirdReply === '' && fourthReply === '' &&
       fifthReply === '' && sixthReply === '' &&
       seventhReply === '' && eightReply === '' &&
@@ -445,6 +673,141 @@ const Chatbot = () => {
       reply=question14;
       setSecondReply(reply)
     }
+    // jika user mengalami gejala 1 dan 5, lanjut tanya gejala 9 (error)
+    else if (firstReply === question1 && secondReply === question5 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question9;
+      setThirdReply(reply)
+    }
+    // jika user mengalami gejala 1 dan 5, tapi tidak mengalami gejala 9
+    else if (firstReply === question1 && secondReply === question5 && 
+      thirdReply === question9 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]} dan ${sympthom[4][0]}, belum bisa dipastikan hasil skiring penyakit mata anda. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+    // jika user mengalami gejala 1, 5 dan 9, lanjut tanya gejala 10
+    else if (firstReply === question1 && secondReply === question5 && 
+      thirdReply === question9 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question10;
+      setFourthReply(reply)
+    }
+    // jika user mengalami gejala 1, 5 dan 9, tapi tidak mengalami gejala 10
+    else if (firstReply === question1 && secondReply === question5 && 
+      thirdReply === question9 && fourthReply === question10 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[4][0]} dan ${sympthom[8][0]} yang merupakan 3 dari 8 gejala Blefaritis. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+    // jika user mengalami gejala 1, 5, 9 dan 10, lanjut tanya gejala 11
+    else if (firstReply === question1 && secondReply === question5 && 
+      thirdReply === question9 && fourthReply === question10 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question11;
+      setFifthReply(reply)
+    }
+    // jika user mengalami gejala 1, 5, 9 dan 10, tapi tidak mengalami gejala 11
+    else if (firstReply === question1 && secondReply === question5 && 
+      thirdReply === question9 && fourthReply === question10 &&
+      fifthReply === question11 && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[4][0]}, ${sympthom[8][0]} dan ${sympthom[9][0]} yang merupakan 4 dari 8 gejala Blefaritis. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+    // jika user mengalami gejala 1, 5, 9, 10 dan 11, lanjut tanya gejala 12
+    else if (
+      firstReply === question1 && secondReply === question5 && 
+      thirdReply === question9 && fourthReply === question10 &&
+      fifthReply === question11 && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question12;
+      setSixthReply(reply)
+    }
+    // jika user mengalami gejala 1, 5, 9, 10 dan 11, tapi tidak mengalami gejala 12
+    else if (
+      firstReply === question1 && secondReply === question5 && 
+      thirdReply === question9 && fourthReply === question10 &&
+      fifthReply === question11 && sixthReply === question12 &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[4][0]}, ${sympthom[8][0]}, ${sympthom[9][0]} dan ${sympthom[10][0]} yang merupakan 5 dari 8 gejala Blefaritis. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+    // jika user mengalami gejala 1, 5, 9, 10, 11 dan 12, lanjut tanya gejala 27
+    else if (
+      firstReply === question1 && secondReply === question5 && 
+      thirdReply === question9 && fourthReply === question10 &&
+      fifthReply === question11 && sixthReply === question12 &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question27;
+      setSeventhReply(reply)
+    }
+    // jika user mengalami gejala 1, 5, 9, 10, 11 dan 12, tapi tidak mengalami gejala 27
+    else if (
+      firstReply === question1 && secondReply === question5 && 
+      thirdReply === question9 && fourthReply === question10 &&
+      fifthReply === question11 && sixthReply === question12 &&
+      seventhReply === question27 && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[4][0]}, ${sympthom[8][0]}, ${sympthom[9][0]}, ${sympthom[10][0]} dan ${sympthom[26][0]} yang merupakan 6 dari 8 gejala Blefaritis. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+    // jika user mengalami gejala 1, 5, 9, 10, 11 dan 12, lanjut tanya gejala 28
+    else if (
+      firstReply === question1 && secondReply === question5 && 
+      thirdReply === question9 && fourthReply === question10 &&
+      fifthReply === question11 && sixthReply === question12 &&
+      seventhReply === question27 && eightReply === '' &&
+      input === 'y') {
+      reply=question28;
+      setEightReply(reply)
+    }
+    // jika user mengalami gejala 1, 5, 9, 10, 11, 12 dan 27, tapi tidak mengalami gejala 28
+    else if (
+      firstReply === question1 && secondReply === question5 && 
+      thirdReply === question9 && fourthReply === question10 &&
+      fifthReply === question11 && sixthReply === question12 &&
+      seventhReply === question27 && eightReply === question28 &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[4][0]}, ${sympthom[8][0]}, ${sympthom[9][0]}, ${sympthom[10][0]}, ${sympthom[11][0]} dan ${sympthom[26][0]} yang merupakan 7 dari 8 gejala Blefaritis. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+    // jika user mengalami gejala 1, 5, 9, 10, 11, 12, 27 dan 28
+    else if (
+      firstReply === question1 && secondReply === question5 && 
+      thirdReply === question9 && fourthReply === question10 &&
+      fifthReply === question11 && sixthReply === question12 &&
+      seventhReply === question27 && eightReply === question28 &&
+      input === 'y') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[4][0]}, ${sympthom[8][0]}, ${sympthom[9][0]}, ${sympthom[10][0]}, ${sympthom[11][0]}, ${sympthom[26][0]} dan ${sympthom[27][0]} yang merupakan 8 dari 8 gejala Blefaritis. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+
+
+    // jika user mengalami gejala 1 tapi tidak mengalami gejala 5, lanjut tanya gejala 14
+    /*else if (firstReply === question1 && secondReply === question5 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=question14;
+      setSecondReply(reply)
+    }*/
     // jika user mengalami gejala 1 tapi tidak mengalami gejala 14
     else if (firstReply === question1 && secondReply === question14 && 
       thirdReply === '' && fourthReply === '' &&

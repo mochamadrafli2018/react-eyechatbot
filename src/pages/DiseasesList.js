@@ -1,329 +1,113 @@
 const sympthom = [
     //gejala1
-    ['peka terhadap cahaya (fotofobia)'],
+    ['peka terhadap cahaya (fotofobia) (gejala 1)'],
     //gejala2
-    ['terasa nyeri'],
+    ['terasa nyeri (gejala 2)'],
     //gejala3
-    ['tampak bintik nanah berwarna kuning keputihan pada kornea'],
+    ['tampak bintik nanah berwarna kuning keputihan pada kornea (gejala 3)'],
     //gejala4
-    ['terdapat kotoran mata'],
+    ['terdapat kotoran mata (gejala 4)'],
     //gejala5
-    ['kelopak mata membengkak'],
+    ['kelopak mata membengkak (gejala 5)'],
     //gejala6
-    ['mata mengalami iritasi'],
+    ['mata mengalami iritasi (gejala 6)'],
     //gejala7
-    ['terjadi pembengkakan bundar pada kelopak mata dan tumbuh secara perlahan'],
+    ['terjadi pembengkakan bundar pada kelopak mata dan tumbuh secara perlahan (gejala 7)'],
     //gejala8
-    ['terbentuk daerah kemerahan/abu-abu di bawah kelopak mata'],
+    ['terbentuk daerah kemerahan/abu-abu di bawah kelopak mata (gejala 8)'],
     //gejala9
-    ['bulu mata rontok'],
+    ['bulu mata rontok (gejala 9)'],
     //gejala10
-    ['mata sukar dibuka ketika bangun dipagi hari'],
+    ['mata sukar dibuka ketika bangun dipagi hari (gejala 10)'],
     //gejala11
-    ['alergi'],
+    ['alergi (gejala 11)'],
     //gejala12
-    ['mata terasa panas'],
+    ['mata terasa panas (gejala 12)'],
     //gejala13
-    ['mata seperti kelilipan'],	
+    ['mata seperti kelilipan (gejala 13)'],	
     //gejala14
-    ['mata berair'],	
+    ['mata berair (gejala 14)'],	
     //gejala15
-    ['nyeri pada tepi kelopak mata'],	
+    ['nyeri pada tepi kelopak mata (gejala 15)'],	
     //gejala16
-    ['kornea tampak keruh'],
+    ['kornea tampak keruh (gejala 16)'],
     //gejala17
-    ['konjungtiva meradang'],	
+    ['konjungtiva meradang (gejala 17)'],	
     //gejala18
-    ['penglihatan kabur'],	
+    ['penglihatan kabur (gejala 18)'],	
     //gejala19
-    ['terlihat bentuk-bentuk iregular yang melayang-layang atau kilatan cahaya'],
+    ['terlihat bentuk-bentuk iregular yang melayang-layang atau kilatan cahaya (gejala 19)'],
     //gejala20
-    ['hilangnya fungsi penglihatan pada salah satu mata,yang kemudian menyebar sejalan perkembangan ablasio'],
+    ['hilangnya fungsi penglihatan pada salah satu mata,yang kemudian menyebar sejalan perkembangan ablasio (gejala 20)'],
     //gejala21
-    ['kesulitan melihat di malam hari'],
+    ['kesulitan melihat di malam hari (gejala 21)'],
     //gejala22
-    ['penurunan ketajaman penglihatan (bahkan siang hari)'],	
+    ['penurunan ketajaman penglihatan (bahkan siang hari) (gejala 22)'],	
     //gejala23
-    ['kemerahan pada skelra'],
+    ['kemerahan pada skelra (gejala 23)'],
     //gejala24
-    ['mata menonjol'],
+    ['mata menonjol (gejala 24)'],
     //gejala25 
-    ['demam'],
+    ['demam (gejala 25)'],
     //gejala26
-    ['bola mata bengkak dan tampak berkabut'],
+    ['bola mata bengkak dan tampak berkabut (gejala 26)'],
     //gejala27
-    ['mata merah'],
+    ['mata merah (gejala 27)'],
     //gejala28
-    ['mata terasa gatal'],
+    ['mata terasa gatal (gejala 28)'],
     //gejala29
-    ['mata terasa perih'],
+    ['mata terasa perih (gejala 29)'],
     //gejala30
-    ['konjungtiva menjadi merah'],
+    ['konjungtiva menjadi merah (gejala 30)'],
     //gejala31
-    ['konjungtiva bengkak'],
+    ['konjungtiva bengkak (gejala 31)'],
     //gejala32
-    ['peradangan mata yang agak menonjol dan berwarna kuning'],
+    ['peradangan mata yang agak menonjol dan berwarna kuning (gejala 32)'],
     //gejala33
-    ['mata nyeri bila ditekan'],
+    ['mata nyeri bila ditekan (gejala 33)'],
     //gejala34
-    ['gangguan penglihatan'],
+    ['gangguan penglihatan (gejala 34)'],
     //gejala35
-    ['sakit kepala'],
+    ['sakit kepala (gejala 35)'],
     //gejala36
-    ['koma'],
+    ['koma (gejala 36)'],
     //gejala37
-    ['kejang'],
+    ['kejang (gejala 37)'],
     //gejala38
-    ['sakit dengan gerakan mata'],
+    ['sakit dengan gerakan mata (gejala 38)'],
     //gejala39
-    ['kehilangan penglihatan'],
+    ['kehilangan penglihatan (gejala 39)'],
     //gejala40
-    ['nyeri di daerah sekitar kantong air mata'],
+    ['nyeri di daerah sekitar kantong air mata (gejala 40)'],
     //gejala41
-    ['mata mengeluarkan nanah'],
+    ['mata mengeluarkan nanah (gejala 41)'],
     //gejala42
-    ['pusing karena lelah'],
+    ['pusing karena lelah (gejala 42)'],
     //gejala43
-    ['mengalami mual dan muntah'],
+    ['mengalami mual dan muntah (gejala 43)'],
     //gejala44
-    ['pupil melebar dan tidak mengecil jika diberi sinar yang terang'],
+    ['pupil melebar dan tidak mengecil jika diberi sinar yang terang (gejala 44)'],
     //gejala45
-    ['sel batang retina sulit berdaptasi diruang yang remang-remang'],
+    ['sel batang retina sulit berdaptasi diruang yang remang-remang (gejala 45)'],
     //gejala46
-    ['tidak dapat melihat pada lingkungan yang kurang bercahaya'],
+    ['tidak dapat melihat pada lingkungan yang kurang bercahaya (gejala 46)'],
     //gejala47
-    ['gangguan penglihatan pada salah satu mata'],
+    ['gangguan penglihatan pada salah satu mata (gejala 47)'],
     //gejala48
-    ['garis mata lurus terlihat bergelombang'],
+    ['garis mata lurus terlihat bergelombang (gejala 48)'],
     //gejala49
-    ['mata tidak nyeri'],
+    ['mata tidak nyeri (gejala 49)'],
     //gejala50
-    ['riwayat penyakit menular seksual pada ibu'],
+    ['riwayat penyakit menular seksual pada ibu (gejala 50)'],
     //gejala51
-    ['air mata berlebihan'],
+    ['air mata berlebihan (gejala 51)'],
     //gejala52
-    ['mata kering'],
+    ['mata kering (gejala 52)'],
     //gejala53
-    ['benjolan pada mata bagian atas atau bawah'],
+    ['benjolan pada mata bagian atas atau bawah (gejala 53)'],
     //gejala54
-    ['seperti ada benda asing di mata'],
-  ]
-  
-  const diseases = [
-    //1
-    [
-      'Peka terhadap cahaya (fotofobia)',
-      'Terasa nyeri',
-      'Tampak bintik nanah berwarna kuning keputihan pada kornea',
-      'Terdapat kotoran mata',
-      'Mata berair',
-      'Mata merah',
-      'Mata terasa gatal',
-      'Gangguan penglihatan',
-      'Ulkus Kornea'
-    ],
-    //2
-    [ 
-      'Peka terhadap cahaya (fotofobia)',
-      'Terasa nyeri','Mata terasa panas',
-      'Mata berair','Mata terasa gatal',
-      'Konjungtivitis'
-    ],
-    //3
-    [
-      'Peka terhadap cahaya (fotofobia)',
-      'Terasa nyeri',
-      'Mata berair',
-      'Penglihatan kabur',
-      'Mata merah',
-      'Mata terasa gatal',
-      'Mata terasa perih',
-      'Keratitis Pungtata Superfisialis'
-    ],
-    //4
-    [
-      'Peka terhadap cahaya (fotofobia)',
-      'Terasa nyeri',
-      'Mata menonjol',
-      'Gangguan penglihatan',
-      'Endoftalmitis'
-    ],
-    //5
-    [
-      'Peka terhadap cahaya (fotofobia)',
-      'Terasa nyeri',
-      'Kesulitan melihat di malam hari',
-      'Penurunan ketajaman penglihatan (bahkan siang hari)',
-      'Katarak'
-    ],
-    //6 
-    [
-      'Peka terhadap cahaya (fotofobia)',
-      'Kelopak mata membengkak',
-      'Bulu mata rontok',
-      'Mata sukar dibuka ketika bangun dipagi hari',
-      'Alergi',
-      'Mata terasa panas',
-      'Mata merah',
-      'Mata terasa gatal',
-      'Blefaritis'
-    ],
-    //7
-    [
-      'Peka terhadap cahaya (fotofobia)',
-      'Mata berair',
-      'Penglihatan kabur',
-      'Kesulitan melihat di malam hari',
-      'Keratokonus'
-    ],
-    //8
-    [
-      'Peka terhadap cahaya (fotofobia)',
-      'Penglihatan kabur',
-      'Kemerahan pada skelra',
-      'Uveitis'
-    ],
-    //9
-    [
-      'Terasa nyeri',
-      'Kelopak mata membengkak',
-      'Mata berair',
-      'Mata merah',
-      'Sakit kepala',
-      'Mengalami mual dan muntah',
-      'Pupil melebar dan tidak mengecil jika diberi sinar yang terang',
-      'Glaukoma'
-    ],
-    //10
-    [
-      'Terasa nyeri',
-      'Kelopak mata membengkak',
-      'Demam',
-      'Bola mata bengkak dan tampak berkabut',
-      'Selulitis Orbitalitas',
-    ],
-    //11
-    [
-      'Terasa nyeri',
-      'Mata terasa perih',
-      'Sakit kepala',
-      'Air mata berlebihan',
-      'Miopi'
-    ],
-    //12
-    [ 
-      'Kelopak mata membengkak',
-      'Mata mengalami iritasi',
-      'Terjadi pembengkakan bundar pada kelopak mata dan tumbuh secara perlahan',
-      'Terbentuk daerah kemerahan/abu-abu di bawah kelopak mata',
-      'Kalazion'
-    ],
-    //13
-    [
-      'Kelopak mata membengkak',
-      'Kornea tampak keruh',
-      'Konjungtiva meradang',
-      'Trakoma'
-    ],
-    //14
-    [
-      'Kelopak mata membengkak',
-      'Penglihatan kabur',
-      'Mata merah',
-      'Mata nyeri bila ditekan',
-      'Riwayat penyakit menular seksual pada ibu',
-      'Oftalmia Neonatorum'
-    ],
-    //15
-    [
-      'Kelopak mata membengkak', 
-      'Kesulitan melihat di malam hari atau ruang gelap', 
-      'Retinitis Pigmentosa'
-    ],
-    //16
-    [
-      'Mata mengalami iritasi',
-      'Mata berair',
-      'Penglihatan kabur',
-      'Mata merah',
-      'Mata kering',
-      'Benjolan pada mata bagian atas atau bawah',
-      'Seperti ada benda asing di mata',
-      'Pterygium'
-    ],
-    //17
-    [ 
-      'Mata terasa panas',
-      'Mata terasa gatal',
-      'Konjungtiva menjadi merah',
-      'Konjungtiva bengkak',
-      'Alergi Mata Merah',
-    ],
-    //18
-    [
-      'Mata seperti kelilipan',
-      'Mata berair',
-      'Nyeri pada tepi kelopak mata',
-      'Mata merah',
-      'Hordeolum (Stye)'
-    ],
-    //19
-    [
-      'Mata berair',
-      'Demam',
-      'Mata merah',
-      'Nyeri di daerah sekitar kantong air mata',
-      'Mata mengeluarkan nanah',
-      'Dakriosistitis'
-    ],
-    //20
-    [
-      'Penglihatan kabur',
-      'Terlihat bentuk-bentuk iregular yang melayang-layang atau kilatan cahaya',
-      'Hilangnya fungsi penglihatan pada salah satu mata, yang kemudian menyebar sejalan perkembangan ablasio',
-      'Abalso Retina'
-    ],
-    //21
-    [ 
-      'Penglihatan kabur',
-      'Terlihat bentuk-bentuk iregular yang melayang-layang atau kilatan cahaya',
-      'Retinopati Diabetikum'
-    ],
-    //22
-    [
-      'Penurunan ketajaman penglihatan (bahkan siang hari)',
-      'Sel batang retina sulit berdaptasi diruang yang remang-remang',
-      'Tidak dapat melihat pada lingkungan yang kurang bercahaya',
-      'Xerophtalmania'
-    ],
-    //23
-    [
-      'Mata menonjol',
-      'Eksoftalmus'
-    ],
-    //24
-    [
-      'Demam',
-      'Sakit kepala',
-      'Koma',
-      'Kejang',
-      'Trombosis Sinus Kavernosus'
-    ],
-    //25
-    [
-      'Sakit dengan gerakan mata',
-      'Kehilangan penglihatan',
-      'Optic Neuritis'
-    ],
-    //26
-    [
-      'Gangguan penglihatan pada salah satu mata',
-      'Garis mata lurus terlihat bergelombang',
-      'Mata tidak nyeri',
-      'Degenerasi Makula'
-    ],
+    ['seperti ada benda asing di mata (gejala 54)'],
 ]
 export {
-    sympthom,
-    diseases
+  sympthom
 }
