@@ -799,6 +799,7 @@ const Chatbot = () => {
     }
 
 
+    // Nomor aturan 7
     // jika user mengalami gejala 1 tapi tidak mengalami gejala 5, lanjut tanya gejala 14
     /*else if (firstReply === question1 && secondReply === question5 && 
       thirdReply === '' && fourthReply === '' &&
@@ -808,7 +809,7 @@ const Chatbot = () => {
       reply=question14;
       setSecondReply(reply)
     }*/
-    // jika user mengalami gejala 1 tapi tidak mengalami gejala 14
+    // jika user mengalami gejala 1 tapi tidak mengalami gejala 14, lanjut tanya gejala 18 (works)
     else if (firstReply === question1 && secondReply === question14 && 
       thirdReply === '' && fourthReply === '' &&
       fifthReply === '' && sixthReply === '' &&
@@ -818,7 +819,96 @@ const Chatbot = () => {
       // bot second reply after input 'test'
       setSecondReply(reply)
     }
-    // jika user mengalami gejala 1 tapi tidak mengalami gejala 14
+    // jika user mengalami gejala 1 dan 14, lanjut tanya gejala 18
+    else if (firstReply === question1 && secondReply === question14 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question18;
+      setThirdReply(reply)
+    }
+    // jika user mengalami gejala 1 dan 14, tapi tidak mengalami gejala 18 (works)
+    else if (firstReply === question1 && secondReply === question14 && 
+      thirdReply === question18 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]} dan ${sympthom[13][0]} yang merupakan 2 dari 4 gejala Keratokonus. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+    // jika user mengalami gejala 1,14 dan 18 lanjut tanya gejala 21
+    else if (firstReply === question1 && secondReply === question14 && 
+      thirdReply === question18 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question21;
+      setFourthReply(reply)
+    }
+    // jika user mengalami gejala 1,14 dan 18, tapi tidak mengalami gejala 21 (works)
+    else if (firstReply === question1 && secondReply === question14 && 
+      thirdReply === question18 && fourthReply === question21 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[13][0]} dan ${sympthom[17][0]} yang merupakan 3 dari 4 gejala Keratokonus. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+    // jika user mengalami gejala 1,14,18 dan 21 (works)
+    else if (firstReply === question1 && secondReply === question14 && 
+      thirdReply === question18 && fourthReply === question21 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[13][0]}, ${sympthom[17][0]} dan ${sympthom[20][0]} yang merupakan 4 dari 4 gejala Keratokonus. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+
+
+    // Nomor aturan 8
+    /*
+    // jika user mengalami gejala 1 tapi tidak mengalami gejala 14, lanjut tanya gejala 18
+    else if (firstReply === question1 && secondReply === question14 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=question18;
+      // bot second reply after input 'test'
+      setSecondReply(reply)
+    }
+    */
+    // jika user mengalami gejala 1 dan 18, lanjut tanya gejala 23
+    else if (firstReply === question1 && secondReply === question18 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question23;
+      setThirdReply(reply)
+    }
+    // jika user mengalami gejala 1 dan 18, tapi tidak mengalami gejala 23 (works)
+    else if (firstReply === question1 && secondReply === question18 && 
+      thirdReply === question23 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]} dan ${sympthom[18][0]} yang merupakan 2 dari 3 gejala Uveitis.
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+    // jika user mengalami gejala 1,18 dan 23 (works)
+    else if (firstReply === question1 && secondReply === question18 && 
+      thirdReply === question23 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=`Anda mengalami gejala ${sympthom[0][0]}, ${sympthom[18][0]} dan ${sympthom[22][0]} yang merupakan 3 dari 3 gejala Uveitis.
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+
+    // hanya gejala 1
+    // jika user hanya mengalami gejala 1 tapi tidak mengalami gejala 2, 5, 14 dan 18
     else if (firstReply === question1 && secondReply === question18 && 
       thirdReply === '' && fourthReply === '' &&
       fifthReply === '' && sixthReply === '' &&
@@ -829,51 +919,276 @@ const Chatbot = () => {
       // bot second reply after input 'test'
       setSecondReply(reply)
     }
-    
 
 
-    // jika user tidak mengalami gejala 1 lanjut ke gejala 2
+    // Nomor aturan 9
+    // jika user tidak mengalami gejala 1 lanjut tanya gejala 2
     else if (firstReply === question1 && secondReply === '' && 
       thirdReply === '' && fourthReply === '' &&
       fifthReply === '' && sixthReply === '' &&
       seventhReply === '' && eightReply === '' &&
       input === 't') {
       reply=question2;
-      // bot first reply after first input 'test'
       setFirstReply(reply)
     }
-    
-
-    // jika user tidak mengalami gejala 1, tanya gejala 2
+    // jika user mengalami gejala 2 lanjut tanya gejala 5
     else if (firstReply === question2 && secondReply === '' && 
       thirdReply === '' && fourthReply === '' &&
       fifthReply === '' && sixthReply === '' &&
       seventhReply === '' && eightReply === '' &&
       input === 'y') {
       reply=question5;
-      // bot first reply after first input 'test'
       setSecondReply(reply)
     }
     // jika user mengalami gejala 2 tapi tidak mengalami gejala 5 lanjut ke gejala 29
+    /*
     else if (firstReply === question2 && secondReply === question5 && 
       thirdReply === '' && fourthReply === '' &&
       fifthReply === '' && sixthReply === '' &&
       seventhReply === '' && eightReply === '' &&
       input === 't') {
       reply=question29;
-      // bot second reply after input 'test'
       setSecondReply(reply)
     }
-    // jika user mengelami gejala 2 tapi tidak mengalami gejala 5 dan 29
+    */
+    /*
+    // jika user mengalami gejala 2 dan 5 lanjut tanya gejala 14
+    else if (firstReply === question2 && secondReply === question5 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question14;
+      setThirdReply(reply)
+    }
+    // jika user mengalami gejala 2 dan 5, tapi tidak mengalami gejala 14, lanjut tanya gejala 25
+    else if (firstReply === question2 && secondReply === question5 && 
+      thirdReply === question14 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=question25;
+      setThirdReply(reply)
+    }*/
+    // jika user mengalami gejala 2, 5 dan 14, lanjut tanya gejala 27
+    else if (firstReply === question2 && secondReply === question5 && 
+      thirdReply === question14 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question27;
+      setFourthReply(reply)
+    }
+    // jika user mengalami gejala 2, 5 dan 14, tapi tidak mengalami gejala 27
+    else if (firstReply === question2 && secondReply === question5 && 
+      thirdReply === question14 && fourthReply === question27 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[1][0]}, ${sympthom[4][0]} dan ${sympthom[13][0]} yang merupakan 3 dari 7 gejala Glaukoma.
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+    // jika user mengalami gejala 2, 5, 14 dan 27, lanjut tanya gejala 35
+    else if (firstReply === question2 && secondReply === question5 && 
+      thirdReply === question14 && fourthReply === question27 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question35;
+      setFifthReply(reply)
+    }
+    // jika user mengalami gejala 2, 5, 14 dan 27, tapi tidak mengalami gejala 35
+    else if (firstReply === question2 && secondReply === question5 && 
+      thirdReply === question14 && fourthReply === question27 &&
+      fifthReply === question35 && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[1][0]}, ${sympthom[4][0]}, ${sympthom[13][0]} dan ${sympthom[26][0]} yang merupakan 4 dari 7 gejala Glaukoma.
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+    // jika user mengalami gejala 2, 5, 14, 27 dan 35, lanjut tanya gejala 43
+    else if (firstReply === question2 && secondReply === question5 && 
+      thirdReply === question14 && fourthReply === question27 &&
+      fifthReply === question35 && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question43;
+      setSixthReply(reply)
+    }
+    // jika user mengalami gejala 2, 5, 14, 27 dan 35, tapi tidak mengalami gejala 43
+    else if (firstReply === question2 && secondReply === question5 && 
+      thirdReply === question14 && fourthReply === question27 &&
+      fifthReply === question35 && sixthReply === question43 &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[1][0]}, ${sympthom[4][0]}, ${sympthom[13][0]}, ${sympthom[26][0]} dan ${sympthom[34][0]} yang merupakan 5 dari 7 gejala Glaukoma.
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+    // jika user mengalami gejala 2, 5, 14, 27, 35 dan 43, lanjut tanya gejala 44
+    else if (firstReply === question2 && secondReply === question5 && 
+      thirdReply === question14 && fourthReply === question27 &&
+      fifthReply === question35 && sixthReply === question43 &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question44;
+      setSeventhReply(reply)
+    }
+    // jika user mengalami gejala 2, 5, 14, 27, 35 dan 43, tapi tidak mengalami gejala 44
+    else if (firstReply === question2 && secondReply === question5 && 
+      thirdReply === question14 && fourthReply === question27 &&
+      fifthReply === question35 && sixthReply === question43 &&
+      seventhReply === question44 && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[1][0]}, ${sympthom[4][0]}, ${sympthom[13][0]}, ${sympthom[26][0]}, ${sympthom[34][0]} dan ${sympthom[42][0]} yang merupakan 6 dari 7 gejala Glaukoma.
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+    // jika user mengalami gejala 2, 5, 14, 27, 35, 43 dan 44
+    else if (firstReply === question2 && secondReply === question5 && 
+      thirdReply === question14 && fourthReply === question27 &&
+      fifthReply === question35 && sixthReply === question43 &&
+      seventhReply === question44 && eightReply === '' &&
+      input === 'y') {
+      reply=`Anda mengalami gejala ${sympthom[1][0]}, ${sympthom[4][0]}, ${sympthom[13][0]}, ${sympthom[26][0]}, ${sympthom[34][0]}, ${sympthom[42][0]} dan ${sympthom[43][0]} yang merupakan 7 dari 7 gejala Glaukoma.
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+
+
+
+    // Nomor aturan 10
+    // jika user mengalami gejala 2 dan 5 lanjut tanya gejala 14 (works)
+    else if (firstReply === question2 && secondReply === question5 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question14;
+      setThirdReply(reply)
+    }
+    /* jika user mengalami gejala 2 dan 5, tapi tidak mengalami gejala 14, (works)
+    lanjut tanya gejala 25 */
+    else if (firstReply === question2 && secondReply === question5 && 
+      thirdReply === question14 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=question25;
+      setThirdReply(reply)
+    }
+    /* jika user mengalami gejala 2 dan 5, tapi tidak mengalami gejala 14, 
+    dan mengalami gejala 25, lanjut tanya gejala 26 (works)*/
+    else if (firstReply === question2 && secondReply === question5 && 
+      thirdReply === question25 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question26;
+      setFourthReply(reply)
+    }
+    /* jika user mengalami gejala 2 dan 5, tidak mengalami gejala 14, 
+    dan tidak mengalami gejala 25 (works)*/
+    else if (firstReply === question2 && secondReply === question5 && 
+      thirdReply === question25 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[1][0]} dan ${sympthom[4][0]}, belum bisa dipastikan hasil skirining penyakit mata anda.
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+    /* jika user mengalami gejala 2 dan 5, tapi tidak mengalami gejala 14, 
+    dan mengalami gejala 25 dan 26 (works)*/
+    else if (firstReply === question2 && secondReply === question5 && 
+      thirdReply === question25 && fourthReply === question26 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=`Anda mengalami gejala ${sympthom[1][0]}, ${sympthom[4][0]}, ${sympthom[24][0]} dan ${sympthom[25][0]} yang merupakan 4 dari 4 gejala Selulitis Orbitalitas.
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+    /* jika user mengalami gejala 2 dan 5, tapi tidak mengalami gejala 14, 
+    dan mengalami gejala 25, tapi tidak mengalami gejala 26 (works)*/
+    else if (firstReply === question2 && secondReply === question5 && 
+      thirdReply === question25 && fourthReply === question26 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[1][0]} dan ${sympthom[4][0]} dan ${sympthom[24][0]} yang merupakan 3 dari 4 gejala Selulitis Orbitalitas.
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+    // jika user mengelami gejala 2 tapi tidak mengalami gejala 5 dan 29 (works)
     else if (firstReply === question2 && secondReply === question29 && 
       thirdReply === '' && fourthReply === '' &&
       fifthReply === '' && sixthReply === '' &&
       seventhReply === '' && eightReply === '' &&
       input === 't') {
-      reply=`Anda hanya mengalami gejala ${sympthom[1][0]}, 
-      belum bisa dipastikan hasil skrining penyakit mata anda`;
+      reply=`Anda hanya mengalami gejala ${sympthom[1][0]}, belum bisa dipastikan hasil skrining penyakit mata anda. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
     }
-    // jika user tidak mengalami gejal 2 lanjut ke gejala 5
+
+
+    // Nomor aturan 11
+    // jika user mengalami gejala 2 tapi tidak mengalami gejala 5 lanjut ke gejala 29 (works)
+    else if (firstReply === question2 && secondReply === question5 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=question29;
+      setSecondReply(reply)
+    }
+    /* jika user mengalami gejala 2 tapi tidak mengalami gejala 5 
+    dan mengalami gejala 29, lanjut ke gejala 35 (works)*/
+    else if (firstReply === question2 && secondReply === question29 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question35;
+      setThirdReply(reply)
+    }
+    /* jika user mengalami gejala 2 tapi tidak mengalami gejala 5 
+    dan mengalami gejala 29 dan tidak mengalami gejala 35 (works) */
+    else if (firstReply === question2 && secondReply === question29 && 
+      thirdReply === question35 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda hanya mengalami gejala ${sympthom[1][0]} dan ${sympthom[28][0]} yang merupakan 2 dari 4 gejala Miopi. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+    /* jika user mengalami gejala 2 tapi tidak mengalami gejala 5 
+    dan mengalami gejala 29 dan 35 lanjut ke gejala 51 (works) */
+    else if (firstReply === question2 && secondReply === question29 && 
+      thirdReply === question35 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question51;
+      setFourthReply(reply)
+    }
+    /* jika user mengalami gejala 2 tapi tidak mengalami gejala 5 
+    dan mengalami gejala 29 dan 35, tapi tidak mengalami gejala 51 (works) */
+    else if (firstReply === question2 && secondReply === question29 && 
+      thirdReply === question35 && fourthReply === question51 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda hanya mengalami gejala ${sympthom[1][0]}, ${sympthom[28][0]} dan ${sympthom[34][0]} yang merupakan 3 dari 4 gejala Miopi. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+    /* jika user mengalami gejala 2 tapi tidak mengalami gejala 5 
+    dan mengalami gejala 29,35 dan 51 (works) */
+    else if (firstReply === question2 && secondReply === question29 && 
+      thirdReply === question35 && fourthReply === question51 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=`Anda hanya mengalami gejala ${sympthom[1][0]}, ${sympthom[28][0]}, ${sympthom[34][0]} dan ${sympthom[50][0]} yang merupakan 4 dari 4 gejala Miopi. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+
+
+    // Nomor aturan 12
+    // jika user tidak mengalami gejala 2 lanjut ke gejala 5
     else if (firstReply === question2 && secondReply === '' && 
       thirdReply === '' && fourthReply === '' &&
       fifthReply === '' && sixthReply === '' &&
@@ -884,7 +1199,10 @@ const Chatbot = () => {
       setFirstReply(reply)
     }
 
-    // jika user didn't sympthom 5 go to sympthom 6
+
+
+    // Nomor aturan 16
+    // jika user tidak mengalami gejala 5 lanjut tanya gejala 6
     else if (firstReply === question5 && secondReply === '' && 
       thirdReply === '' && fourthReply === '' &&
       fifthReply === '' && sixthReply === '' &&
