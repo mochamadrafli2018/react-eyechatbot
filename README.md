@@ -34,5 +34,8 @@ List of Reference :
 4. React UseState :
 - https://daveceddia.com/usestate-hook-examples/
 
-5. Deployment :
+5. React Project Deployment on Heroku :
 - https://ramya.hashnode.dev/how-to-deploy-react-app-on-heroku-from-github
+
+6. MySQL Database Deployment on Heroku :
+- https://www.ismynr.xyz/2020/10/deploy-laravel-ke-heroku-mysql.html
