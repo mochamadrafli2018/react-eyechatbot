@@ -1,74 +1,20 @@
-import React, { useState } from 'react'
-import './style.css'
-import { Col, Row } from 'react-bootstrap'
-import SendIcon from '@mui/icons-material/Send'
-import {createTheme} from '@mui/material/styles'
-import {blue} from '@mui/material/colors'
+import React, {useState} from 'react'
 import {prompts,replies,alternative,coronavirus,} from './QnA'
-import {sympthom} from './DiseasesList'
+import {sympthom, diseases} from './DiseasesList'
 import addChat from './AddChat'
 import compare from './Compare'
 
-// material-ui theme
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: blue[700],
-    },
-  },
-})
+export default function Output({ input }) {
+    // reply
+    let [firstReply, setFirstReply] = useState('');
+    let [secondReply, setSecondReply] = useState('');
+    let [thirdReply, setThirdReply] = useState('');
+    let [fourthReply, setFourthReply] = useState('');
+    let [fifthReply, setFifthReply] = useState('');
+    let [sixthReply, setSixthReply] = useState('');
+    let [seventhReply, setSeventhReply] = useState('');
+    let [eightReply, setEightReply] = useState('');
 
-const Chatbot = () => {
-  /*const SendChatHandler = () => {
-    // axios.get('http:// localhost:5000/api/get').then((response) => {setRespon(response.data.response)})
-    /*axios.post('http:// localhost:5000/api/post', {
-      input: this.input
-    })
-    .then((response) => {
-      setQuestion(response.data.question)
-      setIsError(false)
-    })
-  }*/
-
-  const [input, setInput] = useState('')
-  const [berhasil, setBerhasil] = useState('')
-
-  // get bot reply after user input chat and button was clicked
-  const handleSubmit = () => {
-    setBerhasil('Berhasil')
-    output(input)
-    // return empty form input after user press enter
-    setInput('')
-  }
-  
-  // get bot reply after user input chat and enter was pressed
-  const handleKey = (event) => {
-    if (event.key === 'Enter') {
-      setBerhasil('Berhasil')
-      output(input);
-      // return empty form input after user press enter
-      setInput('')
-    }
-  }
-
-  // handle when form input was change or type by user
-  const handleChange = (event) => {
-    setInput(event.target.value)
-    setBerhasil('')
-  }
-
-  // reply
-  let [firstReply, setFirstReply] = useState('');
-  let [secondReply, setSecondReply] = useState('');
-  let [thirdReply, setThirdReply] = useState('');
-  let [fourthReply, setFourthReply] = useState('');
-  let [fifthReply, setFifthReply] = useState('');
-  let [sixthReply, setSixthReply] = useState('');
-  let [seventhReply, setSeventhReply] = useState('');
-  let [eightReply, setEightReply] = useState('');
-
-  // Main output function for replying user input
-  function output(input) {
     let reply; 
     input = input
       // replace all input text to lower case
@@ -1635,56 +1581,13 @@ const Chatbot = () => {
       reply = alternative[Math.floor(Math.random() * alternative.length)];
     }
 
-    // add chat
-    addChat(input, reply);
-  }
+    let result = addChat(input, reply);
 
-
- 
-  
-  return(
-    <div id='container'>
-      <Row className='mx-auto mb-3'>
-          <div id='messages' class='messages py-1 mx-auto mw-100' 
-          style={{color: theme.palette.primary.main}}>
-            {/*Chat will be append in here*/}
-          </div>
-      </Row>
-      <Row className='mb-3'>
-        <Col className='col-8'>
-            <input 
-            id='input' 
-            type='text'
-            className='form-control mr-0'
-            value={input}
-            placeholder='Ketik jawaban anda ...'
-            onChange={handleChange} // in order able to input text
-            onKeyPress={handleKey}
-            autocomplete='off'
-            autofocus='true'
-            />
-        </Col>
-        <Col className='col-4'>
-          {/*full button : d-grid gap-2*/}
-          <button type='submit' value='Submit' onClick={handleSubmit} className='btn btn-primary'>
-            <SendIcon />
-          </button>
-        </Col>          
-      </Row>
-      <Row>
-        <div className='mb-3'>Anda mengetik : {input}</div>
-        <div className='mb-3'>Pesan terkirim  : {berhasil}</div>
-        <div className='mb-3'>firstReply   : {firstReply}</div>   
-        <div className='mb-3'>secondReply  : {secondReply}</div>      
-        <div className='mb-3'>thirdReply   : {thirdReply}</div>      
-        <div className='mb-3'>fourthReply  : {fourthReply}</div>         
-        <div className='mb-3'>fifthReply   : {fifthReply}</div>      
-        <div className='mb-3'>sixthReply   : {sixthReply}</div>      
-        <div className='mb-3'>seventhReply : {seventhReply}</div>      
-        <div className='mb-3'>eightReply   : {eightReply}</div>      
-      </Row>
-    </div>
-  )
+    return {
+        result,
+        firstReply, secondReply, 
+        thirdReply, fourthReply, 
+        fifthReply, sixthReply, 
+        seventhReply, eightReply
+    };
 }
-
-export default Chatbot
