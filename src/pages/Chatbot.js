@@ -67,6 +67,17 @@ const Chatbot = () => {
   let [seventhReply, setSeventhReply] = useState('');
   let [eightReply, setEightReply] = useState('');
 
+  /*Output (
+    input, 
+    firstReply,   setFirstReply, 
+    secondReply,  setSecondReply,
+    thirdReply,   setThirdReply,
+    fourthReply,  setFourthReply,
+    fifthReply,   setFifthReply,
+    sixthReply,   setSixthReply,
+    seventhReply, setSeventhReply,
+    eightReply,   setEightReply,
+  )*/
   // Main output function for replying user input
   function output(input) {
     let reply; 
@@ -1548,8 +1559,8 @@ const Chatbot = () => {
 
 
 
-    // Nomor aturan 17
-    // jika user tidak mengelami gejala 2,5 dan 6 lanjut ke gejala 12
+    // Nomor aturan 17 Alergi Mata Merah (gejala12, gejala28, gejala30, gejala31)
+    // jika user tidak mengelami gejala 2,5 dan 6 lanjut ke gejala 12 (works)
     else if (firstReply === question6 && secondReply === '' && 
       thirdReply === '' && fourthReply === '' &&
       fifthReply === '' && sixthReply === '' &&
@@ -1558,6 +1569,78 @@ const Chatbot = () => {
       reply=question12;
       setFirstReply(reply)
     }
+    // jika user mengelami gejala 12, lanjut tanya gejala 28 (works)
+    else if (firstReply === question12 && secondReply === '' && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question28;
+      setSecondReply(reply)
+    }
+    // jika user mengelami gejala 12, 
+    // tapi tidak mengalami gejala gejala 28
+    else if (firstReply === question12 && secondReply === question28 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda hanya mengalami gejala ${sympthom[11][0]}, belum bisa ditentukan hasil skrining penyakit mata anda. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+    // jika user mengelami gejala 12,28 lanjut tanya gejala 30
+    else if (firstReply === question12 && secondReply === question28 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question30;
+      setThirdReply(reply)
+    }
+    // jika user mengelami gejala 12,28
+    // tapi tidak mengalami gejala gejala 30
+    else if (firstReply === question12 && secondReply === question28 && 
+      thirdReply === question30 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[11][0]} dan ${sympthom[27][0]} yang merupakan 2 dari 4 gejala Alergi Mata Merah. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+    // jika user mengelami gejala 12,28,30 lanjut tanya gejala 31
+    else if (firstReply === question12 && secondReply === question28 && 
+      thirdReply === question30 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question31;
+      setFourthReply(reply)
+    }
+    // jika user mengelami gejala 12,28,30
+    // tapi tidak mengalami gejala gejala 31
+    else if (firstReply === question12 && secondReply === question28 && 
+      thirdReply === question30 && fourthReply === question31 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[11][0]}, ${sympthom[27][0]} dan ${sympthom[29][0]} yang merupakan 3 dari 4 gejala Alergi Mata Merah. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+
+    // jika user mengelami gejala 12,28,30,31
+    else if (firstReply === question12 && secondReply === question28 && 
+      thirdReply === question30 && fourthReply === question31 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=`Anda mengalami gejala ${sympthom[11][0]}, ${sympthom[27][0]}, ${sympthom[29][0]} dan ${sympthom[30][0]} yang merupakan 4 dari 4 gejala Alergi Mata Merah. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`;
+    }
+
+
+
+    // Nomor aturan 18 Hordeolum (Stye) (gejala13, gejala14, gejala15, gejala27)
+    // jika user tidak mengelami gejala 2,5,6 dan 12, lanjut tanya gejala 13 (works)
     else if (firstReply === question12 && secondReply === '' && 
       thirdReply === '' && fourthReply === '' &&
       fifthReply === '' && sixthReply === '' &&
@@ -1566,6 +1649,74 @@ const Chatbot = () => {
       reply=question13;
       setFirstReply(reply)
     }
+    // jika user mengalami gejala 13, lanjut tanya gejala 14 (works)
+    else if (firstReply === question13 && secondReply === '' && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question14;
+      setSecondReply(reply)
+    }
+    // jika user mengalami gejala 13, tapi tidak mengalami gejala 14 (works)
+    else if (firstReply === question13 && secondReply === question14 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda hanya mengalami gejala ${sympthom[12][0]}, belum bisa ditentukan hasil skrining penyakit mata anda. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`
+    }
+    // jika user mengalami gejala 13 dan 14, lanjut tanya gejala 15 (works)
+    else if (firstReply === question13 && secondReply === question14 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question15;
+      setThirdReply(reply)
+    }
+    // jika user mengalami gejala 13 dan 14, tapi tidak mengalami gejala 15 (works)
+    else if (firstReply === question13 && secondReply === question14 && 
+      thirdReply === question15 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[12][0]} dan ${sympthom[13][0]}, yang merupakan 2 dari 4 gejala Hordeolum (Stye). 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`
+    }
+    // jika user mengalami gejala 13,14 dan 15, lanjut tanya gejala 27 (works)
+    else if (firstReply === question13 && secondReply === question14 && 
+      thirdReply === question15 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question27;
+      setFourthReply(reply)
+    }
+    // jika user mengalami gejala 13,14 dan 15, tapi tidak mengalami gejala 27 (works)
+    else if (firstReply === question13 && secondReply === question14 && 
+      thirdReply === question15 && fourthReply === question27 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[12][0]}, ${sympthom[13][0]} dan ${sympthom[14][0]}, yang merupakan 3 dari 4 gejala Hordeolum (Stye). 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`
+    }
+    // jika user mengalami gejala 13,14,15 dan 27 (works)
+    else if (firstReply === question13 && secondReply === question14 && 
+      thirdReply === question15 && fourthReply === question27 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=`Anda mengalami gejala ${sympthom[12][0]}, ${sympthom[13][0]}, ${sympthom[14][0]} dan ${sympthom[26][0]}, yang merupakan 4 dari 4 gejala Hordeolum (Stye). 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`
+    }
+
+
+
+    // Nomor aturan 19 Dakriosistitis (gejala14, gejala25, gejala27, gejala40, gejala41)
+    // jika user tidak mengelami gejala 2,5,6,12 dan 13, lanjut tanya gejala 14 (works)
     else if (firstReply === question13 && secondReply === '' && 
       thirdReply === '' && fourthReply === '' &&
       fifthReply === '' && sixthReply === '' &&
@@ -1574,6 +1725,91 @@ const Chatbot = () => {
       reply=question14;
       setFirstReply(reply)
     }
+    // jika user mengalami gejala 14, lanjut tanya gejala 25 (works)
+    else if (firstReply === question14 && secondReply === '' && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question25;
+      setSecondReply(reply)
+    }
+    // jika user mengalami gejala 14, dan tidak mengalami gejala 25 (works)
+    else if (firstReply === question14 && secondReply === question25 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda hanya mengalami gejala ${sympthom[13][0]}, belum bisa ditentukan hasil skrining penyakit mata anda. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`
+    }
+    // jika user mengalami gejala 14 dan 25, lanjut tanya gejala 27 (works)
+    else if (firstReply === question14 && secondReply === question25 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question27;
+      setThirdReply(reply)
+    }
+    // jika user mengalami gejala 14 dan 25, dan tidak mengalami gejala 27 (works)
+    else if (firstReply === question14 && secondReply === question25 && 
+      thirdReply === question27 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[13][0]} dan ${sympthom[24][0]}, yang merupakan 2 dari 5 gejala Dakriosistitis. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`
+    }
+    // jika user mengalami gejala 14,25 dan 27, lanjut tanya gejala 40 (works)
+    else if (firstReply === question14 && secondReply === question25 && 
+      thirdReply === question27 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question40;
+      setFourthReply(reply)
+    }
+    // jika user mengalami gejala 14,25 dan 27, dan tidak mengalami gejala 40 (works)
+    else if (firstReply === question14 && secondReply === question25 && 
+      thirdReply === question27 && fourthReply === question40 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[13][0]}, ${sympthom[24][0]} dan ${sympthom[26][0]}, yang merupakan 3 dari 5 gejala Dakriosistitis. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`
+    }
+    // jika user mengalami gejala 14,25,27 dan 40, lanjut tanya gejala 41 (works)
+    else if (firstReply === question14 && secondReply === question25 && 
+      thirdReply === question27 && fourthReply === question40 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question41;
+      setFifthReply(reply)
+    }
+    // jika user mengalami gejala 14,25,27 dan 40, tapi tidak mengalami gejala 41 (works)
+    else if (firstReply === question14 && secondReply === question25 && 
+      thirdReply === question27 && fourthReply === question40 &&
+      fifthReply === question41 && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[13][0]}, ${sympthom[24][0]}, ${sympthom[26][0]} dan ${sympthom[39][0]}, yang merupakan 4 dari 5 gejala Dakriosistitis. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`
+    }
+    // jika user mengalami gejala 14,25,27,40 dan 41 (works)
+    else if (firstReply === question14 && secondReply === question25 && 
+      thirdReply === question27 && fourthReply === question40 &&
+      fifthReply === question41 && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=`Anda mengalami gejala ${sympthom[13][0]}, ${sympthom[24][0]}, ${sympthom[26][0]}, ${sympthom[39][0]} dan ${sympthom[40][0]}, yang merupakan 5 dari 5 gejala Dakriosistitis. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`
+    }
+
+
+
+    // Nomor aturan 20
     else if (firstReply === question14 && secondReply === '' && 
       thirdReply === '' && fourthReply === '' &&
       fifthReply === '' && sixthReply === '' &&
@@ -1638,9 +1874,6 @@ const Chatbot = () => {
     // add chat
     addChat(input, reply);
   }
-
-
- 
   
   return(
     <div id='container'>

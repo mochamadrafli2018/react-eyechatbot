@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router'
 import axios from 'axios'
-import PrimarySearchAppBar from '../components/AppBar'
+import AppBar from '../components/AppBar'
 import Chatbot from './Chatbot'
 
 export default function Dashboard() {
@@ -39,14 +39,24 @@ export default function Dashboard() {
     });
   };
 
+  let handleScroll = (e) => { //https://kempsterrrr.xyz/articles/handling-scroll-events-in-react
+    if (e.target.classList.contains("on-scrollbar") === false) {
+        e.target.classList.add("on-scrollbar");
+    }
+    let element = e.target
+    if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+      // do something at end of scroll
+    }
+  }
+
   return (
   <div className='poppins'>
+    <AppBar logoutHandler={logoutHandler} />
     <div className='container' style={{ marginTop:'70px',marginBottom:'50px'}}>
       <div className='row justify-content-center'>
         <div className='col-md-8'>
           <div className='card border-5px rounded shadow-sm'>
             <div className='card-body'>
-              <PrimarySearchAppBar logoutHandler={logoutHandler} />
               Hallo <strong className='text-uppercase'>{user.name}</strong>
               <hr />
               <p className=''>Ingin coba skreening? coba ketikkan sesuatu atau lihat <a href='#id'>panduan pengguna</a></p>
@@ -57,8 +67,11 @@ export default function Dashboard() {
         </div>
       </div>
     </div>
-    <footer className='d-block p-1 bg-primary text-white text-center' style={{position:'fixed','bottom':0,'width':'100%'}}>
-      &copy; { year } - Mochamad Rafli Ramadhan
+    <footer 
+    className='d-block p-1 bg-primary text-white text-center' 
+    fixed='bottom'
+    style={{'width':'100%'}}
+    >&copy; { year } - Mochamad Rafli Ramadhan
     </footer>
   </div>
   )
