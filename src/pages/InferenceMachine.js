@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import {prompts,replies,alternative,coronavirus,} from './QnA'
 import {sympthom} from './DiseasesList'
 import addChat from './AddChat'
@@ -103,7 +102,7 @@ export default function Output({
 
 
     // Nomor aturan 1
-    else if (input === 'mulai' || 
+    else if (input === 'mulai' || input === 'test' ||
     input === 'tes'|| input === 'skrining') {
       reply = question1;
       setFirstReply(reply)
@@ -1745,7 +1744,9 @@ export default function Output({
 
 
 
-    // Nomor aturan 20
+    // Nomor aturan 20 dan 21 (gejala18, gejala19, gejala20)
+    // jika user tidak mengalami gejala 2,5,6,12,13 dan 14, (works)
+    // lanjut tanya gejala 18
     else if (firstReply === question14 && secondReply === '' && 
       thirdReply === '' && fourthReply === '' &&
       fifthReply === '' && sixthReply === '' &&
@@ -1754,6 +1755,56 @@ export default function Output({
       reply=question18;
       setFirstReply(reply)
     }
+    // jika user mengalami gejala 18, lanjut tanya gejala 19 (works)
+    else if (firstReply === question18 && secondReply === '' && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question19;
+      setSecondReply(reply)
+    }
+    // jika user mengalami gejala 18, tapi tidak mengalami tanya gejala 19 (works)
+    else if (firstReply === question18 && secondReply === question19 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda hanya mengalami gejala ${sympthom[17][0]}, belum bisa ditentukan hasil skrining penyakit mata anda`;
+    }
+    // jika user mengalami gejala 18 dan 19 lanjut tanya gejala 20 (works)
+    else if (firstReply === question18 && secondReply === question19 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question20;
+      setThirdReply(reply)
+    }
+    // jika user mengalami gejala 18 dan 19, tapi tidak mengalami tanya gejala 20 (works)
+    else if (firstReply === question18 && secondReply === question19 && 
+      thirdReply === question20 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[17][0]} dan ${sympthom[18][0]}, yang merupakan 2 dar 2 gejala Retinopati Diabetikum. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`
+    }
+    // jika user mengalami gejala 18,19 dan 20 (works)
+    else if (firstReply === question18 && secondReply === question19 && 
+      thirdReply === question20 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=`Anda mengalami gejala ${sympthom[17][0]}, ${sympthom[18][0]} dan ${sympthom[19][0]}, yang merupakan 3 dar 3 gejala Abalso Retina. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut`
+    }
+
+    
+
+    // Nomor aturan 22 Xerophtalmania (gejala22, gejala45, gejala46)
+    // jika user tidak mengalami gejala 2,5,6,12,13,14 dan 18, (works)
+    // lanjut tanya gejala 22
     else if (firstReply === question18 && secondReply === '' && 
       thirdReply === '' && fourthReply === '' &&
       fifthReply === '' && sixthReply === '' &&
@@ -1762,6 +1813,57 @@ export default function Output({
       reply=question22;
       setFirstReply(reply)
     }
+    // jika user mengalami gejala 22, lanjut tanya gejala 45 (works)
+    else if (firstReply === question22 && secondReply === '' && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question45;
+      setSecondReply(reply)
+    }
+    // jika user mengalami gejala 22, tapi tidak mengalamai gejala 45 (works)
+    else if (firstReply === question22 && secondReply === question45 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda hanya mengalami gejala ${sympthom[21][0]}, belum bisa ditentukan hasil skrining penyakit mata anda. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut.`
+    }
+    // jika user mengalami gejala 22 dan 45, lanjut tanya gejala 46 (works)
+    else if (firstReply === question22 && secondReply === question45 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question46;
+      setThirdReply(reply)
+    }
+    // jika user mengalami gejala 22 dan 45, tapi tidak mengalamai gejala 46 (works)
+    else if (firstReply === question22 && secondReply === question45 && 
+      thirdReply === question46 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[21][0]} dan ${sympthom[44][0]}, yang merupakan 2 dari 3 gejala Xerophtalmania. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut.`
+    }
+    // jika user mengalami gejala 22,45 dan 46 (works)
+    else if (firstReply === question22 && secondReply === question45 && 
+      thirdReply === question46 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=`Anda mengalami gejala ${sympthom[21][0]}, ${sympthom[44][0]} dan ${sympthom[45][0]}, yang merupakan 3 dari 3 gejala Xerophtalmania. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut.`
+    }
+
+
+
+    // Nomor aturan 23 Eksoftalmus (gejala24)
+    // jika user tidak mengalami gejala 2,5,6,12,13,14,18 dan 22, (works)
+    // lanjut tanya gejala 24
     else if (firstReply === question22 && secondReply === '' && 
       thirdReply === '' && fourthReply === '' &&
       fifthReply === '' && sixthReply === '' &&
@@ -1770,6 +1872,21 @@ export default function Output({
       reply=question24;
       setFirstReply(reply)
     }
+    // jika user mengalami gejala 24 (works)
+    else if (firstReply === question24 && secondReply === '' && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=`Anda mengalami gejala ${sympthom[23][0]}, yang merupakan 1 dari 1 gejala Eksoftalmus. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut.`
+    }
+
+
+
+    // Nomor aturan 24 Trombosis Sinus Kavernosus (gejala25, gejala35, gejala36, gejala37)
+    // jika user tidak mengalami gejala 2,5,6,12,13,14,18,22 dan 24, (works)
+    // lanjut tanya gejala 25
     else if (firstReply === question24 && secondReply === '' && 
       thirdReply === '' && fourthReply === '' &&
       fifthReply === '' && sixthReply === '' &&
@@ -1778,6 +1895,75 @@ export default function Output({
       reply=question25;
       setFirstReply(reply)
     }
+    // jika user mengalami gejala 25 lanjut tanya gejala 35 (works)
+    else if (firstReply === question25 && secondReply === '' && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question35;
+      setSecondReply(reply)
+    }
+    // jika user mengalami gejala 25, tapi tidak mengetahui gejala 35 (works)
+    else if (firstReply === question25 && secondReply === question35 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda hanya mengalami gejala ${sympthom[24][0]}, belum bisa ditentukan hasil skrining penyakit mata anda. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut.`
+    }
+    // jika user mengalami gejala 25 dan 35, lanjut tanya gejala 36 (works)
+    else if (firstReply === question25 && secondReply === question35 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question36;
+      setThirdReply(reply)
+    }
+    // jika user mengalami gejala 25 dan 35, tapi tidak mengalami gejala 36 (works)
+    else if (firstReply === question25 && secondReply === question35 && 
+      thirdReply === question36 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[24][0]} dan ${sympthom[34][0]}, yang merupakan 2 dari 4 gejala Trombosis Sinus Kavernosus. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut.`
+    }
+    // jika user mengalami gejala 25,35 dan 36, lanjut tanya gejala 37 (works)
+    else if (firstReply === question25 && secondReply === question35 && 
+      thirdReply === question36 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question37;
+      setFourthReply(reply)
+    }
+    // jika user mengalami gejala 25,35 dan 36, tapi tidak mengalami gejala 37 (works)
+    else if (firstReply === question25 && secondReply === question35 && 
+      thirdReply === question36 && fourthReply === question37 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[24][0]}, ${sympthom[34][0]} dan ${sympthom[35][0]}, yang merupakan 3 dari 4 gejala Trombosis Sinus Kavernosus. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut.`
+    }
+    // jika user mengalami gejala 25,35,36 dan 37 (works)
+    else if (firstReply === question25 && secondReply === question35 && 
+      thirdReply === question36 && fourthReply === question37 &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=`Anda mengalami gejala ${sympthom[24][0]}, ${sympthom[34][0]}, ${sympthom[35][0]} dan ${sympthom[36][0]}, yang merupakan 4 dari 4 gejala Trombosis Sinus Kavernosus. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut.`
+    }
+
+
+
+    // Nomor aturan 25 Optic Neuritis (gejala38, gejala39)
+    // jika user tidak mengalami gejala 2,5,6,12,13,14,18,22,24,25 dan 38, (works)
+    // lanjut tanya gejala 38
     else if (firstReply === question25 && secondReply === '' && 
       thirdReply === '' && fourthReply === '' &&
       fifthReply === '' && sixthReply === '' &&
@@ -1786,6 +1972,39 @@ export default function Output({
       reply=question38;
       setFirstReply(reply)
     }
+    // jika user mengalami gejala 38, lanjut tanya gejala 39
+    else if (firstReply === question38 && secondReply === '' && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question39;
+      setSecondReply(reply)
+    }
+    // jika user mengalami gejala 38, tapi tidak mengalami gejala 39
+    else if (firstReply === question38 && secondReply === question39 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[37][0]}, yang merupakan 1 dari 2 gejala Optic Neuritis. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut.`
+    }
+    // jika user mengalami gejala 38 dan 39
+    else if (firstReply === question38 && secondReply === question39 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=`Anda mengalami gejala ${sympthom[37][0]} dan ${sympthom[38][0]}, yang merupakan 2 dari 2 gejala Optic Neuritis. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut.`
+    }
+    
+
+
+    // Nomor aturan 26 Degenerasi Makula (gejala47, gejala48, gejala49)
+    // jika user tidak mengalami gejala 2,5,6,12,13,14,18,22,24,25,38 dan 47 (works)
+    // lanjut tanya gejala 47
     else if (firstReply === question38 && secondReply === '' && 
       thirdReply === '' && fourthReply === '' &&
       fifthReply === '' && sixthReply === '' &&
@@ -1794,6 +2013,55 @@ export default function Output({
       reply=question47;
       setFirstReply(reply)
     }
+    // jika user mengalami gejala 47, lanjut tanya gejala 48 (works)
+    else if (firstReply === question47 && secondReply === '' && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question48;
+      setSecondReply(reply)
+    }
+    // jika user mengelami gejala 47, tapi tidak mengalami gejala 48 (works)
+    else if (firstReply === question47 && secondReply === question48 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda hanya mengalami gejala ${sympthom[46][0]}, belum bisa ditentukan hasil skrining penyakit mata anda. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut.`
+    }
+    // jika user mengalami gejala 47 dan 48, lanjut tanya gejala 49 (works)
+    else if (firstReply === question47 && secondReply === question48 && 
+      thirdReply === '' && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=question49;
+      setThirdReply(reply)
+    }
+    // jika user mengelami gejala 47 dan 48, tapi tidak mengalami gejala 49 (works)
+    else if (firstReply === question47 && secondReply === question48 && 
+      thirdReply === question49 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 't') {
+      reply=`Anda mengalami gejala ${sympthom[46][0]} dan ${sympthom[47][0]}, yang merupakan 2 dari 3 gejala Degenerasi Makula. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut.`
+    }
+    // jika user mengalami gejala 47,48 dan 49 (works)
+    else if (firstReply === question47 && secondReply === question48 && 
+      thirdReply === question49 && fourthReply === '' &&
+      fifthReply === '' && sixthReply === '' &&
+      seventhReply === '' && eightReply === '' &&
+      input === 'y') {
+      reply=`Anda mengalami gejala ${sympthom[46][0]}, ${sympthom[47][0]} dan ${sympthom[48][0]}, yang merupakan 3 dari 3 gejala Degenerasi Makula. 
+      Silahkan konsultasi ke dokter spesialis mata untuk informasi lebih lanjut.`
+    }
+
+
+
+    // jika user tidak mengalami gejala 2,5,6,12,13,14,18,22,24,25,38 dan 47 (works)
     else if (firstReply === question47 && secondReply === '' && 
       thirdReply === '' && fourthReply === '' &&
       fifthReply === '' && sixthReply === '' &&
@@ -1801,6 +2069,8 @@ export default function Output({
       input === 't') {
       reply='Maaf, sistem tidak dapat melakukan skrining penyakit anda'
     }
+
+
 
     else {
       // If all else fails: random alternative

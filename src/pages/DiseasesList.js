@@ -42,7 +42,7 @@ const sympthom = [
     //gejala21
     ['kesulitan melihat di malam hari (gejala 21)'],
     //gejala22
-    ['penurunan ketajaman penglihatan (bahkan siang hari) (gejala 22)'],	
+    ['penurunan ketajaman penglihatan (bahkan di siang hari) (gejala 22)'],	
     //gejala23
     ['kemerahan pada skelra (gejala 23)'],
     //gejala24

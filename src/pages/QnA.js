@@ -7,7 +7,7 @@ const prompts = [
     'bagaimana kabar anda','kabar anda',
     'apa kabar','bagaimana hari anda?','apa kabar?'],
     //3
-    ['baik','senang','luar biasa'],
+    ['baik','baik juga','senang','luar biasa'],
     //4
     ['buruk','bosan','lelah','sedih','kecewa','tertekan','depresi'],
     //5
@@ -16,8 +16,6 @@ const prompts = [
     ['terima kasih','makasih','makasih banyak'],
     //7
     ['selamat tinggal','sampai jumpa','sampai jumpa lagi'],
-    //8
-    //['mulai','chat','skrining','test'],
 ];
 
 // Possible responses,in corresponding order
@@ -28,7 +26,7 @@ const replies = [
   ['Baik... bagaimana keadaan anda?',
   'Sangat baik, anda?','Luar biasa, bagaimana hari anda?'],
   //3
-  ['Menarik','Wow'],
+  ['Menarik','Wah, syukurlah!','Senang mendengarnya'],
   //4
   ['Kenapa?','Semangat ya'],
   //5
