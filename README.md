@@ -19,14 +19,15 @@ You will also see any lint errors in the console.
 List of Reference :
 
 1. Buildpack for Node.js : 
-- https://github.com/mars/create-react-app-buildpack
-- https://github.com/heroku/heroku-buildpack-nodejs
+- React Buildpack  : https://github.com/mars/create-react-app-buildpack
+- Node Buildpack   : https://github.com/heroku/heroku-buildpack-nodejs
 
-2. React form data, event key, handling event :
-- https://stackoverflow.com/questions/23427384/get-form-data-in-reactjs
-- https://www.freecodecamp.org/news/javascript-keycode-list-keypress-event-key-codes/
-- https://reactjs.org/docs/handling-events.html
-- https://stackoverflow.com/questions/27827234/how-to-handle-the-onkeypress-event-in-reactjs
+2. Javascript form data, event key, handling event, input to lower case :
+- get input data   : https://stackoverflow.com/questions/23427384/get-form-data-in-reactjs
+- eventKey         : https://www.freecodecamp.org/news/javascript-keycode-list-keypress-event-key-codes/
+- handling event   : https://reactjs.org/docs/handling-events.html
+- input onkeypress : https://stackoverflow.com/questions/27827234/how-to-handle-the-onkeypress-event-in-reactjs
+- lower case input : https://stackoverflow.com/questions/39999367/how-do-i-reference-a-local-image-in-react
 
 3. React create element :
 - https://reactgo.com/react-createelement-example
