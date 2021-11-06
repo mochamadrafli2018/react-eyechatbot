@@ -1,20 +1,16 @@
 import React, { useState } from 'react'
 import './style.css'
-import { Col, Row } from 'react-bootstrap'
-import SendIcon from '@mui/icons-material/Send'
 import {createTheme} from '@mui/material/styles'
 import {blue} from '@mui/material/colors'
 import {prompts,replies,alternative,coronavirus,} from './QnA'
-import {sympthom} from './DiseasesList'
+import {sympthom} from './SymthomList'
 import addChat from './AddChat'
 import compare from './Compare'
-
+import ChatbotInterface from './ChatbotInterface'
 // material-ui theme
 const theme = createTheme({
   palette: {
-    primary: {
-      main: blue[700],
-    },
+    primary: {main: blue[700]},
   },
 })
 
@@ -30,34 +26,45 @@ const Chatbot = () => {
     })
   }*/
 
+  // set initial condition const input and berhasil
   const [input, setInput] = useState('')
   const [berhasil, setBerhasil] = useState('')
-
-  // get bot reply after user input chat and button was clicked
-  const handleSubmit = () => {
-    setBerhasil('Berhasil')
-    output(input)
-    // return empty form input after user press enter
-    setInput('')
-  }
-  
-  // get bot reply after user input chat and enter was pressed
-  const handleKey = (event) => {
-    if (event.key === 'Enter') {
-      setBerhasil('Berhasil')
-      output(input);
-      // return empty form input after user press enter
-      setInput('')
-    }
-  }
-
-  // handle when form input was change or type by user
+  // handle when form input was change or type by user and also get user input with setInput
   const handleChange = (event) => {
     setInput(event.target.value)
     setBerhasil('')
   }
+  // get bot reply after user input chat and button was clicked
+  const handleSubmit = () => {
+    setBerhasil('Berhasil')
+    Output(input)
+    setInput('')  // return empty form after user press enter
+  }
+  const handleSubmitMulai = () => {
+    setBerhasil('Berhasil')
+    Output('mulai')
+    setInput('')
+  }
+  const handleSubmitYa = () => {
+    setBerhasil('Berhasil')
+    Output('y')
+    setInput('')
+  }
+  const handleSubmitTidak = () => {
+    setBerhasil('Berhasil')
+    Output('t')
+    setInput('')
+  }
+  // get bot reply after user input chat and enter was pressed
+  const handleKey = (event) => {
+    if (event.key === 'Enter') {
+      setBerhasil('Berhasil')
+      Output(input)
+      setInput('')
+    }
+  }
 
-  // reply
+  // set reply
   let [firstReply, setFirstReply] = useState('');
   let [secondReply, setSecondReply] = useState('');
   let [thirdReply, setThirdReply] = useState('');
@@ -66,24 +73,12 @@ const Chatbot = () => {
   let [sixthReply, setSixthReply] = useState('');
   let [seventhReply, setSeventhReply] = useState('');
   let [eightReply, setEightReply] = useState('');
-
-  /*Output (
-    input, 
-    firstReply,   setFirstReply, 
-    secondReply,  setSecondReply,
-    thirdReply,   setThirdReply,
-    fourthReply,  setFourthReply,
-    fifthReply,   setFifthReply,
-    sixthReply,   setSixthReply,
-    seventhReply, setSeventhReply,
-    eightReply,   setEightReply,
-  )*/
-  // Main output function for replying user input
-  function output(input) {
+  // Main Output function for replying user input
+  function Output(input) {
     let reply; 
     input = input
       // replace all input text to lower case
-      .toLowerCase() //https://stackoverflow.com/questions/39999367/how-do-i-reference-a-local-image-in-react
+      .toLowerCase()
       // replace unneccessary input from user
       .replace(/[^\w\s]/gi, '')
       .replace(/[\d]/gi, '')
@@ -128,7 +123,7 @@ const Chatbot = () => {
     let question29 = `Apa anda mengalami gejala ${sympthom[28][0]} ? (y/t)`;
     let question30 = `Apa anda mengalami gejala ${sympthom[29][0]} ? (y/t)`;
     let question31 = `Apa anda mengalami gejala ${sympthom[30][0]} ? (y/t)`;
-    let question32 = `Apa anda mengalami gejala ${sympthom[31][0]} ? (y/t)`;
+    //let question32 = `Apa anda mengalami gejala ${sympthom[31][0]} ? (y/t)`;
     let question33 = `Apa anda mengalami gejala ${sympthom[32][0]} ? (y/t)`;
     let question34 = `Apa anda mengalami gejala ${sympthom[33][0]} ? (y/t)`;
     let question35 = `Apa anda mengalami gejala ${sympthom[34][0]} ? (y/t)`;
@@ -138,7 +133,7 @@ const Chatbot = () => {
     let question39 = `Apa anda mengalami gejala ${sympthom[38][0]} ? (y/t)`;
     let question40 = `Apa anda mengalami gejala ${sympthom[39][0]} ? (y/t)`;
     let question41 = `Apa anda mengalami gejala ${sympthom[40][0]} ? (y/t)`;
-    let question42 = `Apa anda mengalami gejala ${sympthom[41][0]} ? (y/t)`;
+    //let question42 = `Apa anda mengalami gejala ${sympthom[41][0]} ? (y/t)`;
     let question43 = `Apa anda mengalami gejala ${sympthom[42][0]} ? (y/t)`;
     let question44 = `Apa anda mengalami gejala ${sympthom[43][0]} ? (y/t)`;
     let question45 = `Apa anda mengalami gejala ${sympthom[44][0]} ? (y/t)`;
@@ -2146,47 +2141,24 @@ const Chatbot = () => {
   }
   
   return(
-    <div id='container'>
-      <Row className='mx-auto mb-3'>
-          <div id='messages' class='messages py-1 mx-auto mw-100' 
-          style={{color: theme.palette.primary.main}}>
-            {/*Chat will be append in here*/}
-          </div>
-      </Row>
-      <Row className='mb-3'>
-        <Col className='col-8'>
-            <input 
-            id='input' 
-            type='text'
-            className='form-control mr-0'
-            value={input}
-            placeholder='Ketik jawaban anda ...'
-            onChange={handleChange} // in order able to input text
-            onKeyPress={handleKey}
-            autocomplete='off'
-            autofocus='true'
-            />
-        </Col>
-        <Col className='col-4'>
-          {/*full button : d-grid gap-2*/}
-          <button type='submit' value='Submit' onClick={handleSubmit} className='btn btn-primary'>
-            <SendIcon />
-          </button>
-        </Col>          
-      </Row>
-      <Row>
-        <div className='mb-3'>Anda mengetik : {input}</div>
-        <div className='mb-3'>Pesan terkirim  : {berhasil}</div>
-        <div className='mb-3'>firstReply   : {firstReply}</div>   
-        <div className='mb-3'>secondReply  : {secondReply}</div>      
-        <div className='mb-3'>thirdReply   : {thirdReply}</div>      
-        <div className='mb-3'>fourthReply  : {fourthReply}</div>         
-        <div className='mb-3'>fifthReply   : {fifthReply}</div>      
-        <div className='mb-3'>sixthReply   : {sixthReply}</div>      
-        <div className='mb-3'>seventhReply : {seventhReply}</div>      
-        <div className='mb-3'>eightReply   : {eightReply}</div>      
-      </Row>
-    </div>
+    <ChatbotInterface 
+      input={input}
+      handleChange={handleChange}
+      handleKey={handleKey}
+      handleSubmit={handleSubmit}
+      handleSubmitMulai={handleSubmitMulai}
+      handleSubmitYa={handleSubmitYa}
+      handleSubmitTidak={handleSubmitTidak}
+      berhasil={berhasil}
+      firstReply={firstReply}
+      secondReply={secondReply}
+      thirdReply={thirdReply}
+      fourthReply={fourthReply}
+      fifithReply={fifthReply}
+      sixthReply={sixthReply}
+      seventhReply={seventhReply}
+      eightReply={eightReply}
+    />
   )
 }
 

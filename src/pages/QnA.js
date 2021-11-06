@@ -1,5 +1,7 @@
 // Options the user could type in
 const prompts = [
+    //0
+    [''],
     //1 
     ['hi','hai','hei','hey','halo','hallo','hello'],
     //2
@@ -20,6 +22,8 @@ const prompts = [
 
 // Possible responses,in corresponding order
 const replies = [
+  //0
+  ['Coba ketikkan sesuatu'],
   //1
   ['Hallo!','Hai!'],
   //2

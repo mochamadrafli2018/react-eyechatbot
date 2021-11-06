@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router'
 import axios from 'axios'
-import AppBar from '../components/AppBar'
+import AppBar from './AppBar'
 import Chatbot from './Chatbot'
 
 export default function Dashboard() {
   const year= new Date().getFullYear()
   const [user, setUser] = useState({})
-  const [isLoading, setIsLoading] = useState(true)
+  //const [isLoading, setIsLoading] = useState(true)
   const history = useHistory();
   const token = localStorage.getItem('token')
 
@@ -18,7 +18,7 @@ export default function Dashboard() {
     await axios.get('http://localhost:8000/api/user')
     .then((response) => {
       setUser(response.data)
-      setIsLoading(false)
+      //setIsLoading(false)
     })
   }
   // to run some side effects in component
@@ -51,8 +51,9 @@ export default function Dashboard() {
 
   return (
   <div className='poppins'>
+    {/*AppBar*/}
     <AppBar logoutHandler={logoutHandler} />
-    <div className='container' style={{ marginTop:'70px',marginBottom:'50px'}}>
+    <div className='container' style={{ marginTop:'70px',marginBottom:'20px'}}>
       <div className='row justify-content-center'>
         <div className='col-md-8'>
           <div className='card border-5px rounded shadow-sm'>
@@ -61,6 +62,7 @@ export default function Dashboard() {
               <hr />
               <p className=''>Ingin coba skreening? coba ketikkan sesuatu atau lihat <a href='#id'>panduan pengguna</a></p>
               <h4 className='border-5px rounded-top d-block mb-0 p-1 bg-primary text-white text-left text-center'>Chatbot</h4>
+              {/*Chatbot interface*/}
               <Chatbot />
             </div>
           </div>
@@ -68,10 +70,10 @@ export default function Dashboard() {
       </div>
     </div>
     <footer 
-    className='d-block p-1 bg-primary text-white text-center' 
-    fixed='bottom'
-    style={{'width':'100%'}}
-    >&copy; { year } - Mochamad Rafli Ramadhan
+      className='d-block p-1 bg-primary text-white text-center' 
+      fixed='bottom'
+      style={{'width':'100%'}}
+      >&copy; { year } - Mochamad Rafli Ramadhan
     </footer>
   </div>
   )
