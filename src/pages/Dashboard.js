@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import {useHistory} from 'react-router'
-import {Link} from 'react-router-dom'
-import axios from 'axios'
-import AppBar from './AppBar'
-import {Card} from 'react-bootstrap'
-import image1 from './Image-1.jpg'
-import image2 from './Image-2.jpg'
+import React, { useState, useEffect } from 'react';
+import {useHistory} from 'react-router';
+import {Link} from 'react-router-dom';
+import axios from 'axios';
+import AppBar from './AppBar';
+import {Card} from 'react-bootstrap';
+import image1 from '../img/Image-1.jpg';
+import image2 from '../img/Image-2.jpg';
 
 export default function Dashboard () {
   const [user, setUser] = useState({})
@@ -38,11 +38,10 @@ export default function Dashboard () {
       history.push('/login');           //redirect halaman login
     });
   };
-
-  const toChatbotHandler = async () => {
-    history.push('/chabot');
+  const toChatbot = async() => {
+    history.push('/chatbot')
   }
-  
+
   return (
     <div class='poppins'>
       {/*AppBar*/}
@@ -57,7 +56,7 @@ export default function Dashboard () {
         <div class='row'>
           <div class='col'>
             <Card 
-              style={{width:'18rem'}} 
+              style={{width:'98%'}} 
               class='card mx-auto rounded shadow'
             >
               <Card.Img variant='top' src={image1} />
@@ -78,7 +77,7 @@ export default function Dashboard () {
           </div>
           <div class='col'>
             <Card 
-              style={{width:'18rem'}} 
+              style={{width:'98%'}} 
               class='card mx-auto rounded shadow'
             >
               <Card.Img variant='top' src={image2} />
@@ -89,7 +88,7 @@ export default function Dashboard () {
                 <Card.Text>
                   Diprogram dengan React.js dan React-Bootstrap
                 </Card.Text>
-                <Link to={'./chatbot'}>
+                <Link to={"./chatbot"}>
                   <button class='btn btn-primary'
                   >Klik untuk Coba
                   </button>

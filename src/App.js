@@ -7,19 +7,19 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import ChatbotDashboard from './pages/ChatbotDashboard';
 import Dashboard from './pages/Dashboard';
+import Guide from './pages/Guide';
 class App extends React.Component {
   render(){
     return(
-      <div>
-        <BrowserRouter>
-          <Switch>
-            <Route exact path='/login' component={Login} />
-            <Route exact path='/register' component={Register} />
-            <Route exact path='/chatbot' component={ChatbotDashboard} />
-            <Route exaxt path='/' component={Dashboard} />
-          </Switch>
-        </BrowserRouter>
-      </div>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/register' component={Register} />
+          <Route exaxt path='/' component={Dashboard} />
+          <Route exact path='/chatbot' component={ChatbotDashboard} />
+          <Route exact path='/guide' component={Guide} />
+        </Switch>
+      </BrowserRouter>
     )
   }
 }

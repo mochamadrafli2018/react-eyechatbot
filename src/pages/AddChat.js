@@ -1,6 +1,5 @@
-import bot from './bot.png'
-import user from './user.png'
-
+import bot from '../img/bot.png'
+import user from '../img/user.png'
 // make a inout and reply as a component
 export default function addChat(input, reply) {
     const messagesContainer = document.getElementById('messages')

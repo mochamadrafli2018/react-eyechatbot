@@ -39,22 +39,6 @@ const replies = [
   ['Sama-sama','Senang membantu anda','Tidak masalah sobat'],
   //7
   ['Selamat tinggal','Sampai jumpa lagi'],
-  //8
-  ['Dari gejala berikut '],
-  //9 gejala1 ada 8 penyakit
-  ['Apakah anda peka terhadap cahaya (fotofobia) ?'],
-  //10 gejala2 ada 8 penyakit
-  ['Apakah anda terasa nyeri ?'],
-  //11 gejala14 ada 8 penyakit
-  ['Apakah anda mata berair ?'],
-  //12 gejala18 ada 7 penyakit
-  ['Apakah anda penglihatan kabur ?'],
-  //13 gejala27 ada 8 penyakit
-  ['Apakah anda mata merah ?'],
-  //14 gejala28 ada 5 penyakit
-  ['Apakah anda mata terasa gatal ?'],
-  //15
-  ['Oke,kita ke pertanyaan selanjutnya, apakah kamu mengalami gejala ...'],
 ];
 
 const alternative = [
