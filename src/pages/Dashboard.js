@@ -38,7 +38,6 @@ export default function Dashboard () {
       history.push('/login');           //redirect halaman login
     });
   };
-
   // redirect to chatbot dashboard
   const toChatbotDashboard = () => {
     history.push('/chatbot');
@@ -50,8 +49,8 @@ export default function Dashboard () {
       <AppBar logoutHandler={logoutHandler} />
       {/*Main Menu*/}
       <div 
-        className='container p-3 mb-3 mx-auto border-5px rounded shadow-lg' 
-        style={{marginTop:'80px',maxWidth:'800px',width:'98%'}}
+        className='container p-1 mb-3 mx-auto mw-75 border-5px rounded shadow-lg' 
+        style={{marginTop:'80px',width:'98%'}}
       >
         Hallo <strong className='text-uppercase'>{user.name}</strong>
         <hr />

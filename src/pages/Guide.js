@@ -18,7 +18,7 @@ export default function Guide () {
         </Navbar>
       </div>
       <div className='container' style={{marginTop:'75px'}}>
-        <div className='card p-3 mx-auto mt-3 mb-3 shadow-lg border rounded'>
+        <div className='card p-3 mx-auto mb-3 shadow-lg border-5px rounded'>
           <h4 className='text-primary'>Panduan Pengguna</h4>
           <hr/>
           <p>Untuk melakukan skrining penyakit mata ketikkan : </p>

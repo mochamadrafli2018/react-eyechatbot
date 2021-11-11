@@ -15,7 +15,9 @@ export default function ChatbotDashboard() {
             <Nav className='me-auto'>
               <Nav.Link href='/'>Chatbot</Nav.Link>
               <Nav.Link href='/guide'>Panduan</Nav.Link>
-              <Nav.Link href='/'>Kembali</Nav.Link>
+            </Nav>
+            <Nav className=''>
+              <Nav.Link href='/'>Dashboard</Nav.Link>
             </Nav>
             </Navbar.Collapse>
           </Container>
@@ -23,14 +25,12 @@ export default function ChatbotDashboard() {
       </div>
       <div className='container mb-3 p-1 mw-75' style={{marginTop:'70px'}}>
         <div className='row'>
-          <div className='col'>
-            <div className='card border-5px rounded shadow-lg'>
-              <div className='card-body p-2'>
-                <p className='mb-0'>Mulai skreening? ketik atau tekan tombol mulai</p>
-                <h4 className='border-5px rounded-top d-block mb-0 p-1 bg-primary text-white text-left text-center'>Chatbot</h4>
-                {/*Chatbot interface*/}
-                <InferenceMachine />
-              </div>
+          <div className='card border-5px rounded shadow-lg'>
+            <div className='card-body p-2'>
+              <p className='mb-0'>Mulai skreening? ketik atau tekan tombol mulai</p>
+              <h4 className='border-5px rounded-top d-block mb-0 p-1 bg-primary text-white text-left text-center'>Chatbot</h4>
+              {/*Chatbot interface*/}
+              <InferenceMachine />
             </div>
           </div>
         </div>
