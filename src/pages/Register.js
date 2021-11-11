@@ -42,7 +42,7 @@ function Register() {
   };
 
   const toLoginPage = () => {
-    history.push('/');                    // redirect to login page
+    history.push('/login');                    // redirect to login page
   };
 
   return (

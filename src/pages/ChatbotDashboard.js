@@ -2,12 +2,13 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import InferenceMachine from './InferenceMachine';
 import {Container,Nav,Navbar} from 'react-bootstrap';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+// import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 export default function ChatbotDashboard() {
   const year= new Date().getFullYear()
   return (
     <div className='poppins'>
-      <div class='shadow-sm'>
+      <div className='shadow-sm'>
         <Navbar bg='primary' expand='lg' fixed='top' variant='dark'>
           <Container>
             <Navbar.Brand href='#home'>EyeScreening</Navbar.Brand>
@@ -16,9 +17,7 @@ export default function ChatbotDashboard() {
               <Nav className='me-auto'>
                 <Nav.Link href='/'>Chatbot</Nav.Link>
                 <Nav.Link href='/guide'>Panduan</Nav.Link>
-                <Link to={'./'} class='my-auto text-white'>
-                  <ArrowBackIcon/>Dashboard
-                </Link>
+                <Nav.Link href='/'>Kembali</Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Container>

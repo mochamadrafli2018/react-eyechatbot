@@ -15,9 +15,10 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
-          <Route exaxt path='/' component={Dashboard} />
           <Route exact path='/chatbot' component={ChatbotDashboard} />
           <Route exact path='/guide' component={Guide} />
+          {/* exact paht='/' must be the last to write*/}
+          <Route exaxt path='/' component={Dashboard} />
         </Switch>
       </BrowserRouter>
     )

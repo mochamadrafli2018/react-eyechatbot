@@ -17,11 +17,14 @@ export default function AppBar({logoutHandler}) {
           style={{color: theme.palette.primary.main}}
         >EyeScreening</Navbar.Brand>
         <Nav className='me-auto'></Nav>
-        <Nav>
-          <button onClick={logoutHandler}
-            className='btn btn-md btn-outline-danger justify-content-end'
-          ><LogoutIcon/>KELUAR</button>
-        </Nav>
+        <Navbar.Toggle aria-controls='basic-navbar-nav' />
+        <Navbar.Collapse id='basic-navbar-nav'>
+          <Nav>
+            <button onClick={logoutHandler}
+              className='btn btn-md btn-outline-danger mt-2'
+            ><LogoutIcon/>KELUAR</button>
+          </Nav>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );

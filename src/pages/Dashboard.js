@@ -38,26 +38,27 @@ export default function Dashboard () {
       history.push('/login');           //redirect halaman login
     });
   };
-  const toChatbot = async() => {
-    history.push('/chatbot')
-  }
+
+  // redirect to chatbot dashboard
+  const toChatbotDashboard = () => {
+    history.push('/chatbot');
+  };
 
   return (
-    <div class='poppins'>
+    <div className='poppins'>
       {/*AppBar*/}
       <AppBar logoutHandler={logoutHandler} />
       {/*Main Menu*/}
       <div 
-        class='container p-3 mx-auto border rounded shadow-lg' 
+        className='container p-3 mx-auto border rounded shadow-lg' 
         style={{marginTop:'80px',maxWidth:'800px',width:'98%'}}
       >
         Hallo <strong className='text-uppercase'>{user.name}</strong>
         <hr />
-        <div class='row'>
-          <div class='col'>
-            <Card 
-              style={{width:'98%'}} 
-              class='card mx-auto rounded shadow'
+        <div className='row'>
+          <div className='col'>
+            <Card style={{width:'98%',minWidth:'200px'}} 
+              className='card mx-auto mb-2 rounded shadow'
             >
               <Card.Img variant='top' src={image1} />
               <Card.Body>
@@ -67,7 +68,7 @@ export default function Dashboard () {
                 <Card.Text>
                   Diprogram dengan Vue.js, Vuetify dan Hapi
                 </Card.Text>
-                <a class='btn btn-primary' 
+                <a className='btn btn-primary' 
                   href='https://vue-eyescreening.netlify.app/'
                   target='_blank'
                   rel='noreferrer'
@@ -75,10 +76,9 @@ export default function Dashboard () {
               </Card.Body>
             </Card>
           </div>
-          <div class='col'>
-            <Card 
-              style={{width:'98%'}} 
-              class='card mx-auto rounded shadow'
+          <div className='col'>
+            <Card style={{width:'98%',minWidth:'200px'}} 
+              className='card mx-auto mb-2 rounded shadow'
             >
               <Card.Img variant='top' src={image2} />
               <Card.Body>
@@ -88,11 +88,7 @@ export default function Dashboard () {
                 <Card.Text>
                   Diprogram dengan React.js dan React-Bootstrap
                 </Card.Text>
-                <Link to={"./chatbot"}>
-                  <button class='btn btn-primary'
-                  >Klik untuk Coba
-                  </button>
-                </Link>
+                <button onClick={toChatbotDashboard} className='btn btn-primary'>Klik untuk Coba</button>
               </Card.Body>
             </Card>
           </div>
