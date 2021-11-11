@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.css'
-import { Col, Row } from 'react-bootstrap'
+import {Col,Row} from 'react-bootstrap'
 import SendIcon from '@mui/icons-material/Send'
 import {createTheme} from '@mui/material/styles'
 import {blue} from '@mui/material/colors'
@@ -32,10 +32,11 @@ export default function ChatbotInterface({
   return (
     <div id='container'>
       <Row className='mx-auto mb-3'>
-          <div id='messages' class='messages py-1 mx-auto mw-100' 
-          style={{color: theme.palette.primary.main}}>
-            {/*Chat will be append in here*/}
-          </div>
+        <div 
+          id='messages' class='messages py-1 mx-auto mw-100' 
+          style={{color: theme.palette.primary.main}}
+        >{/*Chat will be append in here*/}
+        </div>
       </Row>
       <Row className='mx-auto'>
         <input 
@@ -79,14 +80,14 @@ export default function ChatbotInterface({
       <Row>
         <div className='mb-3'>Anda mengetik : {input}</div>
         <div className='mb-3'>Pesan terkirim  : {berhasil}</div>
-        <div className='mb-3'>firstReply   : {firstReply}</div>   
-        <div className='mb-3'>secondReply  : {secondReply}</div>      
-        <div className='mb-3'>thirdReply   : {thirdReply}</div>      
-        <div className='mb-3'>fourthReply  : {fourthReply}</div>         
-        <div className='mb-3'>fifthReply   : {fifthReply}</div>      
-        <div className='mb-3'>sixthReply   : {sixthReply}</div>      
-        <div className='mb-3'>seventhReply : {seventhReply}</div>      
-        <div className='mb-3'>eightReply   : {eightReply}</div>      
+        <div className='mb-3'>First reply : {firstReply}</div>   
+        <div className='mb-3'>Second reply : {secondReply}</div>      
+        <div className='mb-3'>Third reply : {thirdReply}</div>      
+        <div className='mb-3'>Fourth reply : {fourthReply}</div>         
+        <div className='mb-3'>Fifth reply : {fifthReply}</div>      
+        <div className='mb-3'>Sixth reply : {sixthReply}</div>      
+        <div className='mb-3'>Seventh reply : {seventhReply}</div>      
+        <div className='mb-3'>Eight reply : {eightReply}</div>      
       </Row>
     </div>
   )

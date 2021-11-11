@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router'
+import {useHistory} from 'react-router'
+import {Link} from 'react-router-dom'
 import axios from 'axios'
 import AppBar from './AppBar'
-import Chatbot from './Chatbot'
+import {Card} from 'react-bootstrap'
+import image1 from './Image-1.jpg'
+import image2 from './Image-2.jpg'
 
-export default function Dashboard() {
-  const year= new Date().getFullYear()
+export default function Dashboard () {
   const [user, setUser] = useState({})
-  //const [isLoading, setIsLoading] = useState(true)
   const history = useHistory();
   const token = localStorage.getItem('token')
 
@@ -17,8 +18,7 @@ export default function Dashboard() {
     //fetch user from Rest API
     await axios.get('http://localhost:8000/api/user')
     .then((response) => {
-      setUser(response.data)
-      //setIsLoading(false)
+      setUser(response.data);
     })
   }
   // to run some side effects in component
@@ -35,46 +35,73 @@ export default function Dashboard() {
     await axios.post('http://localhost:8000/api/logout')
     .then(() => {
       localStorage.removeItem('token'); //remove token from localStorage
-      history.push('/');                //redirect halaman login
+      history.push('/login');           //redirect halaman login
     });
   };
 
-  let handleScroll = (e) => { //https://kempsterrrr.xyz/articles/handling-scroll-events-in-react
-    if (e.target.classList.contains("on-scrollbar") === false) {
-        e.target.classList.add("on-scrollbar");
-    }
-    let element = e.target
-    if (element.scrollHeight - element.scrollTop === element.clientHeight) {
-      // do something at end of scroll
-    }
+  const toChatbotHandler = async () => {
+    history.push('/chabot');
   }
-
+  
   return (
-  <div className='poppins'>
-    {/*AppBar*/}
-    <AppBar logoutHandler={logoutHandler} />
-    <div className='container' style={{ marginTop:'70px',marginBottom:'20px'}}>
-      <div className='row justify-content-center'>
-        <div className='col-md-8'>
-          <div className='card border-5px rounded shadow-sm'>
-            <div className='card-body'>
-              Hallo <strong className='text-uppercase'>{user.name}</strong>
-              <hr />
-              <p className=''>Ingin coba skreening? coba ketikkan sesuatu atau lihat <a href='#id'>panduan pengguna</a></p>
-              <h4 className='border-5px rounded-top d-block mb-0 p-1 bg-primary text-white text-left text-center'>Chatbot</h4>
-              {/*Chatbot interface*/}
-              <Chatbot />
-            </div>
+    <div class='poppins'>
+      {/*AppBar*/}
+      <AppBar logoutHandler={logoutHandler} />
+      {/*Main Menu*/}
+      <div 
+        class='container p-3 mx-auto border rounded shadow-lg' 
+        style={{marginTop:'80px',maxWidth:'800px',width:'98%'}}
+      >
+        Hallo <strong className='text-uppercase'>{user.name}</strong>
+        <hr />
+        <div class='row'>
+          <div class='col'>
+            <Card 
+              style={{width:'18rem'}} 
+              class='card mx-auto rounded shadow'
+            >
+              <Card.Img variant='top' src={image1} />
+              <Card.Body>
+                <Card.Title>
+                  Sistem Pakar Skrining Penyakit Mata berbasis Form
+                </Card.Title>
+                <Card.Text>
+                  Diprogram dengan Vue.js, Vuetify dan Hapi
+                </Card.Text>
+                <a class='btn btn-primary' 
+                  href='https://vue-eyescreening.netlify.app/'
+                  target='_blank'
+                  rel='noreferrer'
+                >Klik untuk Coba</a>
+              </Card.Body>
+            </Card>
+          </div>
+          <div class='col'>
+            <Card 
+              style={{width:'18rem'}} 
+              class='card mx-auto rounded shadow'
+            >
+              <Card.Img variant='top' src={image2} />
+              <Card.Body>
+                <Card.Title>
+                  Sistem Pakar Skrining Penyakit Mata berbasis Chatbot
+                </Card.Title>
+                <Card.Text>
+                  Diprogram dengan React.js dan React-Bootstrap
+                </Card.Text>
+                <Link to={'./chatbot'}>
+                  <button class='btn btn-primary'
+                  >Klik untuk Coba
+                  </button>
+                </Link>
+              </Card.Body>
+            </Card>
           </div>
         </div>
       </div>
     </div>
-    <footer 
-      className='d-block p-1 bg-primary text-white text-center' 
-      fixed='bottom'
-      style={{'width':'100%'}}
-      >&copy; { year } - Mochamad Rafli Ramadhan
-    </footer>
-  </div>
   )
 }
+
+// https://techstacker.com/open-link-ahref-in-new-tab/
+// https://www.w3docs.com/snippets/html/how-to-create-an-html-button-that-acts-like-a-link.html

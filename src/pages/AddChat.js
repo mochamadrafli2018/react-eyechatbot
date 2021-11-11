@@ -40,7 +40,8 @@ export default function addChat(input, reply) {
     // add botDiv to messagesContainer
     messagesContainer.appendChild(botDiv)
     // Keep messages at most recent
-    messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight
+    //messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight 
+    messagesContainer.scrollTo(0, messagesContainer.scrollHeight)
     // Fake delay to seem 'real' and also way to change botText inner Text
     setTimeout(() => {
       botText.innerText = `${reply}`
