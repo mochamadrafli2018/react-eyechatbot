@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {useHistory} from 'react-router';
-import {Link} from 'react-router-dom';
 import axios from 'axios';
 import AppBar from './AppBar';
+import Footer from './Footer'
 import {Card} from 'react-bootstrap';
 import image1 from '../img/Image-1.jpg';
 import image2 from '../img/Image-2.jpg';
@@ -50,7 +50,7 @@ export default function Dashboard () {
       <AppBar logoutHandler={logoutHandler} />
       {/*Main Menu*/}
       <div 
-        className='container p-3 mx-auto border rounded shadow-lg' 
+        className='container p-3 mb-3 mx-auto border-5px rounded shadow-lg' 
         style={{marginTop:'80px',maxWidth:'800px',width:'98%'}}
       >
         Hallo <strong className='text-uppercase'>{user.name}</strong>
@@ -94,6 +94,7 @@ export default function Dashboard () {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   )
 }

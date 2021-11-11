@@ -1,20 +1,24 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {Container, Nav, Navbar} from 'react-bootstrap';
+import Footer from './Footer'
+
 export default function Guide () {
   return(
-    <div>
-      <Navbar bg='primary' expand='lg' fixed='top' variant='dark'>
-        <Container>
-          <Navbar.Brand href='#home'>EyeScreening</Navbar.Brand>
-          <Nav calssName='me-auto'></Nav>
-          <Nav className=''>
-            <Nav.Link href='/chatbot'>Kembali</Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
-      <div className='container' style={{marginTop:'80px'}}>
-        <div className='card p-3 mx-auto mt-3 shadow-sm border rounded'>
+    <div className='poppins'>
+      <div className=''>
+        <Navbar bg='primary' expand='lg' fixed='top' variant='dark'>
+          <Container>
+            <Navbar.Brand href='#home'>EyeScreening</Navbar.Brand>
+            <Nav calssName='me-auto'></Nav>
+            <Nav className=''>
+              <Nav.Link href='/chatbot'>Kembali</Nav.Link>
+            </Nav>
+          </Container>
+        </Navbar>
+      </div>
+      <div className='container' style={{marginTop:'75px'}}>
+        <div className='card p-3 mx-auto mt-3 mb-3 shadow-lg border rounded'>
           <h4 className='text-primary'>Panduan Pengguna</h4>
           <hr/>
           <p>Untuk melakukan skrining penyakit mata ketikkan : </p>
@@ -36,6 +40,7 @@ export default function Guide () {
           </Link>
         </div>
       </div>
+      <Footer/>
     </div>
   )
 };

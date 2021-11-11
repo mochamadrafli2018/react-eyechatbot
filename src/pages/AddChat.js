@@ -8,7 +8,7 @@ export default function addChat(input, reply) {
     // create text element
     const userText = document.createElement('span')
     userDiv.id = 'user'
-    userDiv.className = 'bg-warning border-5px rounded my-2 px-2 py-2'
+    userDiv.className = 'bg-warning my-2 px-2 py-2 border rounded'
     userDiv.innerHTML = 
     `<img src=${user} class='avatar'>
       <span class='mx-1 text-right text-dark'>
@@ -26,7 +26,7 @@ export default function addChat(input, reply) {
     // create text element
     const botText = document.createElement('span')
     botDiv.id = 'bot'
-    botDiv.className = 'bg-warning border-5px rounded my-2 px-2 py-2'
+    botDiv.className = 'bg-warning my-2 px-2 py-2 border rounded'
     // get image from bot.png
     botImg.src = bot
     botImg.className = 'avatar'

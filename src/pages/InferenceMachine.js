@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import './style.css'
 import {prompts,replies,alternative,coronavirus,} from './QnA'
 import {sympthom} from './SymthomList'
 import addChat from './AddChat'
