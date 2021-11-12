@@ -13,10 +13,10 @@ export default function ChatbotDashboard() {
             <Navbar.Toggle aria-controls='basic-navbar-nav' />
             <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='me-auto'>
-              <Nav.Link href='/guide'><i class="bi bi-arrow-bar-right"></i> Panduan</Nav.Link>
+              <Nav.Link href='/guide'><i class="bi bi-arrow-bar-right"></i> PANDUAN</Nav.Link>
             </Nav>
             <Nav className=''>
-              <Nav.Link href='/'><i class="bi bi-arrow-bar-left"></i>  Dashboard</Nav.Link>
+              <Nav.Link href='/'><i class="bi bi-arrow-bar-left"></i> DASHBOARD</Nav.Link>
             </Nav>
             </Navbar.Collapse>
           </Container>

@@ -103,8 +103,5 @@ export default function Dashboard () {
       </div>
       <Footer/>
     </div>
-  )
+  );
 }
-
-// https://techstacker.com/open-link-ahref-in-new-tab/
-// https://www.w3docs.com/snippets/html/how-to-create-an-html-button-that-acts-like-a-link.html

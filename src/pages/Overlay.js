@@ -1,19 +1,21 @@
-import {Nav,OverlayTrigger,Tooltip} from 'react-bootstrap';
+import {Nav,Popover,OverlayTrigger} from 'react-bootstrap';
 
-export default function OverlayButton({explanation, text}) {
-  const renderTooltip = (props) => (
-    <Tooltip id="button-tooltip" {...props} className='poppins'>
-      {text}
-    </Tooltip>
-  );
-      
+export default function OverlayItem({explanation, text}) {
+  const popover = (
+    <Popover id="popover-basic" className='poppins'>
+      <Popover.Header as="h3">{text}</Popover.Header>
+      <Popover.Body>
+        {explanation}
+      </Popover.Body>
+    </Popover>
+  );      
   return (
     <OverlayTrigger
       placement="bottom"
       delay={{ show: 250, hide: 400 }}
-      overlay={renderTooltip}
+      overlay={popover}
     >
-      <Nav.Link variant="success">{explanation}</Nav.Link>
+      <Nav.Link variant="success">{text}</Nav.Link>
     </OverlayTrigger>
   );
 }

@@ -12,7 +12,7 @@ export default function Guide () {
             <Nav calssName='me-auto'></Nav>
             <Nav className=''>
               <Nav.Link href='/chatbot'>
-                <i className="bi bi-box-arrow-left"></i> Kembali
+                <i className="bi bi-box-arrow-left"></i> KEMBALI
               </Nav.Link>
             </Nav>
           </Container>
