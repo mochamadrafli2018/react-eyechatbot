@@ -43,3 +43,10 @@ List of Reference :
 
 7. Bootstrap Icon Set Up
 - https://www.kindacode.com/article/how-to-use-bootstrap-5-and-bootstrap-icons-in-react/
+
+8. Image Reference
+- Rain Image for Chat Walpapaer : https://unsplash.com/photos/pYAvBZvplOM
+- Yellow Eye for Card Image : https://unsplash.com/photos/WTThc6UmwEI
+- Blue Eye for Card Image : https://images.unsplash.com/photo-1501621667575-af81f1f0bacc?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZXllfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60
+- Bot Image : https://pixabay.com/vectors/chatbot-chat-bot-bot-training-4736275/
+- User Image : https://www.bing.com/images/blob?bcid=SzlquoPg6nMDEw
