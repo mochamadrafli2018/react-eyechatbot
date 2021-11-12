@@ -40,3 +40,6 @@ List of Reference :
 
 6. MySQL Database Deployment on Heroku :
 - https://www.ismynr.xyz/2020/10/deploy-laravel-ke-heroku-mysql.html
+
+7. Bootstrap Icon Set Up
+- https://www.kindacode.com/article/how-to-use-bootstrap-5-and-bootstrap-icons-in-react/
