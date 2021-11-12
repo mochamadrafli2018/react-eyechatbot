@@ -16,7 +16,49 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-List of Reference :
+## List of Eye Disease
+
+List of Eye Disease for Inference Machine
+
+1. Ulkus Kornea
+2. Keratokonus
+3. Kalazion
+4. Blefaritis
+5. Hordeolum (Stye)
+6. Konjungtivitis 
+7. Trakoma
+8. Abalso Retina
+9. Retinopati Diabetikum
+10. Glaukoma
+11. Katarak 
+12. Uveitis
+13. Selulitis Orbitalis
+14. Eksoftalmus
+15. Keratitis Pungtata Superfisialis 
+16. Alergi Mata Merah
+17. Endoftalmitis
+18. Trombosis Sinus Kavernosus
+19. Optic Neuritis
+20. Dakrioritis
+21. Degenerasi Makula 
+22. Episkleritis 
+23. Infeksi Herpes Simpleks Kornea 
+24. Infeksi Herpes Zoster Kornea 
+25. Keratitis Ulserativa Perifer 
+26. Keratokonjungtivitis Vernalis 
+27. Melanoma Koroid
+28. Oftalmia Neonatorum
+30. Patah Tulang Orbita
+
+## Deployment 
+
+This project was deployed on heroku. Thanks to heroku.com
+
+## License
+
+This project was licensed under MIT License
+
+## List of Reference :
 
 1. Buildpack for Node.js : 
 - React Buildpack  : https://github.com/mars/create-react-app-buildpack
@@ -28,6 +70,7 @@ List of Reference :
 - handling event   : https://reactjs.org/docs/handling-events.html
 - input onkeypress : https://stackoverflow.com/questions/27827234/how-to-handle-the-onkeypress-event-in-reactjs
 - lower case input : https://stackoverflow.com/questions/39999367/how-do-i-reference-a-local-image-in-react
+- open link in new page : https://techstacker.com/open-link-ahref-in-new-tab/
 
 3. React create element :
 - https://reactgo.com/react-createelement-example
