@@ -70,6 +70,7 @@ This project was licensed under MIT License
 - handling event   : https://reactjs.org/docs/handling-events.html
 - input onkeypress : https://stackoverflow.com/questions/27827234/how-to-handle-the-onkeypress-event-in-reactjs
 - lower case input : https://stackoverflow.com/questions/39999367/how-do-i-reference-a-local-image-in-react
+- open link in new page : https://techstacker.com/open-link-ahref-in-new-tab/
 
 3. React create element :
 - https://reactgo.com/react-createelement-example
