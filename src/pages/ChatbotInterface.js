@@ -1,8 +1,8 @@
 import React from 'react'
 import {Col,Row} from 'react-bootstrap'
-import SendIcon from '@mui/icons-material/Send'
 import {createTheme} from '@mui/material/styles'
 import {blue} from '@mui/material/colors'
+import Rain from '../img/Rain.jpg'
 // material-ui theme
 const theme = createTheme({
   palette: {
@@ -29,9 +29,10 @@ export default function ChatbotInterface({
   }) {
   return (
     <div id='container'>
-      <Row className='mx-auto mb-2'>
+      <Row className='mx-auto mb-0'>
         <div 
-          id='messages' class='messages py-1 mx-auto mw-100' 
+          id='messages' 
+          className='bg-img-messages messages py-1 mx-auto mw-100 border shadow-sm' 
           style={{color: theme.palette.primary.main}}
         >{/*Chat will be append in here*/}
         </div>
@@ -52,7 +53,7 @@ export default function ChatbotInterface({
       <Row className='mx-auto'>
         <button type='submit' value='Submit' onClick={handleSubmit} 
         className='btn btn-primary mb-2'>
-          <SendIcon />
+          <i class="bi bi-send"></i> Kirim
         </button>
       </Row>
       <Row className=''>

@@ -48,18 +48,20 @@ export default function Dashboard () {
       {/*AppBar*/}
       <AppBar logoutHandler={logoutHandler} />
       {/*Main Menu*/}
-      <div 
-        className='container p-1 mb-3 mx-auto mw-75 border-5px rounded shadow-lg' 
+      <div
+        className='container p-3 mb-3 mx-auto mw-75 border-5px rounded shadow-lg' 
         style={{marginTop:'80px',width:'98%'}}
       >
         Hallo <strong className='text-uppercase'>{user.name}</strong>
         <hr />
         <div className='row'>
           <div className='col'>
-            <Card style={{width:'98%',minWidth:'200px'}} 
+            <Card style={{width:'97%',minWidth:'200px',maxWidth:'400px'}} 
               className='card mx-auto mb-2 rounded shadow'
             >
-              <Card.Img variant='top' src={image1} />
+              <div className='bg-image hover-zoom' style={{ maxWidth: '105%' }}>
+                <Card.Img variant='top' src={image1} className='w-100'/>
+              </div>
               <Card.Body>
                 <Card.Title>
                   Sistem Pakar Skrining Penyakit Mata berbasis Form
@@ -67,7 +69,7 @@ export default function Dashboard () {
                 <Card.Text>
                   Diprogram dengan Vue.js, Vuetify dan Hapi
                 </Card.Text>
-                <a className='btn btn-primary' 
+                <a className='btn btn-outline-primary' 
                   href='https://vue-eyescreening.netlify.app/'
                   target='_blank'
                   rel='noreferrer'
@@ -76,18 +78,24 @@ export default function Dashboard () {
             </Card>
           </div>
           <div className='col'>
-            <Card style={{width:'98%',minWidth:'200px'}} 
+            <Card style={{width:'97%',minWidth:'200px',maxWidth:'400px'}} 
               className='card mx-auto mb-2 rounded shadow'
             >
-              <Card.Img variant='top' src={image2} />
+              <div className='bg-image hover-zoom' style={{ maxWidth: '105%' }}>
+                <Card.Img variant='top' src={image2} className='w-100'/>
+              </div>
               <Card.Body>
                 <Card.Title>
                   Sistem Pakar Skrining Penyakit Mata berbasis Chatbot
                 </Card.Title>
                 <Card.Text>
-                  Diprogram dengan React.js dan React-Bootstrap
+                  Diprogram dengan React.js dan React Bootstrap
                 </Card.Text>
-                <button onClick={toChatbotDashboard} className='btn btn-primary'>Klik untuk Coba</button>
+                <button 
+                  onClick={toChatbotDashboard} 
+                  className='btn btn-outline-primary'
+                >Klik untuk Coba
+                </button>
               </Card.Body>
             </Card>
           </div>

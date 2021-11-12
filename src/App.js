@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import "./App.css";
 import "./index.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -8,6 +9,7 @@ import Login from './pages/Login';
 import ChatbotDashboard from './pages/ChatbotDashboard';
 import Dashboard from './pages/Dashboard';
 import Guide from './pages/Guide';
+
 class App extends React.Component {
   render(){
     return(
