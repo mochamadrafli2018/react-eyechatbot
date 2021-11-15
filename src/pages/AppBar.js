@@ -1,8 +1,8 @@
-import * as React from 'react'
-import OverlayItem from './Overlay'
-import {Container,Nav,Navbar} from 'react-bootstrap'
+import * as React from 'react';
+import OverlayItem from './Overlay';
+import {Container,Nav,Navbar} from 'react-bootstrap';
 
-export default function AppBar({logoutHandler}) {
+export default function AppBar() {
   return (
     <div className='poppins'>
       <div className='shadow-sm'>
@@ -12,6 +12,7 @@ export default function AppBar({logoutHandler}) {
             <Navbar.Toggle aria-controls='basic-navbar-nav'/>
             <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='me-auto'>
+              <Nav.Link>v.1.0.0</Nav.Link>
               <OverlayItem 
                 text={'Sistem Pakar ?'}
                 explanation={`
@@ -64,6 +65,9 @@ export default function AppBar({logoutHandler}) {
                 </a>
                 <a href='https://www.linkedin.com/in/mochamad-rafli-ramadhan' className='text-white' target='_blank' rel='noreferrer'>
                   <i className='bi-linkedin mx-2' role='img' aria-label='Linkedin'></i>
+                </a>
+                <a href='http://wa.me/088227867544' className='text-white' target='_blank' rel='noreferrer'>
+                  <i class="bi bi-whatsapp mx-2" role='img' aria-label='Whatsup'></i>
                 </a>
               </Nav.Link>
             </Nav>

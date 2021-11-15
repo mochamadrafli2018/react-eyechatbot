@@ -2,7 +2,6 @@ import React from 'react'
 import {Col,Row} from 'react-bootstrap'
 import {createTheme} from '@mui/material/styles'
 import {blue} from '@mui/material/colors'
-import Rain from '../img/Rain.jpg'
 // material-ui theme
 const theme = createTheme({
   palette: {

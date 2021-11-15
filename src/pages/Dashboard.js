@@ -57,10 +57,15 @@ export default function Dashboard () {
         <hr />
         <div className='row'>
           <div className='col'>
-            <Card style={{width:'97%',minWidth:'200px',maxWidth:'400px'}} 
+            <Card style={{
+              width:'97%',
+              minWidth:'200px',
+              maxWidth:'400px'}} 
               className='card mx-auto mb-2 rounded shadow'
             >
-              <div className='bg-image hover-zoom' style={{ maxWidth: '105%' }}>
+              <div className='bg-image hover-zoom' 
+                style={{ maxWidth: '105%' }}
+              >
                 <Card.Img variant='top' src={image1} className='w-100'/>
               </div>
               <Card.Body>
@@ -79,10 +84,15 @@ export default function Dashboard () {
             </Card>
           </div>
           <div className='col'>
-            <Card style={{width:'97%',minWidth:'200px',maxWidth:'400px'}} 
+            <Card style={{
+              width:'97%',
+              minWidth:'200px',
+              maxWidth:'400px'}} 
               className='card mx-auto mb-2 rounded shadow'
             >
-              <div className='bg-image hover-zoom' style={{ maxWidth: '105%' }}>
+              <div className='bg-image hover-zoom' 
+                style={{ maxWidth: '105%' }}
+              >
                 <Card.Img variant='top' src={image2} className='w-100'/>
               </div>
               <Card.Body>
