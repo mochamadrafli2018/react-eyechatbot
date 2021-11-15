@@ -19,7 +19,7 @@ class App extends React.Component {
           <Route exact path='/register' component={Register} />
           <Route exact path='/chatbot' component={ChatbotDashboard} />
           <Route exact path='/guide' component={Guide} />
-          {/* exact paht='/' must be the last to write*/}
+          {/* exact path='/' must be the last to write*/}
           <Route exaxt path='/' component={Dashboard} />
         </Switch>
       </BrowserRouter>

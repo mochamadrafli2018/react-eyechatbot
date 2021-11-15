@@ -16,6 +16,7 @@ export default function AppBar({logoutHandler}) {
                 text={'Sistem Pakar ?'}
                 explanation={`
                   Sistem pakar merupakan sistem yang bekerja dengan menirukan proses pemikiran seorang pakar.
+                  Pada sistem pakar ini di implementasikan metode forward chaining untuk proses pengambilan keputusan.
                 `} 
               />
               <OverlayItem
@@ -49,7 +50,12 @@ export default function AppBar({logoutHandler}) {
                 25.) Keratitis Ulserativa Perifer
                 28.) Oftalmia Neonatorum
               `}/>
+            </Nav>
+            <Nav>
+              {/*<Nav.Link onClick={logoutHandler} className=''
+              ><i className="bi bi-box-arrow-left"></i> KELUAR</Nav.Link>*/}
               <Nav.Link>
+                Kontak Perancang 
                 <a href='https://www.github.com/mochamadrafli2018' className='text-white' target='_blank' rel='noreferrer'>
                   <i className='bi-github mx-2' role='img' aria-label='GitHub'></i>
                 </a>
@@ -60,10 +66,6 @@ export default function AppBar({logoutHandler}) {
                   <i className='bi-linkedin mx-2' role='img' aria-label='Linkedin'></i>
                 </a>
               </Nav.Link>
-            </Nav>
-            <Nav>
-              <Nav.Link onClick={logoutHandler} className=''
-              ><i className="bi bi-box-arrow-left"></i> KELUAR</Nav.Link>
             </Nav>
             </Navbar.Collapse>
           </Container>

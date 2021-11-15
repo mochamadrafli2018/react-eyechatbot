@@ -22,12 +22,11 @@ export default function ChatbotDashboard() {
           </Container>
         </Navbar>
       </div>
-      <div className='container mb-3 p-1 mw-75' style={{marginTop:'70px'}}>
+      <div className='container mb-3 px-1 mw-75' style={{marginTop:'70px'}}>
         <div className='row'>
           <div className='card border-5px rounded shadow-lg'>
             <div className='card-body p-2'>
-              <p className='mb-0'>Mulai skreening? ketik atau tekan tombol mulai</p>
-              <h4 className='border-5px rounded-top d-block mb-0 p-1 bg-primary text-white text-left text-center'>Chatbot</h4>
+              <h4 className='border-5px rounded-top d-block mb-0 p-1 bg-primary text-white text-left text-center'>CHATBOT</h4>
               {/*Chatbot interface*/}
               <InferenceMachine />
             </div>

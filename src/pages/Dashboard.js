@@ -52,7 +52,8 @@ export default function Dashboard () {
         className='container p-3 mb-3 mx-auto mw-75 border-5px rounded shadow-lg' 
         style={{marginTop:'80px',width:'98%'}}
       >
-        Hallo <strong className='text-uppercase'>{user.name}</strong>
+        <strong className='text-uppercase'>{user.name}</strong>
+        <h4 className='text-center text-primary'>Selamat Datang di Web App EyeScreening</h4>
         <hr />
         <div className='row'>
           <div className='col'>
@@ -63,8 +64,8 @@ export default function Dashboard () {
                 <Card.Img variant='top' src={image1} className='w-100'/>
               </div>
               <Card.Body>
-                <Card.Title>
-                  Sistem Pakar Skrining Penyakit Mata berbasis Form
+                <Card.Title className='text-primary'>
+                  Sistem Pakar Skrining Penyakit Mata berbasis <strong>Form</strong>
                 </Card.Title>
                 <Card.Text>
                   Diprogram dengan Vue.js, Vuetify dan Hapi
@@ -85,8 +86,8 @@ export default function Dashboard () {
                 <Card.Img variant='top' src={image2} className='w-100'/>
               </div>
               <Card.Body>
-                <Card.Title>
-                  Sistem Pakar Skrining Penyakit Mata berbasis Chatbot
+                <Card.Title className='text-primary'>
+                  Sistem Pakar Skrining Penyakit Mata berbasis <strong>Chatbot</strong>
                 </Card.Title>
                 <Card.Text>
                   Diprogram dengan React.js dan React Bootstrap

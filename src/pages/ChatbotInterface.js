@@ -28,7 +28,7 @@ export default function ChatbotInterface({
     eightReply
   }) {
   return (
-    <div id='container'>
+    <div id='container' style={{marginTop:'0px'}}>
       <Row className='mx-auto mb-0'>
         <div 
           id='messages' 
