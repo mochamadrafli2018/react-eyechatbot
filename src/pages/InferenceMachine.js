@@ -2133,6 +2133,7 @@ const InferenceMachine = () => {
   }
   
   return(
+  <div className='card p-1 mb-3 mx-auto mw-75 border-5px rounded shadow-lg'>
     <ChatbotInterface 
       input={input}
       handleChange={handleChange}
@@ -2151,6 +2152,7 @@ const InferenceMachine = () => {
       seventhReply={seventhReply}
       eightReply={eightReply}
     />
+  </div>
   )
 }
 

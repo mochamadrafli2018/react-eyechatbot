@@ -77,6 +77,7 @@ This project was licensed under MIT License
 3. HTML/JSX Tag :
 
 - iframe : https://web.dev/frame-title/
+- iframe to show pdf from Google Drive : // https://stackoverflow.com/questions/44164367/how-to-embed-google-drive-document-pdf-in-blogger-post
 
 4. React :
 

@@ -10,7 +10,7 @@ import ChatbotDashboard from './pages/ChatbotDashboard';
 import Dashboard from './pages/Dashboard';
 import FormTesting from './pages/FormTesting';
 import Guide from './pages/Guide';
-import PageNotFound from './pages/PageNotFound';
+import ControlledAccordions from './pages/ControlledAccordions';
 class App extends React.Component {
   render(){
     return(
@@ -21,7 +21,7 @@ class App extends React.Component {
           <Route exact path='/chatbot' component={ChatbotDashboard} />
           <Route exact path='/form' component={FormTesting} />
           <Route exact path='/guide' component={Guide} />
-          <Route exact path='/chatbot/forwardchaining' component={PageNotFound} />
+          <Route exact path='/chatbot/forwardchaining' component={ControlledAccordions} />
           {/* exact path='/' must be the last to write*/}
           <Route exaxt path='/' component={Dashboard} />
         </Switch>

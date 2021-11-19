@@ -5,7 +5,7 @@
   font-family: 'Open Sans', Arial, sans-serif;
 }
 .poppins{
-  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-family: Poppins, Arial, Helvetica, sans-serif !important;
 }
 .quicksand {
   font-family: Quicksand, Arial, sans-serif;
@@ -43,7 +43,7 @@
 	overflow: scroll;
 }
 .shadow-hover:hover {
-	box-shadow: 0 0 20px 0 #acacac;
+	box-shadow: 0 0 20px 0 #d6d5d5;
 	transition: box-shadow 0.3s ease-in-out;
 }
 .shadow-hover-primary:hover {

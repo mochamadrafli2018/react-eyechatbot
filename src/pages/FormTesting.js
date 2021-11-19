@@ -16,7 +16,7 @@ export default function FormTesting () {
           </Nav>
         </Container>
       </Navbar>
-      <div className='container mb-3' style={{marginTop:'75px'}}>
+      <div className='container mb-3' style={{marginTop:'75px',marginBottom:'50px'}}>
         <iframe
           title='form UAT'
           src='https://docs.google.com/forms/d/e/1FAIpQLSfMfIO_wa6TJKg5SrgadHuwDWlnNFDpk1P-PX1_vwHjumbLVg/viewform?embedded=true' 

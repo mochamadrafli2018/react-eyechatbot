@@ -50,8 +50,8 @@ export default function Dashboard () {
       <AppBar/>
       {/*Main Menu*/}
       <div
-        className='container p-3 mb-3 mx-auto mw-75 border-5px rounded shadow-lg' 
-        style={{marginTop:'70px',width:'98%'}}
+        className='container p-3 mx-auto mw-75 border-5px rounded shadow-lg' 
+        style={{marginTop:'70px',marginBottom:'50px',width:'98%'}}
       >
         <strong className='text-uppercase'>{user.name}</strong>
         <h4 className='text-center text-primary'>Selamat Datang di Web App EyeScreening</h4>

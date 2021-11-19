@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
-import PageNotFound from './PageNotFound';
+import ControlledAccordions from './ControlledAccordions';
 import InferenceMachine from './InferenceMachine';
 import Footer from './Footer'
 import {Container,Nav,Navbar} from 'react-bootstrap';
@@ -29,20 +29,18 @@ export default function ChatbotDashboard() {
           </Container>
         </Navbar> 
       </div>
-      <div className='container' style={{marginTop:'70px'}}>
-        <div className='card p-1 mb-3 mw-75 border-5px rounded shadow-lg'>
-          {/*Chatbot interface*/}
-          <Nav className=''>
-            <BrowserRouter>
-              <Link className='nav-link' to='/chatbot'>Chatbot</Link>
-              <Link className='nav-link' to='/chatbot/forwardchaining'>Forward Chaining?</Link>
-              <Switch>
-                <Route exact path='/chatbot/forwardchaining' component={PageNotFound} />
-                <Route exact path='/chatbot' component={InferenceMachine} />
-              </Switch>
-            </BrowserRouter>
-          </Nav>
-        </div>
+      <div className='container' style={{marginTop:'70px',marginBottom:'50px'}}>
+        {/*Chatbot interface*/}
+        <Nav className=''>
+          <BrowserRouter>
+            <Link className='nav-link' to='/chatbot'>Chatbot</Link>
+            <Link className='nav-link' to='/chatbot/forwardchaining'>Tentang Chatbot</Link>
+            <Switch>
+              <Route exact path='/chatbot/forwardchaining' component={ControlledAccordions} />
+              <Route exact path='/chatbot' component={InferenceMachine} />
+            </Switch>
+          </BrowserRouter>
+        </Nav>
       </div>
       <Footer/>
     </div>
