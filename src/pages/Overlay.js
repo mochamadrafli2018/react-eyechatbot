@@ -15,7 +15,9 @@ export default function OverlayItem({explanation, text}) {
       delay={{ show: 250, hide: 400 }}
       overlay={popover}
     >
-      <Nav.Link variant="success">{text}</Nav.Link>
+      <Nav.Link variant="success">
+        <i class="bi bi-info-circle"></i> {text}
+      </Nav.Link>
     </OverlayTrigger>
   );
 }

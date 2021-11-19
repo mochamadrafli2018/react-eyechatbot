@@ -45,12 +45,13 @@ export default function Dashboard () {
 
   return (
     <div className='poppins'>
+      <p>halo</p>
       {/*AppBar*/}
-      <AppBar logoutHandler={logoutHandler} />
+      <AppBar/>
       {/*Main Menu*/}
       <div
         className='container p-3 mb-3 mx-auto mw-75 border-5px rounded shadow-lg' 
-        style={{marginTop:'80px',width:'98%'}}
+        style={{marginTop:'70px',width:'98%'}}
       >
         <strong className='text-uppercase'>{user.name}</strong>
         <h4 className='text-center text-primary'>Selamat Datang di Web App EyeScreening</h4>
@@ -61,7 +62,7 @@ export default function Dashboard () {
               width:'97%',
               minWidth:'200px',
               maxWidth:'400px'}} 
-              className='card mx-auto mb-2 rounded shadow'
+              className='card mx-auto mb-2 rounded shadow-hover'
             >
               <div className='bg-image hover-zoom' 
                 style={{ maxWidth: '105%' }}
@@ -88,7 +89,7 @@ export default function Dashboard () {
               width:'97%',
               minWidth:'200px',
               maxWidth:'400px'}} 
-              className='card mx-auto mb-2 rounded shadow'
+              className='card mx-auto mb-2 rounded shadow-hover'
             >
               <div className='bg-image hover-zoom' 
                 style={{ maxWidth: '105%' }}

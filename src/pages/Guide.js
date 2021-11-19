@@ -1,23 +1,21 @@
-import React from 'react';
 import {Container,Nav,Navbar} from 'react-bootstrap';
+import InferenceMachineCopy from './InferenceMachineCopy';
 import Footer from './Footer'
 
 export default function Guide () {
   return(
     <div className='poppins'>
-      <div className=''>
-        <Navbar bg='primary' expand='lg' fixed='top' variant='dark'>
-          <Container>
-            <Navbar.Brand href='#home'>EyeScreening</Navbar.Brand>
-            <Nav calssName='me-auto'></Nav>
-            <Nav className=''>
-              <Nav.Link href='/chatbot'>
-                <i className="bi bi-box-arrow-left"></i> KEMBALI
-              </Nav.Link>
-            </Nav>
-          </Container>
-        </Navbar>
-      </div>
+      <Navbar bg='primary' expand='lg' fixed='top' variant='dark'>
+        <Container>
+          <Navbar.Brand href='#home'>EyeScreening</Navbar.Brand>
+          <Nav calssName='me-auto'></Nav>
+          <Nav className=''>
+            <Nav.Link href='/chatbot'>
+              <i className="bi bi-box-arrow-left"></i> KEMBALI
+            </Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
       <div className='container' style={{marginTop:'75px'}}>
         <div className='card px-3 py-1 mx-auto mb-3 shadow-lg border-5px rounded'>
           <h4 className='mt-2 mb-0 fw-bold text-primary'>Panduan Penggunaan Chatbot Sistem Pakar Skrining Penyakit Mata</h4>
@@ -40,6 +38,7 @@ export default function Guide () {
           <p>Untuk menyimpan hasil skrining anda ke komputer lokal, anda bisa menekan CTRL + P.</p>
           <p>Perlu diketahui bahwa hasil skrining dari sistem pakar tersebut <strong>tidak bisa</strong> dijadikan sebagai keputusan akhir diagnosis penyakit mata anda.</p>
           <p>Hasil skrining tersebut bisa anda gunakan untuk konsultasi dengan dokter spesialis mata untuk diagnosis lebih lanjut.</p>
+          {/*<InferenceMachineCopy/>*/}
         </div>
       </div>
       <Footer/>

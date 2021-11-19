@@ -16,9 +16,11 @@ export default function AppBar() {
               <OverlayItem 
                 text={'Sistem Pakar ?'}
                 explanation={`
-                  Sistem pakar merupakan sistem yang bekerja dengan menirukan proses pemikiran seorang pakar.
-                  Pada sistem pakar ini di implementasikan metode forward chaining untuk proses pengambilan keputusan.
-                `} 
+                  Sistem pakar merupakan sistem yang bekerja 
+                  dengan menirukan proses pemikiran seorang pakar.
+                  Pada sistem pakar ini di implementasikan 
+                  metode forward chaining untuk proses pengambilan keputusan.
+                `}
               />
               <OverlayItem
                 text={'Daftar Penyakit ?'}

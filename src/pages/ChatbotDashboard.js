@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
+import PageNotFound from './PageNotFound';
 import InferenceMachine from './InferenceMachine';
 import Footer from './Footer'
 import {Container,Nav,Navbar} from 'react-bootstrap';
@@ -12,25 +14,34 @@ export default function ChatbotDashboard() {
             <Navbar.Brand href='#home'>EyeScreening</Navbar.Brand>
             <Navbar.Toggle aria-controls='basic-navbar-nav' />
             <Navbar.Collapse id='basic-navbar-nav'>
-            <Nav className='me-auto'>
-              <Nav.Link href='/guide'><i class="bi bi-arrow-bar-right"></i> PANDUAN</Nav.Link>
-            </Nav>
-            <Nav className=''>
-              <Nav.Link href='/'><i class="bi bi-arrow-bar-left"></i> DASHBOARD</Nav.Link>
-            </Nav>
+              <Nav className='me-auto'>
+                <Nav.Link href='/form'>
+                  <i class="bi bi-ui-checks"></i> User Aceptance Testing
+                </Nav.Link>
+                <Nav.Link href='/guide'>
+                  <i class="bi bi-arrow-bar-right"></i> PANDUAN
+                </Nav.Link>
+              </Nav>
+              <Nav className=''>
+                <Nav.Link href='/'><i class="bi bi-arrow-bar-left"></i> DASHBOARD</Nav.Link>
+              </Nav>
             </Navbar.Collapse>
           </Container>
-        </Navbar>
+        </Navbar> 
       </div>
-      <div className='container mb-3 px-1 mw-75' style={{marginTop:'70px'}}>
-        <div className='row'>
-          <div className='card border-5px rounded shadow-lg'>
-            <div className='card-body p-2'>
-              <h4 className='border-5px rounded-top d-block mb-0 p-1 bg-primary text-white text-left text-center'>CHATBOT</h4>
-              {/*Chatbot interface*/}
-              <InferenceMachine />
-            </div>
-          </div>
+      <div className='container' style={{marginTop:'70px'}}>
+        <div className='card p-1 mb-3 mw-75 border-5px rounded shadow-lg'>
+          {/*Chatbot interface*/}
+          <Nav className=''>
+            <BrowserRouter>
+              <Link className='nav-link' to='/chatbot'>Chatbot</Link>
+              <Link className='nav-link' to='/chatbot/forwardchaining'>Forward Chaining?</Link>
+              <Switch>
+                <Route exact path='/chatbot/forwardchaining' component={PageNotFound} />
+                <Route exact path='/chatbot' component={InferenceMachine} />
+              </Switch>
+            </BrowserRouter>
+          </Nav>
         </div>
       </div>
       <Footer/>

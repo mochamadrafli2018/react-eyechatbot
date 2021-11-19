@@ -5,7 +5,7 @@ import addChat from './AddChat'
 import compare from './Compare'
 import ChatbotInterface from './ChatbotInterface'
 
-const InferenceMachine = () => {
+const InferenceMachineCopy = () => {
   /*const SendChatHandler = () => {
     // axios.get('http:// localhost:5000/api/get').then((response) => {setRespon(response.data.response)})
     /*axios.post('http:// localhost:5000/api/post', {
@@ -83,7 +83,7 @@ const InferenceMachine = () => {
       // remove whitespace from both sides of a string
       .trim();
 
-    let question = `Apa anda mengalami gejala`
+    let question = `Apa anda mengalami gejala`;
     let question1 = `${question} ${sympthom[0][0]} ? (y/t)`;
     let question2 = `${question} ${sympthom[1][0]} ? (y/t)`;
     let question3 = `${question} ${sympthom[2][0]} ? (y/t)`;
@@ -2154,4 +2154,4 @@ const InferenceMachine = () => {
   )
 }
 
-export default InferenceMachine
+export default InferenceMachineCopy

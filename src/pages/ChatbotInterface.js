@@ -28,19 +28,18 @@ export default function ChatbotInterface({
   }) {
   return (
     <div id='container' style={{marginTop:'0px'}}>
-      <Row className='mx-auto mb-0'>
+      <Row className='mx-auto mb-2 shadow-hover-primary rounded'>
+        <h4 className='rounded-top d-block mb-0 p-1 bg-primary text-white text-left text-center'>CHATBOT</h4>
         <div 
           id='messages' 
-          className='bg-img-messages messages py-1 mx-auto mw-100 border shadow-sm' 
+          className='bg-img-messages messages py-1 mx-auto mw-100' 
           style={{color: theme.palette.primary.main}}
         >{/*Chat will be append in here*/}
         </div>
-      </Row>
-      <Row className='mx-auto'>
         <input 
           id='input' 
           type='text'
-          className='form-control mx-auto mb-2'            
+          className='form-control mx-auto mb-0'            
           value={input}
           placeholder='Ketik respon anda ...'
           onChange={handleChange} // in order able to input text
@@ -49,6 +48,7 @@ export default function ChatbotInterface({
           autofocus='true'
         />
       </Row>
+
       <Row className='mx-auto'>
         <button type='submit' value='Submit' onClick={handleSubmit} 
         className='btn btn-primary mb-2'>
