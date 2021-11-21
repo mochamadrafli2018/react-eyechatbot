@@ -45,16 +45,17 @@ export default function Dashboard () {
 
   return (
     <div className='poppins'>
-      <p>halo</p>
       {/*AppBar*/}
       <AppBar/>
       {/*Main Menu*/}
       <div
-        className='container p-3 mx-auto mw-75 border-5px rounded shadow-lg' 
+        className='container p-2 mx-auto mw-75 border-5px rounded shadow-lg' 
         style={{marginTop:'70px',marginBottom:'50px',width:'98%'}}
       >
         <strong className='text-uppercase'>{user.name}</strong>
-        <h4 className='text-center text-primary'>Selamat Datang di Web App EyeScreening</h4>
+        <h4 className='text-center text-primary'>
+          Selamat Datang di Web App EyeScreening
+        </h4>
         <hr />
         <div className='row'>
           <div className='col'>
@@ -74,7 +75,7 @@ export default function Dashboard () {
                   Sistem Pakar Skrining Penyakit Mata berbasis <strong>Form</strong>
                 </Card.Title>
                 <Card.Text>
-                  Diprogram dengan Vue.js, Vuetify dan Hapi
+                  Diprogram dengan framework Vue.js, Vuetify dan Hapi
                 </Card.Text>
                 <a className='btn btn-outline-primary' 
                   href='https://vue-eyescreening.netlify.app/'
@@ -101,7 +102,7 @@ export default function Dashboard () {
                   Sistem Pakar Skrining Penyakit Mata berbasis <strong>Chatbot</strong>
                 </Card.Title>
                 <Card.Text>
-                  Diprogram dengan React.js dan React Bootstrap
+                  Diprogram dengan library React.js dan React-Bootstrap
                 </Card.Text>
                 <button 
                   onClick={toChatbotDashboard} 

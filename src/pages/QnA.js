@@ -1,63 +1,144 @@
-// Options the user could type in
-const prompts = [
-    //0
-    [''],
-    //1 
-    ['hi','hai','hei','hey','halo','hallo','hello'],
-    //2
-    ['bagaimana kabarmu',
-    'bagaimana kabar anda','kabar anda',
-    'apa kabar','bagaimana hari anda?','apa kabar?'],
-    //3
-    ['baik','baik juga','senang','luar biasa'],
-    //4
-    ['buruk','bosan','lelah','sedih','kecewa','tertekan','depresi'],
-    //5
-    ['ceritakan saya sebuah cerita','ceritakan saya suatu candaan'],
-    //6
-    ['terima kasih','makasih','makasih banyak'],
-    //7
-    ['selamat tinggal','sampai jumpa','sampai jumpa lagi'],
-];
+import * as React from 'react';
+import {Container,Nav,Navbar} from 'react-bootstrap';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import '../App.css';
+import pdf1 from '../pdf/pdf-1.pdf';
+import pdf2 from '../pdf/pdf-2.pdf';
+import pdf3 from '../pdf/pdf-3.pdf';
+import pdf4 from '../pdf/pdf-4.pdf';
+import pdf5 from '../pdf/pdf-5.pdf';
 
-// Possible responses,in corresponding order
-const replies = [
-  //0
-  ['Coba ketikkan sesuatu'],
-  //1
-  ['Hallo!','Hai!'],
-  //2
-  ['Baik... bagaimana keadaan anda?',
-  'Sangat baik, anda?','Luar biasa, bagaimana hari anda?'],
-  //3
-  ['Menarik','Wah, syukurlah!','Senang mendengarnya'],
-  //4
-  ['Kenapa?','Semangat ya'],
-  //5
-  ['Bagaimana dengan?','Pada jaman dahulu...'],
-  //6
-  ['Sama-sama','Senang membantu anda','Tidak masalah sobat'],
-  //7
-  ['Selamat tinggal','Sampai jumpa lagi'],
-];
+export default function QnA() {
+  const [expanded, setExpanded] = React.useState(false);
 
-const alternative = [
-  'Ketikkan sesuatu yang bot pahami...',
-  'Bot tidak paham...',
-  'Maaf, bot tidak paham',
-];
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
 
-// Whatever else you want :)
-const coronavirus = [
-  'Tetap di rumah ya!',
-  'Yuk, gunakan masker',
-  'Jangan lupa jaga jarak',
-  'These are uncertain times'
-]
-  
-export {
-  prompts,
-  replies,
-  alternative,
-  coronavirus,
+  return (
+    <div className='container' style={{marginTop:'70px',marginBottom:'50px'}}>
+      <div className='card p-1 mb-3 mx-auto mw-75 border-5px shadow-hover rounded shadow-hover poppins'>
+        <Navbar bg='primary' expand='lg' fixed='top' variant='dark'>
+          <Container>
+            <Navbar.Brand href='#home'>
+              EyeScreening
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls='basic-navbar-nav' />
+            <Navbar.Collapse id='basic-navbar-nav'>
+              <Nav className='me-auto'>
+              </Nav>
+              <Nav className=''>
+                <Nav.Link href='/chatbot'>
+                  <i class="bi bi-arrow-bar-left"></i> KEMBALI
+                </Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar> 
+        <h4 className='text-center'>Literatur dan Referensi</h4>
+        <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')} className='border'>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls='panel1bh-content'
+            id='panel1bh-header'
+            className='border-bottom'
+          >
+            <Typography sx={{ width: '33%', flexShrink: 0 }} 
+            className='fw-bold poppins text-primary'>
+              Metode yang digunakan ?
+            </Typography>
+            <Typography sx={{ color: 'text.secondary' }} 
+            className='poppins text-primary'>
+              Metode Forward Chaining
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography className='poppins'>
+              Forward Chaining merupakan metode yang digunakan untuk mengambil{' '}
+              suatu keputusan dengan aturan IF-THEN. Untuk penjelasan lebih detail{' '}
+              terdapat pada 2 sumber literatur di bawah ini.{' '}
+              Forward Chaining bekerja dengan menerapkan aturan IF-THEN{' '}
+              pada suatu basis atuaran yang ada pada basis pengetahuan.{' '}
+              Misal IF/jika pengguna mengalami gejala 1, gejala 2 ,gejala 3{' '}
+              dan gejala 4, THEN/bisa dipastikan pengguna mengalami penyakit X.{' '}
+            </Typography>
+            <div className='container p-0'>
+              <iframe 
+              title='Literatur Forward Chaining 1'
+              src={pdf1}
+              height='480' 
+              className='mx-auto w-100'
+              >Loading…
+              </iframe>
+            </div>
+            <div className='container p-0'>
+              <iframe 
+              title='Literatur Forward Chaining 2'
+              src={pdf2}
+              height='480' 
+              className='mx-auto w-100'
+              >Loading…
+              </iframe>
+            </div>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')} className='border'>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls='panel2bh-content'
+            id='panel2bh-header'
+            className='border-bottom'
+          >
+            <Typography sx={{ width: '33%', flexShrink: 0 }} 
+            className='fw-bold poppins text-primary'>
+              Fungsi Chatbot ?
+            </Typography>
+            <Typography sx={{ color: 'text.secondary' }} 
+            className='poppins text-primary'>
+              Sistem Pakar Penyakit Mata
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography className='poppins'>
+              Sistem Pakar secara umum merupakan sistem yang mampu{' '}
+              mengambil suatu keputusan dengan meniru cara penalaran{' '}
+              seorang pakar. Referensi yang dirujuk tentang sistem pakar{' '}
+              dapat diamati pada literatur di bawah ini.
+            </Typography>
+            <div className='container p-0'>
+              <iframe 
+              title='Literatur Sistem Pakar 1'
+              src={pdf3}
+              height='480' 
+              className='mx-auto w-100'
+              >Loading…
+              </iframe>
+            </div>
+            <div className='container p-0'>
+              <iframe 
+              title='Literatur Sistem Pakar 2'
+              src={pdf4}
+              height='480' 
+              className='mx-auto w-100'
+              >Loading…
+              </iframe>
+            </div>
+            <div className='container p-0'>
+              <iframe 
+              title='Literatur Sistem Pakar 3'
+              src={pdf5}
+              height='480' 
+              className='mx-auto w-100'
+              >Loading…
+              </iframe>
+            </div>
+          </AccordionDetails>
+        </Accordion>
+      </div>
+    </div>
+  );
 }

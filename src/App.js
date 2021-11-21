@@ -10,7 +10,7 @@ import ChatbotDashboard from './pages/ChatbotDashboard';
 import Dashboard from './pages/Dashboard';
 import FormTesting from './pages/FormTesting';
 import Guide from './pages/Guide';
-import ControlledAccordions from './pages/ControlledAccordions';
+import QnA from './pages/QnA';
 class App extends React.Component {
   render(){
     return(
@@ -20,8 +20,8 @@ class App extends React.Component {
           <Route exact path='/register' component={Register} />
           <Route exact path='/chatbot' component={ChatbotDashboard} />
           <Route exact path='/form' component={FormTesting} />
-          <Route exact path='/guide' component={Guide} />
-          <Route exact path='/chatbot/forwardchaining' component={ControlledAccordions} />
+          <Route exact path='/chatbot/guide' component={Guide} />
+          <Route exact path='/qna' component={QnA} />
           {/* exact path='/' must be the last to write*/}
           <Route exaxt path='/' component={Dashboard} />
         </Switch>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {prompts,replies,alternative,coronavirus,} from './QnA'
+import {prompts,replies,alternative,coronavirus,} from './PromptsAndReplies'
 import {sympthom} from './SymthomList'
 import addChat from './AddChat'
 import compare from './Compare'
@@ -83,61 +83,61 @@ const InferenceMachine = () => {
       // remove whitespace from both sides of a string
       .trim();
 
-    let question = `Apa anda mengalami gejala`
-    let question1 = `${question} ${sympthom[0][0]} ? (y/t)`;
-    let question2 = `${question} ${sympthom[1][0]} ? (y/t)`;
-    let question3 = `${question} ${sympthom[2][0]} ? (y/t)`;
-    let question4 = `${question} ${sympthom[3][0]} ? (y/t)`;
-    let question5 = `${question} ${sympthom[4][0]} ? (y/t)`;
-    let question6 = `${question} ${sympthom[5][0]} ? (y/t)`;
-    let question7 = `${question} ${sympthom[6][0]} ? (y/t)`;
-    let question8 = `${question} ${sympthom[7][0]} ? (y/t)`;
-    let question9 = `${question} ${sympthom[8][0]} ? (y/t)`;
-    let question10 = `${question} ${sympthom[9][0]} ? (y/t)`;
-    let question11 = `${question} ${sympthom[10][0]} ? (y/t)`;
-    let question12 = `${question} ${sympthom[11][0]} ? (y/t)`;
-    let question13 = `${question} ${sympthom[12][0]} ? (y/t)`;
-    let question14 = `${question} ${sympthom[13][0]} ? (y/t)`;
-    let question15 = `${question} ${sympthom[14][0]} ? (y/t)`;
-    let question16 = `${question} ${sympthom[15][0]} ? (y/t)`;
-    let question17 = `${question} ${sympthom[16][0]} ? (y/t)`;
-    let question18 = `${question} ${sympthom[17][0]} ? (y/t)`;
-    let question19 = `${question} ${sympthom[18][0]} ? (y/t)`;
-    let question20 = `${question} ${sympthom[19][0]} ? (y/t)`;
-    let question21 = `${question} ${sympthom[20][0]} ? (y/t)`;
-    let question22 = `${question} ${sympthom[21][0]} ? (y/t)`;
-    let question23 = `${question} ${sympthom[22][0]} ? (y/t)`;
-    let question24 = `${question} ${sympthom[23][0]} ? (y/t)`;
-    let question25 = `${question} ${sympthom[24][0]} ? (y/t)`;
-    let question26 = `${question} ${sympthom[25][0]} ? (y/t)`;
-    let question27 = `${question} ${sympthom[26][0]} ? (y/t)`;
-    let question28 = `${question} ${sympthom[27][0]} ? (y/t)`;
-    let question29 = `${question} ${sympthom[28][0]} ? (y/t)`;
-    let question30 = `${question} ${sympthom[29][0]} ? (y/t)`;
-    let question31 = `${question} ${sympthom[30][0]} ? (y/t)`;
-    //let question32 = `${question} ${sympthom[31][0]} ? (y/t)`;
-    let question33 = `${question} ${sympthom[32][0]} ? (y/t)`;
-    let question34 = `${question} ${sympthom[33][0]} ? (y/t)`;
-    let question35 = `${question} ${sympthom[34][0]} ? (y/t)`;
-    let question36 = `${question} ${sympthom[35][0]} ? (y/t)`;
-    let question37 = `${question} ${sympthom[36][0]} ? (y/t)`;
-    let question38 = `${question} ${sympthom[37][0]} ? (y/t)`;
-    let question39 = `${question} ${sympthom[38][0]} ? (y/t)`;
-    let question40 = `${question} ${sympthom[39][0]} ? (y/t)`;
-    let question41 = `${question} ${sympthom[40][0]} ? (y/t)`;
-    //let question42 = `${question} ${sympthom[41][0]} ? (y/t)`;
-    let question43 = `${question} ${sympthom[42][0]} ? (y/t)`;
-    let question44 = `${question} ${sympthom[43][0]} ? (y/t)`;
-    let question45 = `${question} ${sympthom[44][0]} ? (y/t)`;
-    let question46 = `${question} ${sympthom[45][0]} ? (y/t)`;
-    let question47 = `${question} ${sympthom[46][0]} ? (y/t)`;
-    let question48 = `${question} ${sympthom[47][0]} ? (y/t)`;
-    let question49 = `${question} ${sympthom[48][0]} ? (y/t)`;
-    let question50 = `${question} ${sympthom[49][0]} ? (y/t)`;
-    let question51 = `${question} ${sympthom[50][0]} ? (y/t)`;
-    let question52 = `${question} ${sympthom[51][0]} ? (y/t)`;
-    let question53 = `${question} ${sympthom[52][0]} ? (y/t)`;
-    let question54 = `${question} ${sympthom[53][0]} ? (y/t)`;
+    let question = `Apakah anda mengalami gejala`
+    let question1 = `${question} ${sympthom[0][0]} pada mata anda ? (y/t)`;
+    let question2 = `${question} ${sympthom[1][0]} pada mata anda ? (y/t)`;
+    let question3 = `${question} ${sympthom[2][0]} pada mata anda ? (y/t)`;
+    let question4 = `${question} ${sympthom[3][0]} pada mata anda ? (y/t)`;
+    let question5 = `${question} ${sympthom[4][0]} pada mata anda ? (y/t)`;
+    let question6 = `${question} ${sympthom[5][0]} pada mata anda ? (y/t)`;
+    let question7 = `${question} ${sympthom[6][0]} pada mata anda ? (y/t)`;
+    let question8 = `${question} ${sympthom[7][0]} pada mata anda ? (y/t)`;
+    let question9 = `${question} ${sympthom[8][0]} pada mata anda ? (y/t)`;
+    let question10 = `${question} ${sympthom[9][0]} pada mata anda ? (y/t)`;
+    let question11 = `${question} ${sympthom[10][0]} pada mata anda ? (y/t)`;
+    let question12 = `${question} ${sympthom[11][0]} pada mata anda ? (y/t)`;
+    let question13 = `${question} ${sympthom[12][0]} pada mata anda ? (y/t)`;
+    let question14 = `${question} ${sympthom[13][0]} pada mata anda ? (y/t)`;
+    let question15 = `${question} ${sympthom[14][0]} pada mata anda ? (y/t)`;
+    let question16 = `${question} ${sympthom[15][0]} pada mata anda ? (y/t)`;
+    let question17 = `${question} ${sympthom[16][0]} pada mata anda ? (y/t)`;
+    let question18 = `${question} ${sympthom[17][0]} pada mata anda ? (y/t)`;
+    let question19 = `${question} ${sympthom[18][0]} pada mata anda ? (y/t)`;
+    let question20 = `${question} ${sympthom[19][0]} pada mata anda ? (y/t)`;
+    let question21 = `${question} ${sympthom[20][0]} pada mata anda ? (y/t)`;
+    let question22 = `${question} ${sympthom[21][0]} pada mata anda ? (y/t)`;
+    let question23 = `${question} ${sympthom[22][0]} pada mata anda ? (y/t)`;
+    let question24 = `${question} ${sympthom[23][0]} pada mata anda ? (y/t)`;
+    let question25 = `${question} ${sympthom[24][0]} pada mata anda ? (y/t)`;
+    let question26 = `${question} ${sympthom[25][0]} pada mata anda ? (y/t)`;
+    let question27 = `${question} ${sympthom[26][0]} pada mata anda ? (y/t)`;
+    let question28 = `${question} ${sympthom[27][0]} pada mata anda ? (y/t)`;
+    let question29 = `${question} ${sympthom[28][0]} pada mata anda ? (y/t)`;
+    let question30 = `${question} ${sympthom[29][0]} pada mata anda ? (y/t)`;
+    let question31 = `${question} ${sympthom[30][0]} pada mata anda ? (y/t)`;
+    //let question32 = `${question} ${sympthom[31][0]} pada mata anda ? (y/t)`;
+    let question33 = `${question} ${sympthom[32][0]} pada mata anda ? (y/t)`;
+    let question34 = `${question} ${sympthom[33][0]} pada mata anda ? (y/t)`;
+    let question35 = `${question} ${sympthom[34][0]} pada mata anda ? (y/t)`;
+    let question36 = `${question} ${sympthom[35][0]} pada mata anda ? (y/t)`;
+    let question37 = `${question} ${sympthom[36][0]} pada mata anda ? (y/t)`;
+    let question38 = `${question} ${sympthom[37][0]} pada mata anda ? (y/t)`;
+    let question39 = `${question} ${sympthom[38][0]} pada mata anda ? (y/t)`;
+    let question40 = `${question} ${sympthom[39][0]} pada mata anda ? (y/t)`;
+    let question41 = `${question} ${sympthom[40][0]} pada mata anda ? (y/t)`;
+    //let question42 = `${question} ${sympthom[41][0]} pada mata anda ? (y/t)`;
+    let question43 = `${question} ${sympthom[42][0]} pada mata anda ? (y/t)`;
+    let question44 = `${question} ${sympthom[43][0]} pada mata anda ? (y/t)`;
+    let question45 = `${question} ${sympthom[44][0]} pada mata anda ? (y/t)`;
+    let question46 = `${question} ${sympthom[45][0]} pada mata anda ? (y/t)`;
+    let question47 = `${question} ${sympthom[46][0]} pada mata anda ? (y/t)`;
+    let question48 = `${question} ${sympthom[47][0]} pada mata anda ? (y/t)`;
+    let question49 = `${question} ${sympthom[48][0]} pada mata anda ? (y/t)`;
+    let question50 = `${question} ${sympthom[49][0]} pada mata anda ? (y/t)`;
+    let question51 = `${question} ${sympthom[50][0]} pada mata anda ? (y/t)`;
+    let question52 = `${question} ${sympthom[51][0]} pada mata anda ? (y/t)`;
+    let question53 = `${question} ${sympthom[52][0]} pada mata anda ? (y/t)`;
+    let question54 = `${question} ${sympthom[53][0]} pada mata anda ? (y/t)`;
 
 
     if (compare(prompts, replies, input)) { 
@@ -2133,26 +2133,28 @@ const InferenceMachine = () => {
   }
   
   return(
-  <div className='card p-1 mb-3 mx-auto mw-75 border-5px rounded shadow-lg'>
-    <ChatbotInterface 
-      input={input}
-      handleChange={handleChange}
-      handleKey={handleKey}
-      handleSubmit={handleSubmit}
-      handleSubmitMulai={handleSubmitMulai}
-      handleSubmitYa={handleSubmitYa}
-      handleSubmitTidak={handleSubmitTidak}
-      berhasil={berhasil}
-      firstReply={firstReply}
-      secondReply={secondReply}
-      thirdReply={thirdReply}
-      fourthReply={fourthReply}
-      fifithReply={fifthReply}
-      sixthReply={sixthReply}
-      seventhReply={seventhReply}
-      eightReply={eightReply}
-    />
-  </div>
+    <div className='container' style={{marginTop:'70px',marginBottom:'50px'}}>
+      <div className='card p-1 mb-3 mx-auto mw-75 border-5px rounded shadow-lg'>
+        <ChatbotInterface 
+          input={input}
+          handleChange={handleChange}
+          handleKey={handleKey}
+          handleSubmit={handleSubmit}
+          handleSubmitMulai={handleSubmitMulai}
+          handleSubmitYa={handleSubmitYa}
+          handleSubmitTidak={handleSubmitTidak}
+          berhasil={berhasil}
+          firstReply={firstReply}
+          secondReply={secondReply}
+          thirdReply={thirdReply}
+          fourthReply={fourthReply}
+          fifithReply={fifthReply}
+          sixthReply={sixthReply}
+          seventhReply={seventhReply}
+          eightReply={eightReply}
+        />
+      </div>
+    </div>
   )
 }
 

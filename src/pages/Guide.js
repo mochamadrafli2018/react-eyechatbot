@@ -1,24 +1,12 @@
-import {Container,Nav,Navbar} from 'react-bootstrap';
 import InferenceMachineCopy from './InferenceMachineCopy';
 import Footer from './Footer'
 
 export default function Guide () {
   return(
     <div className='poppins'>
-      <Navbar bg='primary' expand='lg' fixed='top' variant='dark'>
-        <Container>
-          <Navbar.Brand href='#home'>EyeScreening</Navbar.Brand>
-          <Nav calssName='me-auto'></Nav>
-          <Nav className=''>
-            <Nav.Link href='/chatbot'>
-              <i className="bi bi-box-arrow-left"></i> KEMBALI
-            </Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
       <div className='container' style={{marginTop:'75px',marginBottom:'50px'}}>
-        <div className='card px-3 py-1 mx-auto shadow-lg border-5px rounded'>
-          <h4 className='mt-2 mb-0 fw-bold text-primary'>Panduan Penggunaan Chatbot Sistem Pakar Skrining Penyakit Mata</h4>
+        <div className='card px-3 py-1 mx-auto shadow-hover border-5px rounded'>
+          <h4 className='mt-2 mb-0 text-primary'>Panduan Penggunaan Chatbot Sistem Pakar Skrining Penyakit Mata</h4>
           <hr/>
           <p>Untuk melakukan skrining penyakit mata ketikkan : mulai,  tes,  test atau skrining pada input chat.</p>
           <p>Atau bisa juga tekan tombol <strong>mulai</strong> berwarna biru yang ada di bawah input chat.</p>
