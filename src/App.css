@@ -34,9 +34,6 @@
   overflow-y: scroll;
 }
 .hover-zoom {
-  width: 100%;
-  max-width: 400px;
-  height: 100%;
   transition: all 0.3s ease-in-out;
 }
 .hover-zoom:hover {

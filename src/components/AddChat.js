@@ -9,7 +9,7 @@ export default function addChat(input, reply) {
   userDiv.className = 'user bg-blue-baby my-2 px-2 py-2'
   userDiv.innerHTML =
   `
-    <img src=${user} class='avatar'>
+    <img src=${user} class='avatar mx-1'>
     <span class='mx-1 text-right text-dark'>${input}</span>
   `
   // add userDiv to messagesContainer

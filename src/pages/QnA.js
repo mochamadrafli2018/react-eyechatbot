@@ -22,23 +22,6 @@ export default function QnA() {
   return (
     <div className='container' style={{marginTop:'70px',marginBottom:'50px'}}>
       <div className='card p-1 mb-3 mx-auto mw-75 border-5px shadow-hover rounded shadow-hover poppins'>
-        <Navbar bg='primary' expand='lg' fixed='top' variant='dark'>
-          <Container>
-            <Navbar.Brand href='#home'>
-              EyeScreening
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls='basic-navbar-nav' />
-            <Navbar.Collapse id='basic-navbar-nav'>
-              <Nav className='me-auto'>
-              </Nav>
-              <Nav className=''>
-                <Nav.Link href='/chatbot'>
-                  <i class="bi bi-arrow-bar-left"></i> KEMBALI
-                </Nav.Link>
-              </Nav>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar> 
         <h4 className='text-center'>Literatur dan Referensi</h4>
         <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')} className='border'>
           <AccordionSummary

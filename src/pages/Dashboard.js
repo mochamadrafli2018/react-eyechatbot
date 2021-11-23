@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Container } from 'react-bootstrap';
 import CardBootstrapTailwind from '../bootstrap-components/CardBootstrapTailwind';
 import DashboardBar from '../bootstrap-components/DashboardBar';
 import Footer from '../components/Footer'
