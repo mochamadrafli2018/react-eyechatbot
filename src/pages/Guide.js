@@ -4,8 +4,10 @@ import Footer from '../components/Footer'
 export default function Guide () {
   return(
     <div className='poppins'>
-      <div className='container overflow-hidden' style={{marginTop:'75px',marginBottom:'50px'}}>
-        <div className='card px-3 py-1 mx-auto hover:shadow-2xl border-5px rounded'>
+      <div className='container overflow-hidden' 
+      style={{marginTop:'75px',marginBottom:'50px'}}>
+        <div className='card px-3 py-1 mx-auto border-5px rounded
+        hover:border-blue-400 hover:shadow-lg'>
           <h4 className='mt-2 mb-0 text-primary'>Panduan Penggunaan Chatbot Sistem Pakar Skrining Penyakit Mata</h4>
           <hr/>
           <p>Untuk melakukan skrining penyakit mata ketikkan : mulai,  tes,  test atau skrining pada input chat.</p>

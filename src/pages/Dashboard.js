@@ -8,7 +8,16 @@ import Image1 from '../img/Image-1.jpg';
 import Image2 from '../img/Image-2.jpg';
 
 export default function Dashboard () {
-
+  
+  const lastUpdated = new Date(document.lastModified);
+  const dayName = lastUpdated.getDay()
+  const weekDaysArr = ['Sunday','Monday','Tuesday','Wednesday',
+  'Thursday','Friday','Saturday']
+  const currentDate = weekDaysArr[dayName] + ', ' + lastUpdated.getDate() + '/' 
+  + (lastUpdated.getMonth() + 1) + '/' + lastUpdated.getFullYear() + ', ' 
+  + lastUpdated.getHours() + ':' + lastUpdated.getMinutes() + ':' 
+  + lastUpdated.getSeconds();
+  
   return (
     <div className='poppins'>
       {/*AppBar*/}
@@ -34,6 +43,7 @@ export default function Dashboard () {
               Poin3={'Hapi pada Mesin Inferensi untuk Pengambilan Keputusan Penyakit Mata'}
               Poin4={'Web App ini juga telah di deploy di Netlify'}
               URL={'/vue'}
+              LastUpdated={currentDate}
             />
           </div>
           <div className='col'>
@@ -46,6 +56,7 @@ export default function Dashboard () {
               Poin3={'React Hooks pada Mesin Inferensi untuk Pengambilan Keputusan Penyakit Mata'}
               Poin4={'Web App ini juga telah di deploy di Heroku'}
               URL={'/chatbot'}
+              LastUpdated={currentDate}
             />
           </div>
         </div>
