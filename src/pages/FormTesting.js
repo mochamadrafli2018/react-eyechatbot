@@ -1,6 +1,6 @@
 import React from 'react'
 import {Container,Nav,Navbar} from 'react-bootstrap';
-import Footer from './Footer';
+import Footer from '../components/Footer';
 
 export default function FormTesting () {
   return (

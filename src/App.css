@@ -1,14 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 .opensans {
-  font-family: 'Open Sans', Arial, sans-serif;
+  font-family: "Open Sans", Arial, sans-serif;
 }
-.poppins{
+.poppins {
   font-family: Poppins, Arial, Helvetica, sans-serif !important;
 }
 .quicksand {
   font-family: Quicksand, Arial, sans-serif;
+}
+.bg-blue-baby {
+  background-color: #c3e0e5;
+}
+.bg-ivory {
+  background-color: #eeede7;
+}
+.overflow-hidden {
+  overflow: hidden;
 }
 /* {
   box-sizing: border-box;
@@ -16,46 +25,52 @@
 /*::-webkit-input-placeholder { 
 	color: .711 
 }*/
-.avatar {
-	height: 25px;
-}
-.bg-image{
-	position:relative;
-	overflow:hidden;
-	background-repeat:no-repeat;
-	background-size:cover;
-	background-position:center center
-}
-.hover-zoom img,
-.hover-zoom video{
-	transition:all .3s linear
-}
-.hover-zoom:hover img,
-.hover-zoom:hover video{
-	transform:scale(1.1)
-}
 .messages {
-	background-image:url('./img/Rain.jpg');
-	display: flex;
-	flex-direction: column;
-  	height: 310px;
-	max-height: 310px;
-	overflow: scroll;
+  background-image: url("./img/Rain.jpg");
+  display: flex;
+  flex-direction: column;
+  height: 310px;
+  max-height: 310px;
+  overflow-y: scroll;
+}
+.hover-zoom {
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+}
+.hover-zoom:hover {
+  transform: scale(1.1);
 }
 .shadow-hover:hover {
-	box-shadow: 0 0 20px 0 #d6d5d5;
-	transition: box-shadow 0.3s ease-in-out;
+  box-shadow: 0 0 20px 0 #d6d5d5;
+  transition: all 0.3s ease-in-out;
+}
+.margin-up-hover:hover {
+  margin-top: -10px;
+  transition: all 0.3s ease-in-out;
 }
 .shadow-hover-primary:hover {
-	box-shadow: 0 0 20px 0 #428bca;
-	transition: box-shadow 0.3s ease-in-out;
+  border-color: #86b7fe;
+  box-shadow: 0 0 20px 0 #428bca;
+  transition: box-shadow 0.3s ease-in-out;
 }
-#user{
-	margin-right: auto;
+.avatar {
+  height: 25px;
 }
-#bot {
-	margin-left: auto;
-	max-width:90%;
+.bot {
+  margin-right: auto;
+  border-radius: 0px 20px 20px 10px;
+}
+.user {
+  margin-left: auto;
+  max-width: 90%;
+  border-radius: 20px 0px 10px 20px;
+}
+.yt {
+  border: 2px solid #007bff;
+  border-radius: 20px;
+  padding: 2px 7px;
 }
 /* Mobile */
 @media only screen and (max-width: 980px) {

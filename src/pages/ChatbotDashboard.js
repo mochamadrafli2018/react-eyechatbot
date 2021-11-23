@@ -1,8 +1,8 @@
 import React from 'react';
 import {BrowserRouter,Link,Switch,Route } from 'react-router-dom';
 import {Container,Nav,Navbar} from 'react-bootstrap';
-import InferenceMachine from './InferenceMachine';
-import Footer from './Footer';
+import InferenceMachine from '../components/InferenceMachine';
+import Footer from '../components/Footer';
 import Guide from './Guide';
 
 export default function ChatbotDashboard() {
@@ -17,9 +17,7 @@ export default function ChatbotDashboard() {
       <BrowserRouter>
         <Navbar bg='primary' expand='lg' fixed='top' variant='dark'>
           <Container>
-            <Navbar.Brand href='#home'>
-              EyeScreening
-            </Navbar.Brand>
+            <Navbar.Brand href='#home'>EyeScreening</Navbar.Brand>
             <Navbar.Toggle aria-controls='basic-navbar-nav' />
             <Navbar.Collapse id='basic-navbar-nav'>
               <Nav className='me-auto'>
@@ -51,7 +49,6 @@ export default function ChatbotDashboard() {
           <Route exact path='/chatbot' component={InferenceMachine} />
         </Switch>
       </BrowserRouter>
-
       <Footer/>
     </div>
   )

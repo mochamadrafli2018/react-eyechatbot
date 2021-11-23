@@ -83,6 +83,7 @@ This project was licensed under MIT License
 
 - React create element : https://reactgo.com/react-createelement-example
 - React UseState : https://daveceddia.com/usestate-hook-examples/
+- React Routing to External URL : https://stackoverflow.com/questions/50350085/how-to-make-a-hyperlink-external-in-react
 - React Project Deployment on Heroku : https://ramya.hashnode.dev/how-to-deploy-react-app-on-heroku-from-github
 
 5. CSS :
