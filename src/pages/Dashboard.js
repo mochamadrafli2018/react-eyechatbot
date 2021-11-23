@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {useHistory} from 'react-router';
-import axios from 'axios';
+import { Container } from 'react-bootstrap';
 import CardBootstrapTailwind from '../bootstrap-components/CardBootstrapTailwind';
 import DashboardBar from '../bootstrap-components/DashboardBar';
 import Footer from '../components/Footer'
@@ -23,16 +22,17 @@ export default function Dashboard () {
       {/*AppBar*/}
       <DashboardBar/>
       {/*Main Menu*/}
-      
       <div
-        className='container p-2 mx-auto mw-75 border-5px rounded shadow-lg' 
+        className='container p-0 mx-auto mw-75 rounded border shadow-2xl
+        hover:border-blue-400 margin-up-hover' 
         style={{marginTop:'70px',marginBottom:'50px',width:'98%'}}
       >
-        <h4 className='text-center text-primary'>
-          Selamat Datang di Web App EyeScreening
+        <h4 className='bg-primary quicksand px-1 py-2 m-0 
+        text-center text-left text-light rounded-top'>
+          Sistem Skrining Penyakit Mata berbasis Kecerdasan Buatan
         </h4>
-        <hr />
-        <div className='row'>
+        <hr className='mt-0 mb-2'/>
+        <div className='row p-1'>
           <div className='col'>
             <CardBootstrapTailwind 
               Title={'Sistem Pakar Skrining Penyakit Mata berbasis Chatbot'}
@@ -43,11 +43,11 @@ export default function Dashboard () {
               Poin3={'Hapi pada Mesin Inferensi untuk Pengambilan Keputusan Penyakit Mata'}
               Poin4={'Web App ini juga telah di deploy di Netlify'}
               URL={'/vue'}
-              LastUpdated={currentDate}
+              lastUpdated={currentDate}
             />
           </div>
           <div className='col'>
-            <CardBootstrapTailwind 
+            <CardBootstrapTailwind
               Title={'Sistem Pakar Skrining Penyakit Mata berbasis Form'}
               Image={Image2}
               MainText={'We App ini di program dengan : '}
@@ -56,7 +56,7 @@ export default function Dashboard () {
               Poin3={'React Hooks pada Mesin Inferensi untuk Pengambilan Keputusan Penyakit Mata'}
               Poin4={'Web App ini juga telah di deploy di Heroku'}
               URL={'/chatbot'}
-              LastUpdated={currentDate}
+              lastUpdated={currentDate}
             />
           </div>
         </div>

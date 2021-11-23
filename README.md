@@ -73,7 +73,9 @@ This project was licensed under MIT License
 - input onkeypress : https://stackoverflow.com/questions/27827234/how-to-handle-the-onkeypress-event-in-reactjs
 - lower case input : https://stackoverflow.com/questions/39999367/how-do-i-reference-a-local-image-in-react
 - open link in new page : https://techstacker.com/open-link-ahref-in-new-tab/
-- JavaScript getFullYear, getMonth, getDate etc : https://stackoverflow.com/questions/16024346/lastmodified-function-returns-current-date-and-time
+- JavaScript getFullYear, getMonth, getDate etc :
+  a) https://stackoverflow.com/questions/16024346/lastmodified-function-returns-current-date-and-time
+  b) http://www.scriptingmaster.com/scripts/JavaScript/date-time/get-day-name-JavaScript.asp
 
 3. HTML/JSX Tag :
 

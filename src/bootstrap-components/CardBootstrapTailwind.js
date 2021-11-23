@@ -2,7 +2,7 @@ import {Card} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
 export default function CardBootsrapTailwind({
-    Title,Image,MainText,Poin1,Poin2,Poin3,Poin4,URL,LastUpdated
+    Title,Image,MainText,Poin1,Poin2,Poin3,Poin4,URL,lastUpdated
   }) {
   return (
     <Card
@@ -12,11 +12,11 @@ export default function CardBootsrapTailwind({
     >
       <Card.Img variant='top' src={Image} className='w-100'/>
       <Card.Body id='card-body'>
-        <Card.Title className='text-primary'>{Title}</Card.Title>
+        <Card.Title className='my-1 text-primary'>{Title}</Card.Title>
         <Card.Text>
-          <p class='mb-2'>{MainText}</p>
+          <p class='my-1'>{MainText}</p>
           {/*Tailwind style*/}
-          <li class='flex items-start'>
+          <li class='flex items-start my-1'>
             <span class='h-6 flex items-center sm:h-7 text-primary'>
               <svg class='flex-shrink-0 h-5 w-5 text-cyan-500' viewBox='0 0 20 20' fill='currentColor'>
                 <path fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd' />
@@ -24,7 +24,7 @@ export default function CardBootsrapTailwind({
             </span>
             <p class='ml-2'>{Poin1}</p>
           </li>
-          <li class='flex items-start'>
+          <li class='flex items-start my-1'>
             <span class='h-6 flex items-center sm:h-7 text-primary'>
               <svg class='flex-shrink-0 h-5 w-5 text-cyan-500' viewBox='0 0 20 20' fill='currentColor'>
                 <path fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd' />
@@ -32,7 +32,7 @@ export default function CardBootsrapTailwind({
             </span>
             <p class='ml-2'>{Poin2}</p>
           </li>
-          <li class='flex items-start'>
+          <li class='flex items-start my-1'>
             <span class='h-6 flex items-center sm:h-7 text-primary'>
               <svg class='flex-shrink-0 h-5 w-5 text-cyan-500' viewBox='0 0 20 20' fill='currentColor'>
                 <path fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd' />
@@ -40,7 +40,7 @@ export default function CardBootsrapTailwind({
             </span>
             <p class='ml-2'>{Poin3}</p>
           </li>
-          <li class='flex items-start'>
+          <li class='flex items-start my-1'>
             <span class='h-6 flex items-center sm:h-7 text-primary'>
               <svg class='flex-shrink-0 h-5 w-5 text-cyan-500' viewBox='0 0 20 20' fill='currentColor'>
                 <path fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd' />
@@ -51,11 +51,11 @@ export default function CardBootsrapTailwind({
         </Card.Text>
         {/*Link animate-bounce*/}
         <Link to={URL}
-        className='btn btn-outline-primary mt-1 mb-2'
+        className='btn btn-outline-primary my-1'
         >Klik untuk Coba
         </Link>
-        <p className='mb-0' style={{fontSize:'13px'}}>
-          Last Updated : {LastUpdated}
+        <p className='my-1' style={{fontSize:'13px'}}>
+          Last Updated : {lastUpdated}
         </p>
       </Card.Body>
     </Card>
