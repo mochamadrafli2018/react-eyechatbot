@@ -1,19 +1,22 @@
 import * as React from 'react';
 import OverlayItem from './Overlay';
-import {Container,Nav,Navbar} from 'react-bootstrap';
+import {Nav,Navbar} from 'react-bootstrap';
 
 export default function AppBar() {
   return (
     <div className='poppins'>
-      <div className='shadow-sm'>
-        <Navbar bg='primary' expand='lg' fixed='top' variant='dark'>
-          <Container>
-            <Navbar.Brand></Navbar.Brand>
-            <Navbar.Toggle aria-controls='basic-navbar-nav'/>
-            <Navbar.Collapse id='basic-navbar-nav'>
-            <Nav className='me-auto'>
-              <OverlayItem 
-                text={'Sistem Pakar ?'}
+      <div
+        style={{position:'fixed',top:'0','z-index':'1'}}  
+        className='navbar bg-light py-1 w-100 border-bottom shadow-sm text-primary'
+      >
+        <div className='container'>
+          <Navbar.Brand></Navbar.Brand>
+          <Nav className='me-auto'>
+              <Nav.Link className='border-primary-hover'>
+                <i class="bi bi-menu-app"></i> Menu
+              </Nav.Link>
+              <OverlayItem
+                text={'Sistem Pakar?'}
                 explanation={`
                   Sistem pakar merupakan sistem yang bekerja 
                   dengan menirukan proses pemikiran seorang pakar.
@@ -22,7 +25,7 @@ export default function AppBar() {
                 `}
               />
               <OverlayItem
-                text={'Daftar Penyakit ?'}
+                text={'Penyakit?'}
                 explanation={`
                 Ada 26 penyakit mata yang ada pada database sistem diantaranya : \n
                 1.) Ulkus Kornea
@@ -52,29 +55,8 @@ export default function AppBar() {
                 25.) Keratitis Ulserativa Perifer
                 28.) Oftalmia Neonatorum
               `}/>
-            </Nav>
-            <Nav>
-              {/*<Nav.Link onClick={logoutHandler} className=''
-              ><i className="bi bi-box-arrow-left"></i> KELUAR</Nav.Link>*/}
-              <Nav.Link>
-                Kontak Perancang 
-                <a href='https://www.github.com/mochamadrafli2018' className='text-white' target='_blank' rel='noreferrer'>
-                  <i className='bi-github mx-2' role='img' aria-label='GitHub'></i>
-                </a>
-                <a href='https://www.instagram.com/rafli.r.rmdhn' className='text-white' target='_blank' rel='noreferrer'>
-                  <i className='bi-instagram mx-2' role='img' aria-label='Instagram'></i>
-                </a>
-                <a href='https://www.linkedin.com/in/mochamad-rafli-ramadhan' className='text-white' target='_blank' rel='noreferrer'>
-                  <i className='bi-linkedin mx-2' role='img' aria-label='Linkedin'></i>
-                </a>
-                <a href='http://wa.me/088227867544' className='text-white' target='_blank' rel='noreferrer'>
-                  <i class="bi bi-whatsapp mx-2" role='img' aria-label='Whatsup'></i>
-                </a>
-              </Nav.Link>
-            </Nav>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
+          </Nav>
+        </div>
       </div>
     </div>
   );
