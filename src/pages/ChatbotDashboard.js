@@ -13,22 +13,19 @@ export default function ChatbotDashboard() {
       <BrowserRouter>
         <Navbar bg='primary' expand='lg' fixed='top' variant='dark' className='border-bottom'>
           <Container>
-            <Navbar.Brand href='#home'>eyescreening</Navbar.Brand>
+            <Navbar.Brand href='#home'>EyeScreening</Navbar.Brand>
             <Navbar.Toggle aria-controls='basic-navbar-nav' />
             <Navbar.Collapse id='basic-navbar-nav'>
               <Nav className='me-auto'>
                 {/* Static routing must use <Link> tag not Nav.Link*/}
                 <Link className='nav-link' to='/chatbot' onClick=''>
-                  <i class='bi bi-chat-left-dots'></i> BOT
+                  <i class="bi bi-menu-app"></i> BOT
                 </Link>
                 <Link className='nav-link' to='/chatbot/guide'>
                   <i class='bi bi-journals'></i> PANDUAN
                 </Link>
                 <Link className='nav-link' to='/chatbot/form'>
                   <i class='bi bi-ui-checks'></i> UAT
-                </Link>
-                <Link className='nav-link' to='/chatbot/qna'>
-                  <i class='bi bi-journals'></i> QnA
                 </Link>
               </Nav>
               {/*Left align bar item */}

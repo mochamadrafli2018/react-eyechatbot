@@ -2,6 +2,7 @@ import React from 'react'
 import {Col,Row} from 'react-bootstrap'
 import {createTheme} from '@mui/material/styles'
 import {blue} from '@mui/material/colors'
+import bot from '../img/bot.png';
 // material-ui theme
 const theme = createTheme({
   palette: {
@@ -29,8 +30,8 @@ export default function ChatbotInterface({
   return (
     <div id='container' style={{marginTop:'0px'}}>
       <Row className='mx-auto mb-2 shadow-hover-primary rounded'>
-        <h4 className='rounded-top d-block mb-0 p-1 bg-primary text-white text-left text-center'>
-          CHATBOT
+        <h4 className='bg-primary mb-0 p-1 w-100 rounded-top text-center text-light'>
+          Chat Bot
         </h4>
         <div 
           id='messages' 

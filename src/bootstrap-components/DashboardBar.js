@@ -12,9 +12,6 @@ export default function AppBar() {
         <div className='container'>
           <Navbar.Brand></Navbar.Brand>
           <Nav className='me-auto'>
-              <Nav.Link className='border-primary-hover'>
-                <i class="bi bi-menu-app"></i> Menu
-              </Nav.Link>
               <OverlayItem
                 text={'Sistem Pakar?'}
                 explanation={`
