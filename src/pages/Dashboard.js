@@ -35,9 +35,9 @@ export default function Dashboard () {
               Title={<p>Sistem Pakar Skrining Penyakit Mata berbasis <i>Form</i></p>}
               Image={Image1}
               MainText={'Web App ini dirancang dengan fitur : '}
-              Poin1={'Metode Forward Chaining yang Ditanam 26 Basis Aturan Penyakit Mata'}
-              Poin2={'Mesin Inferensi yang dibangun dengan Hapi sebagai Pengambilan Keputusan Penyakit Mata'}
-              Poin3={'Form yang dirancang dengan Vue.js berbasis Vue CLI'}
+              Poin1={'Skrining Penyakit Mata dengan Metode Forward Chaining yang Ditanam 26 Basis Aturan Penyakit Mata'}
+              Poin2={'Mesin Inferensi yang dibangun dengan Hapi.js sebagai Pengambilan Keputusan Penyakit Mata'}
+              Poin3={'Checklist Gejala Penyakit Mata berbasis Form yang dirancang dengan Vue.js'}
               Poin4={'User Interface dengan Vuetify dan Bootstrap-Vue'}
               URL={'/vue'}
               lastUpdated={currentDate}
