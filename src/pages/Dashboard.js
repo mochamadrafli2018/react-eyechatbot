@@ -22,18 +22,18 @@ export default function Dashboard () {
       <DashboardBar/>
       {/*Main Menu*/}
       <div
-        className='container p-0 mx-auto mw-75 rounded border shadow-2xl
-        hover:border-blue-400 margin-up-hover' 
+        className='container p-0 mx-auto mw-75 border rounded' 
         style={{marginTop:'70px',marginBottom:'50px',width:'98%'}}
       >
-        <h4 className='bg-primary quicksand px-1 py-2 m-0 
-        text-center text-left text-light rounded-top'>
-          Sistem Skrining Penyakit Mata berbasis Kecerdasan Buatan
-        </h4>
+        <p className='bg-primary quicksand px-1 py-2 m-0 
+        text-center text-left text-light rounded-top'
+        style={{fontSize:'20px'}}>
+          EyeScreening
+        </p>
         <hr className='mt-0 mb-2'/>
-        <div className='row p-1'>
-          <div className='col'>
-            <CardBootstrapTailwind 
+        <div className='row' style={{margin:'3px'}}>
+          <div className='col p-1'>
+            <CardBootstrapTailwind
               Title={'Sistem Pakar Skrining Penyakit Mata berbasis Chatbot'}
               Image={Image1}
               MainText={'Web App ini di program dengan : '}
@@ -45,7 +45,7 @@ export default function Dashboard () {
               lastUpdated={currentDate}
             />
           </div>
-          <div className='col'>
+          <div className='col p-1'>
             <CardBootstrapTailwind
               Title={'Sistem Pakar Skrining Penyakit Mata berbasis Form'}
               Image={Image2}
@@ -60,7 +60,7 @@ export default function Dashboard () {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer style={{'position':'relative'}}/>
     </div>
   );
 }

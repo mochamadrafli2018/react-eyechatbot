@@ -8,7 +8,7 @@ export default function Footer(){
       className='py-0 px-1 w-100 bg-primary text-white text-center'
     >
       <div className='mx-auto'>
-        &copy; { year } - Mochamad Rafli Ramadhan - under MIT License
+        &copy; { year } - Mochamad Rafli Ramadhan
       </div>
     </footer>
   )

@@ -8,11 +8,10 @@ export default function AppBar() {
       <div className='shadow-sm'>
         <Navbar bg='primary' expand='lg' fixed='top' variant='dark'>
           <Container>
-            <Navbar.Brand>EyeScreening</Navbar.Brand>
+            <Navbar.Brand></Navbar.Brand>
             <Navbar.Toggle aria-controls='basic-navbar-nav'/>
             <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='me-auto'>
-              <Nav.Link>v.1.0.0</Nav.Link>
               <OverlayItem 
                 text={'Sistem Pakar ?'}
                 explanation={`

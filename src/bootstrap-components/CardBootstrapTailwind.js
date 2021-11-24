@@ -1,14 +1,15 @@
-import {Card} from 'react-bootstrap';
+import {Accordion,Card} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import AccordionBootstrap from './AccordionBootstrap';
 
 export default function CardBootsrapTailwind({
     Title,Image,MainText,Poin1,Poin2,Poin3,Poin4,URL,lastUpdated
   }) {
   return (
-    <Card
-      style={{minWidth:'200px',maxWidth:'400px'}} 
-      className='mx-auto mb-2 w-100 relative rounded
+    <Card 
+      className='mx-auto mb-2 relative rounded
       hover:border-blue-400 hover:shadow-2xl margin-up-hover'
+      style={{minWidth:'180px',maxWidth:'400px'}}
     >
       <Card.Img variant='top' src={Image} className='w-100'/>
       <Card.Body id='card-body'>
@@ -56,6 +57,9 @@ export default function CardBootsrapTailwind({
         </Link>
         <p className='my-1' style={{fontSize:'13px'}}>
           Last Updated : {lastUpdated}
+        </p>
+        <p className='my-1 fw-bold' style={{fontSize:'13px'}}>
+          Under MIT License
         </p>
       </Card.Body>
     </Card>
