@@ -1,14 +1,15 @@
 // import InferenceMachineCopy from '../components/InferenceMachineCopy';
 import Footer from '../components/Footer'
-
 export default function Guide () {
   return(
     <div className='poppins'>
       <div className='container overflow-hidden' 
-      style={{marginTop:'75px',marginBottom:'50px'}}>
-        <div className='card px-3 py-1 mx-auto border-5px rounded
+      style={{marginTop:'60px'}}>
+        <div className='card px-3 py-1 mx-auto mb-3 border-5px rounded
         hover:border-blue-400 hover:shadow-lg'>
-          <h4 className='my-2 text-primary quicksand'>Panduan Penggunaan Chatbot Sistem Pakar Skrining Penyakit Mata</h4>
+          <p className='my-2 fw-bold text-primary quicksand' style={{fontSize:'20px'}}>
+            Panduan Penggunaan Chatbot Sistem Pakar Skrining Penyakit Mata
+          </p>
           <hr/>
           <p className='my-2'>Untuk melakukan skrining penyakit mata ketikkan : mulai,  tes,  test atau skrining pada input chat.</p>
           <p className='my-2'>Atau bisa juga tekan tombol <strong>mulai</strong> berwarna biru yang ada di bawah input chat.</p>
@@ -31,7 +32,7 @@ export default function Guide () {
           {/*<InferenceMachineCopy/>*/}
         </div>
       </div>
-      <Footer/>
+      <Footer styleFooter={{position:'relative'}}/>
     </div>
   )
 };

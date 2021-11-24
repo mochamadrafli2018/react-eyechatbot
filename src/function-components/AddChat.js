@@ -39,6 +39,6 @@ export default function addChat(input, reply) {
   // Fake delay to seem 'real'
   setTimeout(() => {
     botText.innerHTML = 
-    `<i class="bi bi-robot"></i> ${reply} <span class='yt'>y/t</span>`
+    `<i class="bi bi-robot"></i> ${reply} <span class='ya-tidak'>y/t</span>`
   }, 300)
 }

@@ -2133,28 +2133,24 @@ const InferenceMachine = () => {
   }
   
   return(
-    <div className='container' style={{marginTop:'70px',marginBottom:'50px'}}>
-      <div className='card p-1 mb-3 mx-auto mw-75 border-5px rounded shadow-lg'>
-        <ChatbotInterface 
-          input={input}
-          handleChange={handleChange}
-          handleKey={handleKey}
-          handleSubmit={handleSubmit}
-          handleSubmitMulai={handleSubmitMulai}
-          handleSubmitYa={handleSubmitYa}
-          handleSubmitTidak={handleSubmitTidak}
-          berhasil={berhasil}
-          firstReply={firstReply}
-          secondReply={secondReply}
-          thirdReply={thirdReply}
-          fourthReply={fourthReply}
-          fifithReply={fifthReply}
-          sixthReply={sixthReply}
-          seventhReply={seventhReply}
-          eightReply={eightReply}
-        />
-      </div>
-    </div>
+    <ChatbotInterface 
+      input={input}
+      handleChange={handleChange}
+      handleKey={handleKey}
+      handleSubmit={handleSubmit}
+      handleSubmitMulai={handleSubmitMulai}
+      handleSubmitYa={handleSubmitYa}
+      handleSubmitTidak={handleSubmitTidak}
+      berhasil={berhasil}
+      firstReply={firstReply}
+      secondReply={secondReply}
+      thirdReply={thirdReply}
+      fourthReply={fourthReply}
+      fifithReply={fifthReply}
+      sixthReply={sixthReply}
+      seventhReply={seventhReply}
+      eightReply={eightReply}
+    />
   )
 }
 

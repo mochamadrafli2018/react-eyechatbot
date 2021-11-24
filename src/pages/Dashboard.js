@@ -1,10 +1,10 @@
 import CardBootstrapTailwind from '../bootstrap-components/CardBootstrapTailwind';
 import DashboardBar from '../bootstrap-components/DashboardBar';
 import Footer from '../components/Footer'
-import Image1 from '../img/Image-1.jpg';
-import Image2 from '../img/Image-2.jpg';
+import Image1 from '../img/eye-image-1.jpg';
+import Image2 from '../img/eye-image-1.jpg';
 
-export default function Dashboard ({ a }) {  
+export default function Dashboard () {  
   const lastUpdated = new Date(document.lastModified);
   const dayName = lastUpdated.getDay()
   const weekDaysArr = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
@@ -32,35 +32,42 @@ export default function Dashboard ({ a }) {
         <div className='row mt-3' style={{margin:'3px'}}>
           <div className='col p-1'>
             <CardBootstrapTailwind
-              Title={'Sistem Pakar Skrining Penyakit Mata berbasis Chatbot'}
+              Title={<p>Sistem Pakar Skrining Penyakit Mata berbasis <i>Form</i></p>}
               Image={Image1}
-              MainText={'Web App ini dibangun dengan : '}
-              Poin1={'Metode Forward Chaining'}
-              Poin2={'Vue.js berbasis Vue CLI pada bagian Front End'}
-              Poin3={'Framework User Interface Vuetify dan Bootstrap-Vue'}
-              Poin4={'Hapi pada Mesin Inferensi untuk Pengambilan Keputusan Penyakit Mata'}
+              MainText={'Web App ini dirancang dengan fitur : '}
+              Poin1={'Metode Forward Chaining yang Ditanam 26 Basis Aturan Penyakit Mata'}
+              Poin2={'Mesin Inferensi yang dibangun dengan Hapi sebagai Pengambilan Keputusan Penyakit Mata'}
+              Poin3={'Form yang dirancang dengan Vue.js berbasis Vue CLI'}
+              Poin4={'User Interface dengan Vuetify dan Bootstrap-Vue'}
               URL={'/vue'}
               lastUpdated={currentDate}
-              deploy={(<a href='https://www.netlify.com' target='_blank' rel='noreferrer'>Netlify</a>)}
+              deploy={(
+              <a href='https://www.netlify.com' target='_blank' rel='noreferrer' className='text-primary'>
+                Netlify
+              </a>
+              )}
             />
           </div>
           <div className='col p-1'>
             <CardBootstrapTailwind
-              Title={'Sistem Pakar Skrining Penyakit Mata berbasis Form'}
+              Title={<p>Sistem Pakar Skrining Penyakit Mata berbasis <i>Chatbot</i></p>}
               Image={Image2}
-              MainText={'Web App ini dibangun dengan : '}
-              Poin1={'Metode Forward Chaining'}
-              Poin2={'React.js berbasis Functional Component pada bagian Front End'}
-              Poin3={'Framework User Interface Material UI, Tailwind CSS dan Bootstrap-React'}
-              Poin4={'React Hooks pada Mesin Inferensi untuk Pengambilan Keputusan Penyakit Mata'}
+              MainText={'Web App ini dirancang dengan fitur : '}
+              Poin1={'Skrining Penyakit Mata dengan Metode Forward Chaining yang memiliki 26 Basis Aturan Penyakit Mata'}
+              Poin2={'Mesin Inferensi yang dibangun dengan React Hooks sebagai Pengambilan Keputusan Penyakit Mata'}
+              Poin3={'Chatbot User Interface yang diprogram dengan React.js berbasis Functional Component'}
+              Poin4={'User Interface dengan Material UI, Tailwind CSS dan Bootstrap-React'}
               URL={'/chatbot'}
               lastUpdated={currentDate}
-              deploy={(<a href='https://www.heroku.com' target='_blank' rel='noreferrer'>Heroku</a>)}
+              deploy={(
+              <a href='https://www.heroku.com' target='_blank' rel='noreferrer' className='text-primary'>
+                Heroku
+              </a>
+              )}
             />
           </div>
         </div>
       </div>
-
       {/*Contact*/} 
       <div 
         className='container mx-auto p-2 mt-3 rounded text-center border hover:border-blue-400 hover:shadow-2xl' 
@@ -80,11 +87,11 @@ export default function Dashboard ({ a }) {
         </a>
         <a href='http://wa.me/088227867544' 
           className='text-dark' target='_blank' rel='noreferrer'>
-          <i class="bi bi-whatsapp mx-3 my-1" role='img' aria-label='Whatsup'></i>
+          <i class='bi bi-whatsapp mx-3 my-1' role='img' aria-label='Whatsup'></i>
         </a>
       </div>
-
-      <Footer style={{'position':'relative'}}/>
+      {/*Footer*/}
+      <Footer styleFooter={{position:'fixed',bottom:'0'}}/>
     </div>
   );
 }

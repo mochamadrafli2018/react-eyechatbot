@@ -1,16 +1,10 @@
 import * as React from 'react';
-import {Container,Nav,Navbar} from 'react-bootstrap';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import '../App.css';
-import pdf1 from '../pdf/pdf-1.pdf';
-import pdf2 from '../pdf/pdf-2.pdf';
-import pdf3 from '../pdf/pdf-3.pdf';
-import pdf4 from '../pdf/pdf-4.pdf';
-import pdf5 from '../pdf/pdf-5.pdf';
 
 export default function QnA() {
   const [expanded, setExpanded] = React.useState(false);
@@ -49,24 +43,6 @@ export default function QnA() {
               Misal IF/jika pengguna mengalami gejala 1, gejala 2 ,gejala 3{' '}
               dan gejala 4, THEN/bisa dipastikan pengguna mengalami penyakit X.{' '}
             </Typography>
-            <div className='container p-0'>
-              <iframe 
-              title='Literatur Forward Chaining 1'
-              src={pdf1}
-              height='480' 
-              className='mx-auto w-100'
-              >Loading…
-              </iframe>
-            </div>
-            <div className='container p-0'>
-              <iframe 
-              title='Literatur Forward Chaining 2'
-              src={pdf2}
-              height='480' 
-              className='mx-auto w-100'
-              >Loading…
-              </iframe>
-            </div>
           </AccordionDetails>
         </Accordion>
         <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')} className='border'>
@@ -92,33 +68,6 @@ export default function QnA() {
               seorang pakar. Referensi yang dirujuk tentang sistem pakar{' '}
               dapat diamati pada literatur di bawah ini.
             </Typography>
-            <div className='container p-0'>
-              <iframe 
-              title='Literatur Sistem Pakar 1'
-              src={pdf3}
-              height='480' 
-              className='mx-auto w-100'
-              >Loading…
-              </iframe>
-            </div>
-            <div className='container p-0'>
-              <iframe 
-              title='Literatur Sistem Pakar 2'
-              src={pdf4}
-              height='480' 
-              className='mx-auto w-100'
-              >Loading…
-              </iframe>
-            </div>
-            <div className='container p-0'>
-              <iframe 
-              title='Literatur Sistem Pakar 3'
-              src={pdf5}
-              height='480' 
-              className='mx-auto w-100'
-              >Loading…
-              </iframe>
-            </div>
           </AccordionDetails>
         </Accordion>
       </div>

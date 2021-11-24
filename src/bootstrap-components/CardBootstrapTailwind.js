@@ -6,7 +6,7 @@ export default function CardBootsrapTailwind({
   }) {
   return (
     <Card 
-      className='mx-auto mb-2 rounded border margin-up-hover hover:border-blue-400 hover:shadow-2xl'
+      className='mx-auto mb-2 rounded margin-up-hover border hover:border-blue-400 hover:shadow-2xl'
       style={{minWidth:'180px',maxWidth:'400px'}}
     >
       <Card.Img variant='top' src={Image} className='w-100'/>

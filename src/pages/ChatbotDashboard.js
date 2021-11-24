@@ -11,32 +11,31 @@ export default function ChatbotDashboard() {
   return (
     <div className='poppins'>
       <BrowserRouter>
-        <Navbar bg='primary' expand='lg' fixed='top' variant='dark' className='border-bottom'>
+        <div
+          style={{position:'fixed',top:'0','z-index':'1'}}  
+          className='navbar bg-light py-1 w-100 border-bottom shadow-sm text-primary'
+        >
           <Container>
-            <Navbar.Brand href='#home'>EyeScreening</Navbar.Brand>
-            <Navbar.Toggle aria-controls='basic-navbar-nav' />
-            <Navbar.Collapse id='basic-navbar-nav'>
-              <Nav className='me-auto'>
-                {/* Static routing must use <Link> tag not Nav.Link*/}
-                <Link className='nav-link' to='/chatbot' onClick=''>
-                  <i class="bi bi-menu-app"></i> BOT
-                </Link>
-                <Link className='nav-link' to='/chatbot/guide'>
-                  <i class='bi bi-journals'></i> PANDUAN
-                </Link>
-                <Link className='nav-link' to='/chatbot/form'>
-                  <i class='bi bi-ui-checks'></i> UAT
-                </Link>
-              </Nav>
-              {/*Left align bar item */}
-              <Nav className=''>
-                <Nav.Link href='/'>
-                  <i class='bi bi-arrow-bar-left'></i> DASHBOARD
-                </Nav.Link>
-              </Nav>
-            </Navbar.Collapse>
+            <Nav className='me-auto'>
+              {/* Static routing must use <Link> tag not Nav.Link*/}
+              <Link className='nav-link' to='/chatbot' onClick=''>
+                <i class="bi bi-robot"></i> Bot
+              </Link>
+              <Link className='nav-link' to='/chatbot/guide'>
+                <i class='bi bi-journals'></i> Panduan
+              </Link>
+              <Link className='nav-link' to='/chatbot/form'>
+                <i class='bi bi-ui-checks'></i> UAT
+              </Link>
+            </Nav>
+            {/*Left align bar item */}
+            <Nav className=''>
+              <Nav.Link href='/'>
+                <i class='bi bi-arrow-bar-left'></i> Kembali
+              </Nav.Link>
+            </Nav>
           </Container>
-        </Navbar> 
+        </div> 
         <Switch>
           <Route exact path='/chatbot/form' component={FormTesting} />
           <Route exact path='/chatbot/guide' component={Guide} />
@@ -44,7 +43,6 @@ export default function ChatbotDashboard() {
           <Route exact path='/chatbot' component={InferenceMachine} />
         </Switch>
       </BrowserRouter>
-      <Footer/>
     </div>
   )
 };

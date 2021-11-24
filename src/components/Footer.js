@@ -1,15 +1,13 @@
 import React from 'react'
-export default function Footer(){
+export default function Footer({styleFooter}){
   const year= new Date().getFullYear();
 
   return(
     <footer
-      style={{position:'fixed',bottom:'0'}} 
-      className='py-0 px-1 w-100 bg-primary text-white text-center'
+      className='w-100 bg-primary text-white text-center'
+      style={styleFooter}
     >
-      <div className='mx-auto'>
-        &copy; { year } - Mochamad Rafli Ramadhan
-      </div>
+      &copy; { year } - Mochamad Rafli Ramadhan
     </footer>
   )
 }

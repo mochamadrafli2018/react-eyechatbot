@@ -1,14 +1,6 @@
 import React from 'react'
 import {Col,Row} from 'react-bootstrap'
-import {createTheme} from '@mui/material/styles'
-import {blue} from '@mui/material/colors'
-import bot from '../img/bot.png';
-// material-ui theme
-const theme = createTheme({
-  palette: {
-    primary: {main: blue[700]},
-  },
-})
+
 export default function ChatbotInterface({
     input,
     handleChange,
@@ -28,15 +20,17 @@ export default function ChatbotInterface({
     eightReply
   }) {
   return (
-    <div id='container' style={{marginTop:'0px'}}>
-      <Row className='mx-auto mb-2 shadow-hover-primary rounded'>
+    <div 
+      className='container p-0 mx-auto h-100 mw-75 
+      border-5px rounded shadow-lg'
+      style={{marginTop:'60px',width:'99%'}}
+    >
+      <Row className='mx-auto mb-0 shadow-hover-primary rounded'>
         <h4 className='bg-primary mb-0 p-1 w-100 rounded-top text-center text-light'>
           Chat Bot
         </h4>
-        <div 
-          id='messages' 
-          className='bg-img-messages messages py-1 mx-auto mw-100' 
-          style={{color: theme.palette.primary.main}}
+        <div id='messages' 
+          className='bg-img-messages messages py-1 mx-auto mw-100'
         >{/*Chat will be append in here*/}
         </div>
         <input 
@@ -51,28 +45,28 @@ export default function ChatbotInterface({
           autofocus='true'
         />
       </Row>
-      <Row className='mx-auto'>
-        <button 
-          type='submit' 
-          value='Submit' 
-          onClick={handleSubmit} 
-          className='btn btn-primary mb-2'
-        >
-          <i class="bi bi-send"></i> Kirim
-        </button>
-      </Row>
-      <Row className=''>
-        <Col className='d-grid gap-2 mb-2'>
+      <Row className='p-1 mx-1'>
+        <Col className='d-grid gap-2 p-1'>
+          <button 
+            type='submit' 
+            value='Submit' 
+            onClick={handleSubmit} 
+            className='btn btn-primary'
+          >
+            <i class="bi bi-send"></i>
+          </button>
+        </Col>
+        <Col className='d-grid gap-2 p-1'>
           <button 
             type='submit' 
             value='Submit' 
             onClick={handleSubmitMulai} 
-            className='btn btn-primary'
+            className='btn btn-primary w-100'
           >
             mulai
           </button>
         </Col>
-        <Col className='d-grid gap-2 mb-2'>
+        <Col className='d-grid gap-2 p-1'>
           <button 
             type='submit' 
             value='Submit' 
@@ -82,7 +76,7 @@ export default function ChatbotInterface({
             ya
           </button>
         </Col>
-        <Col className='d-grid gap-2 mb-2'>
+        <Col className='d-grid gap-2 p-1'>
           <button 
             type='submit' 
             value='Submit' 

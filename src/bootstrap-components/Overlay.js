@@ -16,7 +16,7 @@ export default function OverlayItem({explanation, text}) {
       overlay={popover}
     >
       <Nav.Link variant="success">
-        <i class="bi bi-info-circle"></i> {text}
+        <i class="bi bi-info-square"></i> {text}
       </Nav.Link>
     </OverlayTrigger>
   );

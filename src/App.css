@@ -26,11 +26,11 @@
 	color: .711 
 }*/
 .messages {
-  background-image: url("./img/Rain.jpg");
+  background-image: url("./img/rain.jpg");
   display: flex;
   flex-direction: column;
-  height: 310px;
-  max-height: 310px;
+  height: 350px;
+  max-height: 350px;
   overflow-y: scroll;
 }
 .hover-zoom {
@@ -64,7 +64,7 @@
   max-width: 90%;
   border-radius: 20px 0px 10px 20px;
 }
-.yt {
+.ya-tidak {
   border: 2px solid #007bff;
   border-radius: 20px;
   padding: 2px 7px;
