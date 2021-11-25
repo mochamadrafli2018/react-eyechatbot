@@ -2,7 +2,7 @@ import CardBootstrapTailwind from '../bootstrap-components/CardBootstrapTailwind
 import DashboardBar from '../bootstrap-components/DashboardBar';
 import Footer from '../components/Footer'
 import Image1 from '../img/eye-image-1.jpg';
-import Image2 from '../img/eye-image-1.jpg';
+import Image2 from '../img/eye-image-2.jpg';
 
 export default function Dashboard () {  
   const lastUpdated = new Date(document.lastModified);
