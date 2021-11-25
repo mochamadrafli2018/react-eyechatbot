@@ -26,7 +26,7 @@ export default function ChatbotInterface({
       style={{marginTop:'60px',width:'99%'}}
     >
       <Row className='mx-auto mb-0 rounded shadow-hover-primary'>
-        <h4 className='bg-primary mb-0 p-1 w-100 rounded-top text-center text-light'>
+        <h4 className='bg-primary mb-0 p-1 w-100 quicksand rounded-top text-center text-light'>
           Chat Bot
         </h4>
         <div id='messages' 

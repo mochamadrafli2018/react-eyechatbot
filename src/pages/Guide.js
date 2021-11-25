@@ -11,6 +11,35 @@ export default function Guide () {
             Panduan Penggunaan Chatbot Sistem Pakar Skrining Penyakit Mata
           </p>
           <hr/>
+          <p className='my-2'>
+            Ada 26 penyakit mata yang ada pada database sistem diantaranya :
+            1.) Ulkus Kornea
+            2.) Keratokonus
+            3.) Kalazion
+            4.) Blefaritis
+            5.) Hordeolum (Stye)
+            6.) Konjungtivitis
+            7.) Trakoma
+            8.) Abalso Retina
+            9.) Retinopati Diabetikum
+            10.) Glaukoma
+            11.) Katarak
+                12.) Uveitis
+                13.) Selulitis Orbitalis
+                14.) Eksoftalmus
+                15.) Keratitis Pungtata Superfisialis
+                16.) Alergi Mata Merah
+                17.) Endoftalmitis
+                18.) Trombosis Sinus Kavernosus
+                19.) Optic Neuritis
+                20.) Dakrioritis
+                21.) Degenerasi Makula
+                22.) Episkleritis
+                23.) Infeksi Herpes Simpleks Kornea
+                24.) Infeksi Herpes Zoster Kornea
+                25.) Keratitis Ulserativa Perifer
+                28.) Oftalmia Neonatorum
+          </p>
           <p className='my-2'>Untuk melakukan skrining penyakit mata ketikkan : mulai,  tes,  test atau skrining pada input chat.</p>
           <p className='my-2'>Atau bisa juga tekan tombol <strong>mulai</strong> berwarna biru yang ada di bawah input chat.</p>
           <p className='my-2'>Jawab setiap pertanyaan dengan <strong>y (ya)</strong> atau <strong>t (tidak)</strong>.</p>

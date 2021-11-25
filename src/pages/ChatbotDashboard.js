@@ -27,13 +27,14 @@ export default function ChatbotDashboard() {
               <Link className='nav-link' to='/chatbot/form'>
                 <i class='bi bi-ui-checks'></i> UAT
               </Link>
-              {/*Dynamic Link*/}
-              <Nav.Link href='/'>
-                <i class='bi bi-arrow-bar-left'></i> Kembali
-              </Nav.Link>
             </Nav>
             {/*Left align bar item */}
-            <Nav></Nav>
+            <Nav>
+              {/*Dynamic Link*/}
+              <Nav.Link href='/'>
+                <i class='bi bi-box-arrow-left' style={{fontSize:'18px'}}></i>
+              </Nav.Link>
+            </Nav>
           </Container>
         </div> 
         <Switch>

@@ -14,44 +14,23 @@ export default function AppBar() {
           <Nav className='me-auto'>
               <OverlayItem
                 text={'Sistem Pakar?'}
-                explanation={`
-                  Sistem pakar merupakan sistem yang bekerja 
-                  dengan menirukan proses pemikiran seorang pakar.
-                  Pada sistem pakar ini di implementasikan 
-                  metode forward chaining untuk proses pengambilan keputusan.
-                `}
+                explanation={(
+                  <div>
+                    <p>sistem pakar, menurut <a href='https://kbbi.kemdikbud.go.id/entri/sistem%20pakar' className='text-primary'>KBBI</a> adalah :</p>
+                    <p>Program komputer yang menggunakan informasi, heuristik, dan simpulan yang tersedia untuk menyarankan solusi terhadap masalah tertentu.</p>
+                  </div>
+                )}
               />
               <OverlayItem
-                text={'Daftar Penyakit?'}
-                explanation={`
-                Ada 26 penyakit mata yang ada pada database sistem diantaranya : \n
-                1.) Ulkus Kornea
-                2.) Keratokonus
-                3.) Kalazion
-                4.) Blefaritis
-                5.) Hordeolum (Stye)
-                6.) Konjungtivitis
-                7.) Trakoma
-                8.) Abalso Retina
-                9.) Retinopati Diabetikum<br
-                10.) Glaukoma
-                11.) Katarak
-                12.) Uveitis
-                13.) Selulitis Orbitalis
-                14.) Eksoftalmus
-                15.) Keratitis Pungtata Superfisialis
-                16.) Alergi Mata Merah
-                17.) Endoftalmitis
-                18.) Trombosis Sinus Kavernosus
-                19.) Optic Neuritis
-                20.) Dakrioritis
-                21.) Degenerasi Makula
-                22.) Episkleritis
-                23.) Infeksi Herpes Simpleks Kornea
-                24.) Infeksi Herpes Zoster Kornea
-                25.) Keratitis Ulserativa Perifer
-                28.) Oftalmia Neonatorum
-              `}/>
+                text={'Skrining?'}
+                explanation={(
+                <div>
+                  <p>skri.ning, menurut <a href='https://kbbi.kemdikbud.go.id/entri/skrining' className='text-primary'>KBBI</a> adalah :</p>
+                  <p>1. Identifikasi dini penyakit berdasarkan serangkaian tes dan pemeriksaan.</p>
+                  <p>2. Evaluasi yang dilakukan sebagai bagian dari survei atau tes untuk melihat kesesuaian seseorang pada pekerjaan tertentu.</p>
+                  <p>3. Penilaian mental dan ideologi seseorang.</p>
+                </div>
+              )}/>
           </Nav>
         </div>
       </div>
