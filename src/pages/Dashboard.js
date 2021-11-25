@@ -38,7 +38,7 @@ export default function Dashboard () {
               Poin1={'Skrining Penyakit Mata dengan Metode Forward Chaining yang Ditanam 26 Basis Aturan Penyakit Mata'}
               Poin2={'Mesin Inferensi yang dibangun dengan Hapi.js sebagai Pengambilan Keputusan Penyakit Mata'}
               Poin3={'Checklist Gejala Penyakit Mata berbasis Form yang dirancang dengan Vue.js'}
-              Poin4={'User Interface dengan Vuetify dan Bootstrap-Vue'}
+              Poin4={'User Interface yang didesain dengan Vuetify dan Bootstrap-Vue'}
               URL={'/vue'}
               lastUpdated={currentDate}
               deploy={(
@@ -55,8 +55,8 @@ export default function Dashboard () {
               MainText={'Web App ini dirancang dengan fitur : '}
               Poin1={'Skrining Penyakit Mata dengan Metode Forward Chaining yang memiliki 26 Basis Aturan Penyakit Mata'}
               Poin2={'Mesin Inferensi yang dibangun dengan React Hooks sebagai Pengambilan Keputusan Penyakit Mata'}
-              Poin3={'Chatbot User Interface yang diprogram dengan React.js berbasis Functional Component'}
-              Poin4={'User Interface dengan Material UI, Tailwind CSS dan Bootstrap-React'}
+              Poin3={'Chatbot User Interface yang diprogram dengan Functional Component React.js'}
+              Poin4={'User Interface yang didesain dengan Bootstrap-React dan Tailwind CSS'}
               URL={'/chatbot'}
               lastUpdated={currentDate}
               deploy={(
@@ -70,23 +70,23 @@ export default function Dashboard () {
       </div>
       {/*Contact*/} 
       <div 
-        className='container mx-auto p-2 mt-3 rounded text-center border hover:border-blue-400 hover:shadow-2xl' 
+        className='container mx-auto p-2 mt-3 bg-primary rounded text-center border shadow-hover-primary' 
         style={{marginBottom:'45px',width:'98%'}}
       >
-        <a href='https://www.github.com/mochamadrafli2018' 
-          className='text-dark' target='_blank' rel='noreferrer'>
-          <i className='bi-github mx-3 my-1' role='img' aria-label='GitHub'></i>
+        <a href='https://www.github.com/mochamadrafli2018' style={{fontSize:'20px'}}
+          className='text-light' target='_blank' rel='noreferrer'>
+          <i className='bi-github fa-lg mx-3 my-1' role='img' aria-label='GitHub'></i>
         </a>
-        <a href='https://www.instagram.com/rafli.r.rmdhn' 
-          className='text-dark' target='_blank' rel='noreferrer'>
+        <a href='https://www.instagram.com/rafli.r.rmdhn' style={{fontSize:'20px'}}
+          className='text-light' target='_blank' rel='noreferrer'>
           <i className='bi-instagram mx-3 my-1' role='img' aria-label='Instagram'></i>
         </a>
-        <a href='https://www.linkedin.com/in/mochamad-rafli-ramadhan'
-          className='text-dark' target='_blank' rel='noreferrer'>
+        <a href='https://www.linkedin.com/in/mochamad-rafli-ramadhan' style={{fontSize:'20px'}}
+          className='text-light' target='_blank' rel='noreferrer'>
           <i className='bi-linkedin mx-3 my-1' role='img' aria-label='Linkedin'></i>
         </a>
-        <a href='http://wa.me/088227867544' 
-          className='text-dark' target='_blank' rel='noreferrer'>
+        <a href='http://wa.me/088227867544' style={{fontSize:'20px'}}
+          className='text-light' target='_blank' rel='noreferrer'>
           <i class='bi bi-whatsapp mx-3 my-1' role='img' aria-label='Whatsup'></i>
         </a>
       </div>

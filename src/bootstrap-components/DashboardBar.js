@@ -22,7 +22,7 @@ export default function AppBar() {
                 `}
               />
               <OverlayItem
-                text={'Penyakit?'}
+                text={'Daftar Penyakit?'}
                 explanation={`
                 Ada 26 penyakit mata yang ada pada database sistem diantaranya : \n
                 1.) Ulkus Kornea

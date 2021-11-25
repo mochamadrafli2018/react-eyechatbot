@@ -25,7 +25,7 @@ export default function ChatbotInterface({
       border-5px rounded shadow-lg'
       style={{marginTop:'60px',width:'99%'}}
     >
-      <Row className='mx-auto mb-0 shadow-hover-primary rounded'>
+      <Row className='mx-auto mb-0 rounded shadow-hover-primary'>
         <h4 className='bg-primary mb-0 p-1 w-100 rounded-top text-center text-light'>
           Chat Bot
         </h4>
