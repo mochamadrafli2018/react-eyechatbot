@@ -3,7 +3,7 @@ import {prompts,replies,alternative,coronavirus,} from '../data/PromptsAndReplie
 import {sympthom} from '../data/SymthomList'
 import addChat from './AddChat'
 import compare from './Compare'
-import ChatbotInterface from './ChatbotInterface'
+import ChatbotInterface from '../components/ChatbotInterface'
 
 const InferenceMachine = () => {
   /*const SendChatHandler = () => {

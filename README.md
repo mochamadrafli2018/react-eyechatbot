@@ -58,7 +58,7 @@ This project was deployed on heroku. Thanks to heroku.com
 
 This project was licensed under MIT License
 
-## List of Reference :
+## List of Coding Notes :
 
 1. Buildpack for Node.js :
 
@@ -92,6 +92,7 @@ This project was licensed under MIT License
 5. CSS :
 
 - Box-shadow transition : https://tobiasahlin.com/blog/how-to-animate-box-shadow/
+- Image zoom transition & transform : https://code-boxx.com/image-zoom-css-javascript/
 
 6. MySQL Database Deployment on Heroku :
 
@@ -106,5 +107,4 @@ This project was licensed under MIT License
 - Yellow Eye for Card Image : https://unsplash.com/photos/WTThc6UmwEI
 - Blue Eye for Card Image : https://images.unsplash.com/photo-1501621667575-af81f1f0bacc?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZXllfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60
 - Bot Image : https://pixabay.com/vectors/chatbot-chat-bot-bot-training-4736275/
-- User Image : https://www.bing.com/images/blob?bcid=SzlquoPg6nMDEw
 - Rain Image for Chat Wallpaper : https://unsplash.com/photos/pYAvBZvplOM

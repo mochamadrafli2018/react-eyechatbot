@@ -1,8 +1,7 @@
 import React from 'react';
 import {BrowserRouter,Link,Switch,Route } from 'react-router-dom';
-import {Container,Nav,Navbar} from 'react-bootstrap';
+import {Container,Nav} from 'react-bootstrap';
 import InferenceMachine from '../function-components/InferenceMachine';
-import Footer from '../components/Footer';
 import FormTesting from './FormTesting';
 import Guide from './Guide';
 import QnA from './QnA';

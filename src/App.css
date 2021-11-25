@@ -25,7 +25,14 @@
 /*::-webkit-input-placeholder { 
 	color: .711 
 }*/
+.hover-zoom-out {
+  overflow: hidden;
+}
 .hover-zoom {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
   transition: all 0.3s ease-in-out;
 }
 .hover-zoom:hover {

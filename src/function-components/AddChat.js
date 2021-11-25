@@ -1,13 +1,15 @@
+import '../index.css';
+
 export default function addChat(input, reply) {
   const messagesContainer = document.getElementById('messages')
   // create element for user reply
   const userDiv = document.createElement('div')
   userDiv.id = 'user'
-  userDiv.className = 'user bg-blue-baby my-2 px-2 py-2'
+  userDiv.className = 'user bg-primary border-2 border-white my-2 px-2 py-2'
   userDiv.innerHTML =
   `
-    <span class='mx-1 text-right text-dark'>${input}</span>
-    <i class="bi bi-person-circle text-dark"></i>
+    <i class="bi bi-person-circle text-light"></i>
+    <span class='mx-1 text-light'>${input}</span>
   `
   // add userDiv to messagesContainer
   messagesContainer.appendChild(userDiv)
@@ -15,7 +17,7 @@ export default function addChat(input, reply) {
   // create div element for bot reply
   const botDiv = document.createElement('div')
         botDiv.id = 'bot'
-        botDiv.className = 'bot bg-ivory my-2 px-2 py-2'
+        botDiv.className = 'bot bg-ivory border-2 border-blue-700 my-2 px-2 py-2'
   // create bot image element
 
   /*

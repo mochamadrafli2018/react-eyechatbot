@@ -21,8 +21,8 @@ export default function Dashboard () {
       <DashboardBar/>
       {/*Main Menu*/}
       <div
-        className='container p-0 mx-auto mw-75 mb-1 border rounded' 
-        style={{marginTop:'70px',width:'98%'}}
+        className='container mx-auto mb-1 p-0 border rounded' 
+        style={{marginTop:'70px',width:'98%',maxWidth:'1000px'}}
       >
         <p className='bg-primary quicksand px-1 py-2 m-0 
         text-center text-left text-light rounded-top'
@@ -70,8 +70,8 @@ export default function Dashboard () {
       </div>
       {/*Contact*/} 
       <div 
-        className='container mx-auto p-2 mt-3 bg-primary rounded text-center border shadow-hover-primary' 
-        style={{marginBottom:'45px',width:'98%'}}
+        className='container mx-auto mt-3 p-2 bg-primary rounded text-center border shadow-hover-primary' 
+        style={{marginBottom:'45px',width:'98%',maxWidth:'1000px'}}
       >
         <a href='https://www.github.com/mochamadrafli2018' style={{fontSize:'20px'}}
           className='text-light' target='_blank' rel='noreferrer'>
