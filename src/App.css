@@ -16,9 +16,6 @@
 .bg-ivory {
   background-color: #eeede7;
 }
-.overflow-hidden {
-  overflow: hidden;
-}
 /* {
   box-sizing: border-box;
 }*/
@@ -51,30 +48,11 @@
   box-shadow: 0 0 20px 0 #428bca;
   transition: box-shadow 0.3s ease-in-out;
 }
-.avatar {
-  height: 25px;
-}
-.bot {
-  margin-right: auto;
-  border-radius: 0px 20px 20px 10px;
-}
-.user {
-  margin-left: auto;
-  max-width: 90%;
-  border-radius: 20px 0px 10px 20px;
-}
 .messages {
-  background-image: url("./img/rain.jpg");
+  /* https://unsplash.com/photos/GLf7bAwCdYg */
+  background-image: url("./img/light.jpg");
   display: flex;
   flex-direction: column;
-  height: 420px;
-  max-height: 420px;
-  overflow-y: scroll;
-}
-.ya-tidak {
-  border: 2px solid #007bff;
-  border-radius: 20px;
-  padding: 2px 7px;
 }
 /* Mobile */
 @media only screen and (max-width: 980px) {

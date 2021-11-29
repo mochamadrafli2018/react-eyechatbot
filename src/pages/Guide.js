@@ -1,17 +1,16 @@
-// import InferenceMachineCopy from '../components/InferenceMachineCopy';
 import Footer from '../components/Footer'
 export default function Guide () {
   return(
     <div className='poppins'>
       <div className='container overflow-hidden' 
-      style={{marginTop:'60px'}}>
+      style={{marginTop:'60px',maxWidth:'600px'}}>
         <div className='card px-3 py-1 mx-auto mb-3 border-5px rounded
         hover:border-blue-400 hover:shadow-lg'>
-          <p className='my-2 fw-bold text-primary quicksand' style={{fontSize:'20px'}}>
+          <p className='my-1 fw-bold text-primary quicksand' style={{fontSize:'20px'}}>
             Panduan Penggunaan Chatbot Sistem Pakar Skrining Penyakit Mata
           </p>
           <hr/>
-          <p className='my-2'>
+          <p className='my-1'>
             Pada chatbot sistem pakar ini, terdapat 26 data penyakit mata beserta gejalanya diantaranya :
           </p>
           <p className='my-1'>1.) Ulkus Kornea</p>

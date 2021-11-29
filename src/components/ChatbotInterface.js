@@ -4,11 +4,11 @@ import {Col,Row} from 'react-bootstrap'
 export default function ChatbotInterface({
     input,
     handleChange,
-    handleKey,
+    handleEnter,
     handleSubmit,
-    handleSubmitMulai,
-    handleSubmitYa,
-    handleSubmitTidak,
+    handleMulai,
+    handleYa,
+    handleTidak,
     berhasil,
     firstReply,
     secondReply,
@@ -42,7 +42,7 @@ export default function ChatbotInterface({
             value={input}
             placeholder='Ketik respon anda ...'
             onChange={handleChange} // in order able to input text
-            onKeyPress={handleKey}
+            onKeyPress={handleEnter}
             autocomplete='off'
             autofocus='true'
           />
@@ -61,7 +61,7 @@ export default function ChatbotInterface({
           <button 
             type='submit' 
             value='Submit' 
-            onClick={handleSubmitMulai} 
+            onClick={handleMulai} 
             className='btn btn-primary w-100'
           >
             mulai
@@ -71,7 +71,7 @@ export default function ChatbotInterface({
           <button 
             type='submit' 
             value='Submit' 
-            onClick={handleSubmitYa} 
+            onClick={handleYa} 
             className='btn btn-primary'
           >
             ya
@@ -81,7 +81,7 @@ export default function ChatbotInterface({
           <button 
             type='submit' 
             value='Submit' 
-            onClick={handleSubmitTidak} 
+            onClick={handleTidak} 
             className='btn btn-primary'
           >
             tidak
