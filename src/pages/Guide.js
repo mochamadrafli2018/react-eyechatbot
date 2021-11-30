@@ -1,11 +1,13 @@
-import Footer from '../components/Footer'
+import Footer from '../components/Footer';
+import '../index.css';
+
 export default function Guide () {
   return(
     <div className='poppins'>
-      <div className='container overflow-hidden' 
-      style={{marginTop:'60px',maxWidth:'600px'}}>
-        <div className='card px-3 py-1 mx-auto mb-3 border-5px rounded
-        hover:border-blue-400 hover:shadow-lg'>
+      <div 
+        className='container overflow-hidden px-3 py-1 mx-auto mb-3 border-2 rounded hover:border-blue-400 hover:shadow-lg' 
+        style={{marginTop:'60px',maxWidth:'600px'}}
+      >
           <p className='my-1 fw-bold text-primary quicksand' style={{fontSize:'20px'}}>
             Panduan Penggunaan Chatbot Sistem Pakar Skrining Penyakit Mata
           </p>
@@ -59,7 +61,6 @@ export default function Guide () {
           <p className='my-2'>Perlu diketahui bahwa hasil skrining dari sistem pakar ini <strong>tidak bisa</strong> dijadikan sebagai keputusan akhir diagnosis penyakit mata anda.</p>
           <p className='my-2'>Hasil skrining tersebut bisa anda gunakan untuk konsultasi dengan dokter spesialis mata untuk diagnosis lebih lanjut.</p>
           {/*<InferenceMachineCopy/>*/}
-        </div>
       </div>
       <Footer styleFooter={{position:'relative'}}/>
     </div>

@@ -161,7 +161,7 @@ const diseaseArray = [
 const ruleBase = [
   // index number [0][0],[0][1],[0][2],[0][3]
   ['mulai','tes','test','skrining'],
-  // rule base number 1 - 50
+  // rule base number 1 - 62
   [gejala[1],gejala[2],gejala[3],gejala[4],gejala[5],gejala[6],gejala[7],gejala[8],diseaseArray[1].name],
   [gejala[1],gejala[2],gejala[12],gejala[14],gejala[28],diseaseArray[2].name],
   [gejala[1],gejala[2],gejala[14],gejala[18],gejala[27],gejala[28],gejala[29],diseaseArray[3].name],
@@ -267,7 +267,7 @@ export default function InferenceMachineCopy () {
   // initialize state for screening system
   let [i,setI] = useState(0);
   let [j,setJ] = useState(0);
-  let [allYesReply, setAllYesReply] = useState(['']);
+  let [allYesReply, setAllYesReply] = useState([]);
   let [replyNow, setReplyNow] = useState('');
   let [replyBefore, setReplyBefore] = useState('');
   let [nextReply, setNextReply] = useState('');
@@ -283,9 +283,10 @@ export default function InferenceMachineCopy () {
             setReplyNow('');
             setReplyBefore('');
             setLastValue('');
-            setAllYesReply(['']);
+            setAllYesReply([]);
             // reply
             reply = ruleBase[i+1][j];
+            setReplyBefore(input);
             setI(i+1);
             setJ(j);
             replyFound = true;
@@ -300,138 +301,181 @@ export default function InferenceMachineCopy () {
       }
     }
     
-    else if (input === 'y' || input === 'ya') {
-      // if ruleBase[i][j] is the last in [i] array
-      // ruleBase
-      if (ruleBase[i][j] === ruleBase[i][ruleBase[i].length - 2]) {
-        // append reply before
-        setAllYesReply([...allYesReply, ruleBase[i][j]]);
-        // https://stackoverflow.com/questions/46544878/js-how-to-map-through-array-in-template-literals
-        let outputAllYes = allYesReply.map((i) => {
-          return `<li>${i}</li>`
-        }) // works but still not save last value
-        // get the length of the array
-        let n = allYesReply.length;
-        reply = `
-          <div className='text-left p-1'>
-            <p className='my-1'>Anda menjawab <strong>'ya'</strong> untuk pertanyaan : </p>
-            <ol className='my-1'>${outputAllYes}</ol>
-            <p className='my-1'>Hasil skrining menunjukkan anda mengalami <strong>${n}</strong> gejala penyakit mata bernama <strong>${lastValue}</strong>.</p>
-          </div>
-        `
-      }
-      // if ruleBase[i][j] is not the last in [i] array
-      else if (ruleBase[i][j] !== ruleBase[i][ruleBase[i].length - 2]) { // works
-        // save all yes reply before
-        if (allYesReply === ['']){
-          // append reply before
-          setAllYesReply([ruleBase[i][j]]);
-        }
-        else if (allYesReply !== ['']) {
-          // append reply before
-          setAllYesReply([...allYesReply, ruleBase[i][j]]);
-        }
-        reply = ruleBase[i][j+1];
-        // get the last element of the array
-        setLastValue(ruleBase[i][ruleBase[i].length-1]);
-        setI(i);
-        setJ(j+1);
-        setReplyNow(reply)
-      }
-    }
-
-    else if (input === 't' || input === 'tidak') {
-      setLastValue('');
-      // j === 0
-      if (j === 0) { // works
-        // if i !== 62
-        if (
-          i !== ruleBase.length - 1 && ruleBase[i+1][j] !== undefined && 
-          ruleBase[i][j] === ruleBase[i+1][j]
-        ) {
-          let arr = [''];
-          // push all value in the same j index
-          for (let x = 0; x < ruleBase.length ; x++) {
-            arr.push(ruleBase[x][0])
-            // arr = [gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],...]
-          }
-          // delete same values in array
-          let newArr = [...new Set(arr)] // newArr = [gejala[1],gejala[2],...]
-          let lastGejala = newArr[newArr.length-1] // last = gejala[51]
-          // find value index in array
-          let findIndexinArr = newArr.indexOf(ruleBase[i][j]) // findIndexinArr = 2
-          // reply = newArr(findIndexinArr+1) // reply=gejala[2]
-          let arr2= [''];
-          for (let x = 0; x < ruleBase.length ; x++) {
-            if (ruleBase[x][0] === newArr[findIndexinArr+1]) { // if === gejala[2]
-              arr2.push(x); // arr2 = [9,10,11,12,13,14,15,16]
+    else if (replyBefore === 'mulai') {
+      if (input === 'y' || input === 'ya') {
+        // if ruleBase[i][j] is the last in [i] array
+        // ruleBase[1][7] === ruleBase[1][9-2]
+        if (ruleBase[i][j] === ruleBase[i][ruleBase[i].length - 2]) {
+          // to make sure that same value doesn't inserted in array
+          let foundValue = allYesReply.find(e => e === ruleBase[i][j]);
+          // if ruleBase[i][j] isn't exist in array         
+          if (foundValue === undefined || foundValue === null) {
+            // save all yes reply before
+            setAllYesReply(allYesReply => [...allYesReply,ruleBase[i][j]]);
+            // check if ruleBase[1][7] already in array
+            foundValue = allYesReply.find(e => e === ruleBase[i][ruleBase[i].length - 2]);
+            // isFinished is true
+            function doReturnReply() {
+              // get the length of the array
+              /*let n = allYesReply.length + 1;
+              let outputAllYes = allYesReply.map((value, index) => { // https://appdividend.com/2020/07/30/javascript-map-index-how-to-use-index-inside-map/
+                return `<p>${index+1}.) ${value}</p>`
+              })*/
+              let outputAllYes = [];
+              outputAllYes.push(ruleBase[i][j]);
+              for (let k = 0; k< allYesReply.length; k++) {
+                outputAllYes.push(`<p>${k+1}.) ${allYesReply[k]}</p>`)
+              }
+              
+              let n = outputAllYes.length + 1;
+              reply = `
+                <div className='text-left p-1'>
+                  <p className='my-1'>Anda menjawab <strong>'ya'</strong> untuk pertanyaan : </p>
+                  <div className='my-1'>${outputAllYes}</div>
+                  <p className='my-1'>Hasil skrining menunjukkan anda mengalami <strong>${n}</strong> gejala penyakit mata bernama <strong>${lastValue}</strong>.</p>
+                </div>
+              `
+              return reply;
             }
+            reply = doReturnReply()
+            /*
+            if (foundValue !== undefined || foundValue !== null) {
+              reply = doReturnReply()
+            }*/
           }
-          setI(arr2[1]);
-          setJ(0);
-          reply = ruleBase[arr2[1]][0];
-          // setReplyBefore(reply)          
+          // if ruleBase[i][j] already exist in array
+          else if ((foundValue !== undefined || foundValue !== null)) {
+            let n = allYesReply.length;
+            // map all the yes answered qustions
+            let outputAllYes = allYesReply.map((value, index) => {
+              return `<p>${index+1}.) ${value}</p>`
+            })
+            reply = `
+              <div className='text-left p-1'>
+                <p className='my-1'>Anda menjawab <strong>'ya'</strong> untuk pertanyaan : </p>
+                <div className='my-1'>${outputAllYes}</div>
+                <p className='my-1'>Hasil skrining menunjukkan anda mengalami <strong>${n}</strong> gejala penyakit mata bernama <strong>${lastValue}</strong>.</p>
+              </div>
+            `
+          }
         }
-        // if i !== 62
-        else if (
-          i !== ruleBase.length - 1 && ruleBase[i+1][j] !== undefined && 
-          ruleBase[i][j] !== ruleBase[i+1][j]
-        ) {
-          reply = ruleBase[i+1][j];
-          setI(i+1);
-          setJ(j);
-          setReplyBefore(reply)
-        }
-        // if i === 62
-        else if (i === ruleBase.length - 1) {
-          reply = `Maaf anda tidak mengalami gejala penyakit mata yang ditanyakan oleh bot, sistem tidak dapat melakukan skrining. Tekan atau ketik mulai untuk mengulangi skrining`;
+        // if ruleBase[i][j] is not the last in [i] array
+        // ruleBase[1][6] !== ruleBase[1][7]
+        else if (ruleBase[i][j] !== ruleBase[i][ruleBase[i].length - 2]) { // works
+          // save all yes reply before
+          setAllYesReply([...allYesReply, ruleBase[i][j]]);
+          // reply
+          reply = ruleBase[i][j+1];
+          // get the last element of the array
+          setLastValue(ruleBase[i][ruleBase[i].length-1]);
+          setI(i);
+          setJ(j+1);
+          setReplyNow(reply)
         }
       }
-      // j !== 0
-      else if (j !== 0) {
-        if (ruleBase[i][j-1] === ruleBase[i+1][j-1]) { //error
-          if (ruleBase[i][j] === ruleBase[i+1][j]) {
+
+      else if (input === 't' || input === 'tidak') {
+        setLastValue('');
+        // j === 0
+        if (j === 0) { // works
+          // if i !== 62
+          if (
+            i !== ruleBase.length - 1 && ruleBase[i+1][j] !== undefined && 
+            ruleBase[i][j] === ruleBase[i+1][j]
+          ) {
             let arr = [''];
             // push all value in the same j index
             for (let x = 0; x < ruleBase.length ; x++) {
-              if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
-                arr.push(ruleBase[x][j])
-              }
+              arr.push(ruleBase[x][0])
+              // arr = [gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],...]
             }
             // delete same values in array
-            let newArr = [...new Set(arr)]
+            let newArr = [...new Set(arr)] // newArr = [gejala[1],gejala[2],...]
+            let lastGejala = newArr[newArr.length-1] // last = gejala[51]
             // find value index in array
-            let findIndexinArr = newArr.indexOf(ruleBase[i][j])
-            reply = newArr[findIndexinArr+1]
-            for (let k = 0; k < ruleBase.length ; k++) {
-              if (ruleBase[k][j] === newArr[findIndexinArr+1]) {
-                setI(k);
+            let findIndexinArr = newArr.indexOf(ruleBase[i][j]) // findIndexinArr = 2
+            // reply = newArr(findIndexinArr+1) // reply=gejala[2]
+            let arr2= [''];
+            for (let x = 0; x < ruleBase.length ; x++) {
+              if (ruleBase[x][0] === newArr[findIndexinArr+1]) { // if === gejala[2]
+                arr2.push(x); // arr2 = [9,10,11,12,13,14,15,16]
               }
             }
-            setJ(j);
+            setI(arr2[1]);
+            setJ(0);
+            reply = ruleBase[arr2[1]][0];
+            // setReplyBefore(reply)          
           }
-          else if (ruleBase[i][j] !== ruleBase[i+1][j]) {
+          // if i !== 62
+          else if (
+            i !== ruleBase.length - 1 && ruleBase[i+1][j] !== undefined && 
+            ruleBase[i][j] !== ruleBase[i+1][j]
+          ) {
             reply = ruleBase[i+1][j];
             setI(i+1);
-            setJ(j+1);
+            setJ(j);
+            setReplyBefore(reply)
+          }
+          // if i === 62
+          else if (i === ruleBase.length - 1) {
+            reply = `Maaf anda tidak mengalami gejala penyakit mata yang ditanyakan oleh bot, sistem tidak dapat melakukan skrining. Tekan atau ketik mulai untuk mengulangi skrining`;
           }
         }
-        else if (ruleBase[i][j-1] !== ruleBase[i+1][j-1]) {
-          let n = allYesReply.length-1;
-          let outputAllYes = allYesReply.map((i) => {
-            return `<li>${i}</li>`
-          })
-          // https://stackoverflow.com/questions/46544878/js-how-to-map-through-array-in-template-literals
-          reply = `
-            <div className='text-left p-1'>
-              <p className='my-1'>Anda menjawab <strong>'ya'</strong> untuk pertanyaan : </p>
-              <ol className='my-1'>${outputAllYes}</ol>
-              <p className='my-1'>Hasil skrining menunjukkan anda mengalami <strong>${n}</strong> gejala penyakit mata bernama <strong>${lastValue}</strong>.</p>
-            </div>
-          `
+        // j !== 0
+        else if (j !== 0) {
+          if (ruleBase[i][j-1] === ruleBase[i+1][j-1]) { //error
+            if (ruleBase[i][j] === ruleBase[i+1][j]) {
+              let arr = [''];
+              // push all value in the same j index
+              for (let x = 0; x < ruleBase.length ; x++) {
+                if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
+                  arr.push(ruleBase[x][j])
+                }
+              }
+              // delete same values in array
+              let newArr = [...new Set(arr)]
+              // find value index in array
+              let findIndexinArr = newArr.indexOf(ruleBase[i][j])
+              reply = newArr[findIndexinArr+1]
+              for (let k = 0; k < ruleBase.length ; k++) {
+                if (ruleBase[k][j] === newArr[findIndexinArr+1]) {
+                  setI(k);
+                }
+              }
+              setJ(j);
+            }
+            else if (ruleBase[i][j] !== ruleBase[i+1][j]) {
+              reply = ruleBase[i+1][j];
+              setI(i+1);
+              setJ(j+1);
+            }
+          }
+          else if (ruleBase[i][j-1] !== ruleBase[i+1][j-1]) {
+            let n = allYesReply.length-1;
+            let outputAllYes = allYesReply.map((value, index) => {
+              return `<p>${index+1}.) ${value}</p>`
+            })
+            reply = `
+              <div className='text-left p-1'>
+                <p className='my-1'>Anda menjawab <strong>'ya'</strong> untuk pertanyaan : </p>
+                <div className='my-1'>${outputAllYes}</div>
+                <p className='my-1'>Hasil skrining menunjukkan anda mengalami <strong>${n}</strong> gejala penyakit mata bernama <strong>${lastValue}</strong>.</p>
+              </div>
+            `
+          }
         }
       }
     }
+
+    else if (replyBefore !== 'mulai') {
+      if (input === 'y' || input === 'ya') {
+        reply = `Ketik atau tekan tombol mulai untuk memulai skrining`
+      }
+      else if (input === 't' || input === 'tidak') {
+        reply = `Ketik atau tekan tombol mulai untuk memulai skrining`
+      }
+    }
+
     return reply;
   };
 
@@ -453,8 +497,8 @@ export default function InferenceMachineCopy () {
       // Search for exact match in `prompts`
       reply = compare(prompts, replies, input);
     } 
-    else if (input.match(/thank/gi)) {
-      reply = 'You\'re welcome!'
+    else if (input.match(/terima kasih/gi)) {
+      reply = 'Sama-sama'
     }
     // Check if input contains `coronavirus`
     else if (input.match(/(corona|covid|virus)/gi)) {
@@ -479,6 +523,7 @@ export default function InferenceMachineCopy () {
       ruleBaseNow={ruleBase[i][j]}
       ruleBaseILength={ruleBase[i].length}
       ruleBaseLength = {ruleBase.length}
+      replyBefore={replyBefore}
       replyNow={replyNow}
       nextReply={nextReply}
       allYesReply = {allYesReply}

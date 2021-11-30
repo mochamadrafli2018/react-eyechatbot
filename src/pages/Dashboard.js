@@ -53,7 +53,7 @@ export default function Dashboard () {
               Title={<p>Sistem Pakar Skrining Penyakit Mata berbasis <i>Chatbot</i></p>}
               Image={Image2}
               MainText={'Web App ini dirancang dengan fitur : '}
-              Poin1={'Skrining Penyakit Mata dengan Metode Forward Chaining yang memiliki 26 Basis Aturan Penyakit Mata'}
+              Poin1={'Skrining Penyakit Mata dengan Metode Forward Chaining yang memiliki 62 Basis Aturan Penyakit Mata'}
               Poin2={'Mesin Inferensi yang dibangun dengan React Hooks sebagai Pengambilan Keputusan Penyakit Mata'}
               Poin3={'Chatbot User Interface yang diprogram dengan Functional Component React.js'}
               Poin4={'User Interface yang didesain dengan Bootstrap-React dan Tailwind CSS'}

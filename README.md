@@ -65,7 +65,7 @@ This project was licensed under MIT License
 - React Buildpack : https://github.com/mars/create-react-app-buildpack
 - Node Buildpack : https://github.com/heroku/heroku-buildpack-nodejs
 
-2. Javascript form data, event key, handling event, input to lower case :
+2. Javascript :
 
 - get input data : https://stackoverflow.com/questions/23427384/get-form-data-in-reactjs
 - eventKey : https://www.freecodecamp.org/news/javascript-keycode-list-keypress-event-key-codes/
@@ -76,6 +76,7 @@ This project was licensed under MIT License
 - JavaScript getFullYear, getMonth, getDate etc :
   a) https://stackoverflow.com/questions/16024346/lastmodified-function-returns-current-date-and-time
   b) http://www.scriptingmaster.com/scripts/JavaScript/date-time/get-day-name-JavaScript.asp
+- map function : // https://stackoverflow.com/questions/46544878/js-how-to-map-through-array-in-template-literals
 
 3. HTML/JSX Tag :
 
@@ -107,4 +108,4 @@ This project was licensed under MIT License
 - Yellow Eye for Card Image : https://unsplash.com/photos/WTThc6UmwEI
 - Blue Eye for Card Image : https://images.unsplash.com/photo-1501621667575-af81f1f0bacc?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZXllfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60
 - Bot Image : https://pixabay.com/vectors/chatbot-chat-bot-bot-training-4736275/
-- Rain Image for Chat Wallpaper : https://unsplash.com/photos/pYAvBZvplOM
+- Chat Wallpaper : https://unsplash.com/photos/GLf7bAwCdYg
