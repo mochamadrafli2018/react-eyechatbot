@@ -63,7 +63,7 @@ const sympthom = [
 ]
 
 const question = `Apakah anda mengalami gejala`;
-const lastQuestion = `pada mata anda ?`;
+const lastQuestion = `pada mata anda ? <span class='border-3 border-blue-700 px-2 py-0 rounded-2xl'>y/t</span>`;
 const gejala  = [
   [`this was index array numer 0`],
   [`${question} ${sympthom[0][0]} ${lastQuestion}`],
@@ -154,7 +154,7 @@ const diseaseArray = [
   {name:'Eksoftalmus',link:'www.kbbi.com'},
   {name:'Trombosis Sinus Kavernosus',link:'www.kbbi.com'},
   {name:'Optic Neuritis',link:'www.kbbi.com'},
-  // 26 - 27
+  // 26 - 30
   {name:'Degenerasi Makula',link:'www.kbbi.com'},
 ];
 
@@ -185,6 +185,9 @@ const ruleBase = [
   [gejala[5],gejala[2],gejala[14],gejala[27],gejala[35],gejala[43],gejala[44],diseaseArray[9].name],
   [gejala[5],gejala[2],gejala[25],gejala[26],diseaseArray[10].name],
   [gejala[5],gejala[6],gejala[7],gejala[8],diseaseArray[12].name],
+  [gejala[5],gejala[16],gejala[17],diseaseArray[13].name],
+  [gejala[5],gejala[18],gejala[27],gejala[33],gejala[50],diseaseArray[14].name],
+  [gejala[5],gejala[21],diseaseArray[15].name],
   [gejala[6],gejala[1],gejala[2],gejala[3],gejala[4],gejala[5],gejala[7],gejala[8],diseaseArray[1].name],
   [gejala[6],gejala[5],gejala[7],gejala[8],diseaseArray[12].name],
   [gejala[7],gejala[1],gejala[2],gejala[3],gejala[4],gejala[5],gejala[6],gejala[8],diseaseArray[1].name],
@@ -200,66 +203,86 @@ const ruleBase = [
   [gejala[14],gejala[1],gejala[2],gejala[18],gejala[27],gejala[28],gejala[29],diseaseArray[3].name],
   [gejala[14],gejala[1],gejala[18],gejala[21],diseaseArray[7].name],
   [gejala[14],gejala[2],gejala[5],gejala[27],gejala[35],gejala[43],gejala[44],diseaseArray[9].name],
+  [gejala[16],gejala[5],gejala[17],diseaseArray[13].name],
+  [gejala[17],gejala[5],gejala[16],diseaseArray[13].name],
   [gejala[18],gejala[1],gejala[2],gejala[14],gejala[27],gejala[28],gejala[29],diseaseArray[3].name],
   [gejala[18],gejala[1],gejala[14],gejala[21],diseaseArray[7].name],
   [gejala[18],gejala[1],gejala[23],diseaseArray[8].name],
+  [gejala[18],gejala[5],gejala[27],gejala[33],gejala[50],diseaseArray[14].name],
+  // must erorr
+  [gejala[18],gejala[19],gejala[20],diseaseArray[20].name], // diseaseArray[21].name
+  [gejala[18],gejala[19],diseaseArray[21].name],
+  // have been checked
+  [gejala[19],gejala[18],gejala[20],diseaseArray[20].name], // diseaseArray[21].name
+  [gejala[19],gejala[18],diseaseArray[21].name],
   [gejala[21],gejala[1],gejala[2],gejala[21],diseaseArray[4].name],
   [gejala[21],gejala[1],gejala[14],gejala[18],diseaseArray[7].name],
+  [gejala[21],gejala[5],diseaseArray[15].name],
   [gejala[22],gejala[1],gejala[2],gejala[22],diseaseArray[4].name],
+  [gejala[22],gejala[45],gejala[46],diseaseArray[22].name],
   [gejala[23],gejala[1],gejala[18],diseaseArray[8].name],
+  // have been checked
   [gejala[24],gejala[1],gejala[2],gejala[34],diseaseArray[5].name],
+  [gejala[24],diseaseArray[23].name],
   [gejala[25],gejala[2],gejala[5],gejala[26],diseaseArray[10].name],
+  [gejala[25],gejala[35],gejala[36],gejala[37],diseaseArray[24].name],
   [gejala[26],gejala[2],gejala[5],gejala[25],diseaseArray[10].name],
   [gejala[27],gejala[1],gejala[2],gejala[14],gejala[18],gejala[28],gejala[29],diseaseArray[3].name],
   [gejala[27],gejala[1],gejala[5],gejala[10],gejala[10],gejala[11],gejala[12],gejala[28],diseaseArray[6].name],
   [gejala[27],gejala[2],gejala[5],gejala[14],gejala[35],gejala[43],gejala[44],diseaseArray[9].name],
+  [gejala[27],gejala[5],gejala[18],gejala[33],gejala[50],diseaseArray[14].name],
   [gejala[28],gejala[1],gejala[2],gejala[12],gejala[14],diseaseArray[2].name],
   [gejala[28],gejala[1],gejala[2],gejala[14],gejala[18],gejala[27],gejala[29],diseaseArray[3].name],
   [gejala[28],gejala[1],gejala[5],gejala[10],gejala[10],gejala[11],gejala[12],gejala[27],diseaseArray[6].name],
   [gejala[29],gejala[1],gejala[2],gejala[14],gejala[18],gejala[27],gejala[28],diseaseArray[3].name],
   [gejala[29],gejala[2],gejala[35],gejala[51],diseaseArray[11].name],
+  [gejala[33],gejala[5],gejala[18],gejala[27],gejala[50],diseaseArray[14].name],
   [gejala[34],gejala[1],gejala[2],gejala[24],diseaseArray[5].name],
   [gejala[35],gejala[2],gejala[5],gejala[14],gejala[27],gejala[43],gejala[44],diseaseArray[9].name],
   [gejala[35],gejala[2],gejala[29],gejala[51],diseaseArray[11].name],
+  [gejala[35],gejala[25],gejala[36],gejala[37],diseaseArray[24].name],
+  [gejala[36],gejala[25],gejala[35],gejala[37],diseaseArray[24].name],
+  [gejala[37],gejala[35],gejala[35],gejala[36],diseaseArray[24].name],
+  [gejala[38],gejala[39],diseaseArray[25].name],
+  [gejala[39],gejala[38],diseaseArray[25].name],
   [gejala[43],gejala[2],gejala[5],gejala[14],gejala[27],gejala[35],gejala[44],diseaseArray[9].name],
   [gejala[44],gejala[2],gejala[5],gejala[14],gejala[27],gejala[35],gejala[43],diseaseArray[9].name],
-  [gejala[51],gejala[2],gejala[29],gejala[35],diseaseArray[11].name],
+  [gejala[45],gejala[22],gejala[46],diseaseArray[22].name],
+  [gejala[46],gejala[22],gejala[45],diseaseArray[22].name],
+  [gejala[47],gejala[48],gejala[49],diseaseArray[26].name],
+  [gejala[48],gejala[47],gejala[49],diseaseArray[26].name],
+  [gejala[49],gejala[47],gejala[48],diseaseArray[26].name],
+  [gejala[50],gejala[5],gejala[18],gejala[27],gejala[33],diseaseArray[14].name],
+  [gejala[51],gejala[2],gejala[29],gejala[35],diseaseArray[11].name]
 ];
 
 export default function InferenceMachineCopy () {
   const [input, setInput] = useState('')
-  const [berhasil, setBerhasil] = useState('')
   // handle when form input was change or type by user and also get user input with setInput
   const handleChange = (event) => {
     setInput(event.target.value)
-    setBerhasil('')
   }
   // get bot reply after user input chat and button was clicked
   const handleSubmit = () => {
-    setBerhasil('Pesan Terkirim')
     Output(input)
     setInput('')    // return empty form after user press the button
   }
   // get bot reply after user input chat and enter was pressed
   const handleEnter = (event) => {
     if (event.key === 'Enter') {
-      setBerhasil('Pesan Terkirim')
       Output(input)
       setInput('')  // return empty form after user press enter
     }
   }
   const handleMulai = () => {
-    setBerhasil('Pesan Terkirim')
     Output('mulai') // input = 'mulai'
     setInput('')    // return empty form after user press button
   }
   const handleYa = () => {
-    setBerhasil('Pesan Terkirim')
     Output('y')     // input = 'y'
     setInput('')    // return empty form after user press button
   }
   const handleTidak = () => {
-    setBerhasil('Pesan Terkirim')
     Output('t')     // input = 't'
     setInput('')    // return empty form after user press button
   }  
@@ -310,53 +333,28 @@ export default function InferenceMachineCopy () {
           let foundValue = allYesReply.find(e => e === ruleBase[i][j]);
           // if ruleBase[i][j] isn't exist in array         
           if (foundValue === undefined || foundValue === null) {
-            // save all yes reply before
             setAllYesReply(allYesReply => [...allYesReply,ruleBase[i][j]]);
-            // check if ruleBase[1][7] already in array
-            foundValue = allYesReply.find(e => e === ruleBase[i][ruleBase[i].length - 2]);
-            // isFinished is true
-            function doReturnReply() {
-              // get the length of the array
-              /*let n = allYesReply.length + 1;
-              let outputAllYes = allYesReply.map((value, index) => { // https://appdividend.com/2020/07/30/javascript-map-index-how-to-use-index-inside-map/
-                return `<p>${index+1}.) ${value}</p>`
-              })*/
-              let outputAllYes = [];
-              outputAllYes.push(ruleBase[i][j]);
-              for (let k = 0; k< allYesReply.length; k++) {
-                outputAllYes.push(`<p>${k+1}.) ${allYesReply[k]}</p>`)
-              }
-              
-              let n = outputAllYes.length + 1;
-              reply = `
-                <div className='text-left p-1'>
-                  <p className='my-1'>Anda menjawab <strong>'ya'</strong> untuk pertanyaan : </p>
-                  <div className='my-1'>${outputAllYes}</div>
-                  <p className='my-1'>Hasil skrining menunjukkan anda mengalami <strong>${n}</strong> gejala penyakit mata bernama <strong>${lastValue}</strong>.</p>
-                </div>
-              `
-              return reply;
+            let newArr = allYesReply;
+            let outputAllYes = [];
+            outputAllYes.push(ruleBase[i][j]);
+            for (let k = 0; k < newArr.length; k++) {
+              outputAllYes.push(newArr[k])
             }
-            reply = doReturnReply()
-            /*
-            if (foundValue !== undefined || foundValue !== null) {
-              reply = doReturnReply()
-            }*/
+            // get array length
+            let n = outputAllYes.length;
+            reply = `Anda menjawab <strong>ya</strong> untuk ${n} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${n} gejala</strong> penyakit mata bernama <strong>${lastValue}</strong>.`
           }
           // if ruleBase[i][j] already exist in array
           else if ((foundValue !== undefined || foundValue !== null)) {
-            let n = allYesReply.length;
-            // map all the yes answered qustions
-            let outputAllYes = allYesReply.map((value, index) => {
-              return `<p>${index+1}.) ${value}</p>`
-            })
-            reply = `
-              <div className='text-left p-1'>
-                <p className='my-1'>Anda menjawab <strong>'ya'</strong> untuk pertanyaan : </p>
-                <div className='my-1'>${outputAllYes}</div>
-                <p className='my-1'>Hasil skrining menunjukkan anda mengalami <strong>${n}</strong> gejala penyakit mata bernama <strong>${lastValue}</strong>.</p>
-              </div>
-            `
+            let newArr = allYesReply;
+            let outputAllYes = [];
+            outputAllYes.push(ruleBase[i][j]);
+            for (let k = 0; k < newArr.length; k++) {
+              outputAllYes.push(newArr[k])
+            }
+            // get array length
+            let n = outputAllYes.length-1;
+            reply = `Anda menjawab <strong>ya</strong> untuk ${n} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${n} gejala</strong> penyakit mata bernama <strong>${lastValue}</strong>.`
           }
         }
         // if ruleBase[i][j] is not the last in [i] array
@@ -391,7 +389,6 @@ export default function InferenceMachineCopy () {
             }
             // delete same values in array
             let newArr = [...new Set(arr)] // newArr = [gejala[1],gejala[2],...]
-            let lastGejala = newArr[newArr.length-1] // last = gejala[51]
             // find value index in array
             let findIndexinArr = newArr.indexOf(ruleBase[i][j]) // findIndexinArr = 2
             // reply = newArr(findIndexinArr+1) // reply=gejala[2]
@@ -403,8 +400,7 @@ export default function InferenceMachineCopy () {
             }
             setI(arr2[1]);
             setJ(0);
-            reply = ruleBase[arr2[1]][0];
-            // setReplyBefore(reply)          
+            reply = ruleBase[arr2[1]][0];     
           }
           // if i !== 62
           else if (
@@ -414,7 +410,6 @@ export default function InferenceMachineCopy () {
             reply = ruleBase[i+1][j];
             setI(i+1);
             setJ(j);
-            setReplyBefore(reply)
           }
           // if i === 62
           else if (i === ruleBase.length - 1) {
@@ -445,23 +440,36 @@ export default function InferenceMachineCopy () {
               setJ(j);
             }
             else if (ruleBase[i][j] !== ruleBase[i+1][j]) {
-              reply = ruleBase[i+1][j];
-              setI(i+1);
-              setJ(j+1);
+              if (ruleBase[i+1][j] === ruleBase[i+1][ruleBase[i+1].length-1]) {
+                let newArr = allYesReply;
+                let outputAllYes = [];
+                outputAllYes.push(ruleBase[i][j]);
+                for (let k = 0; k < newArr.length; k++) {
+                  outputAllYes.push(newArr[k])
+                }
+                // get array length 
+                // must be checked
+                let n = outputAllYes.length-1;
+                reply = `Anda menjawab <strong>ya</strong> untuk ${n} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${n} gejala</strong> penyakit mata bernama <strong>${lastValue}</strong>.`
+              }
+              else if (ruleBase[i+1][j] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
+                reply = ruleBase[i+1][j];
+                setI(i+1);
+                setJ(j);
+              }
             }
           }
           else if (ruleBase[i][j-1] !== ruleBase[i+1][j-1]) {
-            let n = allYesReply.length-1;
-            let outputAllYes = allYesReply.map((value, index) => {
-              return `<p>${index+1}.) ${value}</p>`
-            })
-            reply = `
-              <div className='text-left p-1'>
-                <p className='my-1'>Anda menjawab <strong>'ya'</strong> untuk pertanyaan : </p>
-                <div className='my-1'>${outputAllYes}</div>
-                <p className='my-1'>Hasil skrining menunjukkan anda mengalami <strong>${n}</strong> gejala penyakit mata bernama <strong>${lastValue}</strong>.</p>
-              </div>
-            `
+            let newArr = allYesReply;
+            let outputAllYes = [];
+            outputAllYes.push(ruleBase[i][j]);
+            for (let k = 0; k < newArr.length; k++) {
+              outputAllYes.push(newArr[k])
+            }
+            // get array length
+            // must be checked
+            let n = outputAllYes.length-1;
+            reply = `Anda menjawab <strong>ya</strong> untuk ${n} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${n} gejala</strong> penyakit mata bernama <strong>${lastValue}</strong>.`
           }
         }
       }
@@ -534,7 +542,6 @@ export default function InferenceMachineCopy () {
       handleMulai = {handleMulai}
       handleYa = {handleYa}
       handleTidak = {handleTidak}
-      berhasil = {berhasil}
     />
   )
 }
