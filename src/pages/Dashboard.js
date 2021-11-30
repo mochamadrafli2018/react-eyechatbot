@@ -3,6 +3,7 @@ import DashboardBar from '../bootstrap-components/DashboardBar';
 import Footer from '../components/Footer'
 import Image1 from '../img/eye-image-1.jpg';
 import Image2 from '../img/eye-image-2.jpg';
+import OverlayItem from '../bootstrap-components/Overlay';
 
 export default function Dashboard () {  
   const lastUpdated = new Date(document.lastModified);
@@ -24,10 +25,14 @@ export default function Dashboard () {
         className='container mx-auto mb-1 p-0 border rounded' 
         style={{marginTop:'70px',width:'98%',maxWidth:'1000px'}}
       >
-        <p className='bg-primary quicksand px-1 py-2 m-0 
-        text-center text-left text-light rounded-top'
+        <p className='bg-primary quicksand px-1 py-0 m-0 text-center rounded-top'
         style={{fontSize:'20px'}}>
-          EyeScreening
+          <span><OverlayItem
+            text={(<span className='text-light'>EyeScreening</span>)}
+            explanation={(
+              <span>Portofolio web app sistem pakar yang diprogram untuk mampu melakukan skrining penyakit mata pada manusia.</span>
+            )}
+          /></span>
         </p>
         <div className='row mt-3' style={{margin:'3px'}}>
           <div className='col p-1'>
@@ -48,12 +53,12 @@ export default function Dashboard () {
               )}
             />
           </div>
-          <div className='col p-1'>
+          <div className='col p-1'> 
             <CardBootstrapTailwind
               Title={<p>Sistem Pakar Skrining Penyakit Mata berbasis <i>Chatbot</i></p>}
               Image={Image2}
               MainText={'Web App ini dirancang dengan fitur : '}
-              Poin1={'Skrining Penyakit Mata dengan Metode Forward Chaining yang memiliki 62 Basis Aturan Penyakit Mata'}
+              Poin1={'Skrining Penyakit Mata dengan Metode Forward Chaining yang memiliki 112 Basis Aturan Penyakit Mata dan Gejalanya'}
               Poin2={'Mesin Inferensi yang dibangun dengan React Hooks sebagai Pengambilan Keputusan Penyakit Mata'}
               Poin3={'Chatbot User Interface yang diprogram dengan Functional Component React.js'}
               Poin4={'User Interface yang didesain dengan Bootstrap-React dan Tailwind CSS'}

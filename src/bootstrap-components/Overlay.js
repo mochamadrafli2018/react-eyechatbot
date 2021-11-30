@@ -4,19 +4,17 @@ export default function OverlayItem({explanation, text}) {
   const popover = (
     <Popover id="popover-basic" className='poppins shadow-lg'>
       <Popover.Header as="h3" className='text-white bg-primary'>{text}</Popover.Header>
-      <Popover.Body>
-        {explanation}
-      </Popover.Body>
+      <Popover.Body className='text-dark'>{explanation}</Popover.Body>
     </Popover>
   );      
   return (
     <OverlayTrigger
       placement="bottom"
-      delay={{ show: 250, hide: 400 }}
+      delay={{ show: 250, hide: 100 }}
       overlay={popover}
     >
-      <Nav.Link variant="success">
-        <i class="bi bi-info-square"></i> {text}
+      <Nav.Link>
+        <i class="bi bi-info-square text-primary"></i> {text}
       </Nav.Link>
     </OverlayTrigger>
   );
