@@ -103,6 +103,7 @@ export default function ChatbotInterfaceCopy({
         </Col>
       </Row>
       <Row>
+        {/*
         <div className='my-1 mx-2'>[ i ][ j ] : [{i}][{j}]</div>
         <div className='my-1 mx-2'>Tulisan di bawah ini untuk mengetahui sistem chat berjalan</div>
         <div className='my-1 mx-2'>ruleBaseNow : {ruleBaseNow}</div>
@@ -113,6 +114,7 @@ export default function ChatbotInterfaceCopy({
         <div className='my-1 mx-2'>nextReply : {nextReply}</div>
         <div className='my-1 mx-2'>lastValue : {lastValue}</div>
         <div className='my-1 mx-2'>all yes reply : {allYesReply}</div>
+        */}
       </Row>
     </div>
   )
