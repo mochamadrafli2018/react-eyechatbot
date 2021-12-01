@@ -40,7 +40,7 @@ export default function Guide () {
           <p className='my-1'>23.) Infeksi Herpes Simpleks Kornea</p>
           <p className='my-1'>24.) Infeksi Herpes Zoster Kornea</p>
           <p className='my-1'>25.) Keratitis Ulserativa Perifer</p>
-          <p className='my-1'>28.) Oftalmia Neonatorum</p>
+          <p className='my-1'>26.) Degenerasi Makula</p>
           
           <p className='my-2'>Untuk melakukan skrining penyakit mata ketikkan : mulai,  tes,  test atau skrining pada input chat.</p>
           <p className='my-2'>Atau bisa juga tekan tombol <strong>mulai</strong> berwarna biru yang ada di bawah input chat.</p>
