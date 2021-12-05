@@ -325,7 +325,7 @@ export default function InferenceMachineCopy () {
             // re-empty
             setReplyNow('');
             setReplyBefore('');
-            setLastValue('');
+            setLastValue([]);
             setAllYesReply([]);
             // reply
             reply = ruleBase[i+1][j];
@@ -385,7 +385,7 @@ export default function InferenceMachineCopy () {
           // reply
           reply = ruleBase[i][j+1];
           // get the last element of the array
-          setLastValue(ruleBase[i][ruleBase[i].length-1]);
+          setLastValue([...lastValue,ruleBase[i][ruleBase[i].length-1]]);
           setI(i);
           setJ(j+1);
           setReplyNow(reply)
@@ -393,7 +393,6 @@ export default function InferenceMachineCopy () {
       }
 
       else if (input === 't' || input === 'tidak') {
-        setLastValue('');
         // j === 0
         if (j === 0) { // works
           // if i !== 62
