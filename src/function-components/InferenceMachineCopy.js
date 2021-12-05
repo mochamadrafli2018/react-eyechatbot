@@ -437,58 +437,37 @@ export default function InferenceMachineCopy () {
         }
         // j !== 0
         else if (j !== 0) {
-          if (ruleBase[i][j-1] === ruleBase[i+1][j-1]) { //error
-            if (ruleBase[i][j] === ruleBase[i+1][j]) {
-              let arr = [''];
-              // push all value in the same j index
-              for (let x = 0; x < ruleBase.length ; x++) {
-                if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
-                  arr.push(ruleBase[x][j])
+          if (ruleBase[i][j-1] === ruleBase[i+1][j-1]) { //error and change
+              // check if the rule base below was not the last value of the next array
+              if (ruleBase[i+1][j] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
+                let arr = [''];
+                // push all value in the same j index
+                for (let x = 0; x < ruleBase.length ; x++) {
+                  if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
+                    arr.push(ruleBase[x][j])
+                  }
                 }
-              }
-              // delete same values in array
-              let newArr = [...new Set(arr)]
-              // find value index in array
-              let findIndexinArr = newArr.indexOf(ruleBase[i][j])
-              reply = newArr[findIndexinArr+1]
-              for (let k = 0; k < ruleBase.length ; k++) {
-                if (ruleBase[k][j] === newArr[findIndexinArr+1]) {
-                  setI(k);
+                // delete same values in array
+                let newArr = [...new Set(arr)]
+                // find value index in array
+                let findIndexinArr = newArr.indexOf(ruleBase[i][j])
+                reply = newArr[findIndexinArr+1]
+                for (let k = 0; k < ruleBase.length ; k++) {
+                  if (ruleBase[k][j] === newArr[findIndexinArr+1]) {
+                    setI(k);
+                    break
+                  }
                 }
-              }
-              setJ(j);
-            }
-            else if (ruleBase[i][j] !== ruleBase[i+1][j]) {
-              if (ruleBase[i+1][j] === ruleBase[i+1][ruleBase[i+1].length-1]) {
-                let newArr = allYesReply;
-                let outputAllYes = [];
-                outputAllYes.push(ruleBase[i][j]);
-                for (let k = 0; k < newArr.length; k++) {
-                  outputAllYes.push(newArr[k])
-                }
-                // get array length 
-                // must be checked
-                let n = outputAllYes.length-1;
-                reply = `Anda menjawab <strong>ya</strong> untuk ${n} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${n} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>.`
-              }
-              else if (ruleBase[i+1][j] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
-                reply = ruleBase[i+1][j];
-                setI(i+1);
                 setJ(j);
               }
-            }
+              else if (ruleBase[i+1][j] === ruleBase[i+1][ruleBase[i+1].length-1]) {
+                // get array length
+                reply = `Anda menjawab <strong>ya</strong> untuk ${n} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>.`
+              }       
           }
           else if (ruleBase[i][j-1] !== ruleBase[i+1][j-1]) {
-            let newArr = allYesReply;
-            let outputAllYes = [];
-            outputAllYes.push(ruleBase[i][j]);
-            for (let k = 0; k < newArr.length; k++) {
-              outputAllYes.push(newArr[k])
-            }
             // get array length
-            // must be checked
-            let n = outputAllYes.length-1;
-            reply = `Anda menjawab <strong>ya</strong> untuk ${n} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${n} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>.`
+            reply = `Anda menjawab <strong>ya</strong> untuk ${n} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>.`
           }
         }
       }
@@ -496,10 +475,10 @@ export default function InferenceMachineCopy () {
 
     else if (replyBefore !== 'mulai') {
       if (input === 'y' || input === 'ya') {
-        reply = `Ketik atau tekan tombol mulai untuk memulai skrining`
+        reply = `Ketik mulai atau tekan tombol mulai untuk memulai skrining penyakit mata`
       }
       else if (input === 't' || input === 'tidak') {
-        reply = `Ketik atau tekan tombol mulai untuk memulai skrining`
+        reply = `Ketik mulai atau tekan tombol mulai untuk memulai skrining penyakit mata`
       }
     }
 
