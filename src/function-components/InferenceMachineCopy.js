@@ -469,7 +469,7 @@ export default function InferenceMachineCopy () {
                 // get array length 
                 // must be checked
                 let n = outputAllYes.length-1;
-                reply = `Anda menjawab <strong>ya</strong> untuk ${n} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${n} gejala</strong> penyakit mata bernama <strong>${lastValue[0]}</strong>.`
+                reply = `Anda menjawab <strong>ya</strong> untuk ${n} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${n} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>.`
               }
               else if (ruleBase[i+1][j] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
                 reply = ruleBase[i+1][j];
@@ -488,7 +488,7 @@ export default function InferenceMachineCopy () {
             // get array length
             // must be checked
             let n = outputAllYes.length-1;
-            reply = `Anda menjawab <strong>ya</strong> untuk ${n} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${n} gejala</strong> penyakit mata bernama <strong>${lastValue[0]}</strong>.`
+            reply = `Anda menjawab <strong>ya</strong> untuk ${n} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${n} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>.`
           }
         }
       }
