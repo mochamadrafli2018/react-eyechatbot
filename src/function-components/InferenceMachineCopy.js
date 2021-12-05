@@ -314,7 +314,7 @@ export default function InferenceMachineCopy () {
   let [replyNow, setReplyNow] = useState('');
   let [replyBefore, setReplyBefore] = useState('');
   let [nextReply, setNextReply] = useState('');
-  let [lastValue, setLastValue] = useState('');
+  let [lastValue, setLastValue] = useState([]);
   function Screening(input) {
     let reply;
     if (input === 'mulai' || input === 'tes'|| input === 'test'  || input === 'skrining') {
@@ -362,7 +362,7 @@ export default function InferenceMachineCopy () {
             }
             // get array length
             let n = outputAllYes.length;
-            reply = `Anda menjawab <strong>ya</strong> untuk ${n} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${n} gejala</strong> penyakit mata bernama <strong>${lastValue}</strong>.`
+            reply = `Anda menjawab <strong>ya</strong> untuk ${n} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${n} gejala</strong> penyakit mata bernama <strong>${lastValue[0]}</strong>.`
           }
           // if ruleBase[i][j] already exist in array
           else if ((foundValue !== undefined || foundValue !== null)) {
@@ -374,7 +374,7 @@ export default function InferenceMachineCopy () {
             }
             // get array length
             let n = outputAllYes.length-1;
-            reply = `Anda menjawab <strong>ya</strong> untuk ${n} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${n} gejala</strong> penyakit mata bernama <strong>${lastValue}</strong>.`
+            reply = `Anda menjawab <strong>ya</strong> untuk ${n} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${n} gejala</strong> penyakit mata bernama <strong>${lastValue[0]}</strong>.`
           }
         }
         // if ruleBase[i][j] is not the last in [i] array
@@ -470,7 +470,7 @@ export default function InferenceMachineCopy () {
                 // get array length 
                 // must be checked
                 let n = outputAllYes.length-1;
-                reply = `Anda menjawab <strong>ya</strong> untuk ${n} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${n} gejala</strong> penyakit mata bernama <strong>${lastValue}</strong>.`
+                reply = `Anda menjawab <strong>ya</strong> untuk ${n} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${n} gejala</strong> penyakit mata bernama <strong>${lastValue[0]}</strong>.`
               }
               else if (ruleBase[i+1][j] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
                 reply = ruleBase[i+1][j];
@@ -489,7 +489,7 @@ export default function InferenceMachineCopy () {
             // get array length
             // must be checked
             let n = outputAllYes.length-1;
-            reply = `Anda menjawab <strong>ya</strong> untuk ${n} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${n} gejala</strong> penyakit mata bernama <strong>${lastValue}</strong>.`
+            reply = `Anda menjawab <strong>ya</strong> untuk ${n} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${n} gejala</strong> penyakit mata bernama <strong>${lastValue[0]}</strong>.`
           }
         }
       }
