@@ -20,35 +20,33 @@ You will also see any lint errors in the console.
 
 List of Eye Disease for Inference Machine
 
-1. Ulkus Kornea
-2. Keratokonus
-3. Kalazion
-4. Blefaritis
-5. Hordeolum (Stye)
-6. Konjungtivitis
-7. Trakoma
-8. Abalso Retina
-9. Retinopati Diabetikum
-10. Glaukoma
-11. Katarak
-12. Uveitis
-13. Selulitis Orbitalis
-14. Eksoftalmus
-15. Keratitis Pungtata Superfisialis
-16. Alergi Mata Merah
-17. Endoftalmitis
-18. Trombosis Sinus Kavernosus
-19. Optic Neuritis
-20. Dakrioritis
-21. Degenerasi Makula
-22. Episkleritis
-23. Infeksi Herpes Simpleks Kornea
-24. Infeksi Herpes Zoster Kornea
-25. Keratitis Ulserativa Perifer
-26. Keratokonjungtivitis Vernalis
-27. Melanoma Koroid
-28. Oftalmia Neonatorum
-29. Patah Tulang Orbita
+1. Ablasi Retina
+2. Alergi Mata Merah
+3. Blefaritis
+4. Dakriosistitis
+5. Degenerasi Makula
+6. Eksoftalmus
+7. Endoftalmitis
+8. Glaukoma
+9. Hordeolum (Stye)
+10. Katarak
+11. Keratitis Pungtata Superfisialis
+12. Keratokonus
+13. Kalazion
+14. Konjungtivitis
+15. Miopi
+16. Oftalmia Neonatorium
+17. Optic Neuritis
+18. Pterygium
+19. Retinitis Pigmentosa
+20. Retinopati Diabetikum
+21. Selulitis Orbitalitas
+22. Trakoma
+23. Trombosis Sinus Kavernosus
+24. Ulkus Kornea
+25. Uveitis
+26. Xerophtalmania
+27. Skleritis
 
 ## Deployment
 
