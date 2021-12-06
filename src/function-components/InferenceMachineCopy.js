@@ -165,8 +165,8 @@ const diseaseArray = [
 ];
 
 const ruleBase = [
-  // index number [0][0],[0][1],[0][2],[0][3]
-  ['mulai','tes','test','skrining'],
+  // index number [0][0]
+  [''],
   // rule base number 1 - 62
   [gejala[1],gejala[2],gejala[3],gejala[4],gejala[5],gejala[6],gejala[7],gejala[8],diseaseArray[1].name],
   [gejala[1],gejala[2],gejala[12],gejala[14],gejala[28],diseaseArray[2].name],
@@ -321,136 +321,102 @@ export default function InferenceMachineCopy () {
   // initialize state for screening system
   let [i,setI] = useState(0);
   let [j,setJ] = useState(0);
-  let [allYesReply, setAllYesReply] = useState([]);
   let [replyNow, setReplyNow] = useState('');
   let [replyBefore, setReplyBefore] = useState('');
   let [nextReply, setNextReply] = useState('');
+  let [allYesReply, setAllYesReply] = useState([]);
   let [lastValue, setLastValue] = useState([]);
   let [totalGejala, setTotalGejala] = useState([]);
+  
   function Screening(input) {
     let reply;
     if (input === 'mulai' || input === 'tes'|| input === 'test'  || input === 'skrining') {
-      let replyFound;
-      for (i = 0; i < ruleBase.length; i++) {
-        for (j = 0; j < ruleBase[i].length; j++) {
-          if (ruleBase[i][j] === input) {
-            // re-empty
-            setReplyNow('');
-            setReplyBefore('');
-            setLastValue([]);
-            setAllYesReply([]);
-            setTotalGejala([]);
-            // reply
-            reply = ruleBase[i+1][j];
-            setReplyBefore(input);
-            setI(i+1);
-            setJ(j);
-            replyFound = true;
-            // stop inner loop when input value matches
-            break;
-          }
-        }
-        // stop looping when reply found
-        if (replyFound) {
-          break;
-        }
-      }
+       // re-empty
+       setReplyNow(''); setReplyBefore(''); setLastValue([]); setAllYesReply([]); setTotalGejala([]);
+       // reply
+       reply = ruleBase[1][0]; setReplyBefore(input); setI(0); setJ(0);
     }
     
-    else if (replyBefore === 'mulai') {
+    else if (replyBefore === 'mulai' || replyBefore === 'tes' || replyBefore === 'test' || replyBefore === 'skrining') {
       // the current value is ruleBase[i][j]
       if (input === 'y' || input === 'ya') {
+        // save all yes reply before the last value in [i] array
+        setAllYesReply([...allYesReply, ruleBase[i][j]);
+        // make sure there is no same value in array
+        allYesReply = [...new Set(allYesReply)];
         // if ruleBase[i][j+1] is not last value in [i] array
         if (ruleBase[i][j+1] !== ruleBase[i][ruleBase[i].length - 1]) {
-          // save all yes reply before
-          setAllYesReply([...allYesReply, ruleBase[i][j]]);
-          reply = ruleBase[i][j+1];
+          reply = ruleBase[i][j+1]; setI(i); setJ(j+1);
           setReplyNow(reply)
           // get total sympthon in the array
           setTotalGejala([...totalGejala, ruleBase[i].length-1])
           // get the last element of the array
           setLastValue([...lastValue,ruleBase[i][ruleBase[i].length-1]]);
-          setI(i); setJ(j+1);
         }
         // if ruleBase[i][j+1] is the last value in [i] array
         else if (ruleBase[i][j+1] === ruleBase[i][ruleBase[i].length - 1]) {
-          function push () {
-            if (ruleBase[i][j] === ruleBase[i][ruleBase[i].length - 2]) {
-              // save all yes reply before the last value in [i] array
-              setAllYesReply([...allYesReply, ruleBase[i][j])
-            }
-          }
-          push().then(allYesReply => {
-            reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-          })
+          reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
           setI(i); setJ(j);
         }
       }
       
       else if (input === 't' || input === 'tidak') {
-        // j === 0
-        if (j === 0) { // works
-          // if i the last value of ruleBase
-          if (i !== ruleBase.length - 1 && ruleBase[i+1][j] !== undefined && ruleBase[i][j] === ruleBase[i+1][j]) {
+        // if i is not the last value of ruleBase
+        if (i !== ruleBase.length - 1 && j === 0) {
+          let arr = [''];
+          for (let x = 0; x < ruleBase.length ; x++) {
+            arr.push(ruleBase[x][0])
+            // arr = [gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],...]
+          }
+          // delete same values in array
+          arr = [...new Set(arr)] // newArr = [gejala[1],gejala[2],gejala[3],gejala[4],...]
+          // find value of ruleBase[i][j] index in newArr
+          let findIndexinArr = arr.indexOf(ruleBase[i][j])
+          // find reply in ruleBase[i][0]
+          for (let k = 0; k < ruleBase.length ; k++) {
+            if (ruleBase[k][0] === arr[findIndexinArr+1]) {
+              setI(k); setJ(0);
+              break
+            }
+          }
+          reply = ruleBase[k][0];
+        }
+        // if i is the last value of ruleBase
+        else if (i === ruleBase.length - 1 && j === 0) {
+          reply = `Maaf anda tidak mengalami gejala penyakit mata yang ditanyakan oleh bot, sistem tidak dapat melakukan skrining. Tekan atau ketik mulai untuk mengulangi skrining`;
+        }
+        else if (i !== ruleBase.length - 1 && j !== 0 && ruleBase[i][j-1] === ruleBase[i+1][j-1]) {
+          // if ruleBase[i+1][j] is not the last value of ruleBase[i]
+          if (ruleBase[i+1][j] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
             let arr = [''];
+            // push all value in the same j index
             for (let x = 0; x < ruleBase.length ; x++) {
-              arr.push(ruleBase[x][0])
-              // arr = [gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],...]
+              if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
+                arr.push(ruleBase[x][j])
+              }
             }
             // delete same values in array
-            let newArr = [...new Set(arr)] // newArr = [gejala[1],gejala[2],gejala[3],gejala[4],...]
-            // find value of ruleBase[i][j] index in newArr
-            let findIndexinArr = newArr.indexOf(ruleBase[i][j])
-            // find reply in ruleBase[i][0]
+            arr = [...new Set(arr)]
+            // find value index in array
+            let findIndexinArr = arr.indexOf(ruleBase[i][j])
+            reply = arr[findIndexinArr+1]
             for (let k = 0; k < ruleBase.length ; k++) {
-              if (ruleBase[k][0] === newArr[findIndexinArr+1]) {
-                setI(k);
+              if (ruleBase[k][j] === arr[findIndexinArr+1]) {
+                setI(k); setJ(j);
                 break
               }
             }
-            reply = ruleBase[k][0];
-            setJ(0);
           }
-          // if i is the last value of ruleBase
-          else if (i === ruleBase.length - 1) {
-            reply = `Maaf anda tidak mengalami gejala penyakit mata yang ditanyakan oleh bot, sistem tidak dapat melakukan skrining. Tekan atau ketik mulai untuk mengulangi skrining`;
-          }
+          // if ruleBase[i+1][j] is the last value of ruleBase[i]
+          else if (ruleBase[i+1][j] === ruleBase[i+1][ruleBase[i+1].length-1]) {
+            reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+          }       
         }
-        // j !== 0
-        else if (j !== 0) {
-          if (ruleBase[i][j-1] === ruleBase[i+1][j-1]) { //error and change
-              // if ruleBase[i+1][j] is not the last value of ruleBase[i]
-              if (ruleBase[i+1][j] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
-                let arr = [''];
-                // push all value in the same j index
-                for (let x = 0; x < ruleBase.length ; x++) {
-                  if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
-                    arr.push(ruleBase[x][j])
-                  }
-                }
-                // delete same values in array
-                let newArr = [...new Set(arr)]
-                // find value index in array
-                let findIndexinArr = newArr.indexOf(ruleBase[i][j])
-                reply = newArr[findIndexinArr+1]
-                for (let k = 0; k < ruleBase.length ; k++) {
-                  if (ruleBase[k][j] === newArr[findIndexinArr+1]) {
-                    setI(k);
-                    break
-                  }
-                }
-                setJ(j);
-              }
-              // if ruleBase[i+1][j] is the last value of ruleBase[i]
-              else if (ruleBase[i+1][j] === ruleBase[i+1][ruleBase[i+1].length-1]) {
-                // get array length
-                reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-              }       
-          }
-          else if (ruleBase[i][j-1] !== ruleBase[i+1][j-1]) {
-            // get array length
-             reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-          }
+        else if (i !== ruleBase.length - 1 && j !== 0 && ruleBase[i][j-1] !== ruleBase[i+1][j-1]) {
+           reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+        }
+        else if (i === ruleBase.length - 1 && j !== 0) {
+           reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
         }
       }
     }
@@ -463,7 +429,6 @@ export default function InferenceMachineCopy () {
         reply = `Ketik mulai atau tekan tombol mulai untuk memulai skrining penyakit mata`
       }
     }
-
     return reply;
   };
 
