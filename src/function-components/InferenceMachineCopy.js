@@ -6,6 +6,7 @@ import compare from './Compare';
 import ChatbotInterfaceCopy from '../components/ChatbotInterfaceCopy';
 
 const sympthom = [
+  [''],
   ['peka terhadap cahaya (fotofobia) (gejala 1)'],
   ['terasa nyeri (gejala 2)'],
   ['tampak bintik nanah berwarna kuning keputihan pada kornea (gejala 3)'],
@@ -60,13 +61,16 @@ const sympthom = [
   ['mata kering (gejala 52)'],
   ['benjolan pada mata bagian atas atau bawah (gejala 53)'],
   ['seperti ada benda asing di mata (gejala 54)'],
+  ['nyeri mata hebat (gejala 55)'],
+  ['mata merah tidak merata (gejala 56)'],
+  ['bercak merah pada sklera (gejala 57)'],
+  ['palpebra atau kelopak mata bengkak warna biru jingga (gejala 58)'],
 ]
 
 const question = `Apakah anda mengalami gejala`;
 const lastQuestion = `pada mata anda ? <span class='border-3 border-blue-700 px-2 py-0 rounded-2xl'>y/t</span>`;
 const gejala  = [
   [`this was index array numer 0`],
-  [`${question} ${sympthom[0][0]} ${lastQuestion}`],
   [`${question} ${sympthom[1][0]} ${lastQuestion}`],
   [`${question} ${sympthom[2][0]} ${lastQuestion}`],
   [`${question} ${sympthom[3][0]} ${lastQuestion}`],
@@ -120,6 +124,7 @@ const gejala  = [
   [`${question} ${sympthom[51][0]} ${lastQuestion}`],
   [`${question} ${sympthom[52][0]} ${lastQuestion}`],
   [`${question} ${sympthom[53][0]} ${lastQuestion}`],
+  [`${question} ${sympthom[54][0]} ${lastQuestion}`],
 ]
 
 const diseaseArray = [
@@ -156,6 +161,7 @@ const diseaseArray = [
   {name:'Optic Neuritis',link:'www.kbbi.com'},
   // 26 - 30
   {name:'Degenerasi Makula',link:'www.kbbi.com'},
+  {name:'Episkleritis',link:'www.kbbi.com'},
 ];
 
 const ruleBase = [
@@ -209,6 +215,7 @@ const ruleBase = [
   [gejala[14],gejala[6],gejala[18],gejala[27],gejala[52],gejala[53],gejala[54],diseaseArray[16].name],
   [gejala[14],gejala[13],gejala[15],gejala[27],diseaseArray[18].name],
   [gejala[14],gejala[25],gejala[27],gejala[40],gejala[41],diseaseArray[19].name],
+  [gejala[14],gejala[55],gejala[56],gejala[57],gejala[58],diseaseArray[27].name],
   [gejala[15],gejala[13],gejala[14],gejala[27],diseaseArray[18].name],
   [gejala[16],gejala[5],gejala[17],diseaseArray[13].name],
   [gejala[17],gejala[5],gejala[16],diseaseArray[13].name],
@@ -274,6 +281,10 @@ const ruleBase = [
   [gejala[52],gejala[6],gejala[14],gejala[18],gejala[27],gejala[53],gejala[54],diseaseArray[16].name],
   [gejala[53],gejala[6],gejala[14],gejala[18],gejala[27],gejala[52],gejala[54],diseaseArray[16].name],
   [gejala[54],gejala[6],gejala[14],gejala[18],gejala[27],gejala[52],gejala[53],diseaseArray[16].name],
+  [gejala[55],gejala[14],gejala[56],gejala[57],gejala[58],diseaseArray[27].name],
+  [gejala[56],gejala[14],gejala[55],gejala[57],gejala[58],diseaseArray[27].name],
+  [gejala[57],gejala[14],gejala[55],gejala[56],gejala[58],diseaseArray[27].name],
+  [gejala[58],gejala[14],gejala[55],gejala[56],gejala[57],diseaseArray[27].name],
 ];
 
 export default function InferenceMachineCopy () {
@@ -346,43 +357,16 @@ export default function InferenceMachineCopy () {
     
     else if (replyBefore === 'mulai') {
       if (input === 'y' || input === 'ya') {
-        // if ruleBase[i][j] is the last in [i] array
-        // ruleBase[1][7] === ruleBase[1][9-2]
+        // save all yes reply before
+        setAllYesReply([...allYesReply, ruleBase[i][j]]);
+        // make sure thay there is no double or same value in array
+        
+        // if ruleBase[i][j] is the value before the last value in [i] array, example : ruleBase[1][7] === ruleBase[1][9-2]
         if (ruleBase[i][j] === ruleBase[i][ruleBase[i].length - 2]) {
-          // to make sure that same value doesn't inserted in array
-          let foundValue = allYesReply.find(e => e === ruleBase[i][j]);
-          // if ruleBase[i][j] isn't exist in array         
-          if (foundValue === undefined || foundValue === null) {
-            setAllYesReply(allYesReply => [...allYesReply,ruleBase[i][j]]);
-            let newArr = allYesReply;
-            let outputAllYes = [];
-            outputAllYes.push(ruleBase[i][j]);
-            for (let k = 0; k < newArr.length; k++) {
-              outputAllYes.push(newArr[k])
-            }
-            // get array length
-            let n = outputAllYes.length;
-            reply = `Anda menjawab <strong>ya</strong> untuk ${n} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${n} gejala</strong> penyakit mata bernama <strong>${lastValue[0]}</strong>.`
-          }
-          // if ruleBase[i][j] already exist in array
-          else if ((foundValue !== undefined || foundValue !== null)) {
-            let newArr = allYesReply;
-            let outputAllYes = [];
-            outputAllYes.push(ruleBase[i][j]);
-            for (let k = 0; k < newArr.length; k++) {
-              outputAllYes.push(newArr[k])
-            }
-            // get array length
-            let n = outputAllYes.length-1;
-            reply = `Anda menjawab <strong>ya</strong> untuk ${n} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${n} gejala</strong> penyakit mata bernama <strong>${lastValue[0]}</strong>.`
-          }
+          reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> penyakit mata bernama <strong>${lastValue[0]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
         }
-        // if ruleBase[i][j] is not the last in [i] array
-        // ruleBase[1][6] !== ruleBase[1][7]
-        else if (ruleBase[i][j] !== ruleBase[i][ruleBase[i].length - 2]) { // works
-          // save all yes reply before
-          setAllYesReply([...allYesReply, ruleBase[i][j]]);
-          // reply
+        // if ruleBase[i][j] is not the value before the last value in [i] array
+        else if (ruleBase[i][j] !== ruleBase[i][ruleBase[i].length - 2]) {
           reply = ruleBase[i][j+1];
           // get the last element of the array
           setLastValue([...lastValue,ruleBase[i][ruleBase[i].length-1]]);
