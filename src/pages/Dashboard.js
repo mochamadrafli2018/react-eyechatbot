@@ -40,7 +40,7 @@ export default function Dashboard () {
               Title={<p>Sistem Pakar Skrining Penyakit Mata berbasis <i>Form</i></p>}
               Image={Image1}
               MainText={'Web App ini dirancang dengan fitur : '}
-              Poin1={'Skrining Penyakit Mata dengan Metode Forward Chaining yang Ditanam 26 Basis Aturan Penyakit Mata'}
+              Poin1={'Skrining Penyakit Mata dengan Metode Forward Chaining yang Diprogram 26 Basis Aturan dari 26 Data Penyakit Mata dan 54 Gejala Penyakit Mata'}
               Poin2={'Mesin Inferensi yang dibangun dengan Hapi.js sebagai Pengambilan Keputusan Penyakit Mata'}
               Poin3={'Checklist Gejala Penyakit Mata berbasis Form yang dirancang dengan Vue.js'}
               Poin4={'User Interface yang didesain dengan Vuetify dan Bootstrap-Vue'}
@@ -58,7 +58,7 @@ export default function Dashboard () {
               Title={<p>Sistem Pakar Skrining Penyakit Mata berbasis <i>Chatbot</i></p>}
               Image={Image2}
               MainText={'Web App ini dirancang dengan fitur : '}
-              Poin1={'Skrining Penyakit Mata dengan Metode Forward Chaining yang memiliki 112 Basis Aturan Penyakit Mata dan Gejalanya'}
+              Poin1={'Skrining Penyakit Mata dengan Metode Forward Chaining yang memiliki 114 Basis Aturan dari 27 Data Penyakit Mata dan 58 Gejala Penyakit Mata'}
               Poin2={'Mesin Inferensi yang dibangun dengan React Hooks sebagai Pengambilan Keputusan Penyakit Mata'}
               Poin3={'Chatbot User Interface yang diprogram dengan Functional Component React.js'}
               Poin4={'User Interface yang didesain dengan Bootstrap-React dan Tailwind CSS'}
