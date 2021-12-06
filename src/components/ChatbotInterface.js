@@ -1,44 +1,57 @@
-import React from 'react'
-import {Col,Row} from 'react-bootstrap'
+import React, {useEffect, useRef} from 'react';
+import {Col,Row} from 'react-bootstrap';
+import '../index.css';
 
-export default function ChatbotInterface({
+export default function ChatbotInterfaceCopy({
     input,
+    i, j, 
+    replyBefore, replyNow, nextReply, allYesReply, lastValue, 
+    ruleBaseNow, ruleBaseILength, ruleBaseLength, 
     handleChange,
     handleEnter,
     handleSubmit,
     handleMulai,
     handleYa,
     handleTidak,
-    berhasil,
-    firstReply,
-    secondReply,
-    thirdReply,
-    fourthReply,
-    fifthReply,
-    sixthReply,
-    seventhReply,
-    eightReply
   }) {
+
+  // create a ref 
+  const messageEl = useRef(null);
+
+  // https://www.cluemediator.com/auto-scroll-to-the-bottom-in-a-react-chat-application 
+  useEffect(() => {
+    if (messageEl) {
+      messageEl.current.addEventListener('DOMNodeInserted', event => {
+        const { currentTarget: target } = event;
+        target.scroll({ top: target.scrollHeight, behavior: 'smooth' });
+      });
+    }
+  }, [])
+
   return (
     <div 
-      className='container p-0 mx-auto h-100 mw-75 
-      border-5px rounded shadow-lg'
-      style={{marginTop:'60px',width:'99%'}}
+      className='p-0 mx-auto mb-3 w-full max-w-3xl overflow-hidden border-2 rounded hover:border-blue-400 hover:shadow-lg'
+      style={{marginTop:'60px'}}
     >
-      <Row className='mx-auto mb-0 rounded shadow-hover-primary'>
+      <Row className='mx-0 mb-0 w-100 rounded shadow-hover-primary'>
         <h4 className='bg-primary mb-0 p-1 w-100 quicksand rounded-top text-center text-light'
         style={{fontSize:'20px'}}>
           Chat Bot
         </h4>
-        <div id='messages' 
-          className='bg-img-messages messages py-1 mx-auto mw-100'
-        >{/*Chat will be append in here*/}
+        <div 
+          id='messages' 
+          className='messages mx-0 max-h-96 py-1 w-100 overflow-y-scroll' 
+          ref={messageEl}
+          style={{minHeight:'300px'}}
+        >
+          {/*Chat will be append in here*/}
         </div>
-        <div className='input-group p-0'>
+        <div className='input-group p-1 w-100'>
           <input 
             id='input' 
             type='text'
-            className='form-control m-0'     
+            className='ml-auto px-3 py-2 border-2 rounded-full active:border-blue-500 hover:border-blue-400' 
+            style={{width:'80%'}}    
             value={input}
             placeholder='Ketik respon anda ...'
             onChange={handleChange} // in order able to input text
@@ -50,9 +63,10 @@ export default function ChatbotInterface({
             type='submit' 
             value='Submit' 
             onClick={handleSubmit} 
-            className='btn btn-primary input-group-btn'
+            className='mr-auto btn-primary py-2 input-group-btn rounded-full'
+            style={{width:'15%'}}
           >
-            <i class="bi bi-send"></i>
+            <i class="bi bi-send mx-auto text-xl"></i>
           </button>
         </div>
       </Row>
@@ -72,7 +86,7 @@ export default function ChatbotInterface({
             type='submit' 
             value='Submit' 
             onClick={handleYa} 
-            className='btn btn-primary'
+            className='btn btn-outline-primary'
           >
             ya
           </button>
@@ -82,26 +96,26 @@ export default function ChatbotInterface({
             type='submit' 
             value='Submit' 
             onClick={handleTidak} 
-            className='btn btn-primary'
+            className='btn btn-outline-primary'
           >
             tidak
           </button>
         </Col>
       </Row>
-      {/*
       <Row>
-        <div className='mb-2'>Anda mengetik : {input}</div>
-        <div className='mb-2'>Pesan terkirim  : {berhasil}</div>
-        <div className='mb-2'>First reply : {firstReply}</div>   
-        <div className='mb-2'>Second reply : {secondReply}</div>      
-        <div className='mb-2'>Third reply : {thirdReply}</div>      
-        <div className='mb-2'>Fourth reply : {fourthReply}</div>         
-        <div className='mb-2'>Fifth reply : {fifthReply}</div>      
-        <div className='mb-2'>Sixth reply : {sixthReply}</div>      
-        <div className='mb-2'>Seventh reply : {seventhReply}</div>      
-        <div className='mb-2'>Eight reply : {eightReply}</div>      
+        <div className='my-1 mx-2'>[ i ][ j ] : [{i}][{j}]</div>
+        {/*
+        <div className='my-1 mx-2'>Tulisan di bawah ini untuk mengetahui sistem chat berjalan</div>
+        <div className='my-1 mx-2'>ruleBaseNow : {ruleBaseNow}</div>
+        <div className='my-1 mx-2'>ruleBase[ i ].Length : {ruleBaseILength}</div>
+        <div className='my-1 mx-2'>ruleBase.length : {ruleBaseLength}</div>
+        <div className='my-1 mx-2'>replyBefore : {replyBefore}</div>
+        <div className='my-1 mx-2'>replyNow : {replyNow}</div>
+        <div className='my-1 mx-2'>nextReply : {nextReply}</div>
+        <div className='my-1 mx-2'>lastValue : {lastValue}</div>
+        <div className='my-1 mx-2'>all yes reply : {allYesReply}</div>
+        */}
       </Row>
-      */}
     </div>
   )
 }

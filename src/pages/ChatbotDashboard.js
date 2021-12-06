@@ -2,7 +2,6 @@ import React from 'react';
 import {BrowserRouter,Link,Switch,Route } from 'react-router-dom';
 import {Container,Nav} from 'react-bootstrap';
 import InferenceMachine from '../function-components/InferenceMachine';
-import InferenceMachineCopy from '../function-components/InferenceMachineCopy';
 import FormTesting from './FormTesting';
 import Guide from './Guide';
 import QnA from './QnA';
@@ -41,7 +40,7 @@ export default function ChatbotDashboard() {
           <Route exact path='/chatbot/form' component={FormTesting} />
           <Route exact path='/chatbot/guide' component={Guide} />
           <Route exact path='/chatbot/qna' component={QnA} />
-          <Route exact path='/chatbot' component={InferenceMachineCopy} />
+          <Route exact path='/chatbot' component={InferenceMachine} />
         </Switch>
       </BrowserRouter>
     </div>
