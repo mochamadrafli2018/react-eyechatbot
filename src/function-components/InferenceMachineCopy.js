@@ -446,12 +446,12 @@ export default function InferenceMachineCopy () {
               }
               else if (ruleBase[i+1][j] === ruleBase[i+1][ruleBase[i+1].length-1]) {
                 // get array length
-                reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>.`
+                reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
               }       
           }
           else if (ruleBase[i][j-1] !== ruleBase[i+1][j-1]) {
             // get array length
-            reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>.`
+            reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
           }
         }
       }
