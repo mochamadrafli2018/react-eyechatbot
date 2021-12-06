@@ -341,7 +341,7 @@ export default function InferenceMachineCopy () {
       // the current value is ruleBase[i][j]
       if (input === 'y' || input === 'ya') {
         // save all yes reply before the last value in [i] array
-        setAllYesReply([...allYesReply, ruleBase[i][j]);
+        setAllYesReply([...allYesReply, ruleBase[i][j]]);
         // make sure there is no same value in array
         allYesReply = [...new Set(allYesReply)];
         // if ruleBase[i][j+1] is not last value in [i] array
