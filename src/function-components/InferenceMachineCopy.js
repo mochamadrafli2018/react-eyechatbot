@@ -161,7 +161,7 @@ const diseaseArray = [
   {name:'Optic Neuritis',link:'www.kbbi.com'},
   // 26 - 30
   {name:'Degenerasi Makula',link:'www.kbbi.com'},
-  {name:'Episkleritis',link:'www.kbbi.com'},
+  {name:'Skleritis',link:'www.kbbi.com'},
 ];
 
 const ruleBase = [
