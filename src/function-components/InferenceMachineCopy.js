@@ -358,15 +358,10 @@ export default function InferenceMachineCopy () {
     }
     
     else if (replyBefore === 'mulai') {
+      // the current value is ruleBase[i][j]
       if (input === 'y' || input === 'ya') {
-        // if ruleBase[i][j] is the value before the last value in [i] array, example : ruleBase[1][7] === ruleBase[1][9-2]
-        if (ruleBase[i][j] === ruleBase[i][ruleBase[i].length - 2]) {
-          // save all yes reply before the last value in [i] array
-          setAllYesReply([...allYesReply, ruleBase[i][ruleBase[i].length - 2]]);
-          reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-        }
-        // if ruleBase[i][j] is not the value before the last value in [i] array
-        else if (ruleBase[i][j] !== ruleBase[i][ruleBase[i].length - 2]) {
+        // if ruleBase[i][j+1] is not last value in [i] array
+        if (ruleBase[i][j+1] !== ruleBase[i][ruleBase[i].length - 1]) {
           // save all yes reply before
           setAllYesReply([...allYesReply, ruleBase[i][j]]);
           reply = ruleBase[i][j+1];
@@ -375,11 +370,23 @@ export default function InferenceMachineCopy () {
           setTotalGejala([...totalGejala, ruleBase[i].length-1])
           // get the last element of the array
           setLastValue([...lastValue,ruleBase[i][ruleBase[i].length-1]]);
-          setI(i);
-          setJ(j+1);
+          setI(i); setJ(j+1);
+        }
+        // if ruleBase[i][j+1] is the last value in [i] array
+        else if (ruleBase[i][j+1] === ruleBase[i][ruleBase[i].length - 1]) {
+          function push () {
+            if (ruleBase[i][j] === ruleBase[i][ruleBase[i].length - 2]) {
+              // save all yes reply before the last value in [i] array
+              setAllYesReply([...allYesReply, ruleBase[i][j])
+            }
+          }
+          push().then(allYesReply => {
+            reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+          })
+          setI(i); setJ(j);
         }
       }
-
+      
       else if (input === 't' || input === 'tidak') {
         // j === 0
         if (j === 0) { // works
