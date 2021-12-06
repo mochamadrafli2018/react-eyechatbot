@@ -379,7 +379,7 @@ export default function InferenceMachineCopy () {
               break
             }
           }
-          reply = ruleBase[k][0];
+          reply = ruleBase[i][0];
         }
         // if i is the last value of ruleBase
         else if (i === ruleBase.length - 1 && j === 0) {
@@ -406,6 +406,7 @@ export default function InferenceMachineCopy () {
                 break
               }
             }
+            reply = ruleBase[i][j];
           }
           // if ruleBase[i+1][j] is the last value of ruleBase[i]
           else if (ruleBase[i+1][j] === ruleBase[i+1][ruleBase[i+1].length-1]) {
