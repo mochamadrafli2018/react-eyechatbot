@@ -359,24 +359,24 @@ export default function InferenceMachineCopy () {
     
     else if (replyBefore === 'mulai') {
       if (input === 'y' || input === 'ya') {
-        // save all yes reply before
-        setAllYesReply([...allYesReply, ruleBase[i][j]]);
-        // make sure thay there is no double or same value in array
-        
         // if ruleBase[i][j] is the value before the last value in [i] array, example : ruleBase[1][7] === ruleBase[1][9-2]
         if (ruleBase[i][j] === ruleBase[i][ruleBase[i].length - 2]) {
+          // save all yes reply before the last value in [i] array
+          setAllYesReply([...allYesReply, ruleBase[i][ruleBase[i].length - 2]]);
           reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
         }
         // if ruleBase[i][j] is not the value before the last value in [i] array
         else if (ruleBase[i][j] !== ruleBase[i][ruleBase[i].length - 2]) {
+          // save all yes reply before
+          setAllYesReply([...allYesReply, ruleBase[i][j]]);
           reply = ruleBase[i][j+1];
+          setReplyNow(reply)
           // get total sympthon in the array
           setTotalGejala([...totalGejala, ruleBase[i].length-1])
           // get the last element of the array
           setLastValue([...lastValue,ruleBase[i][ruleBase[i].length-1]]);
           setI(i);
           setJ(j+1);
-          setReplyNow(reply)
         }
       }
 
@@ -384,39 +384,25 @@ export default function InferenceMachineCopy () {
         // j === 0
         if (j === 0) { // works
           // if i the last value of ruleBase
-          if (
-            i !== ruleBase.length - 1 && ruleBase[i+1][j] !== undefined && 
-            ruleBase[i][j] === ruleBase[i+1][j]
-          ) {
+          if (i !== ruleBase.length - 1 && ruleBase[i+1][j] !== undefined && ruleBase[i][j] === ruleBase[i+1][j]) {
             let arr = [''];
-            // push all value in the same j index
             for (let x = 0; x < ruleBase.length ; x++) {
               arr.push(ruleBase[x][0])
               // arr = [gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],...]
             }
             // delete same values in array
-            let newArr = [...new Set(arr)] // newArr = [gejala[1],gejala[2],...]
-            // find value index in array
-            let findIndexinArr = newArr.indexOf(ruleBase[i][j]) // findIndexinArr = 2
-            // reply = newArr(findIndexinArr+1) // reply=gejala[2]
-            let arr2= [''];
-            for (let x = 0; x < ruleBase.length ; x++) {
-              if (ruleBase[x][0] === newArr[findIndexinArr+1]) { // if === gejala[2]
-                arr2.push(x); // arr2 = [9,10,11,12,13,14,15,16]
+            let newArr = [...new Set(arr)] // newArr = [gejala[1],gejala[2],gejala[3],gejala[4],...]
+            // find value of ruleBase[i][j] index in newArr
+            let findIndexinArr = newArr.indexOf(ruleBase[i][j])
+            // find reply in ruleBase[i][0]
+            for (let k = 0; k < ruleBase.length ; k++) {
+              if (ruleBase[k][0] === newArr[findIndexinArr+1]) {
+                setI(k);
+                break
               }
             }
-            setI(arr2[1]);
+            reply = ruleBase[k][0];
             setJ(0);
-            reply = ruleBase[arr2[1]][0];     
-          }
-          // if i is not the last value of ruleBase
-          else if (
-            i !== ruleBase.length - 1 && ruleBase[i+1][j] !== undefined && 
-            ruleBase[i][j] !== ruleBase[i+1][j]
-          ) {
-            reply = ruleBase[i+1][j];
-            setI(i+1);
-            setJ(j);
           }
           // if i is the last value of ruleBase
           else if (i === ruleBase.length - 1) {
