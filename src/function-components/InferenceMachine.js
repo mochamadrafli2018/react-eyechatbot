@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {prompts,replies,alternative,coronavirus,} from '../data/PromptsAndReplies';
 import addChat from './AddChat';
+import addChatWhenBrowserReload from './AddChatWhenBrowserReload';
 import compare from './Compare';
 import ChatbotInterface from '../components/ChatbotInterface';
 const sympthom = [
@@ -470,6 +471,15 @@ export default function InferenceMachineCopy () {
     // add chat
     addChat(input, reply);
   }
+  
+  // opening chat message will be appear when browser reload 
+  useEffect(() => {
+    addChatWhenBrowserReload('Mengetik...','Halo, saya adalah bot EyeScreening');
+    setTimeout(() => {
+      addChatWhenBrowserReload(`Mengetik...`,`Untuk memulai skrining penyakit mata ketikan atau tekan tombol <strong>mulai</strong>.`);
+    },1800);
+  },[])
+
   return(
     <ChatbotInterface
       input = {input}
