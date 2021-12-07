@@ -315,11 +315,11 @@ export default function InferenceMachineCopy () {
     setInput('')    // return empty form after user press button
   }
   const handleYa = () => {
-    Output('y')     // input = 'y'
+    Output('ya')    // input = 'ya'
     setInput('')    // return empty form after user press button
   }
   const handleTidak = () => {
-    Output('t')     // input = 't'
+    Output('tidak') // input = 'tidak'
     setInput('')    // return empty form after user press button
   }  
 
