@@ -123,6 +123,10 @@ const gejala  = [
   [`${question} ${sympthom[52][0]} ${lastQuestion}`],
   [`${question} ${sympthom[53][0]} ${lastQuestion}`],
   [`${question} ${sympthom[54][0]} ${lastQuestion}`],
+  [`${question} ${sympthom[55][0]} ${lastQuestion}`],
+  [`${question} ${sympthom[56][0]} ${lastQuestion}`],
+  [`${question} ${sympthom[57][0]} ${lastQuestion}`],
+  [`${question} ${sympthom[58][0]} ${lastQuestion}`],
 ]
 
 const diseaseArray = [
@@ -166,6 +170,7 @@ const ruleBase = [
   // ruleBase[0][0]
   [''],
   // ruleBase start from [1][0]
+  // have been checked and worked
   [gejala[1],gejala[2],gejala[3],gejala[4],gejala[5],gejala[6],gejala[7],gejala[8],diseaseArray[1].name],
   [gejala[1],gejala[2],gejala[12],gejala[14],gejala[28],diseaseArray[2].name],
   [gejala[1],gejala[2],gejala[14],gejala[18],gejala[27],gejala[28],gejala[29],diseaseArray[3].name],
@@ -174,6 +179,7 @@ const ruleBase = [
   [gejala[1],gejala[5],gejala[9],gejala[10],gejala[11],gejala[12],gejala[27],gejala[28],diseaseArray[6].name],
   [gejala[1],gejala[14],gejala[18],gejala[21],diseaseArray[7].name],
   [gejala[1],gejala[18],gejala[23],diseaseArray[8].name],
+  // have been checked and worked
   [gejala[2],gejala[1],gejala[3],gejala[4],gejala[5],gejala[6],gejala[7],gejala[8],diseaseArray[1].name],
   [gejala[2],gejala[1],gejala[12],gejala[14],gejala[28],diseaseArray[2].name],
   [gejala[2],gejala[1],gejala[14],gejala[18],gejala[27],gejala[28],gejala[29],diseaseArray[3].name],  
@@ -217,26 +223,27 @@ const ruleBase = [
   [gejala[15],gejala[13],gejala[14],gejala[27],diseaseArray[18].name],
   [gejala[16],gejala[5],gejala[17],diseaseArray[13].name],
   [gejala[17],gejala[5],gejala[16],diseaseArray[13].name],
+  // have been checked and worked
   [gejala[18],gejala[1],gejala[2],gejala[14],gejala[27],gejala[28],gejala[29],diseaseArray[3].name],
   [gejala[18],gejala[1],gejala[14],gejala[21],diseaseArray[7].name],
   [gejala[18],gejala[1],gejala[23],diseaseArray[8].name],
   [gejala[18],gejala[5],gejala[27],gejala[33],gejala[50],diseaseArray[14].name],
   [gejala[18],gejala[6],gejala[14],gejala[27],gejala[52],gejala[53],gejala[54],diseaseArray[16].name],
-  // have been checked
+  // have been checked and worked
   [gejala[18],gejala[19],gejala[20],diseaseArray[20].name],
-  [gejala[18],gejala[19],diseaseArray[21].name],
-  // have been checked
+  [gejala[18],gejala[19],diseaseArray[21].name], // Retinopati Diabetikum
+  // have been checked and worked
   [gejala[19],gejala[18],gejala[20],diseaseArray[20].name],
-  [gejala[19],gejala[18],diseaseArray[21].name],
+  [gejala[19],gejala[18],diseaseArray[21].name], // Retinopati Diabetikum
   [gejala[21],gejala[1],gejala[2],gejala[21],diseaseArray[4].name],
   [gejala[21],gejala[1],gejala[14],gejala[18],diseaseArray[7].name],
   [gejala[21],gejala[5],diseaseArray[15].name],
   [gejala[22],gejala[1],gejala[2],gejala[22],diseaseArray[4].name],
   [gejala[22],gejala[45],gejala[46],diseaseArray[22].name],
   [gejala[23],gejala[1],gejala[18],diseaseArray[8].name],
-  // have been checked
+  // have been checked and worked
   [gejala[24],gejala[1],gejala[2],gejala[34],diseaseArray[5].name],
-  [gejala[24],diseaseArray[23].name],
+  [gejala[24],diseaseArray[23].name], // Eksoftalmus
   [gejala[25],gejala[2],gejala[5],gejala[26],diseaseArray[10].name],
   [gejala[25],gejala[14],gejala[27],gejala[40],gejala[41],diseaseArray[19].name],
   [gejala[25],gejala[35],gejala[36],gejala[37],diseaseArray[24].name],
@@ -282,6 +289,7 @@ const ruleBase = [
   [gejala[55],gejala[14],gejala[56],gejala[57],gejala[58],diseaseArray[27].name],
   [gejala[56],gejala[14],gejala[55],gejala[57],gejala[58],diseaseArray[27].name],
   [gejala[57],gejala[14],gejala[55],gejala[56],gejala[58],diseaseArray[27].name],
+  // have been checked and worked
   [gejala[58],gejala[14],gejala[55],gejala[56],gejala[57],diseaseArray[27].name],
 ];
 export default function InferenceMachineCopy () {
@@ -357,8 +365,11 @@ export default function InferenceMachineCopy () {
       }
       
       else if (input === 't' || input === 'tidak') {
-        // if i is not the last value of ruleBase
-        if (i !== ruleBase.length - 1 && j === 0) {
+        // set total sympthon in the array
+        let totalGejalaSpecialCase = ruleBase[i+1].length-1
+        // set the last element of the array
+        let LastValueSpecialCase = ruleBase[i+1][ruleBase[i+1].length-1]
+        if (j === 0) {
           let arr = [''];
           for (let x = 0; x < ruleBase.length ; x++) {
             arr.push(ruleBase[x][0]) // arr = [gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],...]
@@ -368,71 +379,55 @@ export default function InferenceMachineCopy () {
           // find value of ruleBase[i][j] index in newArr
           let findIndexinArr = arr.indexOf(ruleBase[i][j])
           reply = arr[findIndexinArr+1]
-          // find reply in ruleBase[i][0]
-          for (let x = 0; x < ruleBase.length ; x++) {
-            if (ruleBase[x][0] === arr[findIndexinArr+1]) {
-              setI(x); setJ(0);
-              break
+          if (arr[findIndexinArr+1] === undefined) {
+            reply = `Maaf anda tidak mengalami gejala penyakit mata yang ditanyakan oleh bot, sistem tidak dapat melakukan skrining. Tekan atau ketik mulai untuk mengulangi skrining`;
+          }
+          else if (arr[findIndexinArr+1] !== undefined) {
+            // find reply in ruleBase[i][0]
+            for (let x = 0; x < ruleBase.length ; x++) {
+              if (ruleBase[x][0] === arr[findIndexinArr+1]) {
+                setI(x); setJ(0);
+                break
+              }
             }
           }
         }
-        // if i is the last value of ruleBase
-        else if (i === ruleBase.length - 1 && j === 0) {
-          reply = `Maaf anda tidak mengalami gejala penyakit mata yang ditanyakan oleh bot, sistem tidak dapat melakukan skrining. Tekan atau ketik mulai untuk mengulangi skrining`;
-        }
-        else if (i !== ruleBase.length - 1 && j !== 0) { 
-          if (ruleBase[i][j-1] === ruleBase[i+1][j-1]) {
-            // if ruleBase[i+1][j] is not the last value of ruleBase[i]
-            if (ruleBase[i+1][j] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
-              let arr = [''];
-              // push all value in the same j index
+        else if (j !== 0) { 
+            let arr = [''];
+            // push all value in the same j index
+            for (let x = 0; x < ruleBase.length ; x++) {
+              if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
+                arr.push(ruleBase[x][j])
+              }
+            }
+            // delete same values in array
+            arr = [...new Set(arr)]
+            // find value index in array
+            let findIndexinArr = arr.indexOf(ruleBase[i][j])
+            // if ruleBase[i+1][j] is the last value of ruleBase[i], case gejala[24]
+            if (arr[findIndexinArr+1] !== undefined && arr[findIndexinArr+1] === ruleBase[i+1][ruleBase[i+1].length-1]){
+              reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejalaSpecialCase} gejala</strong> penyakit mata bernama <strong>${LastValueSpecialCase}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+            }
+            if (arr[findIndexinArr+1] !== undefined && arr[findIndexinArr+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
+              reply = arr[findIndexinArr+1];
               for (let x = 0; x < ruleBase.length ; x++) {
                 if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
-                  arr.push(ruleBase[x][j])
-                }
-              }
-              // delete same values in array
-              arr = [...new Set(arr)]
-              // find value index in array
-              let findIndexinArr = arr.indexOf(ruleBase[i][j])
-              // case ruleBase[57][1]
-              if (arr[findIndexinArr+1] === undefined) {
-                reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-              }
-              else if (arr[findIndexinArr+1] !== undefined) {
-                reply = arr[findIndexinArr+1];
-                for (let x = 0; x < ruleBase.length ; x++) {
-                  if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
-                    if (ruleBase[x][j] === arr[findIndexinArr+1]) {
-                      setI(x); setJ(j);
-                      break
-                    }
+                  if (ruleBase[x][j] === arr[findIndexinArr+1]) {
+                    setI(x); setJ(j);
+                    break
                   }
                 }
               }
             }
-            // if ruleBase[i+1][j] is the last value of ruleBase[i]
-            else if (ruleBase[i+1][j] === ruleBase[i+1][ruleBase[i+1].length-1]) {
+            // case ruleBase[57][1] and rulaBase[110][1]
+            if (arr[findIndexinArr+1] === undefined) {
               reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-            }       
-          }
-          // the value [j-1] not same
-          else if (ruleBase[i][j-1] !== ruleBase[i+1][j-1]) {
-            reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-          }
-        }
-        // if ruleBase[i] in the last array of ruleBase
-        else if (i === ruleBase.length - 1 && j !== 0) {
-           reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+            }
         }
       }
     }
-
     else if (replyBefore !== 'mulai') {
-      if (input === 'y' || input === 'ya') {
-        reply = `Ketik mulai atau tekan tombol mulai untuk memulai skrining penyakit mata`
-      }
-      else if (input === 't' || input === 'tidak') {
+      if (input === 'y' || input === 'ya' || input === 't' || input === 'tidak') {
         reply = `Ketik mulai atau tekan tombol mulai untuk memulai skrining penyakit mata`
       }
     }
