@@ -173,20 +173,21 @@ const ruleBase = [
   // ruleBase start from [1][0]
   // have been checked and worked
   [gejala[1],gejala[2],gejala[3],gejala[4],gejala[5],gejala[6],gejala[7],gejala[8],diseaseArray[1].name],
-  [gejala[1],gejala[2],gejala[12],gejala[14],gejala[28],diseaseArray[2].name],
+  [gejala[1],gejala[2],gejala[12],gejala[14],gejala[28],diseaseArray[2].name], // Konjungtivitis
   [gejala[1],gejala[2],gejala[14],gejala[18],gejala[27],gejala[28],gejala[29],diseaseArray[3].name],
   [gejala[1],gejala[2],gejala[21],gejala[22],diseaseArray[4].name],
   [gejala[1],gejala[2],gejala[24],gejala[34],diseaseArray[5].name],
-  [gejala[1],gejala[5],gejala[9],gejala[10],gejala[11],gejala[12],gejala[27],gejala[28],diseaseArray[6].name],
+  [gejala[1],gejala[5],gejala[9],gejala[10],gejala[11],gejala[12],gejala[27],gejala[28],diseaseArray[6].name], // Blefaritis
   [gejala[1],gejala[14],gejala[18],gejala[21],diseaseArray[7].name],
   [gejala[1],gejala[18],gejala[23],diseaseArray[8].name],
   // have been checked and worked
-  [gejala[2],gejala[1],gejala[3],gejala[4],gejala[5],gejala[6],gejala[7],gejala[8],diseaseArray[1].name],
+  [gejala[2],gejala[1],gejala[3],gejala[4],gejala[5],gejala[6],gejala[7],gejala[8],diseaseArray[1].name], // Ulkus kornea
   [gejala[2],gejala[1],gejala[12],gejala[14],gejala[28],diseaseArray[2].name],
   [gejala[2],gejala[1],gejala[14],gejala[18],gejala[27],gejala[28],gejala[29],diseaseArray[3].name],  
   [gejala[2],gejala[1],gejala[21],gejala[22],diseaseArray[4].name],
   [gejala[2],gejala[1],gejala[24],gejala[34],diseaseArray[5].name],
-  [gejala[2],gejala[5],gejala[14],gejala[27],gejala[35],gejala[43],gejala[44],diseaseArray[9].name],
+  // have been checked and worked
+  [gejala[2],gejala[5],gejala[14],gejala[27],gejala[35],gejala[43],gejala[44],diseaseArray[9].name], //Glaukoma
   [gejala[2],gejala[5],gejala[25],gejala[26],diseaseArray[10].name],
   [gejala[2],gejala[29],gejala[35],gejala[51],diseaseArray[11].name],
   [gejala[3],gejala[1],gejala[2],gejala[4],gejala[5],gejala[6],gejala[7],gejala[8],diseaseArray[1].name],
@@ -231,7 +232,7 @@ const ruleBase = [
   [gejala[18],gejala[5],gejala[27],gejala[33],gejala[50],diseaseArray[14].name],
   [gejala[18],gejala[6],gejala[14],gejala[27],gejala[52],gejala[53],gejala[54],diseaseArray[16].name],
   // have been checked and worked
-  [gejala[18],gejala[19],gejala[20],diseaseArray[20].name],
+  [gejala[18],gejala[19],gejala[20],diseaseArray[20].name], // Abalso Retina
   [gejala[18],gejala[19],diseaseArray[21].name], // Retinopati Diabetikum
   // have been checked and worked
   [gejala[19],gejala[18],gejala[20],diseaseArray[20].name],
@@ -290,9 +291,10 @@ const ruleBase = [
   [gejala[55],gejala[14],gejala[56],gejala[57],gejala[58],diseaseArray[27].name],
   [gejala[56],gejala[14],gejala[55],gejala[57],gejala[58],diseaseArray[27].name],
   [gejala[57],gejala[14],gejala[55],gejala[56],gejala[58],diseaseArray[27].name],
-  // have been checked and worked
+  // have been checked and worked (function test)
   [gejala[58],gejala[14],gejala[55],gejala[56],gejala[57],diseaseArray[27].name],
 ];
+
 export default function InferenceMachineCopy () {
   const [input, setInput] = useState('')
   // handle when form input was change or type by user and also get user input with setInput
@@ -332,14 +334,14 @@ export default function InferenceMachineCopy () {
   let [allYesReply, setAllYesReply] = useState([]);
   let [lastValue, setLastValue] = useState([]);
   let [totalGejala, setTotalGejala] = useState([]);
-  
+
   function Screening(input) {
     let reply;
     if (input === 'mulai' || input === 'tes'|| input === 'test'  || input === 'skrining') {
-       // re-empty
-       setReplyNow(''); setReplyBefore(''); setLastValue([]); setAllYesReply([]); setTotalGejala([]);
-       // reply
-       reply = ruleBase[1][0]; setReplyBefore(input); setI(1); setJ(0);
+      // re-empty
+      setReplyNow(''); setLastValue([]); setAllYesReply([]); setTotalGejala([]);
+      // reply
+      reply = ruleBase[1][0]; setReplyBefore(input); setI(1); setJ(0);
     }
     
     else if (replyBefore === 'mulai' || replyBefore === 'tes' || replyBefore === 'test' || replyBefore === 'skrining') {
@@ -359,8 +361,8 @@ export default function InferenceMachineCopy () {
           setLastValue([...lastValue,ruleBase[i][ruleBase[i].length-1]]);
         }
         // if ruleBase[i][j+1] is the last value in [i] array
-        else if (ruleBase[i][j+1] === ruleBase[i][ruleBase[i].length - 1]) {
-          reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length + 1} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length + 1} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+        else if (ruleBase[i][j+1] === ruleBase[i][ruleBase[i].length - 1]) {          
+          reply = `Anda menjawab <strong>ya</strong> untuk ${totalGejala[totalGejala.length-1]} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${totalGejala[totalGejala.length-1]} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
           setI(i); setJ(j);
         }
       }
@@ -432,7 +434,7 @@ export default function InferenceMachineCopy () {
         reply = `Ketik mulai atau tekan tombol mulai untuk memulai skrining penyakit mata`
       }
     }
-    return reply;
+    return [reply];
   };
 
   function Output(input){
@@ -462,7 +464,7 @@ export default function InferenceMachineCopy () {
     }
     // Screening Eye Disease
     else if (input.match(/(y|ya|t|tidak|mulai|tes|test|skrining)/gi)) {
-      reply = Screening(input)
+      reply = Screening(input)[0];
     }
     // If all else fails: random alternative
     else {
@@ -472,15 +474,15 @@ export default function InferenceMachineCopy () {
     addChat(input, reply);
   }
   
-  // opening chat message will be appear when browser reload 
+  // opening chat message will be appear when browser reload
   useEffect(() => {
-    addChatWhenBrowserReload('Mengetik...','Halo, saya adalah bot EyeScreening');
+    addChatWhenBrowserReload('Mengetik...','Halo, ini adalah bot EyeScreening');
     setTimeout(() => {
       addChatWhenBrowserReload(`Mengetik...`,`Untuk memulai skrining penyakit mata ketikan atau tekan tombol <strong>mulai</strong>.`);
-    },1800);
+    },1000);
   },[])
 
-  return(
+  return (
     <ChatbotInterface
       input = {input}
       i = {i}
