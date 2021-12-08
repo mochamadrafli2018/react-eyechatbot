@@ -66,8 +66,8 @@ const sympthom = [
   ['palpebra atau kelopak mata bengkak warna biru jingga (gejala 58)'],
 ]
 
-const question = `Apakah anda mengalami gejala`;
-const lastQuestion = `pada mata anda ? <span class='border-3 border-blue-700 px-2 py-0 rounded-2xl'>y/t</span>`;
+const question = `Apa kamu mengalami gejala`;
+const lastQuestion = `? <span class='border-3 border-blue-700 px-2 py-0 rounded-2xl'>y/t</span>`;
 const gejala  = [
   [`this was index array numer 0`],
   [`${question} ${sympthom[1][0]} ${lastQuestion}`],
@@ -362,7 +362,7 @@ export default function InferenceMachineCopy () {
         }
         // if ruleBase[i][j+1] is the last value in [i] array
         else if (ruleBase[i][j+1] === ruleBase[i][ruleBase[i].length - 1]) {          
-          reply = `Anda menjawab <strong>ya</strong> untuk ${totalGejala[totalGejala.length-1]} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${totalGejala[totalGejala.length-1]} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+          reply = `Kamu menjawab <strong>ya</strong> untuk ${totalGejala[totalGejala.length-1]} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan kamu mengalami <strong>${totalGejala[totalGejala.length-1]} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
           setI(i); setJ(j);
         }
       }
@@ -383,7 +383,7 @@ export default function InferenceMachineCopy () {
           let findIndexinArr = arr.indexOf(ruleBase[i][j])
           reply = arr[findIndexinArr+1]
           if (arr[findIndexinArr+1] === undefined) {
-            reply = `Maaf anda tidak mengalami gejala penyakit mata yang ditanyakan oleh bot, sistem tidak dapat melakukan skrining. Tekan atau ketik mulai untuk mengulangi skrining`;
+            reply = `Maaf kamu tidak mengalami gejala penyakit mata yang ditanyakan oleh bot, sistem tidak dapat melakukan skrining. Tekan atau ketik mulai untuk mengulangi skrining`;
           }
           else if (arr[findIndexinArr+1] !== undefined) {
             // find reply in ruleBase[i][0]
@@ -409,7 +409,7 @@ export default function InferenceMachineCopy () {
             let findIndexinArr = arr.indexOf(ruleBase[i][j])
             // if ruleBase[i+1][j] is the last value of ruleBase[i], case gejala[24]
             if (arr[findIndexinArr+1] !== undefined && arr[findIndexinArr+1] === ruleBase[i+1][ruleBase[i+1].length-1]){
-              reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejalaSpecialCase} gejala</strong> penyakit mata bernama <strong>${LastValueSpecialCase}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+              reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan kamu mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejalaSpecialCase} gejala</strong> penyakit mata bernama <strong>${LastValueSpecialCase}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
             }
             if (arr[findIndexinArr+1] !== undefined && arr[findIndexinArr+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
               reply = arr[findIndexinArr+1];
@@ -424,7 +424,7 @@ export default function InferenceMachineCopy () {
             }
             // case ruleBase[57][1] and rulaBase[110][1]
             if (arr[findIndexinArr+1] === undefined) {
-              reply = `Anda menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan anda mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+              reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan kamu mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
             }
         }
       }
