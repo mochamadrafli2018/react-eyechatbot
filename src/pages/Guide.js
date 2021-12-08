@@ -6,7 +6,7 @@ export default function Guide () {
   return(
     <div 
       className='container border-2 mx-auto mb-3 p-2 poppins overflow-hidden rounded-lg hover:border-blue-400 hover:shadow-lg' 
-      style={{marginTop:'60px',maxWidth:'600px'}}
+      style={{marginTop:'60px',maxWidth:'700px',width:'99%'}}
     >
         <p className='my-1 fw-bold text-primary quicksand' style={{fontSize:'20px'}}>
           Panduan Penggunaan Chatbot Sistem Pakar Skrining Penyakit Mata
@@ -15,19 +15,28 @@ export default function Guide () {
         <Accordion defaultActiveKey='0' className='border-2 my-1 rounded hover:border-blue-400'>
           <AccordionBootstrap 
             eventKey={"0"}
-            Title = {(<p>Panduan Umum</p>)}
+            Title = {(<p className='fw-bold m-0'>Panduan Umum</p>)}
             Text = {(
               <div>
-                <p className='my-1'>Untuk melakukan skrining penyakit mata ketikkan : mulai,  tes,  test atau skrining pada input chat.</p>
-                <p className='my-1'>Atau bisa juga tekan tombol <strong>mulai</strong> berwarna biru yang ada di bawah input chat.</p>
-                <p className='my-1'>Jawab setiap pertanyaan dengan <strong>y (ya)</strong> atau <strong>t (tidak)</strong>.</p>
-                <p className='my-1'>Atau bisa juga tekan tombol ya atau tidak yang berwarna biru yang ada di bawah input chat.</p>
+                <p className='my-1'>
+                  <span className='fw-bold text-primary'>Ketikkan : </span>
+                  mulai,  tes,  test atau skrining pada input chat untuk{' '}
+                  melakukan skrining penyakit mata atau klik tombol{' '}
+                  <span className='fw-bold text-primary'>mulai</span> berwarna biru.
+                </p>
+                <p className='my-1'>
+                  <span className='fw-bold text-primary'>Jawab </span>
+                  setiap pertanyaan dengan{' '}
+                  <span className='fw-bold text-primary'>y (ya)</span> atau{' '}
+                  <span className='fw-bold text-primary'>t (tidak)</span> atau{' '}
+                  klik tombol ya atau tidak yang berwarna biru.
+                </p>
               </div>
             )}
           />
           <AccordionBootstrap 
             eventKey={"1"}
-            Title = {(<p>Daftar Penyakit Mata yang Bisa di Skrining</p>)}
+            Title = {(<p className='fw-bold m-0'>Daftar Penyakit Mata yang Bisa di Skrining</p>)}
             Text = {(
               <div>
                 <p className='my-1'>1.) Ulkus Kornea</p>
@@ -56,17 +65,23 @@ export default function Guide () {
                 <p className='my-1'>24.) Infeksi Herpes Zoster Kornea</p>
                 <p className='my-1'>25.) Keratitis Ulserativa Perifer</p>
                 <p className='my-1'>26.) Degenerasi Makula</p>
-                <p className='my-1'>26.) Skleritis</p>
+                <p className='my-1'>27.) Skleritis</p>
               </div>
             )}
           />
           <AccordionBootstrap 
             eventKey={"2"}
-            Title = {(<p>Catatan</p>)}
+            Title = {(<p className='fw-bold m-0'>Catatan</p>)}
             Text = {(
               <div>
-                <p className='my-1'>Perlu diketahui bahwa hasil skrining dari sistem pakar ini <strong>tidak bisa</strong> dijadikan sebagai keputusan akhir diagnosis penyakit mata anda.</p>
-                <p className='my-1'>Hasil skrining tersebut bisa anda gunakan untuk konsultasi dengan dokter spesialis mata untuk diagnosis lebih lanjut.</p>
+                <p className='my-1'>
+                  Hasil skrining dari sistem pakar ini <span className='fw-bold text-primary'>tidak bisa </span>
+                  dijadikan sebagai keputusan akhir diagnosis penyakit mata anda.
+                </p>
+                <p className='my-1'>
+                  Hasil skrining tersebut <span className='fw-bold text-primary'>bisa </span>
+                  anda gunakan untuk konsultasi dengan dokter spesialis mata untuk diagnosis lebih lanjut.
+                </p>
               </div>
             )}
           />
