@@ -191,7 +191,8 @@ const ruleBase = [
   [gejala[2],gejala[5],gejala[25],gejala[26],diseaseArray[10].name],
   [gejala[2],gejala[29],gejala[35],gejala[51],diseaseArray[11].name],
   [gejala[3],gejala[1],gejala[2],gejala[4],gejala[5],gejala[6],gejala[7],gejala[8],diseaseArray[1].name],
-  [gejala[4],gejala[1],gejala[2],gejala[3],gejala[5],gejala[6],gejala[7],gejala[8],diseaseArray[1].name],
+  // must be checked
+  [gejala[4],gejala[1],gejala[2],gejala[3],gejala[5],gejala[6],gejala[7],gejala[8],diseaseArray[1].name], // Ulkus kornea
   [gejala[5],gejala[1],gejala[2],gejala[3],gejala[4],gejala[6],gejala[7],gejala[8],diseaseArray[1].name],
   [gejala[5],gejala[1],gejala[9],gejala[10],gejala[11],gejala[12],gejala[27],gejala[28],diseaseArray[6].name],
   [gejala[5],gejala[2],gejala[14],gejala[27],gejala[35],gejala[43],gejala[44],diseaseArray[9].name],
@@ -207,7 +208,8 @@ const ruleBase = [
   [gejala[7],gejala[5],gejala[6],gejala[8],diseaseArray[12].name],
   [gejala[8],gejala[1],gejala[2],gejala[3],gejala[4],gejala[5],gejala[6],gejala[7],diseaseArray[1].name],
   [gejala[8],gejala[5],gejala[6],gejala[7],diseaseArray[12].name],
-  [gejala[9],gejala[1],gejala[5],gejala[10],gejala[11],gejala[12],gejala[27],gejala[28],diseaseArray[6].name],
+  // must be checked
+  [gejala[9],gejala[1],gejala[5],gejala[10],gejala[11],gejala[12],gejala[27],gejala[28],diseaseArray[6].name], // Blefaritis
   [gejala[10],gejala[1],gejala[5],gejala[9],gejala[11],gejala[12],gejala[27],gejala[28],diseaseArray[6].name],
   [gejala[11],gejala[1],gejala[5],gejala[10],gejala[10],gejala[12],gejala[27],gejala[28],diseaseArray[6].name],
   [gejala[12],gejala[1],gejala[2],gejala[14],gejala[28],diseaseArray[2].name],
@@ -334,104 +336,261 @@ export default function InferenceMachineCopy () {
   let [allYesReply, setAllYesReply] = useState([]);
   let [lastValue, setLastValue] = useState([]);
   let [totalGejala, setTotalGejala] = useState([]);
+  let [diagnoseResult, setDiagnoseResult] = useState('');
 
   function Screening(input) {
     let reply;
     if (input === 'mulai' || input === 'tes'|| input === 'test'  || input === 'skrining') {
       // re-empty
-      setReplyNow(''); setLastValue([]); setAllYesReply([]); setTotalGejala([]);
+      setDiagnoseResult('');setReplyNow(''); setLastValue([]); setAllYesReply([]); setTotalGejala([]);
       // reply
       reply = ruleBase[1][0]; setReplyBefore(input); setI(1); setJ(0);
     }
-    
-    else if (replyBefore === 'mulai' || replyBefore === 'tes' || replyBefore === 'test' || replyBefore === 'skrining') {
-      // the current value is ruleBase[i][j]
-      if (input === 'y' || input === 'ya') {
-        // save all yes reply before the last value in [i] array
-        setAllYesReply([...allYesReply, ruleBase[i][j]]);
-        // make sure there is no same value in array
-        allYesReply = [...new Set(allYesReply)];
-        // if ruleBase[i][j+1] is not last value in [i] array
-        if (ruleBase[i][j+1] !== ruleBase[i][ruleBase[i].length - 1]) {
-          reply = ruleBase[i][j+1]; setI(i); setJ(j+1);
-          setReplyNow(reply)
-          // get total sympthon in the array
-          setTotalGejala([...totalGejala, ruleBase[i].length-1])
-          // get the last element of the array
-          setLastValue([...lastValue,ruleBase[i][ruleBase[i].length-1]]);
-        }
-        // if ruleBase[i][j+1] is the last value in [i] array
-        else if (ruleBase[i][j+1] === ruleBase[i][ruleBase[i].length - 1]) {          
-          reply = `Kamu menjawab <strong>ya</strong> untuk ${totalGejala[totalGejala.length-1]} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan kamu mengalami <strong>${totalGejala[totalGejala.length-1]} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-          setI(i); setJ(j);
-        }
-      }
-      
-      else if (input === 't' || input === 'tidak') {
-        // set total sympthon in the array
-        let totalGejalaSpecialCase = ruleBase[i+1].length-1
-        // set the last element of the array
-        let LastValueSpecialCase = ruleBase[i+1][ruleBase[i+1].length-1]
-        if (j === 0) {
-          let arr = [''];
-          for (let x = 0; x < ruleBase.length ; x++) {
-            arr.push(ruleBase[x][0]) // arr = [gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],...]
-          }
-          // delete same values in array
-          arr = [...new Set(arr)] // newArr = [gejala[1],gejala[2],gejala[3],gejala[4],...]
-          // find value of ruleBase[i][j] index in newArr
-          let findIndexinArr = arr.indexOf(ruleBase[i][j])
-          reply = arr[findIndexinArr+1]
-          if (arr[findIndexinArr+1] === undefined) {
-            reply = `Maaf kamu tidak mengalami gejala penyakit mata yang ditanyakan oleh bot, sistem tidak dapat melakukan skrining. Tekan atau ketik mulai untuk mengulangi skrining`;
-          }
-          else if (arr[findIndexinArr+1] !== undefined) {
-            // find reply in ruleBase[i][0]
-            for (let x = 0; x < ruleBase.length ; x++) {
-              if (ruleBase[x][0] === arr[findIndexinArr+1]) {
-                setI(x); setJ(0);
-                break
-              }
+    else if (input !== 'mulai' || input !== 'tes'|| input !== 'test'  || input !== 'skrining') {
+      if (diagnoseResult === '') {
+        if (replyBefore === 'mulai' || replyBefore === 'tes' || replyBefore === 'test' || replyBefore === 'skrining') {
+          
+          // the current value is ruleBase[i][j]
+          if (input === 'y' || input === 'ya') {
+            // save all yes reply before the last value in [i] array
+            setAllYesReply([...allYesReply, ruleBase[i][j]]);
+            // make sure there is no same value in array
+            allYesReply = [...new Set(allYesReply)];
+            // if ruleBase[i][j+1] is not last value in [i] array
+            if (ruleBase[i][j+1] !== ruleBase[i][ruleBase[i].length - 1]) {
+              reply = ruleBase[i][j+1]; 
+              setI(i); setJ(j+1);
+              setReplyNow(reply)
+              // get total sympthon in the array
+              setTotalGejala([...totalGejala, ruleBase[i].length-1])
+              // get the last element of the array
+              setLastValue([...lastValue,ruleBase[i][ruleBase[i].length-1]]);
+            }
+            // if ruleBase[i][j+1] is the last value in [i] array
+            else if (ruleBase[i][j+1] === ruleBase[i][ruleBase[i].length - 1]) {          
+              reply = `Kamu menjawab <strong>ya</strong> untuk ${totalGejala[totalGejala.length-1]} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan kamu mengalami <strong>${totalGejala[totalGejala.length-1]} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+              setDiagnoseResult(reply);
+              setI(i); setJ(j);
             }
           }
-        }
-        else if (j !== 0) { 
-            let arr = [''];
-            // push all value in the same j index
-            for (let x = 0; x < ruleBase.length ; x++) {
-              if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
-                arr.push(ruleBase[x][j])
-              }
-            }
-            // delete same values in array
-            arr = [...new Set(arr)]
-            // find value index in array
-            let findIndexinArr = arr.indexOf(ruleBase[i][j])
-            // if ruleBase[i+1][j] is the last value of ruleBase[i], case gejala[24]
-            if (arr[findIndexinArr+1] !== undefined && arr[findIndexinArr+1] === ruleBase[i+1][ruleBase[i+1].length-1]){
-              reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan kamu mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejalaSpecialCase} gejala</strong> penyakit mata bernama <strong>${LastValueSpecialCase}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-            }
-            if (arr[findIndexinArr+1] !== undefined && arr[findIndexinArr+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
-              reply = arr[findIndexinArr+1];
-              for (let x = 0; x < ruleBase.length ; x++) {
-                if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
-                  if (ruleBase[x][j] === arr[findIndexinArr+1]) {
-                    setI(x); setJ(j);
-                    break
+          
+          else if (input === 't' || input === 'tidak') {
+            // set total sympthon in the array
+            let totalGejalaSpecialCase = ruleBase[i+1].length-1;
+            // set the last element of the array
+            let LastValueSpecialCase = ruleBase[i+1][ruleBase[i+1].length-1];
+            if (j === 0) {
+                let arr = [''];
+                for (let x = 0; x < ruleBase.length ; x++) {
+                  arr.push(ruleBase[x][0]) // arr = [gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[1],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],gejala[2],...]
+                }
+                // delete same values in array
+                arr = [...new Set(arr)] // newArr = [gejala[1],gejala[2],gejala[3],gejala[4],...]
+                // find value of ruleBase[i][j] index in newArr
+                let findIndexinArr = arr.indexOf(ruleBase[i][j])
+                reply = arr[findIndexinArr+1]
+                // last value in ruleBase[i], case for gejala[58]
+                if (arr[findIndexinArr+1] === undefined) {
+                  reply = `Maaf kamu tidak mengalami gejala penyakit mata yang ditanyakan oleh bot, sistem tidak dapat melakukan skrining. Tekan atau ketik mulai untuk mengulangi skrining`;
+                  setDiagnoseResult(reply);
+                }
+                else if (arr[findIndexinArr+1] !== undefined) {
+                  // find reply in ruleBase[i][0]
+                  for (let x = 0; x < ruleBase.length ; x++) {
+                    if (ruleBase[x][0] === arr[findIndexinArr+1]) {
+                      setI(x); setJ(0);
+                      break
+                    }
                   }
                 }
-              }
             }
-            // case ruleBase[57][1] and rulaBase[110][1]
-            if (arr[findIndexinArr+1] === undefined) {
-              reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan kamu mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+            else if (j === 1) { 
+                let arr = [''];
+                // push all value in the same j index
+                for (let x = 0; x < ruleBase.length ; x++) {
+                  if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
+                    arr.push(ruleBase[x][j])
+                  }
+                }
+                // delete same values in array
+                arr = [...new Set(arr)]
+                // find value index in array
+                let findIndexinArr = arr.indexOf(ruleBase[i][j])
+                // if ruleBase[i+1][j] is the last value of ruleBase[i], case gejala[24]
+                if (arr[findIndexinArr+1] !== undefined && arr[findIndexinArr+1] === ruleBase[i+1][ruleBase[i+1].length-1]) {
+                  reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan kamu mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejalaSpecialCase} gejala</strong> penyakit mata bernama <strong>${LastValueSpecialCase}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                  setDiagnoseResult(reply);
+                }
+                if (arr[findIndexinArr+1] !== undefined && arr[findIndexinArr+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
+                  reply = arr[findIndexinArr+1];
+                  for (let x = 0; x < ruleBase.length ; x++) {
+                    if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
+                      if (ruleBase[x][j] === arr[findIndexinArr+1]) {
+                        setI(x); setJ(j);
+                        break
+                      }
+                    }
+                  }
+                }
+                // case ruleBase[57][1] and rulaBase[110][1]
+                if (arr[findIndexinArr+1] === undefined) {
+                  reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan kamu mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                  setDiagnoseResult(reply);
+                }
             }
+            else if (j === 2) { 
+                // check if the two value before is same
+                if (ruleBase[i][j-1] === ruleBase[i+1][j-1] && ruleBase[i][j-2] === ruleBase[i+1][j-2]) {
+                  let arr = [''];
+                  // push all value in the same j index
+                  for (let x = 0; x < ruleBase.length ; x++) {
+                    if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
+                      arr.push(ruleBase[x][j])
+                    }
+                  }
+                  // delete same values in array
+                  arr = [...new Set(arr)]
+                  // find value index in array
+                  let findIndexinArr = arr.indexOf(ruleBase[i][j])
+                  // if ruleBase[i+1][j] is the last value of ruleBase[i]
+                  if (arr[findIndexinArr+1] !== undefined && arr[findIndexinArr+1] === ruleBase[i+1][ruleBase[i+1].length-1]){
+                    reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan kamu mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejalaSpecialCase} gejala</strong> penyakit mata bernama <strong>${LastValueSpecialCase}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                    setDiagnoseResult(reply);
+                  }
+                  // if ruleBase[i+1][j] is not the last value of ruleBase[i]
+                  if (arr[findIndexinArr+1] !== undefined && arr[findIndexinArr+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
+                    reply = arr[findIndexinArr+1];
+                    for (let x = 0; x < ruleBase.length ; x++) {
+                      if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
+                        if (ruleBase[x][j] === arr[findIndexinArr+1]) {
+                          setI(x); setJ(j);
+                          break
+                        }
+                      }
+                    }
+                  }
+                  // case ruleBase[57][1] and rulaBase[110][1]
+                  if (arr[findIndexinArr+1] === undefined) {
+                    reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan kamu mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                    setDiagnoseResult(reply);
+                  }
+                }
+                // if the one value before was same but two value before is not same, case gejala[9]
+                else if (ruleBase[i][j-1] === ruleBase[i+1][j-1] && ruleBase[i][j-2] !== ruleBase[i+1][j-2]) {
+                  reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan kamu mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                  setDiagnoseResult(reply);
+                }
+                // if the two value before is not same, case gejala[9]
+                else if (ruleBase[i][j-1] !== ruleBase[i+1][j-1] && ruleBase[i][j-2] !== ruleBase[i+1][j-2]) {
+                  reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan kamu mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                  setDiagnoseResult(reply);
+                }
+            }
+            else if (j === 3) {
+                // check if the two and tree value before is same
+                if (
+                  ruleBase[i][j-1] === ruleBase[i+1][j-1] &&
+                  ruleBase[i][j-2] === ruleBase[i+1][j-2] && 
+                  ruleBase[i][j-3] === ruleBase[i+1][j-3]
+                ) {
+                  let arr = [''];
+                  // push all value in the same j index
+                  for (let x = 0; x < ruleBase.length ; x++) {
+                    if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
+                      arr.push(ruleBase[x][j])
+                    }
+                  }
+                  // delete same values in array
+                  arr = [...new Set(arr)]
+                  // find value index in array
+                  let findIndexinArr = arr.indexOf(ruleBase[i][j])
+                  // if ruleBase[i+1][j] is the last value of ruleBase[i]
+                  if (arr[findIndexinArr+1] !== undefined && arr[findIndexinArr+1] === ruleBase[i+1][ruleBase[i+1].length-1]){
+                    reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan kamu mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejalaSpecialCase} gejala</strong> penyakit mata bernama <strong>${LastValueSpecialCase}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                    setDiagnoseResult(reply);
+                  }
+                  // if ruleBase[i+1][j] is not the last value of ruleBase[i]
+                  if (arr[findIndexinArr+1] !== undefined && arr[findIndexinArr+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
+                    reply = arr[findIndexinArr+1];
+                    for (let x = 0; x < ruleBase.length ; x++) {
+                      if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
+                        if (ruleBase[x][j] === arr[findIndexinArr+1]) {
+                          setI(x); setJ(j);
+                          break
+                        }
+                      }
+                    }
+                  }
+                  // case ruleBase[57][1] and rulaBase[110][1]
+                  if (arr[findIndexinArr+1] === undefined) {
+                    reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan kamu mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                    setDiagnoseResult(reply);
+                  }
+                }
+                // if the two and tree value before is not same, case gejala[9]
+                else {
+                  reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan kamu mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                  setDiagnoseResult(reply);
+                }
+            }
+            else if (j >= 4) { // worked
+                // check if the two and tree value before is same, case gejala [4]
+                if (
+                  ruleBase[i][j-1] === ruleBase[i+1][j-1] &&
+                  ruleBase[i][j-2] === ruleBase[i+1][j-2] && 
+                  ruleBase[i][j-3] === ruleBase[i+1][j-3] &&
+                  ruleBase[i][j-4] === ruleBase[i+1][j-4]
+                ) {
+                  let arr = [''];
+                  // push all value in the same j index
+                  for (let x = 0; x < ruleBase.length ; x++) {
+                    if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
+                      arr.push(ruleBase[x][j])
+                    }
+                  }
+                  // delete same values in array
+                  arr = [...new Set(arr)]
+                  // find value index in array
+                  let findIndexinArr = arr.indexOf(ruleBase[i][j])
+                  // if ruleBase[i+1][j] is the last value of ruleBase[i]
+                  if (arr[findIndexinArr+1] !== undefined && arr[findIndexinArr+1] === ruleBase[i+1][ruleBase[i+1].length-1]){
+                    reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan kamu mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejalaSpecialCase} gejala</strong> penyakit mata bernama <strong>${LastValueSpecialCase}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                    setDiagnoseResult(reply);
+                  }
+                  // if ruleBase[i+1][j] is not the last value of ruleBase[i]
+                  if (arr[findIndexinArr+1] !== undefined && arr[findIndexinArr+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
+                    reply = arr[findIndexinArr+1];
+                    for (let x = 0; x < ruleBase.length ; x++) {
+                      if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
+                        if (ruleBase[x][j] === arr[findIndexinArr+1]) {
+                          setI(x); setJ(j);
+                          break
+                        }
+                      }
+                    }
+                  }
+                  // case ruleBase[57][1] and rulaBase[110][1]
+                  if (arr[findIndexinArr+1] === undefined) {
+                    reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan kamu mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                    setDiagnoseResult(reply);
+                  }
+                }
+                // if the two and tree value before is not same, case gejala[9]
+                else {
+                  reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. Hasil skrining menunjukkan kamu mengalami <strong>${allYesReply.length} gejala</strong> dari total <strong>${totalGejala[totalGejala.length-1]} gejala</strong> penyakit mata bernama <strong>${lastValue[lastValue.length-1]}</strong>. Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                  setDiagnoseResult(reply);
+                }
+            }
+          }
+        }
+        else if (replyBefore !== 'mulai') {
+          if (input === 'y' || input === 'ya' || input === 't' || input === 'tidak') {
+            reply = `Ketik mulai atau tekan tombol mulai untuk memulai skrining penyakit mata`
+          }
         }
       }
-    }
-    else if (replyBefore !== 'mulai') {
-      if (input === 'y' || input === 'ya' || input === 't' || input === 'tidak') {
-        reply = `Ketik mulai atau tekan tombol mulai untuk memulai skrining penyakit mata`
+      else if (diagnoseResult !== '') {
+        reply = diagnoseResult;
       }
     }
     return [reply];
