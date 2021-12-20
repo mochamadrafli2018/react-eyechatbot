@@ -8,7 +8,7 @@ export default function ChatbotInterfaceCopy({
     replyBefore, replyNow, nextReply, allYesReply, lastValue, 
     ruleBaseNow, ruleBaseILength, ruleBaseLength, 
     handleChange,
-    handleEnter,
+    handleEnter,style={{minHeight:'300px'}}
     handleSubmit,
     handleMulai,
     handleYa,
@@ -40,7 +40,7 @@ export default function ChatbotInterfaceCopy({
         </h4>
         <div 
           id='messages' 
-          className='messages mx-0 max-h-96 min-h-max py-1 w-100 overflow-y-scroll' 
+          className='messages h-96 max-h-96 mx-0 py-1 w-100 overflow-y-scroll' 
           ref={messageEl}
         >
           {/*Chat will be append in here*/}
