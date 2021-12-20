@@ -8,7 +8,7 @@ export default function ChatbotInterfaceCopy({
     replyBefore, replyNow, nextReply, allYesReply, lastValue, 
     ruleBaseNow, ruleBaseILength, ruleBaseLength, 
     handleChange,
-    handleEnter,style={{minHeight:'300px'}}
+    handleEnter,
     handleSubmit,
     handleMulai,
     handleYa,
