@@ -1,36 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router'
 import axios from 'axios'
-import { createTheme } from '@mui/material/styles'
-import { blue } from '@mui/material/colors'
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: blue[700],
-    },
-    secondary: {
-      main: '#f44336',
-    },
-  },
-})
-
-/*const FetchHapi = () => {
-  const [message, setMessage] = useState('')
-
-  useEffect(() => {
-    axios.get('http://localhost:5000')
-    .then((response) => {
-      setMessage(response.data.message)
-    })
-  }, [])
-
-  return (
-    <h5 className='fw-bold text-center primary'>
-      {message}
-    </h5>
-  )
-}*/
 
 const FetchExpress = () => {
   const [message, setMessage] = useState('')
@@ -78,12 +48,11 @@ export default function Login() {
   
   // redirect to register page
   const toRegisterPageHandler = () => {
-    history.push('/register');
   };
   
   return (
-    <div className='container poppins' style={{ marginTop: '80px' }}>
-      <h4 className='fw-bold text-center primary' style={{color: theme.palette.primary.main}}>
+    <div className='container poppins' id='login' style={{ marginTop: '80px' }}>
+      <h4 className='fw-bold text-center text-primary'>
       EyeScreening</h4>
       <FetchExpress />
       <div className='row justify-content-center'>

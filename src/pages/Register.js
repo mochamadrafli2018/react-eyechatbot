@@ -1,19 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import axios from 'axios';
-import { createTheme } from '@mui/material/styles'
-import { blue } from '@mui/material/colors'
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: blue[700],
-    },
-    secondary: {
-      main: '#f44336',
-    },
-  },
-})
 
 function Register() {
   const [name, setName] = useState("");
@@ -42,21 +29,18 @@ function Register() {
   };
 
   const toLoginPage = () => {
-    history.push('/login');                    // redirect to login page
   };
 
   return (
     <div className="container poppins" style={{ marginTop: "80px" }}>
-      <h4 className='fw-bold text-center primary' style={{color: theme.palette.primary.main}}>EyeScreening</h4>
+      <h4 className='fw-bold text-center text-primary'>EyeScreening</h4>
       <div className="row justify-content-center">
         <div className="col-md-8">
           <div className="card border-5px rounded shadow-sm">
             <div className="card-body">
               <h4 className="fw-bold">Daftar sebagai Pengguna Baru</h4>
               <hr/>
-                        
                 <form onSubmit={registerHandler}>
-
                   <div className="row">
                     <div className="col-md-6">
                       <div className="mb-3">
@@ -84,7 +68,6 @@ function Register() {
                       )}
                     </div>
                   </div>
-
                   <div className="row">
                     <div className="col-md-6">
                       <div className="mb-3">
@@ -104,21 +87,16 @@ function Register() {
                       </div>
                     </div>
                   </div>
-
                   <div className="d-grid gap-2">
                     <button type="submit" className="btn btn-primary">DAFTAR</button>
                   </div>
-
                   <div className="mt-3">
                     <p>Sudah daftar? Silahkan masukkan akun anda dengan klik tombol berikut</p>
                   </div>
-
                   <div className="d-grid gap-2">
                     <button onClick={toLoginPage} className="btn btn-outline-primary">MASUK</button>
                   </div>
-
                 </form>
-
             </div>
           </div>
         </div>

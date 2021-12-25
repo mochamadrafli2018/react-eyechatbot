@@ -12,7 +12,7 @@ export default function addChatWhenBrowserReload(text1,text2) {
     const botText = document.createElement('p')
           botText.className = 'inline-block bg-ivory border-2 border-blue-700 ml-1 px-2 py-1 rounded-r-3xl rounded-tl-2xl text-dark w-4/5'
     setTimeout(() => {
-      botDiv.appendChild(botImg)
+      botDiv.appendChild(botImg) 
       botText.innerHTML = `${text1}`
       botDiv.appendChild(botText)
     },1000)

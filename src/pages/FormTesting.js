@@ -1,5 +1,5 @@
 import React from 'react'
-import Footer from '../components/Footer';
+import Footer from '../tailwindcss-components/Footer';
 
 export default function FormTesting () {
   return (

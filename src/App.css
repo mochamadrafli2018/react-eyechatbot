@@ -16,12 +16,6 @@
 .bg-ivory {
   background-color: #eeede7;
 }
-/* {
-  box-sizing: border-box;
-}*/
-/*::-webkit-input-placeholder { 
-	color: .711 
-}*/
 .hover-zoom-out {
   overflow: hidden;
 }
@@ -53,6 +47,5 @@
   display: flex;
   flex-direction: column;
 }
-/* Mobile */
 @media only screen and (max-width: 980px) {
 }

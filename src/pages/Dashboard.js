@@ -1,39 +1,99 @@
-import CardBootstrapTailwind from '../bootstrap-components/CardBootstrapTailwind';
-import DashboardBar from '../bootstrap-components/DashboardBar';
-import Footer from '../components/Footer'
+import React, {useState} from 'react';
+import {Nav,Navbar} from 'react-bootstrap';
+// image
 import Image1 from '../img/eye-image-1.jpg';
 import Image2 from '../img/eye-image-2.jpg';
+// component 
+import CardBootstrapTailwind from '../bootstrap-components/CardBootstrapTailwind';
+import Content from '../tailwindcss-components/Content';
+import Footer from '../tailwindcss-components/Footer';
+import Login from './Login';
 import OverlayItem from '../bootstrap-components/Overlay';
+import Register from './Register';
+// CSS
+import '../App.css';
+import '../index.css';
 
-export default function Dashboard () {  
+function AppBar() {
+  return (
+    <div className='poppins'>
+      <div
+        style={{position:'fixed',top:'0','z-index':'1'}}  
+        className='navbar bg-light py-1 w-100 border-bottom shadow-sm'
+      >
+        <div className='container'>
+          <Navbar.Brand></Navbar.Brand>
+          <Nav className='me-auto'>
+            <OverlayItem
+              text={(
+                <span>
+                  <i class="bi bi-info-square"></i> Sistem Pakar?
+                </span>
+              )}
+              explanation={(
+                <div>
+                  <p>sistem pakar, menurut <a href='https://kbbi.kemdikbud.go.id/entri/sistem%20pakar' className='text-primary'>KBBI</a> adalah :</p>
+                  <p>Program komputer yang menggunakan informasi, heuristik, dan simpulan yang tersedia untuk menyarankan solusi terhadap masalah tertentu.</p>
+                </div>
+              )}
+            />
+            <OverlayItem
+              text={(
+                <span>
+                  <i class="bi bi-info-square"></i> Skrining
+                </span>
+              )}
+              explanation={(
+              <div>
+                <p>skri.ning, menurut <a href='https://kbbi.kemdikbud.go.id/entri/skrining' className='text-primary'>KBBI</a> adalah :</p>
+                <p>1. Identifikasi dini penyakit berdasarkan serangkaian tes dan pemeriksaan.</p>
+                <p>2. Evaluasi yang dilakukan sebagai bagian dari survei atau tes untuk melihat kesesuaian seseorang pada pekerjaan tertentu.</p>
+                <p>3. Penilaian mental dan ideologi seseorang.</p>
+              </div>
+            )}/>
+          </Nav>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function Dashboard () { 
   const lastUpdated = new Date(document.lastModified);
-  const dayName = lastUpdated.getDay()
-  const weekDaysArr = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+  const dayName = lastUpdated.getDay();
+  const weekDaysArr = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   const currentDate = weekDaysArr[dayName] + ', ' 
-    + lastUpdated.getDate()        + '/' 
-    + (lastUpdated.getMonth() + 1) + '/' 
-    + lastUpdated.getFullYear()    + ', ' 
-    + lastUpdated.getHours()       + ':' 
-    + lastUpdated.getMinutes()     + ':' 
-    + lastUpdated.getSeconds();
+      + lastUpdated.getDate()        + '/' 
+      + (lastUpdated.getMonth() + 1) + '/' 
+      + lastUpdated.getFullYear()    + ', ' 
+      + lastUpdated.getHours()       + ':' 
+      + lastUpdated.getMinutes()     + ':' 
+      + lastUpdated.getSeconds();
   return (
     <div className='poppins'>
       {/*AppBar*/}
-      <DashboardBar/>
+      <AppBar/>
       {/*Main Menu*/}
       <div
         className='container mx-auto mb-1 p-0 border rounded' 
-        style={{marginTop:'70px',width:'98%',maxWidth:'1000px'}}
+        style={{marginTop:'70px',width:'98%',maxWidth:'80%'}}
       >
-        <p className='bg-primary quicksand px-1 py-0 m-0 text-center rounded-top'
-        style={{fontSize:'20px'}}>
-          <span><OverlayItem
-            text={(<span className='text-light'>EyeScreening</span>)}
-            explanation={(
-              <span>Portofolio web app sistem pakar yang diprogram untuk mampu melakukan skrining penyakit mata pada manusia.</span>
+        <Nav 
+          className='bg-primary me-auto quicksand px-1 py-1 m-0 text-light rounded-top'
+        >
+          <OverlayItem
+            text={(
+              <span className='text-light'> 
+                <i class="bi bi-info-square"></i> EyeScreening
+              </span>
             )}
-          /></span>
-        </p>
+            explanation={(
+              <span>
+                Portofolio web app sistem pakar yang diprogram untuk mampu melakukan skrining penyakit mata pada manusia.
+              </span>
+            )}
+          />
+        </Nav>
         <div className='row mt-3' style={{margin:'3px'}}>
           <div className='col p-1'>
             <CardBootstrapTailwind
@@ -73,28 +133,9 @@ export default function Dashboard () {
           </div>
         </div>
       </div>
-      {/*Contact*/} 
-      <div 
-        className='container mx-auto mt-3 p-2 bg-primary rounded text-center border shadow-hover-primary' 
-        style={{marginBottom:'45px',width:'98%',maxWidth:'1000px'}}
-      >
-        <a href='https://www.github.com/mochamadrafli2018' style={{fontSize:'20px'}}
-          className='text-light' target='_blank' rel='noreferrer'>
-          <i className='bi-github fa-lg mx-3 my-1' role='img' aria-label='GitHub'></i>
-        </a>
-        <a href='https://www.instagram.com/rafli.r.rmdhn' style={{fontSize:'20px'}}
-          className='text-light' target='_blank' rel='noreferrer'>
-          <i className='bi-instagram mx-3 my-1' role='img' aria-label='Instagram'></i>
-        </a>
-        <a href='https://www.linkedin.com/in/mochamad-rafli-ramadhan' style={{fontSize:'20px'}}
-          className='text-light' target='_blank' rel='noreferrer'>
-          <i className='bi-linkedin mx-3 my-1' role='img' aria-label='Linkedin'></i>
-        </a>
-        <a href='http://wa.me/088227867544' style={{fontSize:'20px'}}
-          className='text-light' target='_blank' rel='noreferrer'>
-          <i class='bi bi-whatsapp mx-3 my-1' role='img' aria-label='Whatsup'></i>
-        </a>
-      </div>
+      {/* Content */}
+      <Content />
+      {/* Contact */} 
       {/*Footer*/}
       <Footer styleFooter={{position:'fixed',bottom:'0'}}/>
     </div>

@@ -1,9 +1,11 @@
+import React from 'react';
 import {Nav,Popover,OverlayTrigger} from 'react-bootstrap';
+import '../App.css';
 
-export default function OverlayItem({explanation, text}) {
+export default function OverlayItem({explanation, style, text}) {
   const popover = (
     <Popover id="popover-basic" className='poppins shadow-lg'>
-      <Popover.Header as="h3" className='text-white bg-primary'>{text}</Popover.Header>
+      <Popover.Header as="h3" className='bg-primary text-light'>{text}</Popover.Header>
       <Popover.Body className='text-dark'>{explanation}</Popover.Body>
     </Popover>
   );      
@@ -13,8 +15,8 @@ export default function OverlayItem({explanation, text}) {
       delay={{ show: 250, hide: 100 }}
       overlay={popover}
     >
-      <Nav.Link>
-        <i class="bi bi-info-square text-primary"></i> {text}
+      <Nav.Link className>
+        {text}
       </Nav.Link>
     </OverlayTrigger>
   );
