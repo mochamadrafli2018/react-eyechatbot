@@ -7,12 +7,12 @@ export default function AddChatWhenBrowserReload(text) {
       // create bot image element
       const botImg = document.createElement('i')
             botImg.className = 'inline-block bi bi-robot bg-ivory border-2 border-blue-700 px-2 py-1 rounded-full text-dark text-xl'
+            botDiv.appendChild(botImg)
       // create text element
       const botText = document.createElement('p')
             botText.className = 'inline-block bg-ivory border-2 border-blue-700 ml-1 px-2 py-1 rounded-r-3xl rounded-tl-2xl text-dark w-4/5'
             botText.innerHTML = `Mengetik...`
-      botDiv.appendChild(botImg) 
-      botDiv.appendChild(botText)
+            botDiv.appendChild(botText)
       // add botDiv to messagesContainer
       messagesContainer.appendChild(botDiv)
       // Fake delay to seem 'real'
