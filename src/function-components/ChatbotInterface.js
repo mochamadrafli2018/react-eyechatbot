@@ -36,7 +36,7 @@ export default function ChatbotInterfaceCopy({
       <Row className='mx-0 mb-0 w-100 rounded shadow-hover-primary'>
         <h4 className='bg-primary mb-0 p-1 w-100 quicksand rounded-top text-center text-light'
         style={{fontSize:'20px'}}>
-          Chat Bot
+          Chat Bot Sistem Pakar
         </h4>
         <div 
           id='messages' 
