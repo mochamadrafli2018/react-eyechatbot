@@ -40,15 +40,7 @@ export default function ChatbotInterfaceCopy({
         </h4>
         <div 
           id='messages' 
-<<<<<<< Updated upstream
           className='messages h-96 max-h-96 mx-0 py-1 overflow-y-scroll w-100' 
-=======
-<<<<<<< HEAD
-          className='messages max-h-96 min-h-max mx-0 py-1 w-100 overflow-y-scroll' 
-=======
-          className='messages h-96 max-h-96 mx-0 py-1 overflow-y-scroll w-100' 
->>>>>>> 1d00aa931d513e2ca5f229b18ac614478b0ea358
->>>>>>> Stashed changes
           ref={messageEl}
         >
           {/*Chat will be append in here*/}
