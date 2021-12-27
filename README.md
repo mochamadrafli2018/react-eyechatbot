@@ -87,6 +87,7 @@ This project was licensed under MIT License
 - React UseState : https://daveceddia.com/usestate-hook-examples/
 - React Routing to External URL : https://stackoverflow.com/questions/50350085/how-to-make-a-hyperlink-external-in-react
 - React Project Deployment on Heroku : https://ramya.hashnode.dev/how-to-deploy-react-app-on-heroku-from-github
+- Use Ref : // https://www.cluemediator.com/auto-scroll-to-the-bottom-in-a-react-chat-application
 
 5. CSS :
 

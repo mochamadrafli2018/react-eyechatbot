@@ -17,8 +17,6 @@ export default function ChatbotInterfaceCopy({
 
   // create a ref 
   const messageEl = useRef(null);
-
-  // https://www.cluemediator.com/auto-scroll-to-the-bottom-in-a-react-chat-application 
   useEffect(() => {
     if (messageEl) {
       messageEl.current.addEventListener('DOMNodeInserted', event => {
