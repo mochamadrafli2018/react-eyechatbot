@@ -1,5 +1,5 @@
 import '../index.css';
-export default function addChat(input, reply) {
+export default function AddChat(input, reply) {
   const messagesContainer = document.getElementById('messages')
   // create element for user reply
   const userDiv = document.createElement('div')
