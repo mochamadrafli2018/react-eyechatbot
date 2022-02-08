@@ -4,7 +4,6 @@ import {Container,Nav} from 'react-bootstrap';
 import InferenceMachine from '../function-components/InferenceMachine';
 import FormTesting from './FormTesting';
 import Guide from './Guide';
-import QnA from './QnA';
 
 export default function ChatbotDashboard() {
   return (
@@ -39,7 +38,6 @@ export default function ChatbotDashboard() {
         <Switch>
           <Route exact path='/chatbot/form' component={FormTesting} />
           <Route exact path='/chatbot/guide' component={Guide} />
-          <Route exact path='/chatbot/qna' component={QnA} />
           <Route exact path='/chatbot' component={InferenceMachine} />
         </Switch>
       </BrowserRouter>

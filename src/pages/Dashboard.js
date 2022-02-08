@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Nav,Navbar} from 'react-bootstrap';
 // image
 import Image1 from '../img/eye-image-1.jpg';
@@ -7,9 +7,7 @@ import Image2 from '../img/eye-image-2.jpg';
 import CardBootstrapTailwind from '../bootstrap-components/CardBootstrapTailwind';
 import Content from '../tailwindcss-components/Content';
 import Footer from '../tailwindcss-components/Footer';
-import Login from './Login';
 import OverlayItem from '../bootstrap-components/Overlay';
-import Register from './Register';
 // CSS
 import '../App.css';
 import '../index.css';

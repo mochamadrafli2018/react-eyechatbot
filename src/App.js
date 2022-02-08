@@ -4,12 +4,11 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import './App.css';
 import './index.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Register from './pages/Register';
-import Login from './pages/Login';
 import ChatbotDashboard from './pages/ChatbotDashboard';
 import Dashboard from './pages/Dashboard';
 import FormTesting from './pages/FormTesting';
 import Guide from './pages/Guide';
+import Login from './pages/Login';
 
 class App extends React.Component {
   render(){
@@ -17,7 +16,6 @@ class App extends React.Component {
       <BrowserRouter>
         <Switch>
           <Route exact path='/login' component={Login} />
-          <Route exact path='/register' component={Register} />
           <Route exact path='/chatbot' component={ChatbotDashboard} />
           <Route exact path='/chatbot/form' component={FormTesting} />
           <Route exact path='/chatbot/guide' component={Guide} />
