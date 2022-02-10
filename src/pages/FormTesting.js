@@ -1,14 +1,14 @@
-import React from 'react'
+import ChatbotNavbar from '../components/ChatbotNavbar';
 import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
 
 export default function FormTesting () {
   return (
-    <div>
-      <Navbar/>
-      <div 
+    <div className='bg-slate-100' style={{paddingTop:'60px'}}>
+      <ChatbotNavbar/>
+
+      <main
         className='border-2 container p-1 poppins mb-2 rounded shadow-sm w-full'
-        style={{maxWidth:'640px',marginTop:'60px'}}
+        style={{maxWidth:'640px'}}
       >
         <iframe
           title='form UAT'
@@ -18,8 +18,8 @@ export default function FormTesting () {
           className='mx-auto w-full'
         >Loading…
         </iframe>
-      </div>
-      <Footer styleFooter={{position:'relative'}}/>
+      </main>
+      <Footer/>
     </div>
   )
 }

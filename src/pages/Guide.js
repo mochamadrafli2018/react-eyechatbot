@@ -1,36 +1,37 @@
 import {Accordion} from 'react-bootstrap';
 import AccordionBootstrap from '../components/AccordionBootstrap';
-import Navbar from '../components/Navbar';
+import ChatbotNavbar from '../components/ChatbotNavbar';
 
 export default function Guide () {
   return(
-    <div>
-      <Navbar/>
-      <div 
-        className='container border-2 mx-auto mb-3 p-2 poppins overflow-hidden rounded-lg hover:border-blue-400 hover:shadow-lg' 
-        style={{marginTop:'60px',maxWidth:'700px',width:'99%'}}
+    <div className='bg-slate-100' style={{paddingTop:'100px',paddingBottom:'120px'}}>
+      <ChatbotNavbar/>
+
+      <main 
+        className='border-2 border-blue-600  max-w-3xl mx-auto mb-3 p-2 poppins overflow-hidden rounded-lg shadow-lg' 
+        style={{width:'99%'}}
       >
-        <p className='my-1 fw-bold text-primary quicksand' style={{fontSize:'20px'}}>
+        <p className='my-1 fw-bold text-blue-600 quicksand' style={{fontSize:'20px'}}>
           Panduan Penggunaan Chatbot Sistem Pakar Skrining Penyakit Mata
         </p>
         <hr></hr>
-        <Accordion defaultActiveKey='0' className='border-2 my-1 rounded hover:border-blue-400'>
+        <Accordion defaultActiveKey='0' className='border-2 my-1 rounded border-blue-600'>
           <AccordionBootstrap 
             eventKey={"0"}
             Title = {(<p className='fw-bold m-0'>Panduan Umum</p>)}
             Text = {(
               <div>
                 <p className='my-1'>
-                  <span className='fw-bold text-primary'>Ketikkan : </span>
+                  <span className='fw-bold text-blue-600'>Ketikkan : </span>
                   mulai,  tes,  test atau skrining pada input chat untuk{' '}
                   melakukan skrining penyakit mata atau klik tombol{' '}
-                  <span className='fw-bold text-primary'>mulai</span> berwarna biru.
+                  <span className='fw-bold text-blue-600'>mulai</span> berwarna biru.
                 </p>
                 <p className='my-1'>
-                  <span className='fw-bold text-primary'>Jawab </span>
+                  <span className='fw-bold text-blue-600'>Jawab </span>
                   setiap pertanyaan dengan{' '}
-                  <span className='fw-bold text-primary'>y (ya)</span> atau{' '}
-                  <span className='fw-bold text-primary'>t (tidak)</span> atau{' '}
+                  <span className='fw-bold text-blue-600'>y (ya)</span> atau{' '}
+                  <span className='fw-bold text-blue-600'>t (tidak)</span> atau{' '}
                   klik tombol ya atau tidak yang berwarna biru.
                 </p>
               </div>
@@ -77,18 +78,18 @@ export default function Guide () {
             Text = {(
               <div>
                 <p className='my-1'>
-                  Hasil skrining dari sistem pakar ini <span className='fw-bold text-primary'>tidak bisa </span>
+                  Hasil skrining dari sistem pakar ini <span className='fw-bold text-blue-600'>tidak bisa </span>
                   dijadikan sebagai keputusan akhir diagnosis penyakit mata anda.
                 </p>
                 <p className='my-1'>
-                  Hasil skrining tersebut <span className='fw-bold text-primary'>bisa </span>
+                  Hasil skrining tersebut <span className='fw-bold text-blue-600'>bisa </span>
                   anda gunakan untuk konsultasi dengan dokter spesialis mata untuk diagnosis lebih lanjut.
                 </p>
               </div>
             )}
           />
         </Accordion>
-      </div>
+      </main>
     </div>
   )
 };
