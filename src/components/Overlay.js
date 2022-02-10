@@ -1,6 +1,5 @@
 import React from 'react';
 import {Nav,Popover,OverlayTrigger} from 'react-bootstrap';
-import '../App.css';
 
 export default function OverlayItem({explanation, style, text}) {
   const popover = (

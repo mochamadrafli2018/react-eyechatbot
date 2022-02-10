@@ -1,4 +1,3 @@
-// match the prompt and the reply
 export default function compare(promptsArray, repliesArray, string) {
   let reply;
   let botReplyFound = false;

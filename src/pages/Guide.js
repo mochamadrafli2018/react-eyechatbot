@@ -1,13 +1,15 @@
 import {Accordion} from 'react-bootstrap';
-import AccordionBootstrap from '../bootstrap-components/AccordionBootstrap';
-import '../index.css';
+import AccordionBootstrap from '../components/AccordionBootstrap';
+import Navbar from '../components/Navbar';
 
 export default function Guide () {
   return(
-    <div 
-      className='container border-2 mx-auto mb-3 p-2 poppins overflow-hidden rounded-lg hover:border-blue-400 hover:shadow-lg' 
-      style={{marginTop:'60px',maxWidth:'700px',width:'99%'}}
-    >
+    <div>
+      <Navbar/>
+      <div 
+        className='container border-2 mx-auto mb-3 p-2 poppins overflow-hidden rounded-lg hover:border-blue-400 hover:shadow-lg' 
+        style={{marginTop:'60px',maxWidth:'700px',width:'99%'}}
+      >
         <p className='my-1 fw-bold text-primary quicksand' style={{fontSize:'20px'}}>
           Panduan Penggunaan Chatbot Sistem Pakar Skrining Penyakit Mata
         </p>
@@ -86,6 +88,7 @@ export default function Guide () {
             )}
           />
         </Accordion>
+      </div>
     </div>
   )
 };

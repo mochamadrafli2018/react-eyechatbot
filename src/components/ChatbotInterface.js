@@ -1,6 +1,5 @@
 import React, {useEffect, useRef} from 'react';
 import {Col,Row} from 'react-bootstrap';
-import '../index.css';
 
 export default function ChatbotInterfaceCopy({
     input,

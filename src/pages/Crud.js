@@ -1,6 +1,4 @@
-// set up library
 import React, { useState} from 'react';
-// set up tailwind css
 import '../index.css';
 
 // export Crud function

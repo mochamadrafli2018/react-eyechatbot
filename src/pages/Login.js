@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router'
 import axios from 'axios'
 
 const FetchExpress = () => {
@@ -23,7 +23,7 @@ export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [validation, setValidation] = useState([])
-  const history = useHistory()
+  const history = useNavigate()
 
   const loginHandler = async (e) => {
     e.preventDefault();

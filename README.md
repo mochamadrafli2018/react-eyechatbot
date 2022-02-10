@@ -2,109 +2,76 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Set Up
+## Available Scripts
 
-`npm install`
+In the project directory, you can run:
 
-## Running
-
-`npm run start`
+### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-## List of Eye Disease
+### `npm test`
 
-List of Eye Disease for Inference Machine
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-1. Ablasi Retina
-2. Alergi Mata Merah
-3. Blefaritis
-4. Dakriosistitis
-5. Degenerasi Makula
-6. Eksoftalmus
-7. Endoftalmitis
-8. Glaukoma
-9. Hordeolum (Stye)
-10. Katarak
-11. Keratitis Pungtata Superfisialis
-12. Keratokonus
-13. Kalazion
-14. Konjungtivitis
-15. Miopi
-16. Oftalmia Neonatorium
-17. Optic Neuritis
-18. Pterygium
-19. Retinitis Pigmentosa
-20. Retinopati Diabetikum
-21. Selulitis Orbitalitas
-22. Trakoma
-23. Trombosis Sinus Kavernosus
-24. Ulkus Kornea
-25. Uveitis
-26. Xerophtalmania
-27. Skleritis
+### `npm run build`
 
-## Deployment
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-This project was deployed on heroku. Thanks to heroku.com
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-## License
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-This project was licensed under MIT License
+### `npm run eject`
 
-## List of Coding Notes :
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-1. Buildpack for Node.js :
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-- React Buildpack : https://github.com/mars/create-react-app-buildpack
-- Node Buildpack : https://github.com/heroku/heroku-buildpack-nodejs
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-2. Javascript :
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-- get input data : https://stackoverflow.com/questions/23427384/get-form-data-in-reactjs
-- eventKey : https://www.freecodecamp.org/news/javascript-keycode-list-keypress-event-key-codes/
-- handling event : https://reactjs.org/docs/handling-events.html
-- input onkeypress : https://stackoverflow.com/questions/27827234/how-to-handle-the-onkeypress-event-in-reactjs
-- lower case input : https://stackoverflow.com/questions/39999367/how-do-i-reference-a-local-image-in-react
-- open link in new page : https://techstacker.com/open-link-ahref-in-new-tab/
-- JavaScript getFullYear, getMonth, getDate etc :
-  a) https://stackoverflow.com/questions/16024346/lastmodified-function-returns-current-date-and-time
-  b) http://www.scriptingmaster.com/scripts/JavaScript/date-time/get-day-name-JavaScript.asp
-- map function : // https://stackoverflow.com/questions/46544878/js-how-to-map-through-array-in-template-literals
+## Learn More
 
-3. HTML/JSX Tag :
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-- iframe : https://web.dev/frame-title/
-- iframe to show pdf from Google Drive : // https://stackoverflow.com/questions/44164367/how-to-embed-google-drive-document-pdf-in-blogger-post
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-4. React :
+### Code Splitting
 
-- React create element : https://reactgo.com/react-createelement-example
-- React UseState : https://daveceddia.com/usestate-hook-examples/
-- React Routing to External URL : https://stackoverflow.com/questions/50350085/how-to-make-a-hyperlink-external-in-react
-- React Project Deployment on Heroku : https://ramya.hashnode.dev/how-to-deploy-react-app-on-heroku-from-github
-- Use Ref : // https://www.cluemediator.com/auto-scroll-to-the-bottom-in-a-react-chat-application
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-5. CSS :
+### Analyzing the Bundle Size
 
-- Box-shadow transition : https://tobiasahlin.com/blog/how-to-animate-box-shadow/
-- Image zoom transition & transform : https://code-boxx.com/image-zoom-css-javascript/
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-6. MySQL Database Deployment on Heroku :
+### Making a Progressive Web App
 
-- https://www.ismynr.xyz/2020/10/deploy-laravel-ke-heroku-mysql.html
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-7. Bootstrap Icon Set Up
+### Advanced Configuration
 
-- https://www.kindacode.com/article/how-to-use-bootstrap-5-and-bootstrap-icons-in-react/
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-8. Image Reference
+### Deployment
 
-- Yellow Eye for Card Image : https://unsplash.com/photos/WTThc6UmwEI
-- Blue Eye for Card Image : https://images.unsplash.com/photo-1501621667575-af81f1f0bacc?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZXllfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60
-- Bot Image : https://pixabay.com/vectors/chatbot-chat-bot-bot-training-4736275/
-- Chat Wallpaper : https://unsplash.com/photos/GLf7bAwCdYg
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### Error Documentation
+
+1.) Attempted import error: 'useHistory' is not exported from 'react-router-dom'
+Solution : https://stackoverflow.com/questions/62861269/attempted-import-error-usehistory-is-not-exported-from-react-router-dom
+
+2.) export 'Switch' (imported as 'Switch') was not found in 
+'react-router-dom'
+Solution : https://stackoverflow.com/questions/70751309/export-switch-imported-as-switch-was-not-found-in-react-router-dom
+
+3.) node_modules\bootstrap\dist\css\bootstrap.min.css doesn't exist

@@ -1,5 +1,4 @@
 import {Accordion} from 'react-bootstrap';
-import '../index.css';
 
 export default function AccordionBoostrap({eventKey,Title,Text}) {
   return (
