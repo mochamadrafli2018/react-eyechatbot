@@ -54,3 +54,6 @@ Solution : https://stackoverflow.com/questions/70751309/export-switch-imported-a
 
 3.) Error : node_modules\bootstrap\dist\css\bootstrap.min.css doesn't exist
 Solution : Re-start react-app
+
+4.) Error : className='' style for tailwind css is not working
+Solution : Use class='' instead

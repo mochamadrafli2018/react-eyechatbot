@@ -1,4 +1,3 @@
-import React from 'react';
 import {Nav,Popover,OverlayTrigger} from 'react-bootstrap';
 
 export default function OverlayItem({explanation, style, text}) {

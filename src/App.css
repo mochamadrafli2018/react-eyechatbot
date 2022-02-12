@@ -10,12 +10,6 @@
 .quicksand {
   font-family: Quicksand, Arial, sans-serif;
 }
-.bg-blue-baby {
-  background-color: #c3e0e5;
-}
-.bg-ivory {
-  background-color: #eeede7;
-}
 .hover-zoom-out {
   overflow: hidden;
 }
@@ -44,8 +38,4 @@
 }
 .messages {
   background-image: url("./img/light.jpg");
-  display: flex;
-  flex-direction: column;
-}
-@media only screen and (max-width: 980px) {
 }
