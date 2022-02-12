@@ -13,8 +13,11 @@ export default function Footer () {
           className='text-gray-400 hover:text-white'
         >Heroku</a>
       </p>
+      <p className='mx-auto my-2 text-gray-400'>
+        &copy; { year } - Mochamad Rafli Ramadhan
+      </p>
       <p className='mx-auto mt-2 mb-1 text-gray-400'>
-        Contact Me
+        Contact Developer
       </p>
       <div className='font-medium mx-auto my-1 mb-0 space-x-8 text-center'
         style={{'cursor': 'pointer'}}
@@ -48,9 +51,6 @@ export default function Footer () {
           <i className='bi bi-whatsapp' role='img' aria-label='Whatsup'></i>
         </a>
       </div>
-      <p className='mx-auto my-2 text-gray-400'>
-        &copy; { year } - Mochamad Rafli Ramadhan
-      </p>
     </footer>
   )
 }
