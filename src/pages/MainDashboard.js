@@ -4,7 +4,7 @@ import OverlayItem from '../components/Overlay';
 
 export default function Dashboard () { 
   return (
-    <div className='bg-slate-100 poppins'>
+    <div className='bg-sky-100 poppins'>
       {/*AppBar*/}
       <div
         style={{position:'fixed',top:'0','z-index':'1'}}  

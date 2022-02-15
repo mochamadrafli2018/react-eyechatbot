@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 export default function Navbar() {
   return (
     <nav style={{position:'fixed',top:'0px',}}
-      className='bg-slate-100 border-bottom flex flex-row poppins py-1 shadow-sm text-blue-500 w-full z-10'
+      className='bg-sky-50 border-bottom flex flex-row poppins py-1 shadow-sm text-blue-500 w-full z-10'
     >
       <div className='flex flex-row ml-2 mr-auto space-x-2 text-md'>
         <Link className='my-auto p-2 no-underline' to='/chatbot'>
