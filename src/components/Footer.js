@@ -7,11 +7,18 @@ export default function Footer () {
         <a href="https://mit-license.org/" 
           className="text-gray-400 hover:text-white"
           target='_blank' rel='noreferrer'
-        >MIT License</a> and Deployed on{' '}
+        >MIT License</a>
+      </p>
+      <p className='mx-auto my-1 text-gray-400'>
+        Deployed on{' '}
         <a href='https://www.heroku.com' 
           target='_blank' rel='noreferrer' 
           className='text-gray-400 hover:text-white'
-        >Heroku</a>
+        >Heroku</a> and{' '} 
+        <a href='https://vercel.com/'
+          target='_blank' rel='noreferrer' 
+          className='text-gray-400 hover:text-white'
+        >Vercel</a>
       </p>
       <p className='mx-auto my-2 text-gray-400'>
         &copy; { year } - Mochamad Rafli Ramadhan
