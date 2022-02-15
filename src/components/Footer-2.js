@@ -1,11 +1,11 @@
 export default function Footer () {
   const year= new Date().getFullYear();
   return (
-    <footer className='bg-slate-900 h-full poppins px-4 py-2 text-center transition-all duration-500 linear'>
+    <footer className='bg-sky-100 h-full poppins mt-4 px-4 py-2 text-center transition-all duration-500 linear'>
       <p className='mx-auto my-1 text-gray-400'>
         Released under{' '}
         <a href="https://mit-license.org/" 
-          className="text-gray-400 hover:text-white"
+          className="text-gray-400 hover:text-black"
           target='_blank' rel='noreferrer'
         >MIT License</a>
       </p>
@@ -13,11 +13,11 @@ export default function Footer () {
         Deployed on{' '}
         <a href='https://www.heroku.com' 
           target='_blank' rel='noreferrer' 
-          className='text-gray-400 hover:text-white'
+          className='text-gray-400 hover:text-black'
         >Heroku</a> and{' '} 
         <a href='https://vercel.com/'
           target='_blank' rel='noreferrer' 
-          className='text-gray-400 hover:text-white'
+          className='text-gray-400 hover:text-black'
         >Vercel</a>
       </p>
       <p className='mx-auto my-2 text-gray-400'>
@@ -31,28 +31,28 @@ export default function Footer () {
       >
         <a 
           href='https://www.github.com/mochamadrafli2018' 
-          className='lg:text-lg text-md text-gray-400 hover:text-white' 
+          className='lg:text-lg text-md text-gray-400 hover:text-black' 
           target='_blank' rel='noreferrer'
         >
           <i className='bi-github fa-lg' role='img' aria-label='GitHub'></i>
         </a>
         <a 
           href='https://www.instagram.com/rafli.r.rmdhn'
-          className='lg:text-lg text-md text-gray-400 hover:text-white' 
+          className='lg:text-lg text-md text-gray-400 hover:text-black' 
           target='_blank' rel='noreferrer'
         >
           <i className='bi-instagram' role='img' aria-label='Instagram'></i>
         </a>
         <a 
           href='https://www.linkedin.com/in/mochamad-rafli-ramadhan'
-          className='lg:text-lg text-md text-gray-400 hover:text-white' 
+          className='lg:text-lg text-md text-gray-400 hover:text-black' 
           target='_blank' rel='noreferrer'
         >
           <i className='bi-linkedin' role='img' aria-label='Linkedin'></i>
         </a>
         <a 
           href='http://wa.me/088227867544'
-          className='lg:text-lg text-md text-gray-400 hover:text-white' 
+          className='lg:text-lg text-md text-gray-400 hover:text-black' 
           target='_blank' rel='noreferrer'
         >
           <i className='bi bi-whatsapp' role='img' aria-label='Whatsup'></i>
