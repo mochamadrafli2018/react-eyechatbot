@@ -50,11 +50,11 @@ export default function Dashboard () {
         <div className='flex flex-row mt-3'>
         {[
           {
-            maintext:'Dirancang dengan fitur',
-            text1: 'Implementasi Metode Forward Chaining dengan 114 Basis Aturan Penyakit Mata',
-            text2: 'Mesin Inferensi yang dibangun dengan React Hooks sebagai Pengambilan Keputusan Penyakit Mata',
-            text3: 'Chatbot User Interface yang diprogram dengan Functional Component React.js',
-            text4: 'User Interface yang didesain dengan Bootstrap-React dan Tailwind CSS',
+            maintext:'Dirancang dengan fitur :',
+            text1: '27 Data Penyakit Mata dan 114 Data Basis Aturan Penyakit Mata',
+            text2: 'Mesin Inferensi sebagai Pengambilan Keputusan Penyakit Mata',
+            text3: 'Bot yang Mampu Memberikan Respon Cepat pada Pengguna Chatbot',
+            text4: 'User Interface yang Didesain selayaknya Aplikasi Smartphone',
             URL: '/chatbot'
           }
         ].map((item, index) => (
