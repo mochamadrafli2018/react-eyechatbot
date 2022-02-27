@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import AddChat from './AddChat';
-import AddChatWhenBrowserReload from './AddChatWhenBrowserReload';
+import AddChat2 from './AddChat2';
 import Compare from './Compare';
 import ChatbotInterface from './ChatbotInterface';
 import {prompts,replies,alternative,coronavirus,} from '../data/PromptsAndReplies';
@@ -134,6 +134,8 @@ const gejala  = [
 
 const ruleBase = [
   [''],
+  // gejala[18] = x
+  // gejala[27] = y
   // ruleBase[1 - 5]
   [gejala[1],gejala[2],gejala[3],gejala[4],gejala[5],gejala[6],gejala[7],gejala[8],'Ulkus Kornea'],
   [gejala[1],gejala[2],gejala[12],gejala[14],gejala[28],'Konjungtivitis'],
@@ -149,9 +151,9 @@ const ruleBase = [
   // ruleBase[11 - 15]
   [gejala[2],gejala[1],gejala[14],gejala[18],gejala[27],gejala[28],gejala[29],'Keratitis Pungtata Superfisialis'],  
   [gejala[2],gejala[1],gejala[21],gejala[22],'Katarak'],
-  [gejala[2],gejala[1],gejala[24],gejala[34],'Endoflamitis'],
+  [gejala[2],gejala[1],gejala[24],gejala[34],'Endoftalmitis'],
   [gejala[2],gejala[5],gejala[14],gejala[27],gejala[35],gejala[43],gejala[44],'Glaukoma'],
-  [gejala[2],gejala[5],gejala[25],gejala[26],'Selulitis Orbitalitas'],
+  [gejala[2],gejala[5],gejala[25],gejala[26],'Selulitis Orbita'],
   // rulaBase[16 - 20]
   [gejala[2],gejala[29],gejala[35],gejala[51],'Miopi'],
   [gejala[3],gejala[1],gejala[2],gejala[4],gejala[5],gejala[6],gejala[7],gejala[8],'Ulkus Kornea'],
@@ -273,7 +275,7 @@ const ruleBase = [
   [gejala[58],gejala[14],gejala[55],gejala[56],gejala[57],'Skleritis'], // have been checked and worked (function test)
 ];
 
-export default function InferenceMachineCopy () {
+export default function InferenceMachine () {
   const [input, setInput] = useState('')
   // handle when form input was change or type by user and also get user input with setInput
   const handleChange = (event) => {
@@ -664,9 +666,9 @@ export default function InferenceMachineCopy () {
   
   // opening chat message will be appear when browser reload
   useEffect(() => {
-    AddChatWhenBrowserReload('Halo, ini adalah bot EyeScreening');
+    AddChat2('Halo, ini adalah bot EyeScreening');
     setTimeout(() => {
-      AddChatWhenBrowserReload(`Untuk memulai skrining penyakit mata ketikan atau tekan tombol <strong>mulai</strong>.`);
+      AddChat2(`Untuk memulai skrining penyakit mata ketikan atau tekan tombol <strong>mulai</strong>.`);
     },1000);
   },[])
 

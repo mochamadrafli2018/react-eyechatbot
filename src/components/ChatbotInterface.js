@@ -5,6 +5,7 @@ export default function ChatbotDashboard({
     input,
     i, j,
     replyBefore, 
+    ruleBaseBefore,
     replyNow, 
     nextReply, 
     allYesReply, 
@@ -16,6 +17,7 @@ export default function ChatbotDashboard({
     handleEnter,
     handleSubmit,
     handleMulai,
+    handleLanjut,
     handleYa,
     handleTidak,
   }) {
@@ -82,6 +84,16 @@ export default function ChatbotDashboard({
           <button 
             type='submit' 
             value='Submit' 
+            onClick={handleLanjut} 
+            className='btn btn-outline-primary'
+          >
+            lanjut
+          </button>
+        </Col>
+        <Col className='d-grid gap-2 p-1'>
+          <button 
+            type='submit' 
+            value='Submit' 
             onClick={handleYa} 
             className='btn btn-outline-primary'
           >
@@ -100,13 +112,14 @@ export default function ChatbotDashboard({
         </Col>
       </Row>
       <Row>
-        {/*
         <div className='my-1 mx-2'>[ i ][ j ] : [{i}][{j}]</div>
+        <div className='my-1 mx-2'>replyBefore : {replyBefore}</div>
+        <div className='my-1 mx-2'>ruleBaseBefore : {ruleBaseBefore}</div>
+        {/*      
         <div className='my-1 mx-2'>Tulisan di bawah ini untuk mengetahui sistem chat berjalan</div>
         <div className='my-1 mx-2'>ruleBaseNow : {ruleBaseNow}</div>
         <div className='my-1 mx-2'>ruleBase[ i ].Length : {ruleBaseILength}</div>
         <div className='my-1 mx-2'>ruleBase.length : {ruleBaseLength}</div>
-        <div className='my-1 mx-2'>replyBefore : {replyBefore}</div>
         <div className='my-1 mx-2'>replyNow : {replyNow}</div>
         <div className='my-1 mx-2'>nextReply : {nextReply}</div>
         <div className='my-1 mx-2'>lastValue : {lastValue}</div>

@@ -1,4 +1,4 @@
-export default function AddChatWhenBrowserReload(text) {
+export default function AddChat2(text) {
       const messagesContainer = document.getElementById('messages')
       // create div element for bot reply
       const botDiv = document.createElement('div')

@@ -1,5 +1,5 @@
 import ChatbotNavbar from '../components/ChatbotNavbar';
-import InferenceMachine from '../components/InferenceMachine';
+import InferenceMachine from '../components/InferenceMachine2';
 
 export default function ChatbotDashboard() {
   return (
