@@ -321,14 +321,14 @@ export default function InferenceMachine () {
                 setDiagnoseResult(reply); setI(i); setJ(j);
                 setRuleBaseBefore(ruleBase[i][j+1]); setReplyBefore('');
                 // set screening result on local storage
-                (localStorage.setItem('screening_result', lastValue[lastValue.length-1]));
+                localStorage.setItem('screening_result', lastValue[lastValue.length-1]);
               }
               else {
                 reply = `Melalui skrining dicurigai kamu mengalami <strong>${totalGejala[totalGejala.length-1]} gejala</strong> dari penyakit mata <strong>${lastValue[lastValue.length-1]}</strong>. 
                 Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                 setDiagnoseResult(reply); setI(i); setJ(j); setReplyBefore('');
                 // set screening result on local storage
-                (localStorage.setItem('screening_result', lastValue[lastValue.length-1]));
+                localStorage.setItem('screening_result', lastValue[lastValue.length-1]);
               }
             }
           }
@@ -444,7 +444,7 @@ export default function InferenceMachine () {
                     Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                     setDiagnoseResult(reply);
                     // set screening result on local storage
-                    (localStorage.setItem('screening_result', LastValueSpecialCase));
+                    localStorage.setItem('screening_result', LastValueSpecialCase);
                   }
                   // if ruleBase[i+1][j] is not the last value of ruleBase[i]
                   if (arr[findIndexInArray+1] !== undefined && arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
@@ -494,7 +494,7 @@ export default function InferenceMachine () {
                     Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                     setDiagnoseResult(reply);
                     // set screening result on local storage
-                    (localStorage.setItem('screening_result', LastValueSpecialCase));
+                    localStorage.setItem('screening_result', LastValueSpecialCase);
                   }
                   // if ruleBase[i+1][j] is not the last value of ruleBase[i]
                   if (arr[findIndexInArray+1] !== undefined && arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
@@ -548,7 +548,7 @@ export default function InferenceMachine () {
                     Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                     setDiagnoseResult(reply);
                     // set screening result on local storage
-                    (localStorage.setItem('screening_result', LastValueSpecialCase));
+                    localStorage.setItem('screening_result', LastValueSpecialCase);
                   }
                   // if ruleBase[i+1][j] is not the last value of ruleBase[i]
                   if (arr[findIndexInArray+1] !== undefined && arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
@@ -605,7 +605,7 @@ export default function InferenceMachine () {
                     Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                     setDiagnoseResult(reply);
                     // set screening result on local storage
-                    (localStorage.setItem('screening_result', LastValueSpecialCase));
+                    localStorage.setItem('screening_result', LastValueSpecialCase);
                   }
                   // if ruleBase[i+1][j] is not the last value of ruleBase[i]
                   if (arr[findIndexInArray+1] !== undefined && arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
@@ -665,7 +665,7 @@ export default function InferenceMachine () {
                     Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                     setDiagnoseResult(reply);
                     // set screening result on local storage
-                    (localStorage.setItem('screening_result', LastValueSpecialCase));
+                    localStorage.setItem('screening_result', LastValueSpecialCase);
                   }
                   // if ruleBase[i+1][j] is not the last value of ruleBase[i]
                   if (arr[findIndexInArray+1] !== undefined && arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
@@ -713,7 +713,7 @@ export default function InferenceMachine () {
                   Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                   setDiagnoseResult(reply);
                   // set screening result on local storage
-                  (localStorage.setItem('screening_result', LastValueSpecialCase));
+                  localStorage.setItem('screening_result', LastValueSpecialCase);
                 }
                 // if ruleBase[i+1][j] is not the last value of ruleBase[i]
                 if (arr[findIndexInArray+1] !== undefined && arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
