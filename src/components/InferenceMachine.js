@@ -105,7 +105,7 @@ const ruleBase = [
   [''],
   // Algorithm for Red Eyes 
   // consist of 7 + 5 + 1 + 6 = 19 diseases
-  [s[0],s[1],s[3],'Endoftalmitis, Keraritis, Panofthalmitis,'],
+  [s[0],s[1],s[3],'Endoftalmitis, Keraritis, Panofthalmitis, Thombosis Sinus Cavernosus, Uvetis Akut atau Glaukoma Sekunder/Akut'],
   [s[0],s[1],s[4],'Anda mengalami gejala mata merah dan penglihatan menurun secara tidak akut. Belum bisa ditentukan penyakit mata anda'],
   [s[0],s[2],s[6],'Episkelritis, Hordeolum, Keratokonjungtivitis Flikte Nularis, Konjungtivitis Akut atau Oinguekulitis'],
   [s[0],s[2],s[7],s[8],'Perdarahan Subkonjungtiva'],
@@ -117,7 +117,7 @@ const ruleBase = [
   [s[1],s[5],s[11],'Sikatrik Kornea, Kelainan Refraksi, Katarak, Uveitis Posterior, Glaukoma Sudut Terbuka Primer, Retinopati Diabetika & Hipertensi, Penyakit Macula, Papil Udema, Amblyopia, Neuropati Optik atau Retinisi Pigmentosa'],
   ['end of first screening'],
   // 16 specific eye disease out of 41 diseases
-  // index = [10][0] -/ 2 diseases - Algorithm for 'Endoftalmitis, Keraritis, Panofthalmitis, Thombosis Sinus Cavernosus, Uveitis Akut atau Glaukoma Sekunder/Akut yang perlu pemeriksaan fisik lebih lanjut untuk mengetahui tekanan mata'
+  // index = [10][0] -/ 2 diseases - Algorithm for 'Endoftalmitis, Keraritis, Panofthalmitis, Thombosis Sinus Cavernosus, Uvetis Akut atau Glaukoma Sekunder/Akut' yang perlu pemeriksaan fisik lebih lanjut untuk mengetahui tekanan mata'
   [s[6],g[1],g[12],g[25],g[26],'Keratitis Pungtata Superfisialis'],
   [g[1],s[6],g[12],g[25],g[26],'Keratitis Pungtata Superfisialis'],
   [s[6],g[59],'Endoftalmitis (Infecius atau Non-Infecius)'],
@@ -244,7 +244,7 @@ export default function InferenceMachine () {
         // re-empty
         setReplyNow(''); setLastValue([]); setAllYesReply([]); 
         setTotalGejala([]); setReplyBefore('lanjut');
-        if (ruleBaseBefore === 'Endoftalmitis, Keraritis, Panofthalmitis,') {
+        if (ruleBaseBefore === 'Endoftalmitis, Keraritis, Panofthalmitis, Thombosis Sinus Cavernosus, Uvetis Akut atau Glaukoma Sekunder/Akut') {
           reply = ruleBase[10][0]; setI(10); setJ(0);
           setDiagnoseResult('');
         }
@@ -307,7 +307,7 @@ export default function InferenceMachine () {
             else if (ruleBase[i][j+1] === ruleBase[i][ruleBase[i].length - 1]) {
               if (
                 ruleBase[i][j+1] === 'Glaukoma Sekunder atau Akut' ||
-                ruleBase[i][j+1] === 'Endoftalmitis, Keraritis, Panofthalmitis,' ||
+                ruleBase[i][j+1] === 'Endoftalmitis, Keraritis, Panofthalmitis, Thombosis Sinus Cavernosus, Uvetis Akut atau Glaukoma Sekunder/Akut' ||
                 ruleBase[i][j+1] === 'Anda mengalami gejala mata merah dan penglihatan menurun' ||
                 ruleBase[i][j+1] === 'Episkelritis, Hordeolum, Keratokonjungtivitis Flikte Nularis, Konjungtivitis Akut atau Oinguekulitis' ||
                 ruleBase[i][j+1] === 'Perdarahan Subkonjungtiva' ||
