@@ -112,10 +112,10 @@ export default function ChatbotDashboard({
         </Col>
       </Row>
       <Row>
+        {/*
         <div className='my-1 mx-2'>[ i ][ j ] : [{i}][{j}]</div>
         <div className='my-1 mx-2'>replyBefore : {replyBefore}</div>
         <div className='my-1 mx-2'>ruleBaseBefore : {ruleBaseBefore}</div>
-        {/*      
         <div className='my-1 mx-2'>Tulisan di bawah ini untuk mengetahui sistem chat berjalan</div>
         <div className='my-1 mx-2'>ruleBaseNow : {ruleBaseNow}</div>
         <div className='my-1 mx-2'>ruleBase[ i ].Length : {ruleBaseILength}</div>
