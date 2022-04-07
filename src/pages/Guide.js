@@ -1,11 +1,10 @@
 import {Accordion} from 'react-bootstrap';
 import AccordionBootstrap from '../components/AccordionBootstrap';
 import ChatbotNavbar from '../components/ChatbotNavbar';
-import Footer from '../components/Footer-2';
 
 export default function Guide () {
   return(
-    <div className='bg-sky-100 m-0 pt-16'>
+    <div className='bg-sky-100 h-screen m-0 pt-16'>
       <ChatbotNavbar/>
 
       <main
@@ -91,8 +90,6 @@ export default function Guide () {
           />
         </Accordion>
       </main>
-
-      <Footer/>
     </div>
   )
 };

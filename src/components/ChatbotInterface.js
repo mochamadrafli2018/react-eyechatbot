@@ -2,14 +2,17 @@ import {useEffect, useRef} from 'react';
 import {Col,Row} from 'react-bootstrap';
 
 export default function ChatbotDashboard({
-    input,
+    input, 
+    inputNow,
+    inputBefore,
     i, j,
     replyBefore, 
     ruleBaseBefore,
     replyNow, 
     nextReply, 
     allYesReply, 
-    lastValue, 
+    lastValue,
+    lastValueSpecialCase,
     ruleBaseNow, 
     ruleBaseILength, 
     ruleBaseLength, 
@@ -114,7 +117,10 @@ export default function ChatbotDashboard({
       <Row>
         {/*
         <div className='my-1 mx-2'>[ i ][ j ] : [{i}][{j}]</div>
-        <div className='my-1 mx-2'>replyBefore : {replyBefore}</div>
+        <div className='my-1 mx-2'>lastValue : {lastValue}</div>
+        <div className='my-1 mx-2'>lastValueSpecialCase : {lastValueSpecialCase}</div>
+        <div className='my-1 mx-2'>input now : {inputNow}</div>
+        <div className='my-1 mx-2'>input before : {inputBefore}</div>
         <div className='my-1 mx-2'>ruleBaseBefore : {ruleBaseBefore}</div>
         <div className='my-1 mx-2'>Tulisan di bawah ini untuk mengetahui sistem chat berjalan</div>
         <div className='my-1 mx-2'>ruleBaseNow : {ruleBaseNow}</div>
@@ -122,7 +128,6 @@ export default function ChatbotDashboard({
         <div className='my-1 mx-2'>ruleBase.length : {ruleBaseLength}</div>
         <div className='my-1 mx-2'>replyNow : {replyNow}</div>
         <div className='my-1 mx-2'>nextReply : {nextReply}</div>
-        <div className='my-1 mx-2'>lastValue : {lastValue}</div>
         <div className='my-1 mx-2'>all yes reply : {allYesReply}</div>
         */}
       </Row>
