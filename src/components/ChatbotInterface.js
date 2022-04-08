@@ -2,7 +2,7 @@ import {useEffect, useRef} from 'react';
 import {Col,Row} from 'react-bootstrap';
 
 export default function ChatbotDashboard({
-    input, 
+    input, right,
     inputNow,
     inputBefore,
     i, j,
@@ -14,6 +14,7 @@ export default function ChatbotDashboard({
     allYesReply, 
     lastValue,
     lastValueSpecialCase,
+    totalGejala,
     ruleBaseNow, 
     ruleBaseILength, 
     ruleBaseLength, 
@@ -118,9 +119,11 @@ export default function ChatbotDashboard({
       <Row>
         {/*
         <div className='my-1 mx-2'>[ i ][ j ] : [{i}][{j}]</div>
-        <div className='my-1 mx-2'>arrayPlusOne : {arrayPlusOne}</div>
+        <div className='my-1 mx-2'>right : {right}</div>
         <div className='my-1 mx-2'>lastValue : {lastValue}</div>
         <div className='my-1 mx-2'>lastValueSpecialCase : {lastValueSpecialCase}</div>
+        <div className='my-1 mx-2'>arrayPlusOne : {arrayPlusOne}</div>
+        <div className='my-1 mx-2'>totalGejala : {totalGejala}</div>
         <div className='my-1 mx-2'>input now : {inputNow}</div>
         <div className='my-1 mx-2'>input before : {inputBefore}</div>
         <div className='my-1 mx-2'>ruleBaseBefore : {ruleBaseBefore}</div>
