@@ -119,8 +119,8 @@ const ruleBase = [
   // 16 specific eye disease out of 41 diseases
   // index = [10][0] -/ 2 diseases - Algorithm for 'Endoftalmitis, Keraritis, Panofthalmitis, Thombosis Sinus Cavernosus, Uvetis Akut atau Glaukoma Sekunder/Akut' yang perlu pemeriksaan fisik lebih lanjut untuk mengetahui tekanan mata'
   [s[6],g[1],g[12],g[25],g[26],'Keratitis Pungtata Superfisialis'],
-  [g[1],s[6],g[12],g[25],g[26],'Keratitis Pungtata Superfisialis'],
   [s[6],g[59],'Endoftalmitis (Infecius atau Non-Infecius)'],
+  [g[1],s[6],g[12],g[25],g[26],'Keratitis Pungtata Superfisialis'],
   [g[1],g[12],g[49],g[56],g[57],'Uveitis (akut atau posterior)'],
   [g[12],s[6],g[1],g[25],g[26],'Keratitis Pungtata Superfisialis'],
   [g[12],g[1],g[49],g[56],g[57],'Uveitis (akut atau posterior)'],
@@ -135,19 +135,19 @@ const ruleBase = [
   [g[57],g[1],g[12],g[49],g[56],'Uveitis (akut atau posterior)'],
   [g[59],s[6],'Endoftalmitis (Infecius atau Non-Infecius)'],
   ['end of second screening'],
-  // index = [25][0] - 3 diseases - Algorithm for 'Episkelritis, Hordeolum, Keratokonjungtivitis Flikte Nularis, Konjungtivitis Akut atau Oinguekulitis'
+  // index = [27][0] - 3 diseases - Algorithm for 'Episkelritis, Hordeolum, Keratokonjungtivitis Flikte Nularis, Konjungtivitis Akut atau Oinguekulitis'
   [g[1],g[12],g[25],g[58],'Konjungtivitis'],
   [g[1],g[9],g[12],g[25],'Hordeolum'],
+  [g[1],g[59],'Episkelritis (Nodular atau Diffuse)'],
   [g[9],g[1],g[12],g[25],'Hordeolum'],
   [g[12],g[1],g[25],g[58],'Konjungtivitis'],
   [g[12],g[1],g[9],g[25],'Hordeolum'],
   [g[25],g[1],g[9],g[12],'Hordeolum'],
   [g[25],g[1],g[12],g[58],'Konjungtivitis'],
   [g[58],g[1],g[12],g[25],'Konjungtivitis'],
-  [g[1],g[59],'Episkelritis (Nodular atau Diffuse)'],
   [g[59],g[1],'Episcleritis (Nodular atau Diffuse)'],
   ['end of second screening'],
-  // index = [34][0] - 2 Diseases - Algortihm for 'Alergi, Blefaritis, Hemangioma, Iritasi, Gangguan Pembuluh Darah atau Konjungtivitis Kronis'
+  // index = [38][0] - 2 Diseases - Algortihm for 'Alergi, Blefaritis, Hemangioma, Iritasi, Gangguan Pembuluh Darah atau Konjungtivitis Kronis'
   [g[1],g[3],g[7],g[8],g[10],g[25],'Blefaritis'],
   [g[3],g[1],g[7],g[8],g[10],g[25],'Blefaritis'],
   [g[7],g[1],g[3],g[8],g[10],g[25],'Blefaritis'],
@@ -158,25 +158,25 @@ const ruleBase = [
   [g[25],g[10],g[27],g[28],'Konjungtivitis Alergi'],
   [g[27],g[10],g[25],g[28],'Konjungtivitis Alergi'],
   [g[28],g[10],g[25],g[27],'Konjungtivitis Alergi'],
-  ['end of second screening','end of first screening','end of first screening','end of first screening'],
-  // index = [46][0] - 2 Diseases - Algorithm for 'Abalsi Retina, Perdarahan Vitreus, Neuritis Optik, Kelainan Vaskular Retina, Hifema Spontan, Keracunan Metanol, Stroke Oksipitalis atau Malingering dan Histeria'
+  ['end of second screening'],
+  // index = [49][0] - 2 Diseases - Algorithm for 'Abalsi Retina, Perdarahan Vitreus, Neuritis Optik, Kelainan Vaskular Retina, Hifema Spontan, Keracunan Metanol, Stroke Oksipitalis atau Malingering dan Histeria'
   [g[17],g[46],'Abalsi Retina'],
-  [g[46],g[17],'Abalsi Retina'],
   [g[35],g[36],'Optic Neuritis (Papillitis, Retrobulbar neuritis atau Neuroretinitis)'],
   [g[36],g[35],'Optic Neuritis (Papillitis, Retrobulbar neuritis atau Neuroretinitis)'],
+  [g[46],g[17],'Abalsi Retina'],
   ['end of second screening'],
-  // index = [51][0] - 4 diseases - Algortihm for 'Sikatrik Kornea, Kelainan Refraksi, Katarak, Uveitis Posterior, Glaukoma Sudut Terbuka Primer, Retinopati Diabetika & Hipertensi, Penyakit Macula, Papil Udema, Amblyopia, Neuropati Optik atau Retinisi Pigmentosa'
+  // index = [54][0] - 4 diseases - Algortihm for 'Sikatrik Kornea, Kelainan Refraksi, Katarak, Uveitis Posterior, Glaukoma Sudut Terbuka Primer, Retinopati Diabetika & Hipertensi, Penyakit Macula, Papil Udema, Amblyopia, Neuropati Optik atau Retinisi Pigmentosa'
   [s[6],g[1],g[19],g[20],g[60],g[62],'Katarak'],
   [g[1],s[6],g[19],g[20],g[60],g[62],'Katarak'],
-  [g[19],s[6],g[1],g[20],g[60],g[62],'Katarak'],
-  [g[20],s[6],g[1],g[19],g[60],g[62],'Katarak'],
-  [g[60],s[6],g[1],g[19],g[20],g[62],'Katarak'],
-  [g[62],s[6],g[1],g[19],g[20],g[60],'Katarak'],
-  [g[19],'Retinitis Pigmentosa'],
+  [s[7],g[44],g[45],'Degenerasi Macula'],  
   [g[17],'Retinopati Diabetika'],
-  [s[7],g[44],g[45],'Degenerasi Macula'],
+  [g[19],s[6],g[1],g[20],g[60],g[62],'Katarak'], // error
+  [g[19],'Retinitis Pigmentosa'],
+  [g[20],s[6],g[1],g[19],g[60],g[62],'Katarak'],
   [g[44],s[7],g[45],'Degenerasi Macula'],
   [g[45],s[7],g[44],'Degenerasi Macula'],
+  [g[60],s[6],g[1],g[19],g[20],g[62],'Katarak'],
+  [g[62],s[6],g[1],g[19],g[20],g[60],'Katarak'],
   ['end of second screening'],
 ];
 
@@ -223,10 +223,12 @@ export default function InferenceMachine () {
   // initialize state for screening system
   let [i,setI] = useState(0);
   let [j,setJ] = useState(0);
+  let [arrayPlusOne, setArrayPlusOne] = useState('');
   let [inputNow, setinputNow] = useState('');
   let [inputBefore, setinputBefore] = useState('');
   let [replyNow, setReplyNow] = useState('');
   let [replyBefore, setReplyBefore] = useState('');
+  let [nextReply, setNextReply] = useState('');
   let [allYesReply, setAllYesReply] = useState([]);
   let [lastValue, setLastValue] = useState([]);
   let [lastValueSpecialCase, setlastValueSpecialCase] = useState([]);
@@ -238,14 +240,15 @@ export default function InferenceMachine () {
     let reply;
     if (input === 'mulai' || input === 'tes'|| input === 'test'  || input === 'skrining') {
       // re-empty
+      setArrayPlusOne('');
       setDiagnoseResult('');setReplyNow(''); setLastValue([]); 
       setAllYesReply([]); setTotalGejala([]); setRuleBaseBefore('');
       setReplyBefore(input);
       // reply
-      reply = ruleBase[1][0]; 
-      setI(1); setJ(0);
+      reply = ruleBase[1][0]; setI(1); setJ(0);
     }
     else if (input === 'lanjut') {
+      setArrayPlusOne('')
       if (replyBefore === 'mulai' || replyBefore === 'tes'|| replyBefore === 'test'  || replyBefore === 'skrining') {
         reply = 'Jawab <strong>ya/tidak</strong> terlebih dahulu.'
       }
@@ -261,7 +264,7 @@ export default function InferenceMachine () {
           reply = diagnoseResult;
         }
         if (ruleBaseBefore === 'Episkelritis, Hordeolum, Keratokonjungtivitis Flikte Nularis, Konjungtivitis Akut atau Oinguekulitis') {
-          reply = ruleBase[25][0]; setI(25); setJ(0); 
+          reply = ruleBase[27][0]; setI(27); setJ(0); 
           setDiagnoseResult('');
         }
         if (ruleBaseBefore === 'Perdarahan Subkonjungtiva') {
@@ -269,11 +272,11 @@ export default function InferenceMachine () {
           setDiagnoseResult(reply);
         }
         if (ruleBaseBefore === 'Alergi, Blefaritis, Hemangioma, Iritasi, Gangguan Pembuluh Darah atau Konjungtivitis Kronis') {
-          reply = ruleBase[34][0]; setI(34); setJ(0); 
+          reply = ruleBase[38][0]; setI(38); setJ(0); 
           setDiagnoseResult('');
         }
         if (ruleBaseBefore === 'Abalsi Retina, Perdarahan Vitreus, Neuritis Optik, Kelainan Vaskular Retina, Hifema Spontan, Keracunan Metanol, Stroke Oksipitalis atau Malingering dan Histeria') {
-          reply = ruleBase[46][0]; setI(46); setJ(0); 
+          reply = ruleBase[49][0]; setI(49); setJ(0); 
           setDiagnoseResult('');
         }
         if (ruleBaseBefore === 'Tumor, Strabismus atau Ophthalmopathy Thyroid') {
@@ -281,8 +284,8 @@ export default function InferenceMachine () {
           setDiagnoseResult(reply);
         }
         if (ruleBaseBefore === 'Sikatrik Kornea, Kelainan Refraksi, Katarak, Uveitis Posterior, Glaukoma Sudut Terbuka Primer, Retinopati Diabetika & Hipertensi, Penyakit Macula, Papil Udema, Amblyopia, Neuropati Optik atau Retinisi Pigmentosa') {
-          reply = ruleBase[51][0]; setI(51); setJ(0); 
-          setDiagnoseResult(reply);
+          reply = ruleBase[54][0]; setI(54); setJ(0); 
+          setDiagnoseResult('');
         }
       }
     }
@@ -299,6 +302,7 @@ export default function InferenceMachine () {
         ) {
           // the current value is ruleBase[i][j]
           if (input === 'y' || input === 'ya') {
+            setNextReply(ruleBase[i][j+1]);
             // save all yes reply before the last value in [i] array
             setAllYesReply([...allYesReply, ruleBase[i][j]]);
             // make sure there is no same value in array
@@ -316,7 +320,6 @@ export default function InferenceMachine () {
             else if (ruleBase[i][j+1] === ruleBase[i][ruleBase[i].length - 1]) {
               if (inputNow !== 'tidak') {
                 if (
-                  ruleBase[i][j+1] === 'Glaukoma Sekunder atau Akut' ||
                   ruleBase[i][j+1] === 'Endoftalmitis, Keraritis, Panofthalmitis, Thombosis Sinus Cavernosus, Uvetis Akut atau Glaukoma Sekunder/Akut' ||
                   ruleBase[i][j+1] === 'Episkelritis, Hordeolum, Keratokonjungtivitis Flikte Nularis, Konjungtivitis Akut atau Oinguekulitis' ||
                   ruleBase[i][j+1] === 'Perdarahan Subkonjungtiva' ||
@@ -341,7 +344,16 @@ export default function InferenceMachine () {
                   // set screening result on local storage
                   localStorage.setItem('screening_result', lastValue[lastValue.length-1]);
                 }
-                else {
+                if (
+                  ruleBase[i][j+1] !== 'Endoftalmitis, Keraritis, Panofthalmitis, Thombosis Sinus Cavernosus, Uvetis Akut atau Glaukoma Sekunder/Akut' &&
+                  ruleBase[i][j+1] !== 'Episkelritis, Hordeolum, Keratokonjungtivitis Flikte Nularis, Konjungtivitis Akut atau Oinguekulitis' &&
+                  ruleBase[i][j+1] !== 'Perdarahan Subkonjungtiva' &&
+                  ruleBase[i][j+1] !== 'Alergi, Blefaritis, Hemangioma, Iritasi, Gangguan Pembuluh Darah atau Konjungtivitis Kronis' &&
+                  ruleBase[i][j+1] !== 'Abalsi Retina, Perdarahan Vitreus, Neuritis Optik, Kelainan Vaskular Retina, Hifema Spontan, Keracunan Metanol, Stroke Oksipitalis atau Malingering dan Histeria' &&
+                  ruleBase[i][j+1] !== 'Tumor, Strabismus atau Ophthalmopathy Thyroid' &&
+                  ruleBase[i][j+1] !== 'Sikatrik Kornea, Kelainan Refraksi, Katarak, Uveitis Posterior, Glaukoma Sudut Terbuka Primer, Retinopati Diabetika & Hipertensi, Penyakit Macula, Papil Udema, Amblyopia, Neuropati Optik atau Retinisi Pigmentosa'
+                ) {
+                  // 2nd screening
                   reply = `Melalui skrining dicurigai kamu mengalami <strong>${totalGejala[totalGejala.length-1]} gejala</strong> dari penyakit mata <strong>${lastValue[lastValue.length-1]}</strong>. 
                   Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                   setDiagnoseResult(reply); setI(i); setJ(j); setReplyBefore('');
@@ -351,7 +363,6 @@ export default function InferenceMachine () {
               }
               if (inputNow === 'tidak') {
                 if (
-                  ruleBase[i][j+1] === 'Glaukoma Sekunder atau Akut' ||
                   ruleBase[i][j+1] === 'Endoftalmitis, Keraritis, Panofthalmitis, Thombosis Sinus Cavernosus, Uvetis Akut atau Glaukoma Sekunder/Akut' ||
                   ruleBase[i][j+1] === 'Episkelritis, Hordeolum, Keratokonjungtivitis Flikte Nularis, Konjungtivitis Akut atau Oinguekulitis' ||
                   ruleBase[i][j+1] === 'Perdarahan Subkonjungtiva' ||
@@ -376,7 +387,16 @@ export default function InferenceMachine () {
                   // set screening result on local storage
                   localStorage.setItem('screening_result', lastValueSpecialCase);
                 }
-                else {
+                if (
+                  ruleBase[i][j+1] !== 'Endoftalmitis, Keraritis, Panofthalmitis, Thombosis Sinus Cavernosus, Uvetis Akut atau Glaukoma Sekunder/Akut' &&
+                  ruleBase[i][j+1] !== 'Episkelritis, Hordeolum, Keratokonjungtivitis Flikte Nularis, Konjungtivitis Akut atau Oinguekulitis' &&
+                  ruleBase[i][j+1] !== 'Perdarahan Subkonjungtiva' &&
+                  ruleBase[i][j+1] !== 'Alergi, Blefaritis, Hemangioma, Iritasi, Gangguan Pembuluh Darah atau Konjungtivitis Kronis' &&
+                  ruleBase[i][j+1] !== 'Abalsi Retina, Perdarahan Vitreus, Neuritis Optik, Kelainan Vaskular Retina, Hifema Spontan, Keracunan Metanol, Stroke Oksipitalis atau Malingering dan Histeria' &&
+                  ruleBase[i][j+1] !== 'Tumor, Strabismus atau Ophthalmopathy Thyroid' &&
+                  ruleBase[i][j+1] !== 'Sikatrik Kornea, Kelainan Refraksi, Katarak, Uveitis Posterior, Glaukoma Sudut Terbuka Primer, Retinopati Diabetika & Hipertensi, Penyakit Macula, Papil Udema, Amblyopia, Neuropati Optik atau Retinisi Pigmentosa'
+                ) {
+                  // 2nd screening
                   reply = `Melalui skrining dicurigai kamu mengalami <strong>${totalGejala[totalGejala.length-1]} gejala</strong> dari penyakit mata <strong>${lastValueSpecialCase}</strong>. 
                   Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                   setDiagnoseResult(reply); setI(i); setJ(j); setReplyBefore('');
@@ -392,7 +412,7 @@ export default function InferenceMachine () {
               setlastValueSpecialCase(ruleBase[i+1][ruleBase[i+1].length-1]);
               if (j === 0) {
                 let arr = [''];
-                for (let x = 0; x < ruleBase.length ; x++) {
+                for (let x = i; x < ruleBase.length ; x++) {
                   arr.push(ruleBase[x][0]) // arr = [g[1],g[1],g[1],g[1],g[1],g[1],g[1],g[1],g[2],g[2],g[2],g[2],g[2],g[2],g[2],g[2],...]
                 }
                 // delete same values in array
@@ -405,7 +425,7 @@ export default function InferenceMachine () {
                   Silahkan ulangi skrining dengan tekan atau ketik mulai.`;
                   setDiagnoseResult(reply);
                 }
-                else if (arr[findIndexInArray+1] !== undefined) {
+                if (arr[findIndexInArray+1] !== undefined) {
                   // if user's eyes are not red (normal) and eye vision is normal
                   if (arr[findIndexInArray+1] === 'end of first screening') {
                     reply = `Apa kamu yakin tidak mengalami gejala <b>mata merah</b> atau <b>penglihatan menurun?</b> 
@@ -423,7 +443,7 @@ export default function InferenceMachine () {
                     ) {         
                     reply = arr[findIndexInArray+1]
                     // find reply in ruleBase[i][0]
-                    for (let x = 0; x < ruleBase.length ; x++) {
+                    for (let x = i; x < ruleBase.length ; x++) {
                       if (ruleBase[x][0] === arr[findIndexInArray+1]) {
                         setI(x); setJ(0);
                         break
@@ -433,39 +453,53 @@ export default function InferenceMachine () {
                 }
               }
               else if (j === 1) { 
-                let arr = [''];
-                // push all value in the same j index
-                for (let x = 0; x < ruleBase.length ; x++) {
-                  if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
-                    arr.push(ruleBase[x][j])
-                  }
-                }
-                // delete same values in array
-                arr = [...new Set(arr)]
-                // find value index in array
-                let findIndexInArray = arr.indexOf(ruleBase[i][j])
-                // if ruleBase[i+1][j] is the last value of ruleBase[i], case g[24]
-                if (arr[findIndexInArray+1] !== undefined && arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]) {
-                  reply = `Kamu hanya menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
-                  Belum bisa dipastikan penyakit mata yang tepat hanya dari 1 gejala tersebut. 
-                  Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                  setDiagnoseResult(reply);
-                }
-                // if ruleBase[i+1][ruleBase[i+1].length-1]) is the last value
-                if (arr[findIndexInArray+1] !== undefined && arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
-                  reply = arr[findIndexInArray+1];
-                  for (let x = 0; x < ruleBase.length ; x++) {
+                // check if the value before is same (work)
+                if (
+                  ruleBase[i+1][j-1] !== undefined && 
+                  ruleBase[i][j-1] === ruleBase[i+1][j-1]
+                ) {
+                  let arr = [''];
+                  // push all value in the same j index
+                  for (let x = i; x < ruleBase.length ; x++) {
                     if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
-                      if (ruleBase[x][j] === arr[findIndexInArray+1]) {
-                        setI(x); setJ(j);
-                        break
+                      arr.push(ruleBase[x][j])
+                    }
+                  }
+                  // delete same values in array
+                  arr = [...new Set(arr)]
+                  // find value index in array
+                  let findIndexInArray = arr.indexOf(ruleBase[i][j])
+                  setArrayPlusOne(arr[findIndexInArray+1]);
+                  if (arr[findIndexInArray+1] !== undefined) {
+                    // if ruleBase[i+1][j] is the last value of ruleBase[i]
+                    if (arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]) {
+                      reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
+                      Melalui skrining dicurigai kamu mengalami <strong>${allYesReply.length} gejala</strong> dari penyakit mata bernama <strong>${lastValueSpecialCase}</strong>. 
+                      Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                      setDiagnoseResult(reply);
+                    }
+                    // if ruleBase[i+1][j] is not the last value
+                    if (arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
+                      reply = arr[findIndexInArray+1];
+                      for (let x = i; x < ruleBase.length ; x++) {
+                        if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
+                          if (ruleBase[x][j] === arr[findIndexInArray+1]) {
+                            setI(x); setJ(j);
+                            break
+                          }
+                        }
                       }
                     }
                   }
+                  if (arr[findIndexInArray+1] === undefined) {
+                    reply = `Kamu hanya menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
+                    Belum bisa dipastikan penyakit mata yang tepat hanya dari 1 gejala tersebut. 
+                    Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                    setDiagnoseResult(reply);
+                  }
                 }
-                // case ruleBase[57][1] and rulaBase[110][1]
-                // if i === ruleBase.length, case for g[58], g[14]
-                if (arr[findIndexInArray+1] === undefined) {
+                // if ruleBase[i+1][j-1] === undefined || ruleBase[i][j-1] !== ruleBase[i+1][j-1]
+                else {
                   reply = `Kamu hanya menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
                   Belum bisa dipastikan penyakit mata yang tepat hanya dari 1 gejala tersebut. 
                   Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
@@ -482,7 +516,7 @@ export default function InferenceMachine () {
                 ) {
                   let arr = [''];
                     // push all value in the same j index
-                    for (let x = 0; x < ruleBase.length ; x++) {
+                    for (let x = i; x < ruleBase.length ; x++) {
                       if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
                         arr.push(ruleBase[x][j])
                       }
@@ -491,26 +525,34 @@ export default function InferenceMachine () {
                   arr = [...new Set(arr)]
                   // find value index in array
                   let findIndexInArray = arr.indexOf(ruleBase[i][j])
-                  // if ruleBase[i+1][j] is the last value of ruleBase[i]
-                  if (arr[findIndexInArray+1] !== undefined && arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]){
-                    reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
-                    Melalui skrining dicurigai kamu mengalami <strong>${allYesReply.length} gejala</strong> dari penyakit mata bernama <strong>${lastValueSpecialCase}</strong>. 
-                    Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                    setDiagnoseResult(reply);
-                    // set screening result on local storage
-                    localStorage.setItem('screening_result', lastValueSpecialCase);
-                  }
-                  // if ruleBase[i+1][j] is not the last value of ruleBase[i]
-                  if (arr[findIndexInArray+1] !== undefined && arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
-                    reply = arr[findIndexInArray+1];
-                    for (let x = 0; x < ruleBase.length ; x++) {
-                      if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
-                        if (ruleBase[x][j] === arr[findIndexInArray+1]) {
-                          setI(x); setJ(j);
-                          break
+                  if (arr[findIndexInArray+1] !== undefined) {
+                    // if ruleBase[i+1][j] is the last value of ruleBase[i]
+                    if (arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]) {
+                      reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
+                      Melalui skrining dicurigai kamu mengalami <strong>${allYesReply.length} gejala</strong> dari penyakit mata bernama <strong>${lastValueSpecialCase}</strong>. 
+                      Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                      setDiagnoseResult(reply);
+                      // set screening result on local storage
+                      localStorage.setItem('screening_result', lastValueSpecialCase);
+                    }
+                    // if ruleBase[i+1][j] is not the last value of ruleBase[i]
+                    if (arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
+                      reply = arr[findIndexInArray+1];
+                      for (let x = i; x < ruleBase.length ; x++) {
+                        if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
+                          if (ruleBase[x][j] === arr[findIndexInArray+1]) {
+                            setI(x); setJ(j);
+                            break
+                          }
                         }
                       }
                     }
+                  }
+                  if (arr[findIndexInArray+1] === undefined) {
+                    reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
+                    Belum bisa ditentukan hasil skrining penyakit mata dengan gejala-gejala yang kamu jawab <strong>ya</strong>. 
+                    Silahkan ulangi skrining atau konsultasikan gejala-gejala tersebut dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                    setDiagnoseResult(reply);
                   }
                 }
                 // if ruleBase[i+1][j-1] === undefined || ruleBase[i+1][j-2] === undefined
@@ -532,7 +574,7 @@ export default function InferenceMachine () {
                 ) {
                   let arr = [''];
                   // push all value in the same j index
-                  for (let x = 0; x < ruleBase.length ; x++) {
+                  for (let x = i; x < ruleBase.length ; x++) {
                     if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
                       arr.push(ruleBase[x][j])
                     }
@@ -541,27 +583,35 @@ export default function InferenceMachine () {
                   arr = [...new Set(arr)]
                   // find value index in array
                   let findIndexInArray = arr.indexOf(ruleBase[i][j])
-                  // if ruleBase[i+1][j] is the last value of ruleBase[i]
-                  if (arr[findIndexInArray+1] !== undefined && arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]) {
-                    reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
-                    Melalui skrining dicurigai kamu mengalami <strong>${allYesReply.length} gejala</strong> dari penyakit mata bernama <strong>${lastValueSpecialCase}</strong>. 
-                    Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                    setDiagnoseResult(reply);
-                    // set screening result on local storage
-                    localStorage.setItem('screening_result', lastValueSpecialCase);
-                  }
-                  // if ruleBase[i+1][j] is not the last value of ruleBase[i]
-                  if (arr[findIndexInArray+1] !== undefined && arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
-                    reply = arr[findIndexInArray+1];
-                    for (let x = 0; x < ruleBase.length ; x++) {
-                      if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
-                        if (ruleBase[x][j] === arr[findIndexInArray+1]) {
-                          setI(x); setJ(j);
-                          break
+                  if (arr[findIndexInArray+1] !== undefined) {
+                    // if ruleBase[i+1][j] is the last value of ruleBase[i]
+                    if (arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]) {
+                      reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
+                      Melalui skrining dicurigai kamu mengalami <strong>${allYesReply.length} gejala</strong> dari penyakit mata bernama <strong>${lastValueSpecialCase}</strong>. 
+                      Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                      setDiagnoseResult(reply);
+                      // set screening result on local storage
+                      localStorage.setItem('screening_result', lastValueSpecialCase);
+                    }
+                    // if ruleBase[i+1][j] is not the last value of ruleBase[i]
+                    if (arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
+                      reply = arr[findIndexInArray+1];
+                      for (let x = i; x < ruleBase.length ; x++) {
+                        if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
+                          if (ruleBase[x][j] === arr[findIndexInArray+1]) {
+                            setI(x); setJ(j);
+                            break
+                          }
                         }
                       }
                     }
                   }
+                  if (arr[findIndexInArray+1] === undefined) {
+                    reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
+                    Belum bisa ditentukan hasil skrining penyakit mata dengan gejala-gejala yang kamu jawab <strong>ya</strong>. 
+                    Silahkan ulangi skrining atau konsultasikan gejala-gejala tersebut dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                    setDiagnoseResult(reply);
+                  } 
                 }
                 // if ruleBase[i+1][j-1] === undefined || 
                 // ruleBase[i+1][j-2] === undefined ||
@@ -583,10 +633,10 @@ export default function InferenceMachine () {
                   ruleBase[i][j-2] === ruleBase[i+1][j-2] && 
                   ruleBase[i][j-3] === ruleBase[i+1][j-3] &&
                   ruleBase[i][j-4] === ruleBase[i+1][j-4]
-                  ) {
+                ) {
                   let arr = [''];
                   // push all value in the same j index
-                  for (let x = 0; x < ruleBase.length ; x++) {
+                  for (let x = i; x < ruleBase.length ; x++) {
                     if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
                       arr.push(ruleBase[x][j])
                     }
@@ -595,26 +645,34 @@ export default function InferenceMachine () {
                   arr = [...new Set(arr)]
                   // find value index in array
                   let findIndexInArray = arr.indexOf(ruleBase[i][j])
-                  // if ruleBase[i+1][j] is the last value of ruleBase[i]
-                  if (arr[findIndexInArray+1] !== undefined && arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]){
-                    reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
-                    Melalui skrining dicurigai kamu mengalami <strong>${allYesReply.length} gejala</strong> dari penyakit mata bernama <strong>${lastValueSpecialCase}</strong>. 
-                    Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                    setDiagnoseResult(reply);
-                    // set screening result on local storage
-                    localStorage.setItem('screening_result', lastValueSpecialCase);
-                  }
-                  // if ruleBase[i+1][j] is not the last value of ruleBase[i]
-                  if (arr[findIndexInArray+1] !== undefined && arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
-                    reply = arr[findIndexInArray+1];
-                    for (let x = 0; x < ruleBase.length ; x++) {
-                      if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
-                        if (ruleBase[x][j] === arr[findIndexInArray+1]) {
-                          setI(x); setJ(j);
-                          break
+                  if (arr[findIndexInArray+1] !== undefined) {
+                    // if ruleBase[i+1][j] is the last value of ruleBase[i]
+                    if (arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]) {
+                      reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
+                      Melalui skrining dicurigai kamu mengalami <strong>${allYesReply.length} gejala</strong> dari penyakit mata bernama <strong>${lastValueSpecialCase}</strong>. 
+                      Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                      setDiagnoseResult(reply);
+                      // set screening result on local storage
+                      localStorage.setItem('screening_result', lastValueSpecialCase);
+                    }
+                    // if ruleBase[i+1][j] is not the last value of ruleBase[i]
+                    if (arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
+                      reply = arr[findIndexInArray+1];
+                      for (let x = i; x < ruleBase.length ; x++) {
+                        if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
+                          if (ruleBase[x][j] === arr[findIndexInArray+1]) {
+                            setI(x); setJ(j);
+                            break
+                          }
                         }
                       }
                     }
+                  }
+                  if (arr[findIndexInArray+1] === undefined) {
+                    reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
+                    Belum bisa ditentukan hasil skrining penyakit mata dengan gejala-gejala yang kamu jawab <strong>ya</strong>. 
+                    Silahkan ulangi skrining atau konsultasikan gejala-gejala tersebut dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                    setDiagnoseResult(reply);
                   }
                 }
                 // if ruleBase[i+1][j-1] === undefined || 
@@ -640,10 +698,10 @@ export default function InferenceMachine () {
                   ruleBase[i][j-3] === ruleBase[i+1][j-3] &&
                   ruleBase[i][j-4] === ruleBase[i+1][j-4] &&
                   ruleBase[i][j-5] === ruleBase[i+1][j-5]
-                  ) {
+                ) {
                   let arr = [''];
                   // push all value in the same j index
-                  for (let x = 0; x < ruleBase.length ; x++) {
+                  for (let x = i; x < ruleBase.length ; x++) {
                     if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
                       arr.push(ruleBase[x][j])
                     }
@@ -652,26 +710,34 @@ export default function InferenceMachine () {
                   arr = [...new Set(arr)]
                   // find value index in array
                   let findIndexInArray = arr.indexOf(ruleBase[i][j])
-                  // if ruleBase[i+1][j] is the last value of ruleBase[i]
-                  if (arr[findIndexInArray+1] !== undefined && arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]){
-                    reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
-                    Melalui skrining dicurigai kamu mengalami <strong>${allYesReply.length} gejala</strong> dari penyakit mata bernama <strong>${lastValueSpecialCase}</strong>. 
-                    Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                    setDiagnoseResult(reply);
-                    // set screening result on local storage
-                    localStorage.setItem('screening_result', lastValueSpecialCase);
-                  }
-                  // if ruleBase[i+1][j] is not the last value of ruleBase[i]
-                  if (arr[findIndexInArray+1] !== undefined && arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
-                    reply = arr[findIndexInArray+1];
-                    for (let x = 0; x < ruleBase.length ; x++) {
-                      if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
-                        if (ruleBase[x][j] === arr[findIndexInArray+1]) {
-                          setI(x); setJ(j);
-                          break
+                  if (arr[findIndexInArray+1] !== undefined) {
+                    // if ruleBase[i+1][j] is the last value of ruleBase[i]
+                    if (arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]){
+                      reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
+                      Melalui skrining dicurigai kamu mengalami <strong>${allYesReply.length} gejala</strong> dari penyakit mata bernama <strong>${lastValueSpecialCase}</strong>. 
+                      Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                      setDiagnoseResult(reply);
+                      // set screening result on local storage
+                      localStorage.setItem('screening_result', lastValueSpecialCase);
+                    }
+                    // if ruleBase[i+1][j] is not the last value of ruleBase[i]
+                    if (arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
+                      reply = arr[findIndexInArray+1];
+                      for (let x = i; x < ruleBase.length ; x++) {
+                        if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
+                          if (ruleBase[x][j] === arr[findIndexInArray+1]) {
+                            setI(x); setJ(j);
+                            break
+                          }
                         }
                       }
                     }
+                  }
+                  if (arr[findIndexInArray+1] === undefined) {
+                    reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
+                    Belum bisa ditentukan hasil skrining penyakit mata dengan gejala-gejala yang kamu jawab <strong>ya</strong>. 
+                    Silahkan ulangi skrining atau konsultasikan gejala-gejala tersebut dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                    setDiagnoseResult(reply);
                   }
                 }
                 // if ruleBase[i+1][j-1] === undefined || 
@@ -700,10 +766,10 @@ export default function InferenceMachine () {
                   ruleBase[i][j-4] === ruleBase[i+1][j-4] &&
                   ruleBase[i][j-5] === ruleBase[i+1][j-5] &&
                   ruleBase[i][j-6] === ruleBase[i+1][j-6]
-                  ) {
+                ) {
                   let arr = [''];
                   // push all value in the same j index
-                  for (let x = 0; x < ruleBase.length ; x++) {
+                  for (let x = i; x < ruleBase.length ; x++) {
                     if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
                       arr.push(ruleBase[x][j])
                     }
@@ -712,26 +778,34 @@ export default function InferenceMachine () {
                   arr = [...new Set(arr)]
                   // find value index in array
                   let findIndexInArray = arr.indexOf(ruleBase[i][j])
-                  // if ruleBase[i+1][j] is the last value of ruleBase[i]
-                  if (arr[findIndexInArray+1] !== undefined && arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]){
-                    reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
-                    Melalui skrining dicurigai kamu mengalami <strong>${allYesReply.length} gejala</strong> dari penyakit mata bernama <strong>${lastValueSpecialCase}</strong>. 
-                    Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                    setDiagnoseResult(reply);
-                    // set screening result on local storage
-                    localStorage.setItem('screening_result', lastValueSpecialCase);
-                  }
-                  // if ruleBase[i+1][j] is not the last value of ruleBase[i]
-                  if (arr[findIndexInArray+1] !== undefined && arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
-                    reply = arr[findIndexInArray+1];
-                    for (let x = 0; x < ruleBase.length ; x++) {
-                      if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
-                        if (ruleBase[x][j] === arr[findIndexInArray+1]) {
-                          setI(x); setJ(j);
-                          break
+                  if (arr[findIndexInArray+1] !== undefined) {
+                    // if ruleBase[i+1][j] is the last value of ruleBase[i]
+                    if (arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]){
+                      reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
+                      Melalui skrining dicurigai kamu mengalami <strong>${allYesReply.length} gejala</strong> dari penyakit mata bernama <strong>${lastValueSpecialCase}</strong>. 
+                      Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                      setDiagnoseResult(reply);
+                      // set screening result on local storage
+                      localStorage.setItem('screening_result', lastValueSpecialCase);
+                    }
+                    // if ruleBase[i+1][j] is not the last value of ruleBase[i]
+                    if (arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
+                      reply = arr[findIndexInArray+1];
+                      for (let x = i; x < ruleBase.length ; x++) {
+                        if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
+                          if (ruleBase[x][j] === arr[findIndexInArray+1]) {
+                            setI(x); setJ(j);
+                            break
+                          }
                         }
                       }
                     }
+                  }
+                  if (arr[findIndexInArray+1] === undefined) {
+                    reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
+                    Belum bisa ditentukan hasil skrining penyakit mata dengan gejala-gejala yang kamu jawab <strong>ya</strong>. 
+                    Silahkan ulangi skrining atau konsultasikan gejala-gejala tersebut dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                    setDiagnoseResult(reply);
                   }
                 }
                 // if ruleBase[i+1][j-1] === undefined || 
@@ -751,7 +825,7 @@ export default function InferenceMachine () {
               else {
                 let arr = [''];
                 // push all value in the same j index
-                for (let x = 0; x < ruleBase.length ; x++) {
+                for (let x = i; x < ruleBase.length ; x++) {
                   if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
                     arr.push(ruleBase[x][j])
                   }
@@ -760,23 +834,25 @@ export default function InferenceMachine () {
                 arr = [...new Set(arr)]
                 // find value index in array
                 let findIndexInArray = arr.indexOf(ruleBase[i][j])
-                // if ruleBase[i+1][j] is the last value of ruleBase[i]
-                if (arr[findIndexInArray+1] !== undefined && arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]){
-                  reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
-                  Melalui skrining dicurigai kamu mengalami <strong>${allYesReply.length} gejala</strong> dari penyakit mata bernama <strong>${lastValueSpecialCase}</strong>. 
-                  Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                  setDiagnoseResult(reply);
-                  // set screening result on local storage
-                  localStorage.setItem('screening_result', lastValueSpecialCase);
-                }
-                // if ruleBase[i+1][j] is not the last value of ruleBase[i]
-                if (arr[findIndexInArray+1] !== undefined && arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
-                  reply = arr[findIndexInArray+1];
-                  for (let x = 0; x < ruleBase.length ; x++) {
-                    if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
-                      if (ruleBase[x][j] === arr[findIndexInArray+1]) {
-                        setI(x); setJ(j);
-                        break
+                if (arr[findIndexInArray+1] !== undefined) {
+                  // if ruleBase[i+1][j] is the last value of ruleBase[i]
+                  if (arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]){
+                    reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
+                    Melalui skrining dicurigai kamu mengalami <strong>${allYesReply.length} gejala</strong> dari penyakit mata bernama <strong>${lastValueSpecialCase}</strong>. 
+                    Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
+                    setDiagnoseResult(reply);
+                    // set screening result on local storage
+                    localStorage.setItem('screening_result', lastValueSpecialCase);
+                  }
+                  // if ruleBase[i+1][j] is not the last value of ruleBase[i]
+                  if (arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
+                    reply = arr[findIndexInArray+1];
+                    for (let x = i; x < ruleBase.length ; x++) {
+                      if (ruleBase[x][j-1] === ruleBase[i][j-1]) {
+                        if (ruleBase[x][j] === arr[findIndexInArray+1]) {
+                          setI(x); setJ(j);
+                          break
+                        }
                       }
                     }
                   }
@@ -855,10 +931,12 @@ export default function InferenceMachine () {
       inputBefore = {inputBefore}
       i = {i}
       j = {j}
+      arrayPlusOne = {arrayPlusOne}
       ruleBaseBefore = {ruleBaseBefore}
       ruleBaseILength = {ruleBase[i].length}
       ruleBaseLength = {ruleBase.length}
       replyBefore = {replyBefore}
+      nextReply = {nextReply}
       replyNow = {replyNow}
       allYesReply = {allYesReply}
       lastValue = {lastValue}
