@@ -11,15 +11,15 @@ export default function Guide () {
         className='border-2 border-blue-600 max-w-3xl mx-auto mb-3 p-2 poppins overflow-hidden rounded-lg shadow'
         style={{width:'99%'}}
       >
-        <p className='my-1 font-bold text-black text-xl quicksand'>
-          Panduan Penggunaan Chatbot Sistem Pakar Skrining Penyakit Mata
+        <p className='my-1 px-3 font-bold text-black text-xl quicksand'>
+          Petunjuk dan Catatan Penggunaan Chatbot Sistem Pakar Skrining Penyakit Mata
         </p>
         <hr></hr>
         <Accordion defaultActiveKey='0' className='border-2 my-1 rounded border-blue-600'>
           <AccordionBootstrap 
             eventKey={"0"}
             Title = {(<p className='fw-bold m-0'>Panduan Umum</p>)}
-            Text = {(
+            Content= {(
               <div>
                 <p className='my-1'>
                   <span className='fw-bold text-blue-600'>Ketikkan : </span>
@@ -39,43 +39,50 @@ export default function Guide () {
           />
           <AccordionBootstrap 
             eventKey={"1"}
-            Title = {(<p className='fw-bold m-0'>Daftar Penyakit Mata yang Bisa di Skrining</p>)}
-            Text = {(
+            Title = {(<p className='fw-bold m-0'>Pembimbing dan Validator</p>)}
+            Content= {(
               <div>
-                <p className='my-1'>1.) Ulkus Kornea</p>
-                <p className='my-1'>2.) Keratokonus</p>
-                <p className='my-1'>3.) Kalazion</p>
-                <p className='my-1'>4.) Blefaritis</p>
-                <p className='my-1'>5.) Hordeolum (Stye)</p>
-                <p className='my-1'>6.) Konjungtivitis</p>
-                <p className='my-1'>7.) Trakoma</p>
-                <p className='my-1'>8.) Abalso Retina</p>
-                <p className='my-1'>9.) Retinopati Diabetikum</p>
-                <p className='my-1'>10.) Glaukoma</p>
-                <p className='my-1'>11.) Katarak</p>
-                <p className='my-1'>12.) Uveitis</p>
-                <p className='my-1'>13.) Selulitis Orbitalis</p>
-                <p className='my-1'>14.) Eksoftalmus</p>
-                <p className='my-1'>15.) Keratitis Pungtata Superfisialis</p>
-                <p className='my-1'>16.) Alergi Mata Merah</p>
-                <p className='my-1'>17.) Endoftalmitis</p>
-                <p className='my-1'>18.) Trombosis Sinus Kavernosus</p>
-                <p className='my-1'>19.) Optic Neuritis</p>
-                <p className='my-1'>20.) Dakrioritis</p>
-                <p className='my-1'>21.) Degenerasi Makula</p>
-                <p className='my-1'>22.) Episkleritis</p>
-                <p className='my-1'>23.) Infeksi Herpes Simpleks Kornea</p>
-                <p className='my-1'>24.) Infeksi Herpes Zoster Kornea</p>
-                <p className='my-1'>25.) Keratitis Ulserativa Perifer</p>
-                <p className='my-1'>26.) Degenerasi Makula</p>
-                <p className='my-1'>27.) Skleritis</p>
+                <p className='my-1'>Chatbot sistem pakar ini merupakan riset tugas akhir di bawah bimbingan :</p>
+                <p>1. <span className='fw-bold text-blue-600'>Bapak Ir. Nazrul Effendy, S. T, M. Eng, Ph.D., IPM</span> (Pembimbing Utama)</p>
+                <p>2. <span className='fw-bold text-blue-600'>Bapak Nopriadi, S.T., M.Sc., Ph.D.</span> (Pembimbing Pendamping)</p>
+                <p>3. <span className='fw-bold text-blue-600'>dr. Indra Tri Mahayana, Ph.D., Sp.M</span> (Validator Data Penyakit Mata dan Algoritma Sistem Pakar)</p>
               </div>
             )}
           />
           <AccordionBootstrap 
             eventKey={"2"}
+            Title = {(<p className='fw-bold m-0'>Daftar Penyakit Mata pada Sistem Pakar</p>)}
+            Content= {(
+              <div>
+                {/* Kelompok 1 */}
+                <p>1. <span className='fw-bold text-blue-600 my-1'>Keratitis Pungtata Superfisialis</span></p>
+                <p>2. <span className='fw-bold text-blue-600 my-1'>Endoftalmitis</span></p>
+                <p>3. <span className='fw-bold text-blue-600 my-1'>Uveitis Akut</span></p>
+                <p>4. <span className='fw-bold text-blue-600 my-1'>Thombosis Sinus Cavernosus</span></p>
+                {/* Kelompok 2 */}
+                <p>5. <span className='fw-bold text-blue-600 my-1'>Konjungtivitis</span></p>
+                <p>6. <span className='fw-bold text-blue-600 my-1'>Hordeoulum</span></p>
+                <p>7. <span className='fw-bold text-blue-600 my-1'>Episkleritis</span></p>
+                {/* Kelompok x */}
+                <p>8. <span className='fw-bold text-blue-600 my-1'>Perdarahan Subkonjungtiva</span></p>
+                {/* Kelompok 3 */}
+                <p>9. <span className='fw-bold text-blue-600 my-1'>Blefaritis</span></p>
+                <p>10. <span className='fw-bold text-blue-600 my-1'>Konjungtivitis Alergi</span></p>
+                {/* Kelompok 4 */}
+                <p>11. <span className='fw-bold text-blue-600 my-1'>Abalsi Retina</span></p>
+                <p>12. <span className='fw-bold text-blue-600 my-1'>Neuritis Optik</span></p>
+                {/* Kelompok 5 */}
+                <p>13. <span className='fw-bold text-blue-600 my-1'>Katarak</span></p>
+                <p>14. <span className='fw-bold text-blue-600 my-1'>Retinopati Diabetika</span></p>
+                <p>15. <span className='fw-bold text-blue-600 my-1'>Retinitis Pigmentosa</span></p>
+                <p>16. <span className='fw-bold text-blue-600 my-1'>Degenerasi Macula</span></p>
+              </div>
+            )}
+          />
+          <AccordionBootstrap 
+            eventKey={"4"}
             Title = {(<p className='fw-bold m-0'>Catatan</p>)}
-            Text = {(
+            Content= {(
               <div>
                 <p className='my-1'>
                   Hasil skrining dari sistem pakar ini <span className='fw-bold text-blue-600'>tidak bisa </span>
