@@ -21,10 +21,10 @@ export default function ChatbotDashboard({
     handleChange,
     handleEnter,
     handleSubmit,
-    handleMulai,
-    handleLanjut,
-    handleYa,
-    handleTidak,
+    handleStartScreening,
+    handleNextScreening,
+    handleYes,
+    handleNo,
   }) {
   // create a ref 
   const messageEl = useRef(null);
@@ -79,7 +79,7 @@ export default function ChatbotDashboard({
           <button 
             type='submit' 
             value='Submit' 
-            onClick={handleMulai} 
+            onClick={handleStartScreening} 
             className='btn btn-primary w-100'
           >
             mulai
@@ -89,7 +89,7 @@ export default function ChatbotDashboard({
           <button 
             type='submit' 
             value='Submit' 
-            onClick={handleLanjut} 
+            onClick={handleNextScreening} 
             className='btn btn-outline-primary'
           >
             lanjut
@@ -99,7 +99,7 @@ export default function ChatbotDashboard({
           <button 
             type='submit' 
             value='Submit' 
-            onClick={handleYa} 
+            onClick={handleYes} 
             className='btn btn-outline-primary'
           >
             ya
@@ -109,7 +109,7 @@ export default function ChatbotDashboard({
           <button 
             type='submit' 
             value='Submit' 
-            onClick={handleTidak} 
+            onClick={handleNo} 
             className='btn btn-outline-primary'
           >
             tidak
