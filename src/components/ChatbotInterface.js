@@ -119,12 +119,13 @@ export default function ChatbotDashboard({
       <Row>
         {/*
         <div className='my-1 mx-2'>[ i ][ j ] : [{i}][{j}]</div>
-        <div className='my-1 mx-2'>right : {right}</div>
+        <div className='my-1 mx-2'>input now : {inputNow}</div>
         <div className='my-1 mx-2'>lastValue : {lastValue}</div>
+        <div className='my-1 mx-2'>lastValueSpecialCase : {lastValueSpecialCase}</div>
+        <div className='my-1 mx-2'>right : {right}</div>
         <div className='my-1 mx-2'>lastValueSpecialCase : {lastValueSpecialCase}</div>
         <div className='my-1 mx-2'>arrayPlusOne : {arrayPlusOne}</div>
         <div className='my-1 mx-2'>totalGejala : {totalGejala}</div>
-        <div className='my-1 mx-2'>input now : {inputNow}</div>
         <div className='my-1 mx-2'>input before : {inputBefore}</div>
         <div className='my-1 mx-2'>ruleBaseBefore : {ruleBaseBefore}</div>
         <div className='my-1 mx-2'>nextReply : {nextReply}</div>
