@@ -342,7 +342,7 @@ export default function InferenceMachine () {
                   localStorage.setItem('screening_result', reply);
                 }
                 if (ruleBase[i][j+1] === 'dengan gejala mata merah dan penglihatan menurun tidak akut') {
-                  reply =  `Anda mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
+                  reply =  `Kamu mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
                   Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                   Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                   setDiagnoseResult(reply); setI(i); setJ(j);
@@ -394,7 +394,7 @@ export default function InferenceMachine () {
                   localStorage.setItem('screening_result', reply);
                 }
                 if (ruleBase[i][j+1] === 'dengan gejala mata merah dan penglihatan menurun tidak akut') {
-                  reply =  `Anda mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
+                  reply =  `Kamu mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
                   Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                   Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                   setDiagnoseResult(reply); setI(i); setJ(j);
@@ -498,7 +498,7 @@ export default function InferenceMachine () {
                     // if ruleBase[i+1][j] is the last value of ruleBase[i]
                     if (arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]) {
                       if (arr[findIndexInArray+1] === 'dengan gejala mata merah dan penglihatan menurun tidak akut') {
-                        reply =  `Anda mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
+                        reply =  `Kamu mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
                         Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                         Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                         setDiagnoseResult(reply);
@@ -567,7 +567,7 @@ export default function InferenceMachine () {
                     // if ruleBase[i+1][j] is the last value of ruleBase[i]
                     if (arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]) {
                       if (arr[findIndexInArray+1] === 'dengan gejala mata merah dan penglihatan menurun tidak akut') {
-                        reply =  `Anda mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
+                        reply =  `Kamu mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
                         Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                         Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                         setDiagnoseResult(reply);
@@ -636,7 +636,7 @@ export default function InferenceMachine () {
                     // if ruleBase[i+1][j] is the last value of ruleBase[i]
                     if (arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]) {
                       if (arr[findIndexInArray+1] === 'dengan gejala mata merah dan penglihatan menurun tidak akut') {
-                        reply =  `Anda mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
+                        reply =  `Kamu mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
                         Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                         Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                         setDiagnoseResult(reply);
@@ -709,7 +709,7 @@ export default function InferenceMachine () {
                     // if ruleBase[i+1][j] is the last value of ruleBase[i]
                     if (arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]) {
                       if (arr[findIndexInArray+1] === 'dengan gejala mata merah dan penglihatan menurun tidak akut') {
-                        reply =  `Anda mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
+                        reply =  `Kamu mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
                         Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                         Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                         setDiagnoseResult(reply);
@@ -785,7 +785,7 @@ export default function InferenceMachine () {
                     // if ruleBase[i+1][j] is the last value of ruleBase[i]
                     if (arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]) {
                       if (arr[findIndexInArray+1] === 'dengan gejala mata merah dan penglihatan menurun tidak akut') {
-                        reply =  `Anda mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
+                        reply =  `Kamu mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
                         Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                         Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                         setDiagnoseResult(reply);
@@ -864,7 +864,7 @@ export default function InferenceMachine () {
                     // if ruleBase[i+1][j] is the last value of ruleBase[i]
                     if (arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]) {
                       if (arr[findIndexInArray+1] === 'dengan gejala mata merah dan penglihatan menurun tidak akut') {
-                        reply =  `Anda mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
+                        reply =  `Kamu mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
                         Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                         Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                         setDiagnoseResult(reply);
@@ -931,7 +931,7 @@ export default function InferenceMachine () {
                   // if ruleBase[i+1][j] is the last value of ruleBase[i]
                   if (arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]) {
                     if (arr[findIndexInArray+1] === 'dengan gejala mata merah dan penglihatan menurun tidak akut') {
-                      reply =  `Anda mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
+                      reply =  `Kamu mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
                       Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                       Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                       setDiagnoseResult(reply);
