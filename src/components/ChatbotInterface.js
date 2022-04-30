@@ -2,7 +2,7 @@ import {useEffect, useRef} from 'react';
 import {Col,Row} from 'react-bootstrap';
 
 export default function ChatbotDashboard({
-    input, right,
+    input,
     inputNow,
     inputBefore,
     i, j,
@@ -39,7 +39,7 @@ export default function ChatbotDashboard({
 
   return (
     <>
-      <Row className='mx-0 mb-0 w-100 rounded shadow-hover-primary'>
+      <Row className='mx-0 mb-0 w-100 opensans rounded shadow-hover-primary'>
         <h4 className='bg-primary mb-0 p-1 w-100 quicksand rounded-top text-center text-light text-lg'>
           Chat Bot Sistem Pakar
         </h4>
@@ -122,7 +122,6 @@ export default function ChatbotDashboard({
         <div className='my-1 mx-2'>input now : {inputNow}</div>
         <div className='my-1 mx-2'>lastValue : {lastValue}</div>
         <div className='my-1 mx-2'>lastValueSpecialCase : {lastValueSpecialCase}</div>
-        <div className='my-1 mx-2'>right : {right}</div>
         <div className='my-1 mx-2'>lastValueSpecialCase : {lastValueSpecialCase}</div>
         <div className='my-1 mx-2'>arrayPlusOne : {arrayPlusOne}</div>
         <div className='my-1 mx-2'>totalGejala : {totalGejala}</div>
