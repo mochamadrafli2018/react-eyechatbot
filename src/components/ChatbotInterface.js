@@ -12,9 +12,10 @@ export default function ChatbotDashboard({
     replyNow, 
     nextReply, 
     allYesReply, 
-    lastValue,
-    lastValueSpecialCase,
-    totalGejala,
+    lastValueWhenResponUserYes,
+    lastValueWhenUserResponNo,
+    totalSympthomWhenUserResponYes,
+    totalSympthomWhenUserResponNo,
     ruleBaseNow, 
     ruleBaseILength, 
     ruleBaseLength, 
@@ -117,13 +118,17 @@ export default function ChatbotDashboard({
         </Col>
       </Row>
       <Row>
+        <div className='my-1 mx-2'>input now : {inputNow}</div>
+        <div className='my-1 mx-2'>totalSympthomWhenUserResponYes = {totalSympthomWhenUserResponYes}</div>
+        <div className='my-1 mx-2'>totalSympthomWhenUserResponNo = {totalSympthomWhenUserResponNo}</div>
         {/*
         <div className='my-1 mx-2'>[ i ][ j ] : [{i}][{j}]</div>
         <div className='my-1 mx-2'>input now : {inputNow}</div>
-        <div className='my-1 mx-2'>lastValue : {lastValue}</div>
-        <div className='my-1 mx-2'>lastValueSpecialCase : {lastValueSpecialCase}</div>
+        <div className='my-1 mx-2'>lastValueWhenResponUserYes = {lastValueWhenUserResponYes}</div>
+        <div className='my-1 mx-2'>lastValueWhenUserResponNo = {lastValueWhenUserResponNo}</div>
+        <div className='my-1 mx-2'>totalSympthomWhenResponUserYes = {totalSympthomWhenUserResponYes}</div>
+        <div className='my-1 mx-2'>totalSympthomWhenUserResponNo = {totalSympthomWhenUserResponNo}</div>
         <div className='my-1 mx-2'>arrayPlusOne : {arrayPlusOne}</div>
-        <div className='my-1 mx-2'>totalGejala : {totalGejala}</div>
         <div className='my-1 mx-2'>input before : {inputBefore}</div>
         <div className='my-1 mx-2'>ruleBaseBefore : {ruleBaseBefore}</div>
         <div className='my-1 mx-2'>nextReply : {nextReply}</div>
