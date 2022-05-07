@@ -122,7 +122,6 @@ export default function ChatbotDashboard({
         <div className='my-1 mx-2'>input now : {inputNow}</div>
         <div className='my-1 mx-2'>lastValue : {lastValue}</div>
         <div className='my-1 mx-2'>lastValueSpecialCase : {lastValueSpecialCase}</div>
-        <div className='my-1 mx-2'>lastValueSpecialCase : {lastValueSpecialCase}</div>
         <div className='my-1 mx-2'>arrayPlusOne : {arrayPlusOne}</div>
         <div className='my-1 mx-2'>totalGejala : {totalGejala}</div>
         <div className='my-1 mx-2'>input before : {inputBefore}</div>

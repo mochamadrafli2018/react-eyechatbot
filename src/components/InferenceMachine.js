@@ -486,6 +486,7 @@ export default function InferenceMachine () {
                         Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                         Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                         setDiagnoseResult(reply);
+                        setRuleBaseBefore(arr[findIndexInArray+1]); setReplyBefore('');
                       }
                       else {
                         reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
@@ -551,6 +552,7 @@ export default function InferenceMachine () {
                         Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                         Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                         setDiagnoseResult(reply);
+                        setRuleBaseBefore(arr[findIndexInArray+1]); setReplyBefore('');
                       }
                       else {
                         reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
@@ -616,6 +618,7 @@ export default function InferenceMachine () {
                         Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                         Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                         setDiagnoseResult(reply);
+                        setRuleBaseBefore(arr[findIndexInArray+1]); setReplyBefore('');
                       }
                       else {
                         reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
@@ -685,6 +688,7 @@ export default function InferenceMachine () {
                         Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                         Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                         setDiagnoseResult(reply);
+                        setRuleBaseBefore(arr[findIndexInArray+1]); setReplyBefore('');
                       }
                       else {
                         reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
@@ -757,6 +761,7 @@ export default function InferenceMachine () {
                         Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                         Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                         setDiagnoseResult(reply);
+                        setRuleBaseBefore(arr[findIndexInArray+1]); setReplyBefore('');
                       }
                       else {
                         reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
@@ -832,6 +837,7 @@ export default function InferenceMachine () {
                         Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                         Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                         setDiagnoseResult(reply);
+                        setRuleBaseBefore(arr[findIndexInArray+1]); setReplyBefore('');
                       }
                       else {
                         reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
@@ -895,6 +901,7 @@ export default function InferenceMachine () {
                       Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                       Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                       setDiagnoseResult(reply);
+                      setRuleBaseBefore(arr[findIndexInArray+1]); setReplyBefore('');
                     }
                     else {
                       reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
