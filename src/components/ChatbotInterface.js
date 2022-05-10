@@ -118,9 +118,6 @@ export default function ChatbotDashboard({
         </Col>
       </Row>
       <Row>
-        <div className='my-1 mx-2'>input now : {inputNow}</div>
-        <div className='my-1 mx-2'>totalSympthomWhenUserResponYes = {totalSympthomWhenUserResponYes}</div>
-        <div className='my-1 mx-2'>totalSympthomWhenUserResponNo = {totalSympthomWhenUserResponNo}</div>
         {/*
         <div className='my-1 mx-2'>[ i ][ j ] : [{i}][{j}]</div>
         <div className='my-1 mx-2'>input now : {inputNow}</div>
