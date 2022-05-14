@@ -170,30 +170,28 @@ export default function InferenceMachine () {
   const handleNextScreening = () => {
     Output('lanjut') // input = 'lanjut'
     setInput('')     // return empty form after user press the button
-    setinputNow('lanjut')
+    setInputNow('lanjut')
     setinputBefore(inputNow)
   }
   const handleYes = () => {
     Output('ya')    // input = 'ya'
     setInput('')    // return empty form after user press button
-    setinputNow('ya')
+    setInputNow('ya')
     setinputBefore(inputNow)
   }
   const handleNo = () => {
     Output('tidak') // input = 'tidak'
     setInput('')    // return empty form after user press button
-    setinputNow('tidak')
+    setInputNow('tidak')
     setinputBefore(inputNow)
   }  
   // initialize state for screening system
+  let [check, setCheck] = useState('');
   let [i,setI] = useState(0);
   let [j,setJ] = useState(0);
-  let [arrayPlusOne, setArrayPlusOne] = useState('');
-  let [inputNow, setinputNow] = useState('');
+  let [inputNow, setInputNow] = useState('');
   let [inputBefore, setinputBefore] = useState('');
-  let [replyNow, setReplyNow] = useState('');
   let [replyBefore, setReplyBefore] = useState('');
-  let [nextReply, setNextReply] = useState('');
   let [allYesReply, setAllYesReply] = useState([]);
 
   let [lastValueWhenUserResponYes, setLastValueWhenUserResponYes] = useState('');
@@ -209,9 +207,9 @@ export default function InferenceMachine () {
     let reply;
     if (input === 'mulai' || input === 'tes'|| input === 'test'  || input === 'skrining') {
       // re-empty
-      setArrayPlusOne('');
+      setCheck('')
+      setInputNow('');
       setDiagnoseResult('');
-      setReplyNow('');
       setLastValueWhenUserResponYes('');
       setLastValueWhenUserResponNo('');
       setAllYesReply([]);
@@ -223,13 +221,13 @@ export default function InferenceMachine () {
       reply = ruleBase[1][0]; setI(1); setJ(0);
     }
     else if (input === 'lanjut') {
-      setArrayPlusOne('');
       if (replyBefore === 'mulai' || replyBefore === 'tes'|| replyBefore === 'test'  || replyBefore === 'skrining') {
         reply = 'Jawab <strong>ya/tidak</strong> terlebih dahulu.'
       }
       else {
+        setCheck('true')
         // re-empty
-        setReplyNow(''); 
+        setInputNow('');
         setLastValueWhenUserResponYes('');  
         setLastValueWhenUserResponNo(''); 
         setAllYesReply([]); 
@@ -285,7 +283,6 @@ export default function InferenceMachine () {
         ) {
           // the current value is ruleBase[i][j]
           if (input === 'y' || input === 'ya') {
-            setNextReply(ruleBase[i][j+1]);
             // save all yes reply before the last value in [i] array
             setAllYesReply([...allYesReply, ruleBase[i][j]]);
             // make sure there is no same value in array
@@ -298,49 +295,37 @@ export default function InferenceMachine () {
             if (ruleBase[i][j+1] !== ruleBase[i][ruleBase[i].length - 1]) {
               reply = ruleBase[i][j+1]; 
               setI(i); setJ(j+1);
-              setReplyNow(reply)
             }
             // if ruleBase[i][j+1] is the last value in [i] array
             else if (ruleBase[i][j+1] === ruleBase[i][ruleBase[i].length - 1]) {
-              if (inputNow !== 'tidak') {
+              if (inputNow === 'ya') {
                 if (
                   ruleBase[i][j+1] === 'Endoftalmitis, Keraritis, Panofthalmitis, Thombosis Sinus Cavernosus, Uvetis Akut atau Glaukoma Sekunder/Akut' ||
                   ruleBase[i][j+1] === 'Episkelritis, Hordeolum, Keratokonjungtivitis Flikte Nularis, Konjungtivitis Akut atau Oinguekulitis' ||
+                  ruleBase[i][j+1] === 'Sindroma mata kering atau Uveitis kronis' ||
                   ruleBase[i][j+1] === 'Perdarahan Subkonjungtiva' ||
                   ruleBase[i][j+1] === 'Alergi, Blefaritis, Hemangioma, Iritasi, Gangguan Pembuluh Darah atau Konjungtivitis Kronis' ||
                   ruleBase[i][j+1] === 'Abalsi Retina, Perdarahan Vitreus, Neuritis Optik, Kelainan Vaskular Retina, Hifema Spontan, Keracunan Metanol, Stroke Oksipitalis atau Malingering dan Histeria' ||
                   ruleBase[i][j+1] === 'Tumor, Strabismus atau Ophthalmopathy Thyroid' ||
                   ruleBase[i][j+1] === 'Sikatrik Kornea, Kelainan Refraksi, Katarak, Uveitis Posterior, Glaukoma Sudut Terbuka Primer, Retinopati Diabetika & Hipertensi, Penyakit Macula, Papil Udema, Amblyopia, Neuropati Optik atau Retinisi Pigmentosa'
                 ) {
-                  reply = `Melalui skrining dicurigai kamu mengalami <strong>${totalSympthomWhenUserResponYes[totalSympthomWhenUserResponYes.length-1]} gejala</strong> dari penyakit mata <strong>${lastValueWhenUserResponYes}</strong>. 
+                  reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length+1} pertanyaan yang ditanyakan oleh bot.
+                  Melalui skrining dicurigai kamu mengalami <strong>${totalSympthomWhenUserResponYes[totalSympthomWhenUserResponYes.length-1]} gejala</strong> dari penyakit mata <strong>${lastValueWhenUserResponYes}</strong>. 
                   Ketik atau tekan lanjut untuk melanjutkan skrining kedua.`
                   setDiagnoseResult(reply); setI(i); setJ(j);
                   setRuleBaseBefore(ruleBase[i][j+1]); setReplyBefore('');
                 }
-                if (ruleBase[i][j+1] === 'Sindroma mata kering atau Uveitis kronis') {
-                  reply =  `Kamu mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
-                  Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
-                  Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                  setDiagnoseResult(reply); setI(i); setJ(j);
-                  setRuleBaseBefore(ruleBase[i][j+1]); setReplyBefore('');
-                }
-                if (
-                  ruleBase[i][j+1] !== 'Endoftalmitis, Keraritis, Panofthalmitis, Thombosis Sinus Cavernosus, Uvetis Akut atau Glaukoma Sekunder/Akut' &&
-                  ruleBase[i][j+1] !== 'Episkelritis, Hordeolum, Keratokonjungtivitis Flikte Nularis, Konjungtivitis Akut atau Oinguekulitis' &&
-                  ruleBase[i][j+1] !== 'Perdarahan Subkonjungtiva' &&
-                  ruleBase[i][j+1] !== 'Alergi, Blefaritis, Hemangioma, Iritasi, Gangguan Pembuluh Darah atau Konjungtivitis Kronis' &&
-                  ruleBase[i][j+1] !== 'Abalsi Retina, Perdarahan Vitreus, Neuritis Optik, Kelainan Vaskular Retina, Hifema Spontan, Keracunan Metanol, Stroke Oksipitalis atau Malingering dan Histeria' &&
-                  ruleBase[i][j+1] !== 'Tumor, Strabismus atau Ophthalmopathy Thyroid' &&
-                  ruleBase[i][j+1] !== 'Sikatrik Kornea, Kelainan Refraksi, Katarak, Uveitis Posterior, Glaukoma Sudut Terbuka Primer, Retinopati Diabetika & Hipertensi, Penyakit Macula, Papil Udema, Amblyopia, Neuropati Optik atau Retinisi Pigmentosa'
-                ) {
+                else {
                   // 2nd screening
                   if (j === 0) {
-                    reply = `Melalui skrining dicurigai kamu mengalami <strong>1 gejala</strong> dari penyakit mata <strong>${lastValueWhenUserResponYes}</strong>. 
+                    reply = `Kamu menjawab <strong>ya</strong> untuk 1 pertanyaan yang ditanyakan oleh bot.
+                    Melalui skrining dicurigai kamu mengalami <strong>1 gejala</strong> dari penyakit mata <strong>${lastValueWhenUserResponYes}</strong>. 
                     Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                     setDiagnoseResult(reply); setI(i); setJ(j); setReplyBefore('');
                   }
                   else {
-                    reply = `Melalui skrining dicurigai kamu mengalami <strong>${totalSympthomWhenUserResponYes[totalSympthomWhenUserResponYes.length-1]} gejala</strong> dari penyakit mata <strong>${lastValueWhenUserResponYes}</strong>. 
+                    reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length+1} pertanyaan yang ditanyakan oleh bot.
+                    Melalui skrining dicurigai kamu mengalami <strong>${totalSympthomWhenUserResponYes[totalSympthomWhenUserResponYes.length-1]} gejala</strong> dari penyakit mata <strong>${lastValueWhenUserResponYes}</strong>. 
                     Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                     setDiagnoseResult(reply); setI(i); setJ(j); setReplyBefore('');
                   }
@@ -350,41 +335,30 @@ export default function InferenceMachine () {
                 if (
                   ruleBase[i][j+1] === 'Endoftalmitis, Keraritis, Panofthalmitis, Thombosis Sinus Cavernosus, Uvetis Akut atau Glaukoma Sekunder/Akut' ||
                   ruleBase[i][j+1] === 'Episkelritis, Hordeolum, Keratokonjungtivitis Flikte Nularis, Konjungtivitis Akut atau Oinguekulitis' ||
+                  ruleBase[i][j+1] === 'Sindroma mata kering atau Uveitis kronis' ||
                   ruleBase[i][j+1] === 'Perdarahan Subkonjungtiva' ||
                   ruleBase[i][j+1] === 'Alergi, Blefaritis, Hemangioma, Iritasi, Gangguan Pembuluh Darah atau Konjungtivitis Kronis' ||
                   ruleBase[i][j+1] === 'Abalsi Retina, Perdarahan Vitreus, Neuritis Optik, Kelainan Vaskular Retina, Hifema Spontan, Keracunan Metanol, Stroke Oksipitalis atau Malingering dan Histeria' ||
                   ruleBase[i][j+1] === 'Tumor, Strabismus atau Ophthalmopathy Thyroid' ||
                   ruleBase[i][j+1] === 'Sikatrik Kornea, Kelainan Refraksi, Katarak, Uveitis Posterior, Glaukoma Sudut Terbuka Primer, Retinopati Diabetika & Hipertensi, Penyakit Macula, Papil Udema, Amblyopia, Neuropati Optik atau Retinisi Pigmentosa'
                 ) {
-                  reply = `Melalui skrining dicurigai kamu mengalami <strong>${totalSympthomWhenUserResponNo[totalSympthomWhenUserResponNo.length-1]} gejala</strong> dari penyakit mata <strong>${lastValueWhenUserResponNo}</strong>. 
+                  reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length+1} pertanyaan yang ditanyakan oleh bot.
+                  Melalui skrining dicurigai kamu mengalami <strong>${totalSympthomWhenUserResponNo[totalSympthomWhenUserResponNo.length-1]} gejala</strong> dari penyakit mata <strong>${lastValueWhenUserResponNo}</strong>. 
                   Ketik atau tekan lanjut untuk melanjutkan skrining kedua.`
                   setDiagnoseResult(reply); setI(i); setJ(j);
                   setRuleBaseBefore(ruleBase[i][j+1]); setReplyBefore('');
                 }
-                if (ruleBase[i][j+1] === 'Sindroma mata kering atau Uveitis kronis') {
-                  reply =  `Kamu mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
-                  Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
-                  Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                  setDiagnoseResult(reply); setI(i); setJ(j);
-                  setRuleBaseBefore(ruleBase[i][j+1]); setReplyBefore('');
-                }
-                if (
-                  ruleBase[i][j+1] !== 'Endoftalmitis, Keraritis, Panofthalmitis, Thombosis Sinus Cavernosus, Uvetis Akut atau Glaukoma Sekunder/Akut' &&
-                  ruleBase[i][j+1] !== 'Episkelritis, Hordeolum, Keratokonjungtivitis Flikte Nularis, Konjungtivitis Akut atau Oinguekulitis' &&
-                  ruleBase[i][j+1] !== 'Perdarahan Subkonjungtiva' &&
-                  ruleBase[i][j+1] !== 'Alergi, Blefaritis, Hemangioma, Iritasi, Gangguan Pembuluh Darah atau Konjungtivitis Kronis' &&
-                  ruleBase[i][j+1] !== 'Abalsi Retina, Perdarahan Vitreus, Neuritis Optik, Kelainan Vaskular Retina, Hifema Spontan, Keracunan Metanol, Stroke Oksipitalis atau Malingering dan Histeria' &&
-                  ruleBase[i][j+1] !== 'Tumor, Strabismus atau Ophthalmopathy Thyroid' &&
-                  ruleBase[i][j+1] !== 'Sikatrik Kornea, Kelainan Refraksi, Katarak, Uveitis Posterior, Glaukoma Sudut Terbuka Primer, Retinopati Diabetika & Hipertensi, Penyakit Macula, Papil Udema, Amblyopia, Neuropati Optik atau Retinisi Pigmentosa'
-                ) {
+                else {
                   // 2nd screening
                   if (j === 0) {
-                    reply = `Melalui skrining dicurigai kamu mengalami <strong>1 gejala</strong> dari penyakit mata <strong>${lastValueWhenUserResponNo}</strong>. 
+                    reply = `Kamu menjawab <strong>ya</strong> untuk 1 pertanyaan yang ditanyakan oleh bot.
+                    Melalui skrining dicurigai kamu mengalami <strong>1 gejala</strong> dari penyakit mata <strong>${lastValueWhenUserResponNo}</strong>. 
                     Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                     setDiagnoseResult(reply); setI(i); setJ(j); setReplyBefore('');
                   }
                   else {
-                    reply = `Melalui skrining dicurigai kamu mengalami <strong>${totalSympthomWhenUserResponNo[totalSympthomWhenUserResponNo.length-1]} gejala</strong> dari penyakit mata <strong>${lastValueWhenUserResponNo}</strong>. 
+                    reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length+1} pertanyaan yang ditanyakan oleh bot.
+                    Melalui skrining dicurigai kamu mengalami <strong>${totalSympthomWhenUserResponNo[totalSympthomWhenUserResponNo.length-1]} gejala</strong> dari penyakit mata <strong>${lastValueWhenUserResponNo}</strong>. 
                     Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
                     setDiagnoseResult(reply); setI(i); setJ(j); setReplyBefore('');
                   }
@@ -454,14 +428,13 @@ export default function InferenceMachine () {
                   arr = [...new Set(arr)]
                   // find value index in array
                   let findIndexInArray = arr.indexOf(ruleBase[i][j])
-                  setArrayPlusOne(arr[findIndexInArray+1]);
                   if (arr[findIndexInArray+1] !== undefined) {
                     // if ruleBase[i+1][j] is the last value of ruleBase[i]
                     if (arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]) {
                       reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
                       Melalui skrining dicurigai kamu mengalami <strong>${allYesReply.length} gejala</strong> dari penyakit mata antara <strong>${ruleBase[i+1][ruleBase[i+1].length-1]}</strong>. 
                       Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                      setDiagnoseResult(reply);
+                      setDiagnoseResult(reply); setReplyBefore(''); setRuleBaseBefore(ruleBase[i+1][j]);
                     }
                     // if ruleBase[i+1][j] is not the last value
                     if (arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
@@ -482,7 +455,7 @@ export default function InferenceMachine () {
                     reply = `Kamu hanya menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
                     Belum bisa dipastikan penyakit mata yang tepat hanya dari 1 gejala tersebut. 
                     Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                    setDiagnoseResult(reply);
+                    setDiagnoseResult(reply); setReplyBefore(''); setRuleBaseBefore(ruleBase[i+1][j]);
                   }
                 }
                 // if ruleBase[i+1][j-1] === undefined || ruleBase[i][j-1] !== ruleBase[i+1][j-1]
@@ -490,7 +463,7 @@ export default function InferenceMachine () {
                   reply = `Kamu hanya menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
                   Belum bisa dipastikan penyakit mata yang tepat hanya dari 1 gejala tersebut. 
                   Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                  setDiagnoseResult(reply);
+                  setDiagnoseResult(reply); setReplyBefore(''); setRuleBaseBefore(ruleBase[i+1][j]);
                 }
               }
               else if (j === 2) { 
@@ -518,7 +491,7 @@ export default function InferenceMachine () {
                       reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
                       Melalui skrining dicurigai kamu mengalami <strong>${allYesReply.length} gejala</strong> dari penyakit mata antara <strong>${ruleBase[i+1][ruleBase[i+1].length-1]}</strong>. 
                       Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                      setDiagnoseResult(reply);
+                      setDiagnoseResult(reply); setReplyBefore(''); setRuleBaseBefore(ruleBase[i+1][j]);
                     }
                     // if ruleBase[i+1][j] is not the last value of ruleBase[i]
                     if (arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
@@ -539,7 +512,7 @@ export default function InferenceMachine () {
                     reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
                     Belum bisa ditentukan hasil skrining penyakit mata dengan gejala-gejala yang kamu jawab <strong>ya</strong>. 
                     Silahkan ulangi skrining atau konsultasikan gejala-gejala tersebut dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                    setDiagnoseResult(reply);
+                    setDiagnoseResult(reply); setReplyBefore(''); setRuleBaseBefore(ruleBase[i+1][j]);
                   }
                 }
                 // if ruleBase[i+1][j-1] === undefined || ruleBase[i+1][j-2] === undefined
@@ -547,7 +520,7 @@ export default function InferenceMachine () {
                   reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
                   Belum bisa ditentukan hasil skrining penyakit mata dengan gejala-gejala yang kamu jawab <strong>ya</strong>. 
                   Silahkan ulangi skrining atau konsultasikan gejala-gejala tersebut dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                  setDiagnoseResult(reply);
+                  setDiagnoseResult(reply); setReplyBefore(''); setRuleBaseBefore(ruleBase[i+1][j]);
                 }
               }
               else if (j === 3) {
@@ -576,7 +549,7 @@ export default function InferenceMachine () {
                       reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
                       Melalui skrining dicurigai kamu mengalami <strong>${allYesReply.length} gejala</strong> dari penyakit mata antara <strong>${ruleBase[i+1][ruleBase[i+1].length-1]}</strong>. 
                       Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                      setDiagnoseResult(reply);
+                      setDiagnoseResult(reply); setReplyBefore(''); setRuleBaseBefore(ruleBase[i+1][j]);
                     }
                     // if ruleBase[i+1][j] is not the last value of ruleBase[i]
                     if (arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
@@ -597,7 +570,7 @@ export default function InferenceMachine () {
                     reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
                     Belum bisa ditentukan hasil skrining penyakit mata dengan gejala-gejala yang kamu jawab <strong>ya</strong>. 
                     Silahkan ulangi skrining atau konsultasikan gejala-gejala tersebut dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                    setDiagnoseResult(reply);
+                    setDiagnoseResult(reply); setReplyBefore(''); setRuleBaseBefore(ruleBase[i+1][j]);
                   } 
                 }
                 // if ruleBase[i+1][j-1] === undefined || 
@@ -607,7 +580,7 @@ export default function InferenceMachine () {
                   reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
                   Belum bisa ditentukan hasil skrining penyakit mata dengan gejala-gejala yang kamu jawab <strong>ya</strong>. 
                   Silahkan ulangi skrining atau konsultasikan gejala-gejala tersebut dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                  setDiagnoseResult(reply);
+                  setDiagnoseResult(reply); setReplyBefore(''); setRuleBaseBefore(ruleBase[i+1][j]);
                 }
               }
               else if (j === 4) { // worked
@@ -638,7 +611,7 @@ export default function InferenceMachine () {
                       reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
                       Melalui skrining dicurigai kamu mengalami <strong>${allYesReply.length} gejala</strong> dari penyakit mata antara <strong>${ruleBase[i+1][ruleBase[i+1].length-1]}</strong>. 
                       Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                      setDiagnoseResult(reply);
+                      setDiagnoseResult(reply); setReplyBefore(''); setRuleBaseBefore(ruleBase[i+1][j]);
                     }
                     // if ruleBase[i+1][j] is not the last value of ruleBase[i]
                     if (arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
@@ -659,7 +632,7 @@ export default function InferenceMachine () {
                     reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
                     Belum bisa ditentukan hasil skrining penyakit mata dengan gejala-gejala yang kamu jawab <strong>ya</strong>. 
                     Silahkan ulangi skrining atau konsultasikan gejala-gejala tersebut dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                    setDiagnoseResult(reply);
+                    setDiagnoseResult(reply); setReplyBefore(''); setRuleBaseBefore(ruleBase[i+1][j]);
                   }
                 }
                 // if ruleBase[i+1][j-1] === undefined || 
@@ -670,7 +643,7 @@ export default function InferenceMachine () {
                   reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
                   Belum bisa ditentukan hasil skrining penyakit mata dengan gejala-gejala yang kamu jawab <strong>ya</strong>. 
                   Silahkan ulangi skrining atau konsultasikan gejala-gejala tersebut dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                  setDiagnoseResult(reply);
+                  setDiagnoseResult(reply); setReplyBefore(''); setRuleBaseBefore(ruleBase[i+1][j]);
                 }
               }
               else if (j === 5) {
@@ -703,7 +676,7 @@ export default function InferenceMachine () {
                       reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
                       Melalui skrining dicurigai kamu mengalami <strong>${allYesReply.length} gejala</strong> dari penyakit mata antara <strong>${ruleBase[i+1][ruleBase[i+1].length-1]}</strong>. 
                       Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                      setDiagnoseResult(reply);
+                      setDiagnoseResult(reply); setReplyBefore(''); setRuleBaseBefore(ruleBase[i+1][j]);
                     }
                     // if ruleBase[i+1][j] is not the last value of ruleBase[i]
                     if (arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
@@ -724,7 +697,7 @@ export default function InferenceMachine () {
                     reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
                     Belum bisa ditentukan hasil skrining penyakit mata dengan gejala-gejala yang kamu jawab <strong>ya</strong>. 
                     Silahkan ulangi skrining atau konsultasikan gejala-gejala tersebut dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                    setDiagnoseResult(reply);
+                    setDiagnoseResult(reply); setReplyBefore(''); setRuleBaseBefore(ruleBase[i+1][j]);
                   }
                 }
                 // if ruleBase[i+1][j-1] === undefined || 
@@ -736,7 +709,7 @@ export default function InferenceMachine () {
                   reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
                   Belum bisa ditentukan hasil skrining penyakit mata dengan gejala-gejala yang kamu jawab <strong>ya</strong>. 
                   Silahkan ulangi skrining atau konsultasikan gejala-gejala tersebut dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                  setDiagnoseResult(reply);
+                  setDiagnoseResult(reply); setReplyBefore(''); setRuleBaseBefore(ruleBase[i+1][j]);
                 }
               }
               else if (j === 6) {
@@ -771,7 +744,7 @@ export default function InferenceMachine () {
                       reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
                       Melalui skrining dicurigai kamu mengalami <strong>${allYesReply.length} gejala</strong> dari penyakit mata antara <strong>${ruleBase[i+1][ruleBase[i+1].length-1]}</strong>. 
                       Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                      setDiagnoseResult(reply);
+                      setDiagnoseResult(reply); setReplyBefore(''); setRuleBaseBefore(ruleBase[i+1][j]);
                     }
                     // if ruleBase[i+1][j] is not the last value of ruleBase[i]
                     if (arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
@@ -792,7 +765,7 @@ export default function InferenceMachine () {
                     reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
                     Belum bisa ditentukan hasil skrining penyakit mata dengan gejala-gejala yang kamu jawab <strong>ya</strong>. 
                     Silahkan ulangi skrining atau konsultasikan gejala-gejala tersebut dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                    setDiagnoseResult(reply);
+                    setDiagnoseResult(reply); setReplyBefore(''); setRuleBaseBefore(ruleBase[i+1][j]);
                   }
                 }
                 // if ruleBase[i+1][j-1] === undefined || 
@@ -805,7 +778,7 @@ export default function InferenceMachine () {
                   reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
                   Belum bisa ditentukan hasil skrining penyakit mata dengan gejala-gejala yang kamu jawab <strong>ya</strong>. 
                   Silahkan ulangi skrining atau konsultasikan gejala-gejala tersebut dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                  setDiagnoseResult(reply);
+                  setDiagnoseResult(reply); setReplyBefore(''); setRuleBaseBefore(ruleBase[i+1][j]);
                 }
               }
               // for j > 6 
@@ -827,7 +800,7 @@ export default function InferenceMachine () {
                     reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
                     Melalui skrining dicurigai kamu mengalami <strong>${allYesReply.length} gejala</strong> dari penyakit mata antara <strong>${ruleBase[i+1][ruleBase[i+1].length-1]}</strong>. 
                     Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                    setDiagnoseResult(reply);
+                    setDiagnoseResult(reply); setReplyBefore(''); setRuleBaseBefore(ruleBase[i+1][j]);
                   }
                   // if ruleBase[i+1][j] is not the last value of ruleBase[i]
                   if (arr[findIndexInArray+1] !== ruleBase[i+1][ruleBase[i+1].length-1]) {
@@ -849,7 +822,7 @@ export default function InferenceMachine () {
                   reply = `Kamu menjawab <strong>ya</strong> untuk ${allYesReply.length} pertanyaan yang ditanyakan oleh bot. 
                   Belum bisa ditentukan hasil skrining penyakit mata dengan gejala-gejala yang kamu jawab <strong>ya</strong>. 
                   Silahkan ulangi skrining atau konsultasikan gejala-gejala tersebut dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
-                  setDiagnoseResult(reply);
+                  setDiagnoseResult(reply); setReplyBefore(''); setRuleBaseBefore(ruleBase[i+1][j]);
                 }
               }
           }
@@ -913,18 +886,16 @@ export default function InferenceMachine () {
 
   return (
     <ChatbotInterface
+      check = {check}
       input = {input}
       inputNow = {inputNow}
       inputBefore = {inputBefore}
       i = {i}
       j = {j}
-      arrayPlusOne = {arrayPlusOne}
       ruleBaseBefore = {ruleBaseBefore}
       ruleBaseILength = {ruleBase[i].length}
       ruleBaseLength = {ruleBase.length}
       replyBefore = {replyBefore}
-      nextReply = {nextReply}
-      replyNow = {replyNow}
       allYesReply = {allYesReply}
       lastValueWhenResponUserYes = {lastValueWhenUserResponYes}
       lastValueWhenUserResponNo = {lastValueWhenUserResponNo}

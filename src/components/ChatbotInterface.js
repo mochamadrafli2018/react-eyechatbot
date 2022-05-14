@@ -3,14 +3,12 @@ import {Col,Row} from 'react-bootstrap';
 
 export default function ChatbotDashboard({
     input,
+    check,
     inputNow,
     inputBefore,
     i, j,
-    arrayPlusOne,
-    replyBefore, 
+    replyBefore,
     ruleBaseBefore,
-    replyNow, 
-    nextReply, 
     allYesReply, 
     lastValueWhenResponUserYes,
     lastValueWhenUserResponNo,
@@ -125,10 +123,8 @@ export default function ChatbotDashboard({
         <div className='my-1 mx-2'>lastValueWhenUserResponNo = {lastValueWhenUserResponNo}</div>
         <div className='my-1 mx-2'>totalSympthomWhenResponUserYes = {totalSympthomWhenUserResponYes}</div>
         <div className='my-1 mx-2'>totalSympthomWhenUserResponNo = {totalSympthomWhenUserResponNo}</div>
-        <div className='my-1 mx-2'>arrayPlusOne : {arrayPlusOne}</div>
         <div className='my-1 mx-2'>input before : {inputBefore}</div>
         <div className='my-1 mx-2'>ruleBaseBefore : {ruleBaseBefore}</div>
-        <div className='my-1 mx-2'>nextReply : {nextReply}</div>
         <div className='my-1 mx-2'>Tulisan di bawah ini untuk mengetahui sistem chat berjalan</div>
         <div className='my-1 mx-2'>ruleBaseNow : {ruleBaseNow}</div>
         <div className='my-1 mx-2'>ruleBase[ i ].Length : {ruleBaseILength}</div>
