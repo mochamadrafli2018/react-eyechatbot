@@ -107,7 +107,7 @@ const ruleBase = [
   // Algorithm for Red Eyes 
   // consist of 7 + 5 + 1 + 6 = 19 diseases
   [s[0],s[1],s[3],'Endoftalmitis, Keraritis, Panofthalmitis, Thombosis Sinus Cavernosus, Uvetis Akut atau Glaukoma Sekunder/Akut'],
-  [s[0],s[1],'dengan gejala mata merah dan penglihatan menurun tidak akut'],
+  [s[0],s[1],'Sindroma mata kering atau Uveitis akut'],
   [s[0],s[6],'Episkelritis, Hordeolum, Keratokonjungtivitis Flikte Nularis, Konjungtivitis Akut atau Oinguekulitis'],
   [s[0],s[8],'Perdarahan Subkonjungtiva'],
   [s[0],s[9],'Alergi, Blefaritis, Hemangioma, Iritasi, Gangguan Pembuluh Darah atau Konjungtivitis Kronis'],
@@ -240,7 +240,7 @@ export default function InferenceMachine () {
           reply = ruleBase[10][0]; setI(10); setJ(0);
           setDiagnoseResult('');
         }
-        if (ruleBaseBefore === 'dengan gejala mata merah dan penglihatan menurun tidak akut') {
+        if (ruleBaseBefore === 'Sindroma mata kering atau Uveitis akut') {
           reply = diagnoseResult;
           setDiagnoseResult(reply);
         }
@@ -317,7 +317,7 @@ export default function InferenceMachine () {
                   setDiagnoseResult(reply); setI(i); setJ(j);
                   setRuleBaseBefore(ruleBase[i][j+1]); setReplyBefore('');
                 }
-                if (ruleBase[i][j+1] === 'dengan gejala mata merah dan penglihatan menurun tidak akut') {
+                if (ruleBase[i][j+1] === 'Sindroma mata kering atau Uveitis akut') {
                   reply =  `Kamu mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
                   Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                   Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
@@ -361,7 +361,7 @@ export default function InferenceMachine () {
                   setDiagnoseResult(reply); setI(i); setJ(j);
                   setRuleBaseBefore(ruleBase[i][j+1]); setReplyBefore('');
                 }
-                if (ruleBase[i][j+1] === 'dengan gejala mata merah dan penglihatan menurun tidak akut') {
+                if (ruleBase[i][j+1] === 'Sindroma mata kering atau Uveitis akut') {
                   reply =  `Kamu mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
                   Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                   Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
@@ -458,7 +458,7 @@ export default function InferenceMachine () {
                   if (arr[findIndexInArray+1] !== undefined) {
                     // if ruleBase[i+1][j] is the last value of ruleBase[i]
                     if (arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]) {
-                      if (arr[findIndexInArray+1] === 'dengan gejala mata merah dan penglihatan menurun tidak akut') {
+                      if (arr[findIndexInArray+1] === 'Sindroma mata kering atau Uveitis akut') {
                         reply =  `Kamu mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
                         Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                         Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
@@ -524,7 +524,7 @@ export default function InferenceMachine () {
                   if (arr[findIndexInArray+1] !== undefined) {
                     // if ruleBase[i+1][j] is the last value of ruleBase[i]
                     if (arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]) {
-                      if (arr[findIndexInArray+1] === 'dengan gejala mata merah dan penglihatan menurun tidak akut') {
+                      if (arr[findIndexInArray+1] === 'Sindroma mata kering atau Uveitis akut') {
                         reply =  `Kamu mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
                         Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                         Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
@@ -591,7 +591,7 @@ export default function InferenceMachine () {
                   if (arr[findIndexInArray+1] !== undefined) {
                     // if ruleBase[i+1][j] is the last value of ruleBase[i]
                     if (arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]) {
-                      if (arr[findIndexInArray+1] === 'dengan gejala mata merah dan penglihatan menurun tidak akut') {
+                      if (arr[findIndexInArray+1] === 'Sindroma mata kering atau Uveitis akut') {
                         reply =  `Kamu mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
                         Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                         Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
@@ -662,7 +662,7 @@ export default function InferenceMachine () {
                   if (arr[findIndexInArray+1] !== undefined) {
                     // if ruleBase[i+1][j] is the last value of ruleBase[i]
                     if (arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]) {
-                      if (arr[findIndexInArray+1] === 'dengan gejala mata merah dan penglihatan menurun tidak akut') {
+                      if (arr[findIndexInArray+1] === 'Sindroma mata kering atau Uveitis akut') {
                         reply =  `Kamu mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
                         Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                         Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
@@ -736,7 +736,7 @@ export default function InferenceMachine () {
                   if (arr[findIndexInArray+1] !== undefined) {
                     // if ruleBase[i+1][j] is the last value of ruleBase[i]
                     if (arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]) {
-                      if (arr[findIndexInArray+1] === 'dengan gejala mata merah dan penglihatan menurun tidak akut') {
+                      if (arr[findIndexInArray+1] === 'Sindroma mata kering atau Uveitis akut') {
                         reply =  `Kamu mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
                         Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                         Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
@@ -813,7 +813,7 @@ export default function InferenceMachine () {
                   if (arr[findIndexInArray+1] !== undefined) {
                     // if ruleBase[i+1][j] is the last value of ruleBase[i]
                     if (arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]) {
-                      if (arr[findIndexInArray+1] === 'dengan gejala mata merah dan penglihatan menurun tidak akut') {
+                      if (arr[findIndexInArray+1] === 'Sindroma mata kering atau Uveitis akut') {
                         reply =  `Kamu mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
                         Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                         Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
@@ -878,7 +878,7 @@ export default function InferenceMachine () {
                 if (arr[findIndexInArray+1] !== undefined) {
                   // if ruleBase[i+1][j] is the last value of ruleBase[i]
                   if (arr[findIndexInArray+1] === ruleBase[i+1][ruleBase[i+1].length-1]) {
-                    if (arr[findIndexInArray+1] === 'dengan gejala mata merah dan penglihatan menurun tidak akut') {
+                    if (arr[findIndexInArray+1] === 'Sindroma mata kering atau Uveitis akut') {
                       reply =  `Kamu mengalami gejala mata merah dan penglihatan menurun/kabur secara tidak akut (tidak tiba-tiba) pada mata. 
                       Belum bisa dipastikan hasil skrining penyakit mata dari gejala-gejala tersebut. 
                       Silahkan konsultasikan hasil skrining ini dengan dokter spesialis mata terdekat untuk informasi lebih lanjut.`
