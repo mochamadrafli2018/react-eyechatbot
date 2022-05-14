@@ -241,7 +241,7 @@ export default function InferenceMachine () {
           setDiagnoseResult('');
         }
         if (ruleBaseBefore === 'Sindroma mata kering atau Uveitis kronis') {
-          reply = `Silahkan konsultasikan penyakit mata <strong>Perdarahan Subkonjungtiva</strong> dengan dokter spesialis mata`;
+          reply = `Silahkan konsultasikan penyakit mata <strong>Sindroma mata kering atau Uveitis kronis</strong> dengan dokter spesialis mata`;
           setDiagnoseResult(reply);
         }
         if (ruleBaseBefore === 'Episkelritis, Hordeolum, Keratokonjungtivitis Flikte Nularis, Konjungtivitis Akut atau Oinguekulitis') {
