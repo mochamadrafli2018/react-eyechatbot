@@ -54,33 +54,20 @@ export default function Guide () {
             Title = {(<p className='fw-bold m-0'>Daftar Penyakit Mata pada Sistem Pakar</p>)}
             Content= {(
               <div>
-                {/* Kelompok 1 */}
-                <p>1. <span className='fw-bold text-blue-600 my-1'>Keratitis Pungtata Superfisialis</span></p>
-                <p>2. <span className='fw-bold text-blue-600 my-1'>Endoftalmitis</span></p>
-                <p>3. <span className='fw-bold text-blue-600 my-1'>Uveitis Akut</span></p>
-                <p>4. <span className='fw-bold text-blue-600 my-1'>Thombosis Sinus Cavernosus</span></p>
-                {/* Kelompok 2 */}
-                <p>5. <span className='fw-bold text-blue-600 my-1'>Konjungtivitis</span></p>
-                <p>6. <span className='fw-bold text-blue-600 my-1'>Hordeoulum</span></p>
-                <p>7. <span className='fw-bold text-blue-600 my-1'>Episkleritis</span></p>
-                {/* Kelompok x */}
-                <p>8. <span className='fw-bold text-blue-600 my-1'>Perdarahan Subkonjungtiva</span></p>
-                {/* Kelompok 3 */}
-                <p>9. <span className='fw-bold text-blue-600 my-1'>Blefaritis</span></p>
-                <p>10. <span className='fw-bold text-blue-600 my-1'>Konjungtivitis Alergi</span></p>
-                {/* Kelompok 4 */}
-                <p>11. <span className='fw-bold text-blue-600 my-1'>Abalsi Retina</span></p>
-                <p>12. <span className='fw-bold text-blue-600 my-1'>Neuritis Optik</span></p>
-                {/* Kelompok 5 */}
-                <p>13. <span className='fw-bold text-blue-600 my-1'>Katarak</span></p>
-                <p>14. <span className='fw-bold text-blue-600 my-1'>Retinopati Diabetika</span></p>
-                <p>15. <span className='fw-bold text-blue-600 my-1'>Retinitis Pigmentosa</span></p>
-                <p>16. <span className='fw-bold text-blue-600 my-1'>Degenerasi Macula</span></p>
+                <p>Untuk skrining pertama akan mengerucut ke salah satu kesimpulan penyakit mata di bawah ini :</p>
+                <p>Kelompok penyakit mata 1 : <span className='fw-bold text-blue-600 my-1'>Endoftalmitis, Keraritis, Panofthalmitis, Trombosis Sinus Cavernosus, Uveitis Akut atau Glaukoma Sekunder/Akut</span></p>
+                <p>Kelompok penyakit mata 2 : <span className='fw-bold text-blue-600 my-1'>Blefaritis, Hemangioma, Iritasi, Gangguan Pembuluh Darah, Konjungtivitis Alergi atau Konjungtivitis Kronis</span></p>
+                <p>Kelompok penyakit mata 3 : <span className='fw-bold text-blue-600 my-1'>Episkelritis, Hordeolum, Keratokonjungtivitis Flikte Nularis, Konjungtivitis Akut atau Pinguekulitis</span></p>
+                <p>Kelompok penyakit mata 4 : <span className='fw-bold text-blue-600 my-1'>Abalsi Retina, Perdarahan Vitreus, Neuritis Optik, Kelainan Vaskular Retina, Hifema Spontan, Keracunan Metanol, Stroke Oksipitalis atau Malingering dan Histeria</span></p>
+                <p>Kelompok penyakit mata 5 : <span className='fw-bold text-blue-600 my-1'>Sikatrik Kornea, Kelainan Refraksi, Katarak, Uveitis Posterior, Glaukoma Sudut Terbuka Primer, Retinopati Diabetika & Hipertensi, Penyakit Macula, Papil Udema, Amblyopia, Neuropati Optik atau Retinisi Pigmentosa</span></p>
+                <p>Kelompok penyakit mata 6 : <span className='fw-bold text-blue-600 my-1'>Tumor, Strabismus atau Ophthalmopathy Thyroid</span></p>
+                <p>Kelompok penyakit mata 7 : <span className='fw-bold text-blue-600 my-1'>Sindroma Mata Kering atau Uveitis Kronis</span></p>
+                <p>atau penyakit mata <span className='fw-bold text-blue-600 my-1'>Perdarahan Subkonjungtiva</span> yang tidak termasuk kelompok penyakit mata manapun</p>
               </div>
             )}
           />
           <AccordionBootstrap 
-            eventKey={"4"}
+            eventKey={"3"}
             Title = {(<p className='fw-bold m-0'>Catatan</p>)}
             Content= {(
               <div>
