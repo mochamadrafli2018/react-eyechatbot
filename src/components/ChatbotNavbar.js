@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   return (
@@ -9,11 +9,14 @@ export default function Navbar() {
         <Link className='my-auto p-2 no-underline' to='/chatbot'>
           <i className="bi bi-robot"></i> Bot
         </Link>
-        <Link className='my-auto p-2 no-underline' to='/chatbot/guide'>
+        <Link className='my-auto p-2 no-underline' to='/guide'>
           <i className='bi bi-journals'></i> Panduan
         </Link>
-        <Link className='my-auto p-2 no-underline' to='/chatbot/form'>
+        <Link className='my-auto p-2 no-underline' to='/form'>
           <i className='bi bi-ui-checks'></i> UAT
+        </Link>
+        <Link className='my-auto p-2 no-underline' to='/login'>
+          Login
         </Link>
       </div>
       <div className='flex flex-row ml-auto mr-2 space-x-3 text-lg'>
