@@ -26,7 +26,7 @@ class App extends React.Component {
             <Route path='/guide' element={<Guide/>} />
             <Route path='/login' element={<Login/>} />
             <Route path='/register' element={<Register/>} />
-            <Route path='/chatbot/:userId' element={<UserDashboard/>} />
+            <Route path='/dashboard/:userId' element={<UserDashboard/>} />
             <Route path="*" element={<ChatbotDashboard/>}></Route>
             <Route path='/form' element={() => window.location = 'https://nuxt-eyescreening.vercel.app'}/>
           </Routes>

@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
+import axios from 'axios';
+import '../index.css';
+
 import AddChat from './AddChat';
 import AddChat2 from './AddChat2';
 import Compare from './Compare';
 import ChatbotInterface from './ChatbotInterface';
-import {prompts,replies,alternative,coronavirus,} from '../data/PromptsAndReplies';
-import '../index.css';
+import { prompts, replies, alternative, coronavirus } from '../data/PromptsAndReplies';
 
 const question = `Apa kamu mengalami gejala`;
 const yesOrNo = `? <span class='border-3 border-blue-500 px-2 py-0 rounded-2xl'>ya/tidak</span>`;
@@ -146,46 +148,18 @@ const ruleBase = [
 ];
 
 export default function InferenceMachine () {
-  const [input, setInput] = useState('')
-  // handle when form input was change or type by user and also get user input with setInput
-  const handleChange = (event) => {
-    setInput(event.target.value)
-  }
-  // get bot reply after user input chat and button was clicked
-  const handleSubmit = () => {
-    Output(input)
-    setInput('')    // return empty form after user press the button
-  }
-  // get bot reply after user input chat and enter was pressed
-  const handleEnter = (event) => {
-    if (event.key === 'Enter') {
-      Output(input)
-      setInput('')  // return empty form after user press enter
-    }
-  }
-  const handleStartScreening = () => {
-    Output('skrining') // input = 'mulai'
-    setInput('')       // return empty form after user press button
-  }
-  const handleNextScreening = () => {
-    Output('lanjut') // input = 'lanjut'
-    setInput('')     // return empty form after user press the button
-    setInputNow('lanjut')
-    setinputBefore(inputNow)
-  }
-  const handleYes = () => {
-    Output('ya')    // input = 'ya'
-    setInput('')    // return empty form after user press button
-    setInputNow('ya')
-    setinputBefore(inputNow)
-  }
-  const handleNo = () => {
-    Output('tidak') // input = 'tidak'
-    setInput('')    // return empty form after user press button
-    setInputNow('tidak')
-    setinputBefore(inputNow)
-  }  
-  // initialize state for screening system
+  // opening chat message will be appear when browser reload
+  useEffect(() => {
+    AddChat2('Halo, ini adalah bot EyeScreening');
+    setTimeout(() => {
+      AddChat2(`Untuk memulai skrining penyakit mata ketikan atau tekan tombol <strong>mulai</strong>.`);
+    },1000);
+  },[])
+  // initialize all state
+  const [input, setInput] = useState('')  
+  const [messageLog, setMessageLog] = useState([
+    { sender:'bot', message:`Halo, ini adalah bot skrining penyakit mata.`}
+  ])
   let [check, setCheck] = useState('');
   let [i,setI] = useState(0);
   let [j,setJ] = useState(0);
@@ -193,15 +167,120 @@ export default function InferenceMachine () {
   let [inputBefore, setinputBefore] = useState('');
   let [replyBefore, setReplyBefore] = useState('');
   let [allYesReply, setAllYesReply] = useState([]);
-
   let [lastValueWhenUserResponYes, setLastValueWhenUserResponYes] = useState('');
   let [lastValueWhenUserResponNo, setLastValueWhenUserResponNo] = useState('');
-
   let [totalSympthomWhenUserResponYes, setTotalSympthomWhenUserResponYes] = useState([]);
   let [totalSympthomWhenUserResponNo, setTotalSympthomWhenUserResponNo] = useState([]);
-
   let [diagnoseResult, setDiagnoseResult] = useState('');
   let [lastValueInRuleBase, setLastValueInRuleBase] = useState('');
+
+  const handleChange = (event) => {
+    setInput(event.target.value)
+  }
+  const handleSubmit = () => {
+    Output(input)
+    setInput('')       // return empty form after user press the button
+  }
+  const handleEnter = (event) => {
+    if (event.key === 'Enter') {
+      Output(input)
+      setInput('')     // return empty form after user press enter
+    }
+  }
+  const handleStartScreening = () => {
+    Output('skrining')
+    setInput('')       // return empty form after user press button
+  }
+  const handleNextScreening = () => {
+    Output('lanjut')
+    setInput('')       // return empty form after user press the button
+    setInputNow('lanjut')
+    setinputBefore(inputNow)
+  }
+  const handleYes = () => {
+    Output('ya')
+    setInput('')       // return empty form after user press button
+    setInputNow('ya')
+    setinputBefore(inputNow)
+  }
+  const handleNo = () => {
+    Output('tidak')
+    setInput('')       // return empty form after user press button
+    setInputNow('tidak')
+    setinputBefore(inputNow)
+  }
+  // process response bot
+  const [savedMessageHistory, setSavedMessageHistory] = useState([]);
+  function Output(input){
+    let messageHistory;
+    let reply; 
+    input = input
+      .toLowerCase()            // replace all input text to lower case
+      .replace(/[^\w\s]/gi, '') // replace unneccessary input from user
+      .replace(/[\d]/gi, '')
+      .replace(/ a /g, ' ')     // example : 'tell me a story' -> 'tell me story'
+      .replace(/i feel /g, '')
+      .replace(/whats/g, 'what is')
+      .replace(/please /g, '')
+      .replace(/ please/g, '')
+      .replace(/r u/g, 'are you')
+      .replace(/'/g, '')
+      .trim();                  // remove whitespace from both sides of a string
+    if (Compare(prompts, replies, input)) { 
+      // Search for exact match in `prompts`
+      reply = Compare(prompts, replies, input);
+    } 
+    else if (input.match(/terima kasih/gi)) {
+      reply = 'Sama-sama'
+    }
+    // Check if input contains `coronavirus`
+    else if (input.match(/(corona|covid|virus)/gi)) {
+      reply = coronavirus[Math.floor(Math.random() * coronavirus.length)];
+    }
+    // Screening Eye Disease
+    else if (input.match(/(y|ya|t|tidak|mulai|tes|test|skrining|lanjut)/gi)) {
+      reply = Screening(input)[0];
+      // record chat user input and bot reply
+      setMessageLog([
+        ...messageLog,
+        {sender:'user', message:input},
+        {sender:'bot', message:reply}
+      ])
+    }
+    // If all else fails: random alternative
+    else {
+      reply = alternative[Math.floor(Math.random() * alternative.length)];
+    }
+    // show chat
+    AddChat(input, reply);
+    // auto save message history to database using API
+    const userId = localStorage.getItem("user_id");
+    if (userId) {
+      if (input === 'mulai' || input === 'tes' || input === 'test' || input === 'skrining') {
+        // empty message histroy in database when user click/type those input button
+        localStorage.setItem('message_history', '');
+        axios.put(`https://express-mongoose-validator.herokuapp.com/api/users/${userId}`,
+          ({
+            updatedScreeningResult:['empty']
+          })
+        )
+      } else {
+        // update message history in database
+        messageHistory = savedMessageHistory
+        messageHistory.push(
+          {sender:'user', message:input},
+          {sender:'bot', message:reply}
+        )
+        setSavedMessageHistory(messageHistory)
+        localStorage.setItem('message_history', JSON.stringify(messageHistory));
+        axios.put(`https://express-mongoose-validator.herokuapp.com/api/users/${userId}`,
+          ({
+            updatedScreeningResult: localStorage.getItem("message_history") 
+          })
+        )
+      }
+    }
+  }
 
   function Screening(input) {
     let reply;
@@ -956,51 +1035,6 @@ export default function InferenceMachine () {
     }
     return [reply];
   };
-
-  function Output(input){
-    let reply; 
-    input = input
-      .toLowerCase()            // replace all input text to lower case
-      .replace(/[^\w\s]/gi, '') // replace unneccessary input from user
-      .replace(/[\d]/gi, '')
-      .replace(/ a /g, ' ')     // example : 'tell me a story' -> 'tell me story'
-      .replace(/i feel /g, '')
-      .replace(/whats/g, 'what is')
-      .replace(/please /g, '')
-      .replace(/ please/g, '')
-      .replace(/r u/g, 'are you')
-      .replace(/'/g, '')
-      .trim();                  // remove whitespace from both sides of a string
-    if (Compare(prompts, replies, input)) { 
-      // Search for exact match in `prompts`
-      reply = Compare(prompts, replies, input);
-    } 
-    else if (input.match(/terima kasih/gi)) {
-      reply = 'Sama-sama'
-    }
-    // Check if input contains `coronavirus`
-    else if (input.match(/(corona|covid|virus)/gi)) {
-      reply = coronavirus[Math.floor(Math.random() * coronavirus.length)];
-    }
-    // Screening Eye Disease
-    else if (input.match(/(y|ya|t|tidak|mulai|tes|test|skrining|lanjut)/gi)) {
-      reply = Screening(input)[0];
-    }
-    // If all else fails: random alternative
-    else {
-      reply = alternative[Math.floor(Math.random() * alternative.length)];
-    }
-    // Add chat
-    AddChat(input, reply);
-  }
-  
-  // opening chat message will be appear when browser reload
-  useEffect(() => {
-    AddChat2('Halo, ini adalah bot EyeScreening');
-    setTimeout(() => {
-      AddChat2(`Untuk memulai skrining penyakit mata ketikan atau tekan tombol <strong>mulai</strong>.`);
-    },1000);
-  },[])
 
   return (
     <ChatbotInterface

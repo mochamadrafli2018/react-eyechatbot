@@ -1,5 +1,6 @@
-import {useEffect, useRef} from 'react';
-import {Col,Row} from 'react-bootstrap';
+import { useEffect, useRef } from 'react';
+import { Col,Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export default function ChatbotDashboard({
     input,
@@ -39,9 +40,14 @@ export default function ChatbotDashboard({
   return (
     <>
       <Row className='mx-0 mb-0 w-100 opensans rounded shadow-hover-primary'>
-        <h4 className='bg-primary mb-0 p-1 w-100 quicksand rounded-top text-center text-light text-lg'>
-          Chat Bot Sistem Pakar
-        </h4>
+        <div className='bg-primary flex flex-row ml-auto mr-2 quicksand'>
+          <h4 className='my-auto p-1 w-100 rounded-top text-center text-lg text-white'>
+            Chat Bot Sistem Pakar
+          </h4>
+          <Link to='/' className='border rounded my-1 p-1 no-underline text-md text-white'>
+            <i className='bi bi-box-arrow-left'></i>
+          </Link>
+        </div>
         <div 
           id='messages' 
           className='messages flex flex-col h-96 max-h-96 mx-0 py-1 overflow-y-scroll w-100' 

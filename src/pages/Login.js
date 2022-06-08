@@ -26,9 +26,9 @@ export default function Login() {
     const userId = localStorage.getItem('user_id');
     // if user already login, this login page can not be accessed
     if(token && userId) {
-      navigate(`/chatbot/${userId}`);
+      navigate(`/dashboard/${userId}`);
     }
-  }, []);
+  }, [navigate]);
 
   // initial state
   const [email, setEmail] = useState('');
@@ -73,10 +73,10 @@ export default function Login() {
   }
   
   return (
-    <div className='bg-sky-100 h-screen m-0 pt-16'>
+    <div className='bg-sky-100 h-screen m-0 pt-10'>
       <ChatbotNavbar/>
 
-      <main className='bg-blue-100 mx-auto mt-8 max-w-md lg:p-7 md:p-5 p-3 rounded-xl shadow'>
+      <main className='bg-blue-100 mx-auto mt-8 max-w-md lg:p-7 md:p-5 p-3 rounded-xl shadow-lg'>
         <h3 className='font-bold'>Login Pengguna</h3>
         <p>Silahkan login dengan isi data berikut.</p>
         <form onSubmit={''}>

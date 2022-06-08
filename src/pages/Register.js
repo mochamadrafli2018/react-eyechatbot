@@ -8,16 +8,13 @@ export default function Register() {
   const navigate = useNavigate();
   
   useEffect(() => {
-    //get token and user id from local storage when browser reload
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('user_id');
     // if user already login, this register page can not be accessed
     if(token && userId) {
-      // navigate(`/dashboard/${userId}`);
-      // set alert on local storage and show it on dashboard page
-      localStorage.setItem('alert',true)
+      navigate(`/dashboard/${userId}`);
     }
-  }, []);
+  }, [navigate]);
 
   // initial state
   const [name, setName] = useState(null);
@@ -67,7 +64,7 @@ export default function Register() {
       setIsLoading(true);
 
       await axios.post('https://express-mongoose-validator.herokuapp.com/api/register', 
-        ({ 
+        ({
           name: name, 
           email: email, 
           password: password, 
@@ -90,7 +87,7 @@ export default function Register() {
   }
   
   return (
-    <div className="lg:h-full md:h-screen h-screen bg-blue-300 pb-9 poppins" >
+    <div className="bg-sky-100 lg:h-full md:h-screen h-screen pb-3 poppins" >
 
       <div className='bg-blue-500 roboto text-center text-white w-full'>
         Registrasi User
@@ -98,7 +95,7 @@ export default function Register() {
 
       <Navbar/>
 
-      <main className='bg-blue-100 mx-auto max-w-md mt-8 lg:p-7 md:p-5 p-3 rounded-xl shadow'>
+      <main className='bg-blue-100 mx-auto max-w-md mt-8 lg:p-7 md:p-5 p-3 rounded-xl shadow-lg'>
         <h3 className='font-bold'>Registrasi Pengguna Baru</h3>
         <p>Mohon isi data berikut dengan benar.</p>
         <form onSubmit={''}>
